@@ -27,11 +27,9 @@ const SAGE          = '#8DA399';
 const TEXT_SUB      = '#A0ADB5';
 
 /*
- * Chassis geometry — slim vertical slab, centered in a SQUARE viewBox.
- * The viewBox is 1280×1280 (1:1) so modules have horizontal breathing
- * room around the slim chassis.
- *
+ * Chassis geometry — slim vertical slab, centered horizontally.
  * Internal vertical zones (per LT-AWG20G User Manual V2, page 7):
+ *
  *   y=  90 .. 200   Top cover + LCD recess
  *   y= 200 .. 460   Hot tank (upper) + Cold tank (lower of pair)
  *                   Tanks sit BEHIND the dispense alcove
@@ -44,20 +42,18 @@ const TEXT_SUB      = '#A0ADB5';
  * Air enters through a vertical mesh on the LEFT SIDE of the unit, NOT the top.
  */
 const CHASSIS = {
-  x: 570, y: 90, w: 140, h: 1100,    // centered: (1280 - 140) / 2 = 570
+  x: 290, y: 90, w: 140, h: 1100,
   topRadius: 4,
-  cx: 640,                           // centerline x
+  cx: 360,
   // Internal anatomical landmarks
-  lcdY:           160,
-  alcoveTop:      460,
+  lcdY:           160,   // LCD center Y
+  alcoveTop:      460,   // dispense alcove top Y
   alcoveBottom:   580,
-  alcoveCenterY:  500,               // chrome lever vertical center
-  trimBandY:      610,
-  frontDoorTop:   620,
+  trimBandY:      610,   // chrome trim band
+  frontDoorTop:   620,   // front door panel begins
   frontDoorBottom: 1170,
-  airInletTop:    220,
-  airInletBottom: 460,
-  airInletCenterY: 340,
+  airInletTop:    220,   // left-side air inlet mesh top
+  airInletBottom: 460,   // left-side air inlet mesh bottom
 };
 
 /*
@@ -68,61 +64,56 @@ const CHASSIS = {
  * `align` controls module-content positioning (left or right of the line).
  */
 /*
- * Anchor positions point to the TRUE anatomical location of each module
- * on the chassis (per manual page 7). Targets are spread around the wider
- * 1280×1280 canvas for visual clarity. Modules alternate left/right of
- * the chassis to avoid line crossings.
- *
- * Chassis spans x=570..710 horizontally, so:
- *   - "left" targets sit around x=180..360
- *   - "right" targets sit around x=920..1100
+ * Anchor positions are anchored to actual locations on the machine per the
+ * arrangement diagram (manual page 7). Targets are positioned for visual
+ * clarity around the chassis.
  */
 const MODULE_LAYOUTS = [
-  {                   // 01 Air intake — anchors to LEFT-SIDE air-inlet mesh
+  {                   // 01 Air intake — pulled LEFT from the side mesh panel
     num: '01',
     label: 'Air intake',
-    anchor: { x: 570, y: 340 },     // left edge of chassis at mesh midpoint
-    target: { x: 280, y: 240 },
+    anchor: { x: 290, y: 340 },     // left-side air inlet mesh, mid
+    target: { x: 130, y: 220 },
     align:  'left',
     accent: WATER_CRYSTAL,
   },
-  {                   // 02 Cooling coils — anchors to TOP of chassis (coils inside top)
+  {                   // 02 Cooling coils — pulled UP-RIGHT from upper interior
     num: '02',
     label: 'Condensation',
-    anchor: { x: 640, y: 90  },     // chassis top center
-    target: { x: 1000, y: 200 },
+    anchor: { x: 360, y: 90  },     // top cover area (coils sit just inside top)
+    target: { x: 560, y: 80  },
     align:  'right',
     accent: WATER_CRYSTAL,
   },
-  {                   // 03 Sediment + Pre-Carbon — anchors to UPPER front door
+  {                   // 03 Sediment + Pre-Carbon — pulled RIGHT from front door upper
     num: '03',
     label: 'Pre-filtration',
-    anchor: { x: 710, y: 720 },     // chassis right edge at upper front door
-    target: { x: 1000, y: 540 },
+    anchor: { x: 430, y: 720 },     // front door, upper third
+    target: { x: 600, y: 680 },
     align:  'right',
     accent: GOLD,
   },
-  {                   // 04 Ultra-fine membrane — anchors to MID front door
+  {                   // 04 Ultra-fine membrane — pulled LEFT from front door middle
     num: '04',
     label: 'Ultra-fine membrane',
-    anchor: { x: 570, y: 880 },     // chassis left edge at mid front door
-    target: { x: 280, y: 880 },
+    anchor: { x: 290, y: 880 },     // front door, middle
+    target: { x: 130, y: 860 },
     align:  'left',
     accent: WATER_CRYSTAL,
   },
-  {                   // 05 UV-C + minerals — anchors to LOWER front door
+  {                   // 05 UV-C + minerals — pulled RIGHT from front door lower
     num: '05',
     label: 'UV-C and minerals',
-    anchor: { x: 710, y: 1060 },    // chassis right edge at lower front door
-    target: { x: 1000, y: 1080 },
+    anchor: { x: 430, y: 1040 },    // front door, lower third (bottom tank UV + mineral cartridge)
+    target: { x: 600, y: 1060 },
     align:  'right',
     accent: GOLD,
   },
-  {                   // 06 Hot+cold dispense — anchors RIGHT ON the chrome levers
+  {                   // 06 Hot/cold tanks + dispense — pulled LEFT from upper alcove
     num: '06',
     label: 'Hot + cold dispense',
-    anchor: { x: 640, y: 500 },     // dead center of dispense alcove (chrome lever zone)
-    target: { x: 280, y: 580 },
+    anchor: { x: 290, y: 380 },     // upper-middle: tanks behind dispense alcove
+    target: { x: 130, y: 480 },
     align:  'left',
     accent: SAGE,
   },
@@ -332,7 +323,7 @@ const ExplodedMachineSVG = forwardRef(function ExplodedMachineSVG(_, ref) {
   return (
     <svg
       ref={ref}
-      viewBox="0 0 1280 1280"
+      viewBox="0 0 720 1280"
       xmlns="http://www.w3.org/2000/svg"
       className="w-full h-full"
       preserveAspectRatio="xMidYMid meet"
@@ -493,18 +484,20 @@ const ExplodedMachineSVG = forwardRef(function ExplodedMachineSVG(_, ref) {
       })}
 
       {/* ── Atmospheric flourishes ── */}
+      {/* Top corner technical marks */}
       <g opacity="0.4">
-        <text x="60" y="44" fill={TEXT_SUB} fontSize="11" letterSpacing="2.5" fontFamily="Nunito, sans-serif" style={{ textTransform: 'uppercase' }}>
+        <text x="40" y="38" fill={TEXT_SUB} fontSize="8" letterSpacing="2" fontFamily="Nunito, sans-serif" style={{ textTransform: 'uppercase' }}>
           LT-AWG20G · EXPLODED VIEW
         </text>
-        <text x="1220" y="44" textAnchor="end" fill={TEXT_SUB} fontSize="11" letterSpacing="2.5" fontFamily="Nunito, sans-serif" style={{ textTransform: 'uppercase' }}>
+        <text x="680" y="38" textAnchor="end" fill={TEXT_SUB} fontSize="8" letterSpacing="2" fontFamily="Nunito, sans-serif" style={{ textTransform: 'uppercase' }}>
           A · 2026
         </text>
       </g>
+      {/* Bottom scale hint */}
       <g opacity="0.4">
-        <line x1="60" y1="1240" x2="200" y2="1240" stroke={TEXT_SUB} strokeWidth="0.7"/>
-        <text x="60" y="1258" fill={TEXT_SUB} fontSize="10" letterSpacing="1.8" fontFamily="Nunito, sans-serif" style={{ textTransform: 'uppercase' }}>
-          1138mm overall height · 375mm wide · 307mm deep
+        <line x1="40" y1="1248" x2="120" y2="1248" stroke={TEXT_SUB} strokeWidth="0.6"/>
+        <text x="40" y="1262" fill={TEXT_SUB} fontSize="7" letterSpacing="1.5" fontFamily="Nunito, sans-serif" style={{ textTransform: 'uppercase' }}>
+          1138mm overall height
         </text>
       </g>
     </svg>
