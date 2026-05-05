@@ -26,11 +26,34 @@ const WATER_DEEP    = '#3D7A8E';
 const SAGE          = '#8DA399';
 const TEXT_SUB      = '#A0ADB5';
 
-/* Chassis geometry — slim vertical slab, centered horizontally. */
+/*
+ * Chassis geometry — slim vertical slab, centered horizontally.
+ * Internal vertical zones (per LT-AWG20G User Manual V2, page 7):
+ *
+ *   y=  90 .. 200   Top cover + LCD recess
+ *   y= 200 .. 460   Hot tank (upper) + Cold tank (lower of pair)
+ *                   Tanks sit BEHIND the dispense alcove
+ *   y= 460 .. 580   Dispense alcove (chrome levers + drip tray)
+ *   y= 580 .. 620   Chrome trim band
+ *   y= 620 .. 1190  Front door (covers the entire lower half) — the
+ *                   filter cartridges (③-⑦) and bottom collection tank
+ *                   live behind this panel
+ *
+ * Air enters through a vertical mesh on the LEFT SIDE of the unit, NOT the top.
+ */
 const CHASSIS = {
   x: 290, y: 90, w: 140, h: 1100,
-  topRadius: 4,    // tiny corner radius — matches the real machine
-  cx: 360,         // centerline x
+  topRadius: 4,
+  cx: 360,
+  // Internal anatomical landmarks
+  lcdY:           160,   // LCD center Y
+  alcoveTop:      460,   // dispense alcove top Y
+  alcoveBottom:   580,
+  trimBandY:      610,   // chrome trim band
+  frontDoorTop:   620,   // front door panel begins
+  frontDoorBottom: 1170,
+  airInletTop:    220,   // left-side air inlet mesh top
+  airInletBottom: 460,   // left-side air inlet mesh bottom
 };
 
 /*
@@ -40,53 +63,58 @@ const CHASSIS = {
  * `target` is the (x, y) point where the pull-line ends and the module sits.
  * `align` controls module-content positioning (left or right of the line).
  */
+/*
+ * Anchor positions are anchored to actual locations on the machine per the
+ * arrangement diagram (manual page 7). Targets are positioned for visual
+ * clarity around the chassis.
+ */
 const MODULE_LAYOUTS = [
-  {                   // 01 Air intake — pulled UP and slightly RIGHT
+  {                   // 01 Air intake — pulled LEFT from the side mesh panel
     num: '01',
     label: 'Air intake',
-    anchor: { x: 360, y: 90  },
-    target: { x: 540, y: 60  },
-    align:  'right',
+    anchor: { x: 290, y: 340 },     // left-side air inlet mesh, mid
+    target: { x: 130, y: 220 },
+    align:  'left',
     accent: WATER_CRYSTAL,
   },
-  {                   // 02 Cooling coils + compressor — pulled RIGHT
+  {                   // 02 Cooling coils — pulled UP-RIGHT from upper interior
     num: '02',
     label: 'Condensation',
-    anchor: { x: 430, y: 250 },
-    target: { x: 600, y: 280 },
+    anchor: { x: 360, y: 90  },     // top cover area (coils sit just inside top)
+    target: { x: 560, y: 80  },
     align:  'right',
     accent: WATER_CRYSTAL,
   },
-  {                   // 03 Pre-filtration cluster — pulled LEFT
+  {                   // 03 Sediment + Pre-Carbon — pulled RIGHT from front door upper
     num: '03',
     label: 'Pre-filtration',
-    anchor: { x: 290, y: 460 },
-    target: { x: 130, y: 480 },
-    align:  'left',
+    anchor: { x: 430, y: 720 },     // front door, upper third
+    target: { x: 600, y: 680 },
+    align:  'right',
     accent: GOLD,
   },
-  {                   // 04 Ultra-fine membrane — pulled RIGHT
+  {                   // 04 Ultra-fine membrane — pulled LEFT from front door middle
     num: '04',
     label: 'Ultra-fine membrane',
-    anchor: { x: 430, y: 640 },
-    target: { x: 600, y: 660 },
-    align:  'right',
+    anchor: { x: 290, y: 880 },     // front door, middle
+    target: { x: 130, y: 860 },
+    align:  'left',
     accent: WATER_CRYSTAL,
   },
-  {                   // 05 UV-C + minerals — pulled LEFT
+  {                   // 05 UV-C + minerals — pulled RIGHT from front door lower
     num: '05',
     label: 'UV-C and minerals',
-    anchor: { x: 290, y: 820 },
-    target: { x: 130, y: 840 },
-    align:  'left',
+    anchor: { x: 430, y: 1040 },    // front door, lower third (bottom tank UV + mineral cartridge)
+    target: { x: 600, y: 1060 },
+    align:  'right',
     accent: GOLD,
   },
-  {                   // 06 Hot/cold dispense — pulled DOWN-RIGHT
+  {                   // 06 Hot/cold tanks + dispense — pulled LEFT from upper alcove
     num: '06',
     label: 'Hot + cold dispense',
-    anchor: { x: 430, y: 1000 },
-    target: { x: 600, y: 1040 },
-    align:  'right',
+    anchor: { x: 290, y: 380 },     // upper-middle: tanks behind dispense alcove
+    target: { x: 130, y: 480 },
+    align:  'left',
     accent: SAGE,
   },
 ];
@@ -314,7 +342,7 @@ const ExplodedMachineSVG = forwardRef(function ExplodedMachineSVG(_, ref) {
         </linearGradient>
       </defs>
 
-      {/* ── Chassis silhouette — ghosted gold outline ── */}
+      {/* ── Chassis silhouette — ghosted gold outline, anatomically accurate ── */}
       <g data-element="chassis" opacity="1">
         {/* Inner blueprint grid fill */}
         <rect x={CHASSIS.x + 4} y={CHASSIS.y + 4} width={CHASSIS.w - 8} height={CHASSIS.h - 8}
@@ -325,49 +353,83 @@ const ExplodedMachineSVG = forwardRef(function ExplodedMachineSVG(_, ref) {
         {/* Outer outline (sharp slab) */}
         <rect x={CHASSIS.x} y={CHASSIS.y} width={CHASSIS.w} height={CHASSIS.h}
           fill="none" stroke={GOLD} strokeWidth="1" opacity="0.45"/>
-        {/* Vertical side ventilation louvers — right side */}
-        {Array.from({ length: 18 }).map((_, i) => (
-          <line key={`r${i}`} x1={CHASSIS.x + CHASSIS.w - 14} y1={400 + i * 22} x2={CHASSIS.x + CHASSIS.w - 4} y2={400 + i * 22}
-            stroke={GOLD} strokeWidth="0.5" opacity="0.32"/>
-        ))}
-        {/* LCD recess at top */}
-        <rect x={CHASSIS.cx - 24} y={CHASSIS.y + 70} width="48" height="32"
-          fill="none" stroke={WATER_CRYSTAL} strokeWidth="0.7" opacity="0.6"/>
-        <rect x={CHASSIS.cx - 22} y={CHASSIS.y + 72} width="44" height="20"
-          fill={WATER_CRYSTAL} opacity="0.18"/>
+
+        {/* Top cover demarcation — small lip below the very top */}
+        <line x1={CHASSIS.x + 4} y1={CHASSIS.y + 16} x2={CHASSIS.x + CHASSIS.w - 4} y2={CHASSIS.y + 16}
+          stroke={GOLD} strokeWidth="0.4" opacity="0.32"/>
+
+        {/* LCD recess — front center, near top */}
+        <rect x={CHASSIS.cx - 26} y={CHASSIS.lcdY - 22} width="52" height="40"
+          fill="none" stroke={WATER_CRYSTAL} strokeWidth="0.7" opacity="0.65"/>
+        <rect x={CHASSIS.cx - 24} y={CHASSIS.lcdY - 20} width="48" height="26"
+          fill={WATER_CRYSTAL} opacity="0.20"/>
         {/* Three round buttons under LCD */}
         {[0, 1, 2].map(i => (
-          <circle key={i} cx={CHASSIS.cx - 14 + i * 14} cy={CHASSIS.y + 110} r="2.4"
-            fill="none" stroke={WATER_CRYSTAL} strokeWidth="0.5" opacity="0.5"/>
+          <circle key={i} cx={CHASSIS.cx - 14 + i * 14} cy={CHASSIS.lcdY + 14} r="2.4"
+            fill="none" stroke={WATER_CRYSTAL} strokeWidth="0.5" opacity="0.55"/>
         ))}
-        {/* Dispense alcove */}
-        <rect x={CHASSIS.cx - 38} y={520} width="76" height="92"
-          fill="none" stroke={GOLD} strokeWidth="0.6" opacity="0.4"/>
-        {/* Chrome trim band */}
-        <line x1={CHASSIS.x} y1={616} x2={CHASSIS.x + CHASSIS.w} y2={616}
-          stroke={GOLD} strokeWidth="1.2" opacity="0.55"/>
-        {/* Lower compartment door split */}
-        <line x1={CHASSIS.x + 6} y1={640} x2={CHASSIS.x + CHASSIS.w - 6} y2={640}
-          stroke={GOLD} strokeWidth="0.4" opacity="0.3"/>
-        {/* Round feet at base */}
-        <circle cx={CHASSIS.x + 14} cy={CHASSIS.y + CHASSIS.h - 4} r="3.5"
-          fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.45"/>
-        <circle cx={CHASSIS.x + CHASSIS.w - 14} cy={CHASSIS.y + CHASSIS.h - 4} r="3.5"
-          fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.45"/>
 
-        {/* Corner brackets — brand signature */}
-        {[[CHASSIS.x, CHASSIS.y], [CHASSIS.x + CHASSIS.w, CHASSIS.y], [CHASSIS.x, CHASSIS.y + CHASSIS.h], [CHASSIS.x + CHASSIS.w, CHASSIS.y + CHASSIS.h]].map(([cx, cy], i) => {
-          const isRight  = i % 2 === 1;
-          const isBottom = i >= 2;
-          const dx = isRight  ? -10 : 10;
-          const dy = isBottom ? -10 : 10;
-          return (
-            <g key={i}>
-              <line x1={cx} y1={cy} x2={cx + dx} y2={cy} stroke={GOLD} strokeWidth="1" opacity="0.7"/>
-              <line x1={cx} y1={cy} x2={cx} y2={cy + dy} stroke={GOLD} strokeWidth="1" opacity="0.7"/>
-            </g>
-          );
-        })}
+        {/* Air inlet mesh — vertical strip on the LEFT SIDE of the chassis */}
+        <g data-element="air-inlet">
+          <rect x={CHASSIS.x + 4} y={CHASSIS.airInletTop} width={10} height={CHASSIS.airInletBottom - CHASSIS.airInletTop}
+            fill="none" stroke={WATER_CRYSTAL} strokeWidth="0.5" opacity="0.5"/>
+          {/* Mesh hatching */}
+          {Array.from({ length: 16 }).map((_, i) => (
+            <line key={`mesh${i}`}
+              x1={CHASSIS.x + 4} y1={CHASSIS.airInletTop + i * 15}
+              x2={CHASSIS.x + 14} y2={CHASSIS.airInletTop + i * 15}
+              stroke={WATER_CRYSTAL} strokeWidth="0.35" opacity="0.4"/>
+          ))}
+        </g>
+
+        {/* Dispense alcove — front, upper-middle */}
+        <rect x={CHASSIS.cx - 42} y={CHASSIS.alcoveTop} width="84" height={CHASSIS.alcoveBottom - CHASSIS.alcoveTop}
+          fill="none" stroke={GOLD} strokeWidth="0.6" opacity="0.45"/>
+        {/* Twin chrome lever indicators inside alcove */}
+        <rect x={CHASSIS.cx - 22} y={CHASSIS.alcoveTop + 28} width="12" height="16"
+          fill="none" stroke={GOLD} strokeWidth="0.45" opacity="0.6"/>
+        <rect x={CHASSIS.cx + 10} y={CHASSIS.alcoveTop + 28} width="12" height="16"
+          fill="none" stroke={GOLD} strokeWidth="0.45" opacity="0.6"/>
+
+        {/* Chrome trim band — below the dispense alcove */}
+        <line x1={CHASSIS.x} y1={CHASSIS.trimBandY} x2={CHASSIS.x + CHASSIS.w} y2={CHASSIS.trimBandY}
+          stroke={GOLD} strokeWidth="1.4" opacity="0.6"/>
+        <line x1={CHASSIS.x} y1={CHASSIS.trimBandY + 3} x2={CHASSIS.x + CHASSIS.w} y2={CHASSIS.trimBandY + 3}
+          stroke={GOLD} strokeWidth="0.4" opacity="0.3"/>
+
+        {/* Front door panel — covers the entire lower half, where filters live */}
+        <g data-element="front-door">
+          <rect
+            x={CHASSIS.x + 6} y={CHASSIS.frontDoorTop}
+            width={CHASSIS.w - 12} height={CHASSIS.frontDoorBottom - CHASSIS.frontDoorTop}
+            fill="none" stroke={GOLD} strokeWidth="0.55" opacity="0.42"/>
+          {/* Subtle inner edge to suggest the door panel sits proud of the chassis face */}
+          <rect
+            x={CHASSIS.x + 10} y={CHASSIS.frontDoorTop + 4}
+            width={CHASSIS.w - 20} height={CHASSIS.frontDoorBottom - CHASSIS.frontDoorTop - 8}
+            fill="none" stroke={GOLD} strokeWidth="0.3" opacity="0.22"/>
+          {/* Door handle indent — small recessed line on the right edge */}
+          <line
+            x1={CHASSIS.x + CHASSIS.w - 16} y1={(CHASSIS.frontDoorTop + CHASSIS.frontDoorBottom) / 2 - 14}
+            x2={CHASSIS.x + CHASSIS.w - 16} y2={(CHASSIS.frontDoorTop + CHASSIS.frontDoorBottom) / 2 + 14}
+            stroke={GOLD} strokeWidth="0.6" opacity="0.5"/>
+        </g>
+
+        {/* Base shadow line — separates feet area */}
+        <line x1={CHASSIS.x + 4} y1={CHASSIS.y + CHASSIS.h - 18} x2={CHASSIS.x + CHASSIS.w - 4} y2={CHASSIS.y + CHASSIS.h - 18}
+          stroke={GOLD} strokeWidth="0.3" opacity="0.25"/>
+
+        {/* 4 adjustable feet at front + 2 wheel indicators at rear */}
+        {/* Front feet (bigger circles) */}
+        <circle cx={CHASSIS.x + 18} cy={CHASSIS.y + CHASSIS.h - 6} r="4"
+          fill="none" stroke={GOLD} strokeWidth="0.6" opacity="0.5"/>
+        <circle cx={CHASSIS.x + CHASSIS.w - 18} cy={CHASSIS.y + CHASSIS.h - 6} r="4"
+          fill="none" stroke={GOLD} strokeWidth="0.6" opacity="0.5"/>
+        {/* Mid feet — represents the 4-foot stance */}
+        <circle cx={CHASSIS.x + 50} cy={CHASSIS.y + CHASSIS.h - 6} r="3"
+          fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.42"/>
+        <circle cx={CHASSIS.x + CHASSIS.w - 50} cy={CHASSIS.y + CHASSIS.h - 6} r="3"
+          fill="none" stroke={GOLD} strokeWidth="0.5" opacity="0.42"/>
       </g>
 
       {/* ── Pull-out lines (rendered before modules so modules sit on top) ── */}
