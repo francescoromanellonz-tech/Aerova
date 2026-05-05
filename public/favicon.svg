@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 36" fill="none">
+  <!-- Outer drop outline -->
+  <path d="M14 0C14 0 0 14 0 22a14 14 0 0028 0C28 14 14 0 14 0z"
+    fill="none" stroke="#B8935A" stroke-width="1"/>
+  <!-- Inner gold fill -->
+  <path d="M14 5C14 5 4 16.5 4 22a10 10 0 0020 0C24 16.5 14 5 14 5z"
+    fill="#B8935A" opacity="0.25"/>
+  <!-- Core drop -->
+  <path d="M14 11C14 11 8 19 8 23a6 6 0 0012 0C20 19 14 11 14 11z"
+    fill="#B8935A" opacity="0.85"/>
+  <!-- Highlight -->
+  <ellipse cx="11.5" cy="20" rx="1.5" ry="2.5" fill="white" opacity="0.4"
+    transform="rotate(-15 11.5 20)"/>
+</svg>

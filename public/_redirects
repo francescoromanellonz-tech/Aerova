@@ -1,0 +1,4 @@
+# SPA fallback — Cloudflare Pages
+# Static files (sitemap.xml, robots.txt, _headers, favicon.svg, assets/) are served directly.
+# All other routes fall back to index.html so React Router handles client-side navigation.
+/* /index.html 200
