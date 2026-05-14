@@ -1,186 +1,141 @@
 /**
  * ExplodedScrollView.jsx
- * Scroll-driven exploded view of the LT-AWG20G — desktop only.
+ * Pinned scroll-driven exploded-view experience for the Product page (desktop).
  *
- * As the user scrolls through the pinned section:
- *   • Chassis silhouette stays put.
- *   • Each of the six internal modules animates outward from the chassis
- *     centre to its final exploded position with a staggered timeline.
- *   • Pull-out lines draw in after their module lands (stroke-dashoffset).
- *   • Right-side text panel updates the active module copy in sync.
+ * As the user scrolls through the section:
+ *   • the assembled real-product photo cross-fades into the exploded illustration
+ *   • six module annotations pop in over the illustration in sequence
+ *   • the right-side text panel swaps in titles/descriptions for the active module
  *
- * Mobile (< lg) falls back to the existing stacked feature cards rendered
- * by ProductPage; this component is wrapped in `hidden lg:block` upstream.
+ * Implementation: one tall scroll container with a sticky inner frame pinned for
+ * the duration. ScrollTrigger drives a single scrub timeline so motion is buttery
+ * and reverses cleanly. Mobile falls back to the existing stacked feature cards
+ * (rendered in ProductPage; this component is wrapped in `hidden lg:block`).
  */
 
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ExplodedMachineSVG, { MODULE_LAYOUTS } from './ExplodedMachineSVG';
+import { useLanguage } from '../contexts/LanguageContext';
+import { t } from '../utils/translate';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* Chassis centre — must match CHASSIS in ExplodedMachineSVG (1280×1280 viewBox). */
-const CHASSIS_CENTER = { x: 640, y: 640 };
-
-/* Right-panel narrative copy, one per module (parallel to MODULE_LAYOUTS).
- * Specs verified against the LT-AWG20G User Manual V2 (April 2026). */
-const MODULE_COPY = [
+/*
+ * MODULES — each represents a phase in the air-to-water-to-glass journey.
+ * `labelPos` is the {top, left} percentage of the illustration container where
+ * the small annotation label appears. These placements assume the exploded
+ * illustration is a vertical 9:16 with parts arranged top→bottom.
+ */
+const MODULES = [
   {
-    title: 'Humid air, drawn in',
-    desc:  'A Venturi blower pulls Vietnamese tropical humidity through a HEPA filter that captures dust, pollen and airborne particulates before a single droplet forms.',
-    stat:  '20–99%',
-    statLabel: 'operating humidity range',
+    num:    '01',
+    eyebrow: 'Air intake',
+    title:   'Humid air, drawn in',
+    desc:    'A whisper-quiet intake fan pulls Vietnamese tropical humidity through a HEPA pre-filter — capturing dust, pollen and airborne bacteria before a single droplet forms.',
+    stat:    '0.3μm',
+    statLabel: 'HEPA threshold',
+    accent:  'var(--water-crystal)',
+    labelPos: { top: '6%',  left: '52%' },
   },
   {
-    title: 'Air becomes water',
-    desc:  'Stainless steel coils chill below the dew point. Humidity condenses into raw droplets that fall to the lower collection tank: fresh, never stored, never piped.',
-    stat:  '20 L',
+    num:    '02',
+    eyebrow: 'Atmospheric condensation',
+    title:   'Air becomes water',
+    desc:    'A refrigerant compressor chills copper evaporator coils below the dew point. Humidity crystallises into raw droplets — fresh, never stored, never piped.',
+    stat:    '20 L',
     statLabel: 'per day @ 30°C, 80% RH',
+    accent:  'var(--water-crystal)',
+    labelPos: { top: '22%', left: '6%' },
   },
   {
-    title: 'Sediment and pre-carbon',
-    desc:  'A 5μm sediment filter strips particles. A pre-carbon block of charcoal and coconut shells absorbs chlorine, pesticides and volatile organic compounds.',
-    stat:  '> 5 μm',
-    statLabel: 'sediment threshold',
+    num:    '03',
+    eyebrow: 'Pre-filtration',
+    title:   'Sediment and carbon',
+    desc:    'PP sediment and GAC activated carbon strip particles, chlorine and organic compounds. Same media used in clinical-grade systems.',
+    stat:    '5μm → 0.5μm',
+    statLabel: 'particle removal',
+    accent:  'var(--gold)',
+    labelPos: { top: '38%', left: '60%' },
   },
   {
-    title: 'Ultra-fine membrane',
-    desc:  'A semi-permeable membrane rejects particles smaller than 0.01 μm: dissolved solids, heavy metals, the smallest contaminants. Only pure H₂O passes through.',
-    stat:  '> 0.01 μm',
-    statLabel: 'membrane threshold',
+    num:    '04',
+    eyebrow: 'Reverse osmosis',
+    title:   'Molecular purification',
+    desc:    'A semi-permeable RO membrane rejects dissolved solids, heavy metals and the smallest contaminants. Only pure H₂O passes through.',
+    stat:    '99.9%',
+    statLabel: 'TDS rejection',
+    accent:  'var(--water-crystal)',
+    labelPos: { top: '54%', left: '4%' },
   },
   {
-    title: 'UV-C, then minerals',
-    desc:  'Two LED UV-C lamps (one per tank) destroy any remaining microorganisms. A mineral cartridge then restores calcium, potassium, magnesium and sodium for balanced alkaline output.',
-    stat:  'every 3 h',
-    statLabel: 'recirculation cycle',
+    num:    '05',
+    eyebrow: 'UV-C and minerals',
+    title:   'Sterilised, then balanced',
+    desc:    '254nm UV-C destroys any remaining microorganisms. A mineral pellet cartridge then restores calcium and magnesium to clinically optimal alkaline pH 7.4+.',
+    stat:    'pH 7.4+',
+    statLabel: 'alkaline output',
+    accent:  'var(--gold)',
+    labelPos: { top: '70%', left: '62%' },
   },
   {
-    title: 'Ready, on demand',
-    desc:  'Twin stainless tanks hold water at 6°C and 82°C: instant chilled hydration, or near-boiling for tea, coffee and cooking. The 12-litre upper tank refills automatically as you draw.',
-    stat:  '6°C — 82°C',
+    num:    '06',
+    eyebrow: 'Hot + cold dispense',
+    title:   'Ready, on demand',
+    desc:    'Twin stainless tanks hold water at 5°C and 95°C — instant chilled hydration or near-boiling for tea, coffee and cooking. No kettle wait.',
+    stat:    '5°C — 95°C',
     statLabel: 'dual dispense',
+    accent:  'var(--sage)',
+    labelPos: { top: '88%', left: '54%' },
   },
 ];
 
-export default function ExplodedScrollView() {
-  const sectionRef = useRef(null);
-  const svgRef     = useRef(null);
+export default function ExplodedScrollView({
+  assembledSrc = '/assets/images/machine-frontal view.jpg',
+  explodedSrc  = '/assets/images/product-exploded-illustration.jpg',
+}) {
+  const { language } = useLanguage();
+  const sectionRef   = useRef(null);
+  const assembledRef = useRef(null);
+  const explodedRef  = useRef(null);
+  const labelRefs    = useRef([]);
   const [activeIdx, setActiveIdx] = useState(0);
   const activeRef = useRef(0);
 
   useEffect(() => {
-    if (!sectionRef.current || !svgRef.current) return;
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!sectionRef.current) return;
 
-    const moduleNodes = svgRef.current.querySelectorAll('[data-module-idx]');
-    const lineNodes   = svgRef.current.querySelectorAll('[data-pull-line]');
-
-    /* ── Initial state: modules collapsed at chassis centre, lines hidden ──
-     * Each module gets a transform that translates it back to the chassis
-     * centre and scales it down. The CSS `transform-box: fill-box` makes
-     * the transform-origin behave predictably on SVG groups.
-     */
-    const computeCompressedTransform = (idx) => {
-      const m  = MODULE_LAYOUTS[idx];
-      const dx = CHASSIS_CENTER.x - m.target.x;
-      const dy = CHASSIS_CENTER.y - m.target.y;
-      // Scale around target (the SVG's local origin for the module group).
-      return { x: dx, y: dy, scale: 0.5, opacity: 0 };
-    };
-
-    /* Pull-line dashoffset trick: set a large dash and offset to "hide" the
-     * dashed line, then animate offset to 0 to draw it in. */
-    lineNodes.forEach((node) => {
-      const path = node.querySelector('path');
-      if (path) {
-        const length = path.getTotalLength?.() || 200;
-        path.style.strokeDasharray  = `${length}`;
-        path.style.strokeDashoffset = `${length}`;
-      }
-      gsap.set(node, { opacity: 0 });
-    });
-
-    /* Apply initial compressed transform to each module. */
-    moduleNodes.forEach((node, i) => {
-      const t = computeCompressedTransform(i);
-      gsap.set(node, {
-        x: t.x, y: t.y, scale: t.scale, opacity: t.opacity,
-        transformOrigin: `${MODULE_LAYOUTS[i].target.x}px ${MODULE_LAYOUTS[i].target.y}px`,
-      });
-    });
-
-    if (prefersReduced) {
-      /* Reduced motion: snap everything to its final state, still wire the
-       * scroll-driven activeIdx so the right-panel text updates. */
-      moduleNodes.forEach((node) => gsap.set(node, { x: 0, y: 0, scale: 1, opacity: 1 }));
-      lineNodes.forEach((node) => {
-        gsap.set(node, { opacity: 1 });
-        const path = node.querySelector('path');
-        if (path) path.style.strokeDashoffset = '0';
-      });
-      const st = ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: 'top top',
-        end:   'bottom bottom',
-        onUpdate: (self) => {
-          const next = Math.min(MODULE_LAYOUTS.length - 1, Math.floor(self.progress * MODULE_LAYOUTS.length));
-          if (next !== activeRef.current) { activeRef.current = next; setActiveIdx(next); }
-        },
-      });
-      return () => st.kill();
-    }
-
-    /* ── Master scrub timeline: each module animates outward in sequence ──
-     * Section spans `MODULE_LAYOUTS.length * 100vh`. Each module owns roughly
-     * 1/N of the scroll budget, with a small overlap so the explosion feels
-     * continuous rather than stop-start.
-     */
-    const segment = 1 / MODULE_LAYOUTS.length;
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
+      /* Initial state — assembled visible, exploded hidden, labels hidden. */
+      gsap.set(assembledRef.current, { opacity: 1, scale: 1 });
+      gsap.set(explodedRef.current,  { opacity: 0, scale: 1.04 });
+      gsap.set(labelRefs.current,    { opacity: 0, y: 8 });
+
+      /* Cross-fade timeline tied to scroll progress. */
+      const fadeTl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start:   'top top',
           end:     'bottom bottom',
-          scrub:   1,
+          scrub:   prefersReduced ? false : 1,
         },
       });
+      fadeTl
+        .to(assembledRef.current, { opacity: 0, scale: 0.96, ease: 'none' }, 0.10)
+        .to(explodedRef.current,  { opacity: 1, scale: 1,    ease: 'none' }, 0.10);
 
-      moduleNodes.forEach((node, i) => {
-        const start    = i * segment;
-        const partLen  = segment * 0.55;
-        const lineLen  = segment * 0.35;
-        tl.to(node, {
-          x: 0, y: 0, scale: 1, opacity: 1,
-          ease: 'power2.out',
-          duration: partLen,
-        }, start);
-
-        const lineNode = lineNodes[i];
-        if (lineNode) {
-          tl.to(lineNode, { opacity: 1, ease: 'power1.out', duration: 0.05 }, start + partLen * 0.6);
-          const path = lineNode.querySelector('path');
-          if (path) {
-            tl.to(path, {
-              strokeDashoffset: 0,
-              ease: 'power2.out',
-              duration: lineLen,
-            }, start + partLen * 0.6);
-          }
-        }
-      });
-
-
-      /* Active-module index for the right-side text panel. */
+      /* Active-module switcher tied to scroll. */
       ScrollTrigger.create({
         trigger: sectionRef.current,
-        start: 'top top',
-        end:   'bottom bottom',
+        start:   'top top',
+        end:     'bottom bottom',
         onUpdate: (self) => {
-          const next = Math.min(MODULE_LAYOUTS.length - 1, Math.floor(self.progress * MODULE_LAYOUTS.length));
-          if (next !== activeRef.current) { activeRef.current = next; setActiveIdx(next); }
+          const next = Math.min(MODULES.length - 1, Math.floor(self.progress * MODULES.length));
+          if (next !== activeRef.current) {
+            activeRef.current = next;
+            setActiveIdx(next);
+          }
         },
       });
     }, sectionRef);
@@ -188,26 +143,93 @@ export default function ExplodedScrollView() {
     return () => ctx.revert();
   }, []);
 
-  const copy   = MODULE_COPY[activeIdx];
-  const layout = MODULE_LAYOUTS[activeIdx];
+  /* Animate label visibility when the active module changes. */
+  useEffect(() => {
+    labelRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const isActive = i <= activeIdx;
+      gsap.to(el, {
+        opacity: isActive ? 1 : 0,
+        y:       isActive ? 0 : 8,
+        duration: 0.45,
+        ease: 'power2.out',
+      });
+    });
+  }, [activeIdx]);
+
+  const ann = MODULES[activeIdx];
 
   return (
     <div
       ref={sectionRef}
       className="hidden lg:block relative"
-      style={{ height: `${MODULE_LAYOUTS.length * 100}vh`, background: 'var(--bg)' }}
+      style={{ height: `${MODULES.length * 100}vh`, background: 'var(--bg)' }}
     >
       <div className="sticky top-0 h-screen flex items-stretch overflow-hidden">
 
-        {/* ── Left panel: SVG illustration ── */}
-        <div className="w-[58%] relative flex items-center justify-center px-6 xl:px-10">
-          {/* Atmospheric radial backdrop */}
+        {/* ── Left panel: visual cross-fade ── */}
+        <div className="w-[52%] relative flex items-center justify-center px-8 xl:px-14">
+          {/* Atmospheric radial glow behind the machine */}
           <div
             className="absolute inset-0 pointer-events-none"
-            style={{ background: 'radial-gradient(ellipse 60% 70% at 50% 50%, var(--water-faint) 0%, transparent 100%)' }}
+            style={{ background: 'radial-gradient(ellipse 55% 60% at 50% 50%, var(--water-faint) 0%, transparent 100%)' }}
           />
-          <div className="relative z-10 w-full h-full flex items-center justify-center" style={{ aspectRatio: '1 / 1', maxHeight: '92vh' }}>
-            <ExplodedMachineSVG ref={svgRef} />
+
+          <div className="relative z-10 w-full max-w-[460px] xl:max-w-[520px]" style={{ aspectRatio: '9/16' }}>
+            {/* Assembled real photo */}
+            <img
+              ref={assembledRef}
+              src={assembledSrc}
+              alt="AEROVA LT-AWG20G — assembled view"
+              draggable="false"
+              className="absolute inset-0 w-full h-full object-contain"
+              style={{
+                filter:     'drop-shadow(0 24px 60px var(--overlay-image-dark)) drop-shadow(0 0 32px var(--shadow-water))',
+                userSelect: 'none',
+              }}
+            />
+
+            {/* Exploded illustration */}
+            <img
+              ref={explodedRef}
+              src={explodedSrc}
+              alt="AEROVA LT-AWG20G — exploded view showing internal modules"
+              draggable="false"
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-contain"
+              style={{
+                filter:     'drop-shadow(0 24px 60px var(--overlay-image-dark))',
+                userSelect: 'none',
+              }}
+              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+            />
+
+            {/* Module labels overlaid on illustration */}
+            {MODULES.map((m, i) => (
+              <div
+                key={i}
+                ref={el => { labelRefs.current[i] = el; }}
+                className="absolute pointer-events-none flex items-center gap-2"
+                style={{
+                  top:  m.labelPos.top,
+                  left: m.labelPos.left,
+                  fontFamily: 'var(--font-body)',
+                }}
+              >
+                <span
+                  className="font-prata text-sm"
+                  style={{ color: m.accent, opacity: 0.85 }}
+                >
+                  {m.num}
+                </span>
+                <span
+                  className="text-[9px] uppercase whitespace-nowrap"
+                  style={{ letterSpacing: '0.22em', color: 'var(--text-sub)', fontWeight: 500 }}
+                >
+                  {m.eyebrow}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -219,41 +241,46 @@ export default function ExplodedScrollView() {
 
         {/* ── Right panel: scroll-driven module text ── */}
         <div className="flex-1 flex items-center px-10 xl:px-16 overflow-hidden">
-          <div key={activeIdx} className="feat-content-anim w-full max-w-[460px]">
+          <div key={activeIdx} className="feat-content-anim w-full max-w-[480px]">
+
             {/* Ghost numeral watermark */}
             <span
               className="font-prata block leading-none select-none"
               style={{
                 fontSize:    'clamp(6rem, 9vw, 9rem)',
-                color:       layout.accent,
+                color:       ann.accent,
                 opacity:     0.07,
                 marginBottom: '-1rem',
               }}
             >
-              {layout.num}
+              {ann.num}
             </span>
 
+            {/* Eyebrow */}
             <span
               className="text-[10px] uppercase block mb-5"
-              style={{ letterSpacing: '0.3em', color: layout.accent, fontWeight: 400 }}
+              style={{ letterSpacing: '0.3em', color: ann.accent, fontWeight: 400 }}
             >
-              {layout.label}
+              {ann.eyebrow}
             </span>
 
+            {/* Title */}
             <h2
               className="font-prata text-3xl xl:text-[2.4rem] leading-[1.1] mb-6"
               style={{ color: 'var(--text-main)' }}
             >
-              {copy.title}
+              {ann.title}
             </h2>
 
+            {/* Description */}
             <p
               className="text-sm leading-relaxed mb-8"
               style={{ color: 'var(--text-sub)', fontWeight: 300, maxWidth: '40ch' }}
             >
-              {copy.desc}
+              {ann.desc}
             </p>
 
+            {/* Stat callout */}
             <div
               className="inline-flex items-baseline gap-3 px-6 py-4 mb-10"
               style={{
@@ -261,27 +288,27 @@ export default function ExplodedScrollView() {
                 backgroundColor: 'var(--surface-gold)',
               }}
             >
-              <span className="font-prata text-2xl xl:text-3xl" style={{ color: layout.accent }}>
-                {copy.stat}
+              <span className="font-prata text-2xl xl:text-3xl" style={{ color: ann.accent }}>
+                {ann.stat}
               </span>
               <span
                 className="text-[10px] uppercase"
                 style={{ letterSpacing: '0.15em', color: 'var(--text-sub)', fontWeight: 400 }}
               >
-                {copy.statLabel}
+                {ann.statLabel}
               </span>
             </div>
 
             {/* Step progress pills */}
             <div className="flex items-center gap-2">
-              {MODULE_LAYOUTS.map((m, i) => (
+              {MODULES.map((_, i) => (
                 <div
                   key={i}
                   className="transition-all duration-500"
                   style={{
                     width:           activeIdx === i ? '32px' : '6px',
                     height:          '2px',
-                    backgroundColor: activeIdx === i ? m.accent : 'var(--border-gold-faint)',
+                    backgroundColor: activeIdx === i ? ann.accent : 'var(--border-gold-faint)',
                     borderRadius:    '1px',
                   }}
                 />

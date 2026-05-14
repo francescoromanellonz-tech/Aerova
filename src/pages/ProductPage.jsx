@@ -3,7 +3,6 @@ import LangLink from '../components/LangLink';
 import SectionBreak from '../components/SectionBreak';
 import BlurImage from '../components/BlurImage';
 import FiltrationPipeline from '../components/FiltrationPipeline';
-import FiltersExplodedSVG from '../components/FiltersExplodedSVG';
 import StickyCTABar from '../components/StickyCTABar';
 import HeroBackground from '../components/HeroBackground';
 import FeatureHighlights from '../components/FeatureHighlights';
@@ -640,41 +639,6 @@ function ProductPage() {
             imgAlt: stage.imgAlt,
           }))}
         />
-      </section>
-
-      <SectionBreak />
-
-      {/* ════════════════════════════════════════════
-          FILTER CLUSTER — sub-exploded view
-          Schematic linear-flow drawing of the 7 filtration elements
-          (5 cartridges behind the front door + 2 LED UV lamps inside the
-          tanks). Sits right after the 7-stage narrative as a technical
-          deep-dive into how the cluster fits together.
-          ════════════════════════════════════════════ */}
-      <section
-        className="px-6 md:px-8 hidden lg:block"
-        style={{ paddingTop: 'var(--section-pad)', paddingBottom: 'var(--section-pad)', background: 'var(--bg)' }}
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
-            <span
-              className="text-[11px] md:text-xs uppercase block mb-4"
-              style={{ letterSpacing: '0.3em', color: 'var(--gold)', fontWeight: 400 }}
-            >
-              Inside the cluster
-            </span>
-            <h2 className="font-prata text-3xl md:text-4xl lg:text-5xl mb-3" style={{ color: 'var(--text-main)' }}>
-              Seven elements, one journey
-            </h2>
-            <p className="text-sm md:text-base max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--text-sub)', fontWeight: 300 }}>
-              Five cartridges behind the front door, two LED UV-C lamps inside the tanks. Water flows left to right through each stage, then is sterilised once on collection and once more on dispense.
-            </p>
-          </div>
-
-          <div className="w-full" style={{ aspectRatio: '1280 / 720' }}>
-            <FiltersExplodedSVG />
-          </div>
-        </div>
       </section>
 
       <SectionBreak />

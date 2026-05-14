@@ -1,18 +1,244 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import SectionBreak from '../components/SectionBreak';
 import BlurImage from '../components/BlurImage';
+import ReadingProgressGlass from '../components/ReadingProgressGlass';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../contexts/LanguageContext';
 import { t } from '../utils/translate';
 import { buildHreflangLinks, buildCanonical } from '../utils/seo';
+import LangLink from '../components/LangLink';
+import { getPostsSortedByDate, getPublishedPosts } from '../data/blogPosts';
+import { sanityClient } from '../lib/sanityClient';
+import { POSTS_LIST_QUERY } from '../lib/queries';
 
 gsap.registerPlugin(ScrollTrigger);
+
+// ─── Sanity image URL helper ──────────────────────────────────────────────────
+
+function sanityImageUrl(image) {
+  if (!image?.asset?._ref) return null;
+  // Decode Sanity asset reference: image-<id>-<dimensions>-<format>
+  const ref = image.asset._ref;
+  const [, id, dimensions, format] = ref.split('-');
+  if (!id || !dimensions || !format) return null;
+  return `https://cdn.sanity.io/images/ax0dvpzv/production/${id}-${dimensions}.${format}?w=800&auto=format`;
+}
+
+// ─── Local-post card ──────────────────────────────────────────────────────────
+
+function CategoryTag({ label }) {
+  return (
+    <span
+      className="text-[9px] uppercase px-2 py-0.5 inline-block"
+      style={{ letterSpacing: '0.25em', color: 'var(--water-crystal)', border: '1px solid rgba(100,210,255,0.25)' }}
+    >
+      {label}
+    </span>
+  );
+}
+
+function ArticleCard({ post, lang, featured = false }) {
+  const title   = lang === 'vi' ? post.titleVI   : post.titleEN;
+  const excerpt = lang === 'vi' ? post.excerptVI : post.excerptEN;
+  const cat     = lang === 'vi' ? post.category  : post.categoryEN;
+  const hasContent = post.sections.length > 0;
+
+  return (
+    <LangLink
+      to={`/blog/${post.slug}`}
+      className="group block"
+      style={{ opacity: hasContent ? 1 : 0.5, pointerEvents: hasContent ? 'auto' : 'none' }}
+    >
+      <article
+        className={`p-6 md:p-8 h-full transition-all duration-300 group-hover:border-gold/50 ${featured ? 'md:p-10' : ''}`}
+        style={{ border: '1px solid var(--border-gold)', background: 'var(--bg)' }}
+      >
+        <div className="flex items-center justify-between mb-5">
+          <CategoryTag label={cat} />
+          {!hasContent && (
+            <span
+              className="text-[9px] uppercase"
+              style={{ letterSpacing: '0.25em', color: 'var(--text-sub)', opacity: 0.4 }}
+            >
+              {lang === 'vi' ? 'Sắp ra mắt' : 'Soon'}
+            </span>
+          )}
+        </div>
+
+        <h2
+          className={`font-prata leading-snug mb-4 group-hover:opacity-70 transition-opacity ${featured ? 'text-xl md:text-2xl' : 'text-base md:text-lg'}`}
+          style={{ color: 'var(--text-main)' }}
+        >
+          {title}
+        </h2>
+
+        <p
+          className="text-sm leading-relaxed mb-6"
+          style={{ color: 'var(--text-sub)', fontWeight: 300 }}
+        >
+          {excerpt}
+        </p>
+
+        <div className="flex items-center gap-4 mt-auto">
+          <span
+            className="text-[9px] uppercase"
+            style={{ letterSpacing: '0.2em', color: 'var(--text-sub)', opacity: 0.45 }}
+          >
+            {new Date(post.date).toLocaleDateString(lang === 'vi' ? 'vi-VN' : 'en-GB', {
+              day: 'numeric', month: 'long', year: 'numeric',
+            })}
+          </span>
+          <span style={{ opacity: 0.3, color: 'var(--text-sub)' }}>·</span>
+          <span
+            className="text-[9px] uppercase"
+            style={{ letterSpacing: '0.2em', color: 'var(--text-sub)', opacity: 0.45 }}
+          >
+            {post.readTime} {lang === 'vi' ? 'phút' : 'min'}
+          </span>
+          {hasContent && (
+            <>
+              <span style={{ opacity: 0.3, color: 'var(--text-sub)' }}>·</span>
+              <span
+                className="text-[9px] uppercase"
+                style={{ letterSpacing: '0.2em', color: 'var(--gold)', opacity: 0.8 }}
+              >
+                {lang === 'vi' ? 'Đọc →' : 'Read →'}
+              </span>
+            </>
+          )}
+        </div>
+      </article>
+    </LangLink>
+  );
+}
+
+// ─── Sanity post card ─────────────────────────────────────────────────────────
+
+function SanityArticleCard({ post, lang, featured = false }) {
+  const imgUrl = sanityImageUrl(post.mainImage);
+  const cats   = post.categories || [];
+  const dateStr = post.publishedAt
+    ? new Date(post.publishedAt).toLocaleDateString(lang === 'vi' ? 'vi-VN' : 'en-GB', {
+        day: 'numeric', month: 'long', year: 'numeric',
+      })
+    : '';
+
+  return (
+    <LangLink to={`/blog/${post.slug?.current}`} className="group block">
+      <article
+        className={`h-full transition-all duration-300 overflow-hidden ${featured ? '' : ''}`}
+        style={{ border: '1px solid var(--border-gold)', background: 'var(--bg)' }}
+      >
+        {imgUrl && (
+          <div className="overflow-hidden" style={{ maxHeight: featured ? '280px' : '180px' }}>
+            <img
+              src={imgUrl}
+              alt={post.mainImage?.alt || post.title || ''}
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              style={{ display: 'block' }}
+            />
+          </div>
+        )}
+
+        <div className={`p-6 ${featured ? 'md:p-8' : ''}`}>
+          {cats.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-4">
+              {cats.map((c) => (
+                <CategoryTag key={c.slug?.current || c.title} label={c.title} />
+              ))}
+            </div>
+          )}
+
+          <h2
+            className={`font-prata leading-snug mb-4 group-hover:opacity-70 transition-opacity ${featured ? 'text-xl md:text-2xl' : 'text-base md:text-lg'}`}
+            style={{ color: 'var(--text-main)' }}
+          >
+            {post.title}
+          </h2>
+
+          {post.excerpt && (
+            <p
+              className="text-sm leading-relaxed mb-6"
+              style={{ color: 'var(--text-sub)', fontWeight: 300 }}
+            >
+              {post.excerpt}
+            </p>
+          )}
+
+          <div className="flex items-center gap-4 flex-wrap">
+            {post.author?.name && (
+              <>
+                <span
+                  className="text-[9px] uppercase"
+                  style={{ letterSpacing: '0.2em', color: 'var(--text-sub)', opacity: 0.45 }}
+                >
+                  {post.author.name}
+                </span>
+                <span style={{ opacity: 0.3, color: 'var(--text-sub)' }}>·</span>
+              </>
+            )}
+            {dateStr && (
+              <span
+                className="text-[9px] uppercase"
+                style={{ letterSpacing: '0.2em', color: 'var(--text-sub)', opacity: 0.45 }}
+              >
+                {dateStr}
+              </span>
+            )}
+            <span style={{ opacity: 0.3, color: 'var(--text-sub)' }}>·</span>
+            <span
+              className="text-[9px] uppercase"
+              style={{ letterSpacing: '0.2em', color: 'var(--gold)', opacity: 0.8 }}
+            >
+              {lang === 'vi' ? 'Đọc →' : 'Read →'}
+            </span>
+          </div>
+        </div>
+      </article>
+    </LangLink>
+  );
+}
+
+// ─── BlogPage ─────────────────────────────────────────────────────────────────
 
 function BlogPage() {
   const pageRef = useRef(null);
   const { language } = useLanguage();
+  const lang = language === 'vi' ? 'vi' : 'en';
+
+  // Local static posts (always available, used as fallback)
+  const allLocalPosts    = getPostsSortedByDate();
+  const publishedLocal   = getPublishedPosts();
+  const [localFeatured, ...localRest] = allLocalPosts;
+
+  // Sanity CMS posts — fetched in background, swaps in silently when ready
+  const [sanityPosts, setSanityPosts] = useState([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    sanityClient
+      .fetch(POSTS_LIST_QUERY)
+      .then((data) => {
+        if (cancelled) return;
+        const filtered = (data || []).filter(
+          (p) => !p.language || p.language === language || p.language === 'en'
+        );
+        setSanityPosts(filtered);
+      })
+      .catch(() => { /* silent — local posts stay visible */ });
+    return () => { cancelled = true; };
+  }, [language]);
+
+  const hasSanityPosts = sanityPosts.length > 0;
+
+  // Derive counts for the hero stats strip
+  const totalCount     = hasSanityPosts ? sanityPosts.length : allLocalPosts.length;
+  const publishedCount = hasSanityPosts ? sanityPosts.length : publishedLocal.length;
+
+  const [sanityFeatured, ...sanityRest] = hasSanityPosts ? sanityPosts : [];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -28,8 +254,8 @@ function BlogPage() {
       });
 
       gsap.from('.blg-card', {
-        scrollTrigger: { trigger: '.blg-card', start: 'top 80%' },
-        y: 30, opacity: 0, duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: '.blg-cards-grid', start: 'top 80%' },
+        y: 30, opacity: 0, duration: 0.8, ease: 'power2.out', stagger: 0.1,
       });
     }, pageRef);
     return () => ctx.revert();
@@ -37,6 +263,7 @@ function BlogPage() {
 
   return (
     <div ref={pageRef}>
+      <ReadingProgressGlass />
       <Helmet>
         <title>{t('meta_blog_title', language)}</title>
         <meta name="description" content={t('meta_blog_desc', language)} />
@@ -46,11 +273,14 @@ function BlogPage() {
         <meta property="og:url" content={buildCanonical('/blog', language)} />
         <meta property="og:title" content={t('meta_blog_title', language)} />
         <meta property="og:description" content={t('meta_blog_desc', language)} />
-        <meta property="og:image" content="https://aerova.asia/og-image.png" />
-        <meta property="og:site_name" content="AEROVA" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={t('meta_blog_title', language)} />
+        <meta property="og:image"        content="https://aerova.asia/og/blog.png" />
+        <meta property="og:image:width"  content="1376" />
+        <meta property="og:image:height" content="768" />
+        <meta property="og:site_name"    content="AEROVA" />
+        <meta name="twitter:card"        content="summary_large_image" />
+        <meta name="twitter:title"       content={t('meta_blog_title', language)} />
         <meta name="twitter:description" content={t('meta_blog_desc', language)} />
+        <meta name="twitter:image"       content="https://aerova.asia/og/blog.png" />
       </Helmet>
 
       {/* ═══ HERO ═══ */}
@@ -59,8 +289,8 @@ function BlogPage() {
         style={{ minHeight: 'clamp(520px, 72vh, 860px)', background: 'var(--bg)' }}
       >
         <BlurImage
-          src="/assets/images/aerova-water-atmospheric-editorial-hero.jpg"
-          alt="Water droplet macro — the science of atmospheric water generation"
+          src="/assets/images/blog-hero-editorial.jpg"
+          alt="A quiet Vietnamese morning still life: tea, journal, and dawn light — exploring water quality in Vietnam and eco friendly water alternatives to plastic bottles"
           className="lifestyle-strip-img absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: 'center 55%' }}
           draggable="false"
@@ -89,47 +319,157 @@ function BlogPage() {
             <span className="blg-sub vietnamese-sub" style={{ color: 'rgba(242,239,232,0.55)' }}>
               {t('blog_subtitle', language)}
             </span>
+
+            {/* Stats strip */}
+            <div className="flex items-center gap-8 mt-10">
+              <div>
+                <div className="font-prata text-2xl" style={{ color: 'var(--gold)' }}>{totalCount}</div>
+                <div className="text-[9px] uppercase" style={{ letterSpacing: '0.25em', color: 'rgba(242,239,232,0.4)' }}>
+                  {lang === 'vi' ? 'Bài viết về máy tạo nước từ không khí' : 'Atmospheric water articles'}
+                </div>
+              </div>
+              <div style={{ width: 1, height: 32, background: 'rgba(212,175,55,0.25)' }} />
+              <div>
+                <div className="font-prata text-2xl" style={{ color: 'var(--gold)' }}>{publishedCount}</div>
+                <div className="text-[9px] uppercase" style={{ letterSpacing: '0.25em', color: 'rgba(242,239,232,0.4)' }}>
+                  {lang === 'vi' ? 'Đã xuất bản' : 'Published guides'}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <SectionBreak />
 
-      {/* ═══ COMING SOON ═══ */}
-      <section
-        className="px-6 md:px-8"
-        style={{ paddingTop: 'var(--section-pad)', paddingBottom: 'var(--section-pad)', background: 'var(--bg-alt)' }}
-      >
-        <div className="max-w-2xl mx-auto text-center">
-          <div
-            className="blg-card p-16"
-            style={{ border: '1px solid var(--border-gold)' }}
+      {/* ═══ SANITY POSTS (when available) ═══ */}
+      {hasSanityPosts && (
+        <>
+          {/* Featured post */}
+          <section
+            className="px-6 md:px-8"
+            style={{ paddingTop: 'var(--section-pad)', paddingBottom: '3rem', background: 'var(--bg-alt)' }}
           >
-            <span
-              className="text-[10px] uppercase block mb-8"
-              style={{ letterSpacing: '0.3em', color: 'var(--water-crystal)', fontWeight: 400 }}
+            <div className="max-w-5xl mx-auto">
+              <span
+                className="text-[9px] uppercase block mb-8"
+                style={{ letterSpacing: '0.3em', color: 'var(--gold)' }}
+              >
+                {lang === 'vi' ? '— Bài viết mới nhất' : '— Latest article'}
+              </span>
+              <SanityArticleCard post={sanityFeatured} lang={lang} featured />
+            </div>
+          </section>
+
+          {/* Remaining posts grid */}
+          {sanityRest.length > 0 && (
+            <section
+              className="px-6 md:px-8"
+              style={{ paddingTop: '3rem', paddingBottom: 'var(--section-pad)', background: 'var(--bg-alt)' }}
             >
-              {t('blog_eyebrow', language)}
-            </span>
-            <h2
-              className="font-prata text-2xl md:text-3xl mb-6"
-              style={{ color: 'var(--text-main)' }}
+              <div className="max-w-5xl mx-auto">
+                <span
+                  className="text-[9px] uppercase block mb-8"
+                  style={{ letterSpacing: '0.3em', color: 'var(--text-sub)', opacity: 0.5 }}
+                >
+                  {lang === 'vi' ? '— Tất cả bài viết' : '— All articles'}
+                </span>
+                <div className="blg-cards-grid grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {sanityRest.map((post) => (
+                    <div key={post._id} className="blg-card">
+                      <SanityArticleCard post={post} lang={lang} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+        </>
+      )}
+
+      {/* ═══ LOCAL STATIC POSTS (shown until / unless Sanity has content) ═══ */}
+      {!hasSanityPosts && (
+        <>
+          {/* Featured article */}
+          {localFeatured && localFeatured.sections.length > 0 && (
+            <section
+              className="px-6 md:px-8"
+              style={{ paddingTop: 'var(--section-pad)', paddingBottom: '3rem', background: 'var(--bg-alt)' }}
             >
-              {t('blog_coming_soon', language)}
-            </h2>
-            <span
-              className="block w-6 h-px mx-auto mb-6"
-              style={{ backgroundColor: 'var(--gold)', opacity: 0.5 }}
-            />
-            <p
-              className="text-sm leading-relaxed"
-              style={{ color: 'var(--text-sub)', fontWeight: 300 }}
-            >
-              {t('blog_coming_soon_desc', language)}
-            </p>
-          </div>
-        </div>
-      </section>
+              <div className="max-w-5xl mx-auto">
+                <span
+                  className="text-[9px] uppercase block mb-8"
+                  style={{ letterSpacing: '0.3em', color: 'var(--gold)' }}
+                >
+                  {lang === 'vi' ? '— Bài viết mới nhất về nước uống & máy tạo nước từ không khí' : '— Latest article on water purifier for home & atmospheric water'}
+                </span>
+                <ArticleCard post={localFeatured} lang={lang} featured />
+              </div>
+            </section>
+          )}
+
+          {/* Article grid */}
+          <section
+            className="px-6 md:px-8"
+            style={{
+              paddingTop: localFeatured?.sections.length ? '3rem' : 'var(--section-pad)',
+              paddingBottom: 'var(--section-pad)',
+              background: 'var(--bg-alt)',
+            }}
+          >
+            <div className="max-w-5xl mx-auto">
+              {localRest.length > 0 && (
+                <>
+                  <span
+                    className="text-[9px] uppercase block mb-8"
+                    style={{ letterSpacing: '0.3em', color: 'var(--text-sub)', opacity: 0.5 }}
+                  >
+                    {lang === 'vi' ? '— Tất cả bài viết: nước uống giảm cân, chất lượng nước & giải pháp nước sạch' : '— All articles: eco friendly water, water quality Vietnam & home water guides'}
+                  </span>
+                  <div className="blg-cards-grid grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {localRest.map((post) => (
+                      <div key={post.slug} className="blg-card">
+                        <ArticleCard post={post} lang={lang} />
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* Empty state */}
+              {publishedLocal.length === 0 && (
+                <div
+                  className="blg-card p-16 text-center"
+                  style={{ border: '1px solid var(--border-gold)' }}
+                >
+                  <span
+                    className="text-[10px] uppercase block mb-8"
+                    style={{ letterSpacing: '0.3em', color: 'var(--water-crystal)', fontWeight: 400 }}
+                  >
+                    {t('blog_eyebrow', language)}
+                  </span>
+                  <h2
+                    className="font-prata text-2xl md:text-3xl mb-6"
+                    style={{ color: 'var(--text-main)' }}
+                  >
+                    {t('blog_coming_soon', language)}
+                  </h2>
+                  <span
+                    className="block w-6 h-px mx-auto mb-6"
+                    style={{ backgroundColor: 'var(--gold)', opacity: 0.5 }}
+                  />
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: 'var(--text-sub)', fontWeight: 300 }}
+                  >
+                    {t('blog_coming_soon_desc', language)}
+                  </p>
+                </div>
+              )}
+            </div>
+          </section>
+        </>
+      )}
     </div>
   );
 }
