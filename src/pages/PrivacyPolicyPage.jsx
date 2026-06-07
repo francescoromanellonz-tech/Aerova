@@ -14,7 +14,7 @@ function PrivacyPolicyPage() {
         <meta name="description" content="AEROVA Privacy Policy. Learn how we collect, use, and protect your personal data." />
         <link rel="canonical" href={buildCanonical('/privacy-policy', language)} />
         {buildHreflangLinks('/privacy-policy')}
-        <meta name="robots" content="noindex, follow" />
+        <meta name="robots" content="noindex" />
       </Helmet>
 
       {/* Page Header */}

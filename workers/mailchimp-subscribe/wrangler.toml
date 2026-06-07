@@ -1,0 +1,12 @@
+name = "aerova-mailchimp-subscribe"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Secrets (set with `wrangler secret put MAILCHIMP_API_KEY` etc.):
+#   MAILCHIMP_API_KEY
+#   MAILCHIMP_SERVER
+#   MAILCHIMP_AUDIENCE_ID
+
+# Public, non-sensitive overrides:
+[vars]
+ALLOWED_ORIGINS = "https://aerova.asia,https://www.aerova.asia,http://localhost:5173,http://localhost:4003"

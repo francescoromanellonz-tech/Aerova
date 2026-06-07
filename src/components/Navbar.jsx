@@ -1,22 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import LangLink from './LangLink';
-import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage, LANGUAGES } from '../contexts/LanguageContext';
 import { useLanguageSwitch } from '../hooks/useLanguageSwitch';
 import { t } from '../utils/translate';
 
-const GlobeIcon = () => (
-  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ color: 'var(--gold)', opacity: 0.8 }}>
-    <circle cx="12" cy="12" r="10" />
-    <line x1="2" y1="12" x2="22" y2="12" />
-    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-  </svg>
-);
 
 const navLinks = [
   { key: 'nav_home', to: '/' },
   { key: 'nav_product', to: '/product' },
+  { key: 'nav_business', to: '/business' },
   { key: 'nav_about', to: '/about' },
   { key: 'nav_service', to: '/service' },
   { key: 'nav_blog', to: '/blog' },
@@ -24,7 +17,6 @@ const navLinks = [
 ];
 
 function Navbar() {
-  const { isDarkMode, toggleTheme } = useTheme();
   const { language, changeLanguage } = useLanguage();
   const { switchLanguage } = useLanguageSwitch();
   const location = useLocation();
@@ -40,14 +32,22 @@ function Navbar() {
   const menuBtnRef = useRef(null);
 
   useEffect(() => {
+    let rafId = null;
     const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-      const doc = document.documentElement;
-      const max = doc.scrollHeight - doc.clientHeight;
-      setScrollProgress(max > 0 ? Math.min((window.scrollY / max) * 100, 100) : 0);
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 40);
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - doc.clientHeight;
+        setScrollProgress(max > 0 ? Math.min((window.scrollY / max) * 100, 100) : 0);
+        rafId = null;
+      });
     };
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   /* Close language dropdown on outside click or Escape; arrow key navigation */
@@ -137,14 +137,17 @@ function Navbar() {
           borderBottom:    scrolled ? '1px solid var(--border-gold-faint)' : '1px solid transparent',
         }}
       >
-        {/* Scroll progress — gold line along bottom */}
+        {/* Scroll progress, gold line along bottom. Uses transform: scaleX so
+            high-frequency scroll updates don't trigger layout reflow. */}
         <div
-          className="absolute bottom-0 left-0 h-px pointer-events-none transition-opacity duration-300"
+          className="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
           style={{
-            width:           `${scrollProgress}%`,
             background:      'linear-gradient(to right, var(--water-crystal), var(--gold))',
             opacity:         scrollProgress > 2 ? 0.75 : 0,
-            transition:      'width 0.1s linear, opacity 0.3s ease',
+            transformOrigin: 'left center',
+            transform:       `scaleX(${scrollProgress / 100})`,
+            transition:      'transform 0.1s linear, opacity 0.3s ease',
+            willChange:      'transform',
           }}
         />
 
@@ -152,7 +155,7 @@ function Navbar() {
 
           {/* ── Logo ──────────────────────────────────────────────── */}
           <LangLink to="/" className="flex items-center gap-3 no-underline group">
-            {/* Drop mark — refined with inner highlight */}
+            {/* Drop mark, refined with inner highlight */}
             <div className="relative flex-shrink-0" style={{ width: 28, height: 36 }}>
               <svg width="28" height="36" viewBox="0 0 28 36" fill="none" aria-hidden="true">
                 <path
@@ -195,7 +198,7 @@ function Navbar() {
           </LangLink>
 
           {/* ── Desktop Nav ───────────────────────────────────────── */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-7">
             {navLinks.map((link) => (
               <LangLink
                 key={link.key}
@@ -229,28 +232,6 @@ function Navbar() {
             {/* Divider */}
             <div className="w-px h-3.5" style={{ background: 'linear-gradient(to bottom, transparent, var(--border-gold), transparent)' }} />
 
-            {/* Theme toggle */}
-            <button
-              onClick={toggleTheme}
-              className="relative flex items-center justify-center w-11 h-11 border-none cursor-pointer transition-all duration-300 hover:opacity-70"
-              style={{ backgroundColor: 'transparent', color: 'var(--text-sub)' }}
-              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {isDarkMode ? (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                  <circle cx="12" cy="12" r="5" />
-                  <line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" />
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                  <line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" />
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-                </svg>
-              ) : (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                </svg>
-              )}
-            </button>
-
             {/* Language dropdown */}
             <div ref={langRef} className="relative">
               <button
@@ -278,7 +259,7 @@ function Navbar() {
                 aria-haspopup="listbox"
                 aria-label="Select language"
               >
-                <GlobeIcon />
+                <span className={`fi fi-${currentLang.flagCode}`} style={{ fontSize: '13px', borderRadius: '2px' }} />
                 {currentLang.label}
                 <svg
                   width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
@@ -322,7 +303,10 @@ function Navbar() {
                       onMouseEnter={e => { if (lang.code !== language) e.currentTarget.style.backgroundColor = 'var(--hover-bg)'; }}
                       onMouseLeave={e => { e.currentTarget.style.backgroundColor = lang.code === language ? 'var(--surface-gold)' : 'transparent'; }}
                     >
-                      <span>{lang.name}</span>
+                      <span className="flex items-center gap-2">
+                        <span className={`fi fi-${lang.flagCode}`} style={{ fontSize: '13px', borderRadius: '2px' }} />
+                        <span>{lang.name}</span>
+                      </span>
                       <span style={{ color: 'var(--text-sub)', fontSize: '9px', opacity: 0.5, letterSpacing: '0.1em' }}>{lang.label}</span>
                     </button>
                   ))}
@@ -333,20 +317,7 @@ function Navbar() {
 
           {/* ── Mobile controls ───────────────────────────────────── */}
           <div className="md:hidden flex items-center gap-2">
-            <button
-              onClick={toggleTheme}
-              className="flex items-center justify-center w-11 h-11 border-none cursor-pointer transition-opacity duration-300 hover:opacity-60"
-              style={{ backgroundColor: 'transparent', color: 'var(--text-sub)' }}
-              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {isDarkMode ? (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /></svg>
-              ) : (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
-              )}
-            </button>
-
-            {/* Hamburger — minimal two-line style */}
+            {/* Hamburger, minimal two-line style */}
             <button
               ref={menuBtnRef}
               className="flex flex-col items-end gap-[6px] bg-transparent border-none cursor-pointer p-3"
@@ -355,28 +326,28 @@ function Navbar() {
               aria-expanded={mobileOpen}
             >
               <span
-                className="block h-px transition-all duration-350 origin-center"
+                className="block h-px transition-all duration-300 origin-center"
                 style={{
-                  width:           mobileOpen ? '20px' : '20px',
+                  width:           '20px',
                   backgroundColor: 'var(--text-main)',
-                  transform:       mobileOpen ? 'rotate(45deg) translateY(4px)' : 'none',
+                  transform:       mobileOpen ? 'translateY(7px) rotate(45deg)' : 'none',
                 }}
               />
               <span
-                className="block h-px transition-all duration-350"
+                className="block h-px transition-all duration-300"
                 style={{
                   width:           '14px',
                   backgroundColor: 'var(--text-main)',
                   opacity:         mobileOpen ? 0 : 1,
-                  transform:       mobileOpen ? 'translateX(4px)' : 'none',
+                  transition:      'opacity 0.2s ease',
                 }}
               />
               <span
-                className="block h-px transition-all duration-350 origin-center"
+                className="block h-px transition-all duration-300 origin-center"
                 style={{
                   width:           '20px',
                   backgroundColor: 'var(--text-main)',
-                  transform:       mobileOpen ? 'rotate(-45deg) translateY(-4px)' : 'none',
+                  transform:       mobileOpen ? 'translateY(-7px) rotate(-45deg)' : 'none',
                 }}
               />
             </button>
@@ -422,6 +393,9 @@ function Navbar() {
               transform:     mobileOpen ? 'translateY(0)' : 'translateY(20px)',
               opacity:       mobileOpen ? 1 : 0,
               transition:    `transform 0.45s cubic-bezier(0.22,1,0.36,1) ${i * 50}ms, opacity 0.4s ease ${i * 50}ms`,
+              minHeight:     '44px',
+              display:       'flex',
+              alignItems:    'center',
             }}
           >
             {t(link.key, language)}
@@ -458,6 +432,7 @@ function Navbar() {
                 letterSpacing:   '0.12em',
               }}
             >
+              <span className={`fi fi-${lang.flagCode}`} style={{ fontSize: '13px', borderRadius: '2px' }} />
               {lang.label}
             </button>
           ))}

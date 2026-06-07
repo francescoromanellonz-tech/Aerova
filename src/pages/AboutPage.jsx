@@ -3,12 +3,13 @@ import LangLink from '../components/LangLink';
 import SectionBreak from '../components/SectionBreak';
 import BlurImage from '../components/BlurImage';
 import HeroBackground from '../components/HeroBackground';
+import TimelineRippleField from '../components/TimelineRippleField';
 import { Helmet } from 'react-helmet-async';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../contexts/LanguageContext';
 import { t } from '../utils/translate';
-import { buildHreflangLinks, buildCanonical } from '../utils/seo';
+import { buildHreflangLinks, buildCanonical, buildHeadExtras } from '../utils/seo';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,6 +65,15 @@ function AboutPage() {
         y: 25, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out',
       });
 
+      /* Per-character condensing reveal on year text, each glyph drops in
+         with a slight blur, mimicking droplets condensing into letters. */
+      gsap.from('.tl-year-char', {
+        scrollTrigger: { trigger: '.timeline-section', start: 'top 80%' },
+        opacity: 0, y: 8, filter: 'blur(6px)',
+        duration: 0.55, stagger: 0.022, ease: 'power3.out',
+        clearProps: 'filter',
+      });
+
       /* Parallax on atmospheric water strip */
       gsap.to('.water-strip-img', {
         scrollTrigger: { trigger: '.water-strip', start: 'top bottom', end: 'bottom top', scrub: true },
@@ -80,25 +90,60 @@ function AboutPage() {
         <meta name="description" content={t('meta_about_desc', language)} />
         <link rel="canonical" href={buildCanonical('/about', language)} />
         {buildHreflangLinks('/about')}
+        {buildHeadExtras('/about', language)}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={buildCanonical('/about', language)} />
         <meta property="og:title" content={t('meta_about_title', language)} />
         <meta property="og:description" content={t('meta_about_desc', language)} />
-        <meta property="og:image" content="https://aerova.asia/og-image.png" />
-        <meta property="og:site_name" content="AEROVA" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={t('meta_about_title', language)} />
+        <meta property="og:image"        content="https://aerova.asia/og/about.png" />
+        <meta property="og:image:width"  content="1376" />
+        <meta property="og:image:height" content="768" />
+        <meta property="og:site_name"    content="AEROVA" />
+        <meta name="twitter:card"        content="summary_large_image" />
+        <meta name="twitter:title"       content={t('meta_about_title', language)} />
         <meta name="twitter:description" content={t('meta_about_desc', language)} />
+        <meta name="twitter:image"       content="https://aerova.asia/og/about.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "AEROVA Technologies",
+          "url": "https://aerova.asia",
+          "logo": "https://aerova.asia/favicon.svg",
+          "description": "Premium atmospheric water generators creating mineralized drinking water from air",
+          "email": "info@aerova.com",
+          "telephone": "+84-90-123-4567",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ho Chi Minh City",
+            "addressCountry": "VN"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+84-90-123-4567",
+            "email": "info@aerova.com",
+            "contactType": "customer service",
+            "availableLanguage": ["English", "Vietnamese"]
+          },
+          "foundingLocation": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "VN",
+              "addressLocality": "Ho Chi Minh City"
+            }
+          },
+          "sameAs": []
+        })}</script>
       </Helmet>
 
       {/* ═══ HERO ═══ */}
       <HeroBackground
-        src="/assets/images/aerova-about-hero-vietnamese-craft-water.png"
-        alt="A single water droplet suspended over Vietnamese marble at dawn"
+        src="/assets/images/about-hero-editorial.jpg"
+        alt="Vietnamese coast at dawn, mist over still water — the source environment for AEROVA's atmospheric water generator technology"
         accent="water-crystal"
         side="right"
-        mobileOpacity={0.18}
-        gradientStop={62}
+        mobileOpacity={0.55}
+        gradientStop={48}
         className="px-6 md:px-8 pt-32 md:pt-40 pb-20"
       >
         <div className="max-w-5xl mx-auto">
@@ -117,7 +162,7 @@ function AboutPage() {
             </h1>
             <span className="about-sub vietnamese-sub">{t('about_subtitle', language)}</span>
           </div>
-          {/* Mission quote — surfaced into hero so the page has immediate substance */}
+          {/* Mission quote, surfaced into hero so the page has immediate substance */}
           <div className="about-sub mt-12 pt-12 max-w-2xl"
             style={{ borderTop: '1px solid var(--border-gold-faint)' }}>
             <p className="font-prata text-xl md:text-2xl leading-relaxed"
@@ -130,7 +175,7 @@ function AboutPage() {
 
       <SectionBreak />
 
-      {/* ═══ MISSION — body ═══ */}
+      {/* ═══ MISSION, body ═══ */}
       <section
         className="mission-section px-6 md:px-8"
         style={{ paddingTop: 'var(--section-pad)', paddingBottom: 'var(--section-pad)', background: 'var(--bg-alt)' }}
@@ -169,7 +214,7 @@ function AboutPage() {
             <div className="relative rounded-xl overflow-hidden" style={{ aspectRatio: '16/10' }}>
               <img
                 src="/assets/images/commercial-residential-amenity.jpg"
-                alt="AEROVA dispenser installed in a serene high-end residential amenity space — wellness lounge"
+                alt="AEROVA atmospheric water generator installed in a high-end residential amenity space, delivering eco friendly water without plastic bottles"
                 className="w-full h-full object-cover"
                 draggable="false"
               />
@@ -185,7 +230,7 @@ function AboutPage() {
             <div className="relative rounded-xl overflow-hidden" style={{ aspectRatio: '16/10' }}>
               <img
                 src="/assets/images/machine-diagonal view.jpg"
-                alt="AEROVA LT-AWG20G — three-quarter view showcasing premium design"
+                alt="AEROVA LT-AWG20G atmospheric water generator, three-quarter view — a sustainable water solution for Vietnamese homes and offices"
                 className="w-full h-full object-cover"
                 style={{ objectPosition: 'center center' }}
                 draggable="false"
@@ -297,7 +342,7 @@ function AboutPage() {
       <div className="water-strip relative overflow-hidden" style={{ height: 'clamp(180px, 24vw, 320px)' }}>
         <BlurImage
           src="/assets/images/strip-chrome-water-pour.jpg"
-          alt="Pure atmospheric water cascading from the AEROVA chrome dispense lever into a frosted glass"
+          alt="Pure plastic-free water cascading from the AEROVA chrome dispense lever — reduce plastic water bottles with atmospheric water generation"
           className="water-strip-img w-full h-full object-cover"
           style={{ objectPosition: 'center center' }}
           draggable="false"
@@ -328,6 +373,15 @@ function AboutPage() {
             style={{ color: 'var(--text-sub)', fontWeight: 300 }}
           >
             {t('sustainability_description', language)}
+          </p>
+
+          <p
+            className="text-[10px] uppercase mb-8"
+            style={{ letterSpacing: '0.18em', color: 'var(--sage)', fontWeight: 400 }}
+          >
+            {language === 'vi'
+              ? 'Giải pháp nước sạch bền vững — tiết kiệm tài nguyên nước, không chai nhựa'
+              : 'Sustainable water solution — plastic free water, zero resource waste'}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-lg mx-auto">
@@ -363,10 +417,11 @@ function AboutPage() {
 
       {/* ═══ TIMELINE ═══ */}
       <section
-        className="timeline-section px-6 md:px-8"
+        className="timeline-section px-6 md:px-8 relative"
         style={{ paddingTop: 'var(--section-pad)', paddingBottom: 'var(--section-pad)', background: 'var(--bg)' }}
       >
-        <div className="max-w-5xl mx-auto">
+        <TimelineRippleField />
+        <div className="max-w-5xl mx-auto relative" style={{ zIndex: 2 }}>
           <div className="text-center mb-16">
             <span
               className="text-[11px] md:text-xs uppercase block mb-4"
@@ -387,12 +442,17 @@ function AboutPage() {
                 className="tl-item flex gap-6 md:gap-8"
                 style={{ paddingBottom: i < timeline.length - 1 ? '32px' : '0' }}
               >
-                <div className="flex flex-col items-start flex-shrink-0" style={{ width: '72px' }}>
+                <div className="flex flex-col items-start flex-shrink-0 relative" style={{ width: '72px' }}>
+                  {/* invisible ripple anchor, sits at the same position as the year text */}
+                  <span aria-hidden="true" className="tl-dot absolute"
+                    style={{ left: 0, top: 6, width: 4, height: 4, borderRadius: '50%', background: 'transparent' }} />
                   <span
                     className="font-prata text-sm block"
                     style={{ color: 'var(--gold)', letterSpacing: '0.06em' }}
                   >
-                    {t(item.yearKey, language)}
+                    {t(item.yearKey, language).split('').map((c, ci) => (
+                      <span key={ci} className="tl-year-char inline-block" style={{ whiteSpace: 'pre' }}>{c}</span>
+                    ))}
                   </span>
                   {i < timeline.length - 1 && (
                     <div className="flex-1 w-px mt-3 ml-px" style={{ backgroundColor: 'var(--border-gold-faint)' }} />
@@ -412,7 +472,9 @@ function AboutPage() {
               {timeline.map((item, i) => (
                 <div key={i} className="tl-item flex-1 text-center px-3">
                   <span className="font-prata text-base" style={{ color: 'var(--gold)', letterSpacing: '0.06em' }}>
-                    {t(item.yearKey, language)}
+                    {t(item.yearKey, language).split('').map((c, ci) => (
+                      <span key={ci} className="tl-year-char inline-block" style={{ whiteSpace: 'pre' }}>{c}</span>
+                    ))}
                   </span>
                 </div>
               ))}
@@ -426,7 +488,7 @@ function AboutPage() {
               {timeline.map((item, i) => (
                 <div key={i} className="tl-item flex-1 flex justify-center relative z-10">
                   <div
-                    className="w-2.5 h-2.5 rounded-full"
+                    className="tl-dot w-2.5 h-2.5 rounded-full"
                     style={{
                       backgroundColor: 'var(--gold)',
                       boxShadow: '0 0 0 4px var(--bg)',

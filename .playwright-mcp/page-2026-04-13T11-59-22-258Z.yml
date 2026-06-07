@@ -1,0 +1,272 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "AEROVA WATER FROM AIR" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+        - generic [ref=e12]:
+          - generic [ref=e13]: AEROVA
+          - generic [ref=e14]: WATER FROM AIR
+      - generic [ref=e15]:
+        - link "Home" [ref=e16] [cursor=pointer]:
+          - /url: /
+          - text: Home
+        - link "Product" [active] [ref=e18] [cursor=pointer]:
+          - /url: /product
+          - text: Product
+        - link "About" [ref=e19] [cursor=pointer]:
+          - /url: /about
+          - text: About
+        - link "Service" [ref=e20] [cursor=pointer]:
+          - /url: /service
+          - text: Service
+        - link "Contact" [ref=e21] [cursor=pointer]:
+          - /url: /contact
+          - text: Contact
+        - button "Switch to dark mode" [ref=e23] [cursor=pointer]:
+          - img [ref=e24]
+        - button "Select language" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+          - text: EN
+          - img [ref=e31]
+  - main [ref=e34]:
+    - generic [ref=e607]:
+      - generic [ref=e608]:
+        - generic [ref=e609]:
+          - generic [ref=e610]:
+            - generic [ref=e611]: Atmospheric Water Generator
+            - heading "LT-AWG20G" [level=1] [ref=e612]
+            - generic [ref=e613]: Technical Specifications
+            - paragraph [ref=e614]: The LT-AWG20G extracts pure drinking water from humid air through 7 stages of medical-grade filtration. Featuring instant hot and cold dispensing, it requires zero plumbing and removes the need for plastic delivery entirely.
+            - generic [ref=e615]:
+              - generic [ref=e616]:
+                - generic [ref=e617]: 20L
+                - text: Daily Output
+              - generic [ref=e619]:
+                - generic [ref=e620]: "7"
+                - text: Filtration Stages
+              - generic [ref=e622]:
+                - generic [ref=e623]: 45dB
+                - text: Whisper Quiet
+              - generic [ref=e625]:
+                - generic [ref=e626]: $89/mo
+                - text: From (lease)
+          - img "AEROVA LT-AWG20G atmospheric water generator — frontal view" [ref=e628]
+        - generic:
+          - generic: Scroll to explore
+      - img [ref=e631]
+      - generic [ref=e635]:
+        - generic [ref=e637]:
+          - img "AEROVA LT-AWG20G — annotated view" [ref=e638]
+          - img:
+            - generic:
+              - generic: "01"
+            - generic:
+              - generic: "02"
+            - generic:
+              - generic: "03"
+        - generic [ref=e641]:
+          - generic [ref=e642]: "01"
+          - generic [ref=e643]: 7-Stage Filtration
+          - heading "Every Drop, Verified Pure" [level=2] [ref=e644]
+          - paragraph [ref=e645]: From HEPA air intake to UV-C sterilization and PureSky mineralization — the LT-AWG20G runs atmospheric moisture through seven independent purification stages. The result exceeds WHO drinking water standards with alkaline-balanced, mineral-enriched water ready on demand.
+          - generic [ref=e646]:
+            - generic [ref=e647]: 99.9%
+            - generic [ref=e648]: Water Purity
+      - img [ref=e655]
+      - generic [ref=e658]:
+        - img "AEROVA multi-stage mineral filtration system" [ref=e659]
+        - generic:
+          - generic: 7-Stage Filtration
+      - img [ref=e662]
+      - generic [ref=e665]:
+        - generic [ref=e666]:
+          - generic [ref=e667]: Inside the Machine
+          - heading "7 Stages. Zero Compromise." [level=2] [ref=e668]
+          - paragraph [ref=e669]: Each stage targets a specific category of contaminant — from airborne particles to dissolved minerals. Nothing passes through unchecked.
+        - generic [ref=e671]:
+          - generic [ref=e672]:
+            - generic [ref=e673]:
+              - generic [ref=e674]: "01"
+              - img [ref=e678]
+              - generic [ref=e682]:
+                - generic [ref=e683]: Stage 01
+                - heading "HEPA Air Filter" [level=3] [ref=e684]
+                - img [ref=e687]
+            - tablist "Filtration stages" [ref=e690]:
+              - tab "Go to stage 01" [selected] [ref=e691] [cursor=pointer]
+              - tab "Go to stage 02" [ref=e692] [cursor=pointer]
+              - tab "Go to stage 03" [ref=e693] [cursor=pointer]
+              - tab "Go to stage 04" [ref=e694] [cursor=pointer]
+              - tab "Go to stage 05" [ref=e695] [cursor=pointer]
+              - tab "Go to stage 06" [ref=e696] [cursor=pointer]
+              - tab "Go to stage 07" [ref=e697] [cursor=pointer]
+          - generic [ref=e698]:
+            - 'button "Stage 01: HEPA Air Filter" [expanded] [ref=e702] [cursor=pointer]':
+              - generic [ref=e703]:
+                - generic [ref=e704]: "01"
+                - img [ref=e707]
+                - heading "HEPA Air Filter" [level=3] [ref=e711]
+                - img [ref=e712]
+              - paragraph [ref=e717]: Medical-grade HEPA filtration captures 99.97% of airborne particles, dust, pollen, and microorganisms before air enters the condensation chamber.
+            - 'button "Stage 02: Condensation" [ref=e720] [cursor=pointer]':
+              - generic [ref=e721]:
+                - generic [ref=e722]: "02"
+                - img [ref=e725]
+                - heading "Condensation" [level=3] [ref=e729]
+                - img [ref=e730]
+              - paragraph [ref=e733]: Advanced cooling system brings air to optimal dew point, extracting pure water vapour from the atmosphere with maximum efficiency.
+            - 'button "Stage 03: Sediment Filter" [ref=e736] [cursor=pointer]':
+              - generic [ref=e737]:
+                - generic [ref=e738]: "03"
+                - img [ref=e741]
+                - heading "Sediment Filter" [level=3] [ref=e749]
+                - img [ref=e750]
+              - paragraph [ref=e753]: Removes any remaining particulate matter down to 5 microns from the condensed water before deeper purification stages.
+            - 'button "Stage 04: Pre-Carbon Filter" [ref=e756] [cursor=pointer]':
+              - generic [ref=e757]:
+                - generic [ref=e758]: "04"
+                - img [ref=e761]
+                - heading "Pre-Carbon Filter" [level=3] [ref=e768]
+                - img [ref=e769]
+              - paragraph [ref=e772]: Activated carbon absorption eliminates chlorine, volatile organic compounds, and unpleasant odours or tastes.
+            - 'button "Stage 05: Reverse Osmosis" [ref=e775] [cursor=pointer]':
+              - generic [ref=e776]:
+                - generic [ref=e777]: "05"
+                - img [ref=e780]
+                - heading "Reverse Osmosis" [level=3] [ref=e788]
+                - img [ref=e789]
+              - paragraph [ref=e792]: RO membrane removes dissolved solids, heavy metals, bacteria, and contaminants at the molecular level — the gold standard of water purification.
+            - 'button "Stage 06: UV-C Sterilization" [ref=e795] [cursor=pointer]':
+              - generic [ref=e796]:
+                - generic [ref=e797]: "06"
+                - img [ref=e800]
+                - heading "UV-C Sterilization" [level=3] [ref=e809]
+                - img [ref=e810]
+              - paragraph [ref=e813]: Ultraviolet light at 254nm destroys 99.99% of remaining bacteria, viruses, and pathogens without chemicals.
+            - 'button "Stage 07: PureSky Mineralization" [ref=e815] [cursor=pointer]':
+              - generic [ref=e816]:
+                - generic [ref=e817]: "07"
+                - img [ref=e820]
+                - heading "PureSky Mineralization" [level=3] [ref=e826]
+                - img [ref=e827]
+              - paragraph [ref=e830]: Essential minerals — calcium, magnesium, and potassium — are restored to the purified water, bringing it to an optimal alkaline pH balance for taste and health.
+      - img [ref=e833]
+      - generic [ref=e837]:
+        - generic [ref=e838]:
+          - generic [ref=e839]: Take a Closer Look
+          - heading "Specifications" [level=2] [ref=e840]
+        - generic [ref=e841]:
+          - generic [ref=e842]:
+            - img "AEROVA LT-AWG20G — diagonal view" [ref=e844]
+            - img "AEROVA filter system — UF, GAC, PP and BIO filtration stages" [ref=e846]
+          - generic [ref=e847]:
+            - generic [ref=e848]:
+              - heading "Key Features" [level=3] [ref=e849]
+              - generic [ref=e850]:
+                - generic [ref=e853]: Generates pristine drinking water from air
+                - generic [ref=e856]: Advanced 7-stage multi-filter process
+                - generic [ref=e859]: Hot and cold water dispensing with full control
+                - generic [ref=e862]: Intelligent energy-saving mode minimizes footprint
+                - generic [ref=e865]: No plumbing or water connection required
+                - generic [ref=e868]: Mineralized alkaline output
+            - generic [ref=e869]:
+              - heading "Technical Specifications" [level=3] [ref=e870]
+              - generic [ref=e871]:
+                - generic [ref=e872]:
+                  - generic [ref=e873]: Model
+                  - generic [ref=e874]: LT-AWG20G
+                - generic [ref=e875]:
+                  - generic [ref=e876]: Production Capacity
+                  - generic [ref=e877]: 20 L/Day (@30°C, 80% RH)
+                - generic [ref=e878]:
+                  - generic [ref=e879]: Power Supply
+                  - generic [ref=e880]: AC220-240V/50Hz · AC110-120V/60Hz
+                - generic [ref=e881]:
+                  - generic [ref=e882]: Cooling Power
+                  - generic [ref=e883]: 500 W
+                - generic [ref=e884]:
+                  - generic [ref=e885]: Heating Power
+                  - generic [ref=e886]: 470 W
+                - generic [ref=e887]:
+                  - generic [ref=e888]: Working Temperature
+                  - generic [ref=e889]: 15 °C – 35 °C
+                - generic [ref=e890]:
+                  - generic [ref=e891]: Working Humidity (RH)
+                  - generic [ref=e892]: 30% – 100%
+                - generic [ref=e893]:
+                  - generic [ref=e894]: Refrigerant
+                  - generic [ref=e895]: R134A
+                - generic [ref=e896]:
+                  - generic [ref=e897]: Noise Level
+                  - generic [ref=e898]: 45 dB(A)
+                - generic [ref=e899]:
+                  - generic [ref=e900]: Dimensions (D×W×H)
+                  - generic [ref=e901]: 375 × 307 × 1138 mm
+                - generic [ref=e902]:
+                  - generic [ref=e903]: Net Weight
+                  - generic [ref=e904]: 42 kg
+                - generic [ref=e905]:
+                  - generic [ref=e906]: Packing Dimensions
+                  - generic [ref=e907]: 440 × 380 × 1360 mm
+                - generic [ref=e908]:
+                  - generic [ref=e909]: Gross Weight
+                  - generic [ref=e910]: 52 kg
+      - img [ref=e913]
+      - generic [ref=e917]:
+        - heading "Interested in AEROVA?" [level=2] [ref=e918]
+        - paragraph [ref=e919]: Whether for your home, office, or hospitality business — we'll match you with the right solution. Purchase or lease, we handle everything from consultation to installation.
+        - generic [ref=e920]:
+          - link "Request a Consultation" [ref=e921] [cursor=pointer]:
+            - /url: /contact
+          - link "Explore Services" [ref=e922] [cursor=pointer]:
+            - /url: /service
+            - text: Explore Services
+            - img [ref=e923]
+  - contentinfo [ref=e566]:
+    - generic:
+      - img
+    - generic [ref=e567]:
+      - generic [ref=e568]:
+        - paragraph [ref=e569]: "AEROVA: Engineered to reflect purity, flow, and atmospheric balance. We provide high-end, infrastructure-independent water solutions designed specifically for Vietnam's unique tropical climate."
+        - generic [ref=e570]: Thiên Thủy — Nước Từ Trời
+      - generic [ref=e571]:
+        - generic [ref=e572]:
+          - link "AEROVA WATER FROM AIR" [ref=e573] [cursor=pointer]:
+            - /url: /
+            - img [ref=e575]
+            - generic [ref=e579]:
+              - generic [ref=e580]: AEROVA
+              - generic [ref=e581]: WATER FROM AIR
+          - generic [ref=e582]:
+            - generic [ref=e583]: pH 7.4+
+            - generic [ref=e584]: UV-C Treated
+            - generic [ref=e585]: 99.9% Pure
+        - generic [ref=e586]:
+          - heading "Navigation" [level=4] [ref=e587]
+          - navigation [ref=e588]:
+            - link "Home" [ref=e589] [cursor=pointer]:
+              - /url: /
+            - link "Product" [ref=e590] [cursor=pointer]:
+              - /url: /product
+            - link "About" [ref=e591] [cursor=pointer]:
+              - /url: /about
+            - link "Service" [ref=e592] [cursor=pointer]:
+              - /url: /service
+            - link "Contact" [ref=e593] [cursor=pointer]:
+              - /url: /contact
+        - generic [ref=e594]:
+          - heading "Stay Updated on the Water Revolution" [level=4] [ref=e595]
+          - paragraph [ref=e596]: Updates on water technology, sustainability, and product launches.
+          - generic [ref=e597]:
+            - textbox "Enter your email" [ref=e598]
+            - button "Join" [ref=e599] [cursor=pointer]
+      - generic [ref=e600]:
+        - generic [ref=e601]:
+          - link "Privacy Policy" [ref=e602] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "Terms & Conditions" [ref=e603] [cursor=pointer]:
+            - /url: /terms-and-conditions
+          - link "Legal" [ref=e604] [cursor=pointer]:
+            - /url: /legal
+        - paragraph [ref=e605]: © 2026 AEROVA Technologies — All Rights Reserved

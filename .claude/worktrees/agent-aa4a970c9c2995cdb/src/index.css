@@ -1,0 +1,1026 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   AEROVA — DESIGN SYSTEM v4
+   Water · Health · Atmosphere
+
+   Approved Brand Palette:
+   - Slate Charcoal  #334155  (primary text)
+   - Champagne Gold  #D4AF37  (logo / accent)
+   - Morning Sage    #8DA399  (eco / nature)
+   - Atmosphere Blue #B0BEC5  (water / sky)
+   - Obsidian Matte  #1A1A1B  (dark surface)
+
+   Extended Water Palette:
+   - Crystal Water   #7AB8C8  (clear, fresh)
+   - Deep Water      #3D7A8E  (depth / purity)
+
+   Typography v4:
+   - Headings: Cormorant Garamond — craft, heritage
+   - Body:     Nunito — rounded, clean, health-forward
+   - Tagline:  Nunito 200 weight, wide tracking
+   ============================================ */
+
+:root {
+  /* ── Approved brand palette ── */
+  --slate-charcoal:  #334155;
+  --champagne-gold:  #D4AF37;
+  --morning-sage:    #5E7A6E;  /* darkened for light-mode AA contrast */
+  --atmosphere-blue: #B0BEC5;
+  --obsidian-matte:  #1A1A1B;
+  --white:           #FAFAF8;
+  --cream:           #EDF3F8;  /* cooler, crisper — fresh water feel */
+
+  /* Extended water palette */
+  --water-crystal:   #5A96A8;  /* darkened for light-mode AA contrast */
+  --water-deep:      #3D7A8E;
+  --water-light:     rgba(122,184,200,0.10);
+  --water-glow:      rgba(122,184,200,0.16);
+  --water-border:    rgba(122,184,200,0.28);
+
+  /* Legacy aliases */
+  --obsidian: var(--obsidian-matte);
+  --sage:     var(--morning-sage);
+  --gold:     var(--champagne-gold);
+  --sky:      var(--cream);
+  --slate:    var(--slate-charcoal);
+
+  /* ── Light mode semantic tokens ── */
+  --bg:         var(--cream);
+  --bg-alt:     rgba(141,163,153,0.22);   /* lifted for section contrast */
+  --bg-alt-2:   rgba(141,163,153,0.32);   /* lifted for section contrast */
+  --text-main:  #1F2F3D;                  /* deeper than slate for better contrast */
+  --text-sub:   #3B5268;                  /* was #4A5660 — contrast ratio ~5.8:1 */
+  --accent:     var(--morning-sage);
+  --nav-bg:     rgba(237,243,248,0.92);
+  --btn-bg:     transparent;
+  --btn-text:   #1F2F3D;
+  --btn-gold-bg:   transparent;
+  --btn-gold-text: #1F2F3D;
+
+  /* ── Border tokens — more visible in light mode ── */
+  --border-gold:        rgba(212,175,55,0.28);   /* was 0.18 */
+  --border-gold-strong: rgba(212,175,55,0.48);   /* was 0.30 */
+  --border-gold-faint:  rgba(212,175,55,0.14);   /* was 0.09 */
+  --border-sage:        rgba(141,163,153,0.30);   /* was 0.18 */
+  --border-sage-strong: rgba(141,163,153,0.48);   /* was 0.30 */
+
+  /* ── Surface tokens — enough contrast to distinguish sections ── */
+  --surface-gold: rgba(212,175,55,0.08);     /* was 0.05 */
+  --surface-sage: rgba(141,163,153,0.14);    /* was 0.10 */
+  --surface-card: rgba(255,255,255,0.96);    /* white card on sage sections */
+
+  /* ── Interactive tokens ── */
+  --hover-bg:   rgba(141,163,153,0.10);
+  --focus-ring: rgba(141,163,153,0.50);
+  --toggle-bg:  rgba(31,47,61,0.07);
+  --overlay-bg: rgba(237,243,248,0.97);
+
+  /* ── Atmosphere ── */
+  --grain-opacity: 0.02;
+  --glow-sage: rgba(141,163,153,0.14);
+  --glow-gold: rgba(212,175,55,0.10);
+
+  /* ── Section break ── */
+  --section-break-line: rgba(212,175,55,0.38);
+  --section-break-drop: rgba(122,184,200,0.6);
+
+  /* ── Compare table / grid stripes ── */
+  --water-faint:     rgba(122,184,200,0.04);
+  --water-tint-sm:   rgba(122,184,200,0.06);
+  --bg-stripe-alt:   rgba(122,184,200,0.03);
+  --glow-gold-sm:    rgba(212,175,55,0.07);
+  --gold-border-row: rgba(212,175,55,0.12);
+  --gold-row-bg:     rgba(212,175,55,0.025);
+
+  /* ── How It Works ── */
+  --water-progress: rgba(122,184,200,0.15);
+  --water-dot-glow: rgba(122,184,200,0.5);
+
+  /* ── Vietnam / overlays ── */
+  --water-bar-track:   rgba(122,184,200,0.14);
+  --overlay-hero-dark: rgba(0,0,0,0.22);
+
+  /* ── Image mask gradients ── */
+  --mask-fade-mid:    rgba(0,0,0,0.6);
+  --mask-fade-strong: rgba(0,0,0,0.9);
+
+  /* ── Image overlays ── */
+  --overlay-image-dark: rgba(0,0,0,0.18);   /* subtle photo overlay */
+  --overlay-badge:      rgba(0,0,0,0.28);   /* floating badge backdrop */
+  --text-white-soft:    rgba(255,255,255,0.9);
+  --gold-corner:        rgba(212,175,55,0.5); /* corner bracket accents */
+  --shadow-water:       rgba(122,184,200,0.12);
+
+  /* ── Typography ── */
+  --font-body:  'Nunito', 'DM Sans', sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+
+  /* ── State colors ── */
+  --color-error: rgba(180,60,60,0.85);
+
+  /* ── Faint surfaces ── */
+  --surface-sage-light:  rgba(141,163,153,0.04);
+  --surface-sage-soft:   rgba(141,163,153,0.06);
+  --surface-sage-faint:  rgba(141,163,153,0.05);
+  --surface-sage-mid:    rgba(141,163,153,0.12);
+  --surface-gold-faint:  rgba(212,175,55,0.055);
+  --surface-gold-ultra:  rgba(212,175,55,0.04);
+  --surface-slate-faint: rgba(51,65,85,0.07);
+
+  /* ── Light borders ── */
+  --border-gold-light: rgba(212,175,55,0.2);
+  --border-sage-light: rgba(141,163,153,0.15);
+
+  /* ── Shadows ── */
+  --shadow-subtle:   rgba(0,0,0,0.03);
+  --shadow-dropdown: rgba(0,0,0,0.08);
+
+  /* ── Gradient tokens ── */
+  --gradient-hero:    radial-gradient(ellipse at 50% 40%, rgba(122,184,200,0.12) 0%, rgba(141,163,153,0.08) 40%, transparent 70%);
+  --gradient-section: radial-gradient(ellipse at 30% 50%, rgba(141,163,153,0.07) 0%, transparent 55%);
+  --gradient-card:    linear-gradient(135deg, rgba(255,255,255,0.8), rgba(237,243,248,0.6));
+  --gradient-subtle:  linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+
+  /* ── Spacing ── */
+  --space-unit:  8px;
+  --section-pad: 120px;
+  --border-thin: 1px;
+
+  /* ── Typography spacing ── */
+  --letter-spacing-airy:   0.15em;
+  --letter-spacing-serif:  0.03em;
+  --letter-spacing-tagline:0.28em;
+
+  /* ── Transitions ── */
+  --ease-out-expo:    cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast:  0.2s var(--ease-out-expo);
+  --transition-base:  0.4s var(--ease-out-expo);
+  --transition-slow:  0.6s var(--ease-out-expo);
+}
+
+/* ============================================
+   DARK THEME
+   ============================================ */
+html.dark {
+  --morning-sage:  #8DA399;  /* restore vibrant value for dark backgrounds */
+  --water-crystal: #7AB8C8;  /* restore vibrant value for dark backgrounds */
+
+  --bg:       var(--obsidian-matte);
+  --bg-alt:   rgba(141,163,153,0.07);
+  --bg-alt-2: rgba(141,163,153,0.11);
+  --text-main: #E8E6E1;
+  --text-sub:  #A0ADB5;
+  --nav-bg:    rgba(26,26,27,0.90);
+  --btn-bg:    var(--morning-sage);
+  --btn-text:  var(--obsidian-matte);
+  --btn-gold-bg:   var(--champagne-gold);
+  --btn-gold-text: var(--obsidian-matte);
+
+  --border-gold:        rgba(212,175,55,0.22);
+  --border-gold-strong: rgba(212,175,55,0.40);
+  --border-gold-faint:  rgba(212,175,55,0.12);
+  --border-sage:        rgba(141,163,153,0.22);
+  --border-sage-strong: rgba(141,163,153,0.40);
+  --surface-gold: rgba(212,175,55,0.07);
+  --surface-sage: rgba(141,163,153,0.13);
+  --surface-card: rgba(141,163,153,0.05);
+
+  --hover-bg:   rgba(141,163,153,0.11);
+  --focus-ring: rgba(141,163,153,0.55);
+  --toggle-bg:  rgba(232,230,225,0.07);
+  --overlay-bg: rgba(26,26,27,0.97);
+
+  --grain-opacity: 0.035;
+  --glow-sage: rgba(141,163,153,0.09);
+  --glow-gold: rgba(212,175,55,0.07);
+  --glow-gold-sm:    rgba(212,175,55,0.05);
+
+  --water-faint:     rgba(122,184,200,0.03);
+  --water-tint-sm:   rgba(122,184,200,0.04);
+  --bg-stripe-alt:   rgba(122,184,200,0.02);
+  --water-progress:  rgba(122,184,200,0.18);
+  --water-dot-glow:  rgba(122,184,200,0.4);
+  --water-bar-track: rgba(122,184,200,0.10);
+  --overlay-hero-dark: rgba(0,0,0,0.45);
+
+  --gradient-hero:    radial-gradient(ellipse at 50% 40%, rgba(122,184,200,0.07) 0%, rgba(141,163,153,0.05) 40%, transparent 70%);
+  --gradient-section: radial-gradient(ellipse at 30% 50%, rgba(141,163,153,0.05) 0%, transparent 55%);
+  --gradient-card:    linear-gradient(135deg, rgba(141,163,153,0.05), rgba(212,175,55,0.02));
+  --gradient-subtle:  linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+
+  --color-error: rgba(220,100,100,0.9);
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: none;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: 'Nunito', 'DM Sans', sans-serif;
+  font-weight: 350;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+/* Film grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+}
+
+#root {
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1, h2, h3, .serif-luxury {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  letter-spacing: var(--letter-spacing-serif);
+  color: var(--text-main);
+}
+
+h1 { font-weight: 600; font-size: 3rem;   line-height: 1.07; }
+h2 { font-weight: 500; font-size: 2rem;   line-height: 1.12; }
+h3 { font-weight: 500; font-size: 1.5rem; line-height: 1.18; }
+
+.font-prata { font-family: 'Cormorant Garamond', 'Georgia', serif; }
+.font-inter { font-family: 'Nunito', 'DM Sans', sans-serif; }
+
+/* Vietnamese subtitle / tagline */
+.vietnamese-sub {
+  font-family: 'Nunito', 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: var(--letter-spacing-tagline);
+  color: var(--water-crystal);
+  margin-top: -6px;
+  display: block;
+  font-weight: 400;
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-family: 'Nunito', 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: var(--letter-spacing-tagline);
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.aerova-btn {
+  border: var(--border-thin) solid var(--accent);
+  background: var(--btn-bg);
+  padding: 0 36px;
+  height: 48px;
+  color: var(--btn-text);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  transition: all 0.5s var(--ease-out-expo);
+  cursor: pointer;
+  font-family: 'Nunito', 'DM Sans', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  min-width: 200px;
+  isolation: isolate;
+}
+
+.aerova-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease-out-expo);
+  z-index: -1;
+}
+
+.aerova-btn:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.aerova-btn:hover {
+  background: transparent;
+  border-color: var(--gold);
+  color: var(--obsidian);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(212,175,55,0.18);
+}
+
+.aerova-btn > * { position: relative; z-index: 1; }
+.aerova-btn:active { transform: translateY(0); }
+.aerova-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+.aerova-btn--gold {
+  border-color: var(--champagne-gold);
+  background: var(--btn-gold-bg);
+  color: var(--btn-gold-text);
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+.section-alt  { background-color: var(--bg-alt); }
+.section-alt-2 { background-color: var(--bg-alt-2); }
+
+/* ============================================
+   DIVIDER
+   ============================================ */
+.divider-thin {
+  height: var(--border-thin);
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.25;
+  margin: 40px 0;
+}
+
+/* ============================================
+   LIQUID GLASS UTILITY
+   ============================================ */
+.liquid-glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+.liquid-glass-sm {
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+}
+
+/* ============================================
+   WATER QUALITY BADGES
+   ============================================ */
+.quality-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  min-height: 30px;
+  border-radius: 20px;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--water-deep);
+  background: rgba(122,184,200,0.08);
+  border: 1px solid var(--water-border);
+  font-family: 'Nunito', 'DM Sans', sans-serif;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+}
+.quality-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.22) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: badgeShimmer 3.5s ease-in-out infinite;
+  animation-delay: var(--badge-delay, 0s);
+  border-radius: inherit;
+  pointer-events: none;
+}
+html.dark .quality-badge {
+  color: var(--water-crystal);
+  background: rgba(122,184,200,0.07);
+  border-color: rgba(122,184,200,0.22);
+}
+
+/* ============================================
+   PURITY FLOATING BADGES (hero)
+   ============================================ */
+.purity-float {
+  position: absolute;
+  padding: 6px 16px;
+  border: 1px solid var(--border-gold-strong);
+  background: rgba(255,255,255,0.68);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-family: 'Nunito', 'DM Sans', sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+  pointer-events: none;
+  /* Subtle iridescent top edge */
+  box-shadow: 0 1px 0 rgba(122,184,200,0.30) inset, 0 4px 20px rgba(212,175,55,0.08);
+}
+html.dark .purity-float {
+  background: rgba(26,26,27,0.72);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: 0 1px 0 rgba(122,184,200,0.18) inset, 0 4px 20px rgba(212,175,55,0.06);
+}
+
+/* ============================================
+   FORMS
+   ============================================ */
+input, textarea {
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  font-family: 'Nunito', 'DM Sans', sans-serif;
+}
+input:focus, textarea:focus {
+  border-color: var(--border-gold-strong) !important;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.07);
+}
+input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--water-crystal);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(122,184,200,0.15);
+}
+input::placeholder, textarea::placeholder {
+  color: var(--text-sub);
+  opacity: 0.5;
+  font-weight: 300;
+}
+
+/* ============================================
+   FLOATING LABELS
+   ============================================ */
+.float-field {
+  position: relative;
+}
+.float-field input,
+.float-field textarea {
+  padding-top: 1.625rem !important;
+  padding-bottom: 0.625rem !important;
+}
+.float-label {
+  position: absolute;
+  left: 1.25rem;
+  top: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-sub);
+  opacity: 0.5;
+  pointer-events: none;
+  transition: top 0.18s ease, font-size 0.18s ease, opacity 0.18s ease,
+              color 0.18s ease, letter-spacing 0.18s ease;
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1;
+  white-space: nowrap;
+}
+.float-label--area {
+  top: 1.1rem;
+}
+.float-field input:focus ~ .float-label,
+.float-field input:not(:placeholder-shown) ~ .float-label,
+.float-field textarea:focus ~ .float-label,
+.float-field textarea:not(:placeholder-shown) ~ .float-label {
+  top: 0.4rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 1;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* ============================================
+   IMAGE BLUR-UP ON LOAD
+   ============================================ */
+img {
+  transition: filter 0.4s ease;
+}
+img.loading {
+  filter: blur(8px);
+}
+
+/* ============================================
+   PRODUCT PLACEHOLDERS
+   ============================================ */
+.product-placeholder {
+  transition: box-shadow var(--transition-slow), border-color var(--transition-base), transform var(--transition-slow);
+  border: 1px solid var(--border-gold);
+}
+.product-placeholder:hover {
+  box-shadow: 0 0 80px var(--glow-gold);
+  border-color: var(--border-gold-strong);
+  transform: translateY(-4px);
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--sage); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--water-crystal); }
+
+.hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ============================================
+   SELECTION
+   ============================================ */
+::selection {
+  background: rgba(122,184,200,0.22);
+  color: var(--text-main);
+}
+
+/* ============================================
+   LINKS
+   ============================================ */
+a { transition: color var(--transition-base), opacity var(--transition-base); }
+
+/* ============================================
+   TOOLTIP
+   ============================================ */
+.aerova-tooltip { position: relative; cursor: help; }
+.aerova-tooltip .tooltip-text {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface-card);
+  border: 1px solid var(--border-gold-faint);
+  color: var(--text-sub);
+  font-size: 11px;
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.5;
+  padding: 6px 10px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 200;
+}
+.aerova-tooltip:hover .tooltip-text,
+.aerova-tooltip:focus-within .tooltip-text { opacity: 1; }
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+@media (max-width: 767px) {
+  .compare-scroll-hint {
+    -webkit-mask-image: linear-gradient(to right, black 0%, black 80%, transparent 100%);
+    mask-image: linear-gradient(to right, black 0%, black 80%, transparent 100%);
+  }
+}
+
+/* Filtration stages section: per-stage scroll budget.
+   Larger on touch sizes so each stage gets a calmer, more cinematic transition. */
+:root { --stages-step: 80vh; }
+@media (max-width: 1023px) {
+  :root { --stages-step: 110vh; }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  body::after { display: none; }
+}
+
+*:focus-visible {
+  outline: 2px solid var(--water-crystal);
+  outline-offset: 3px;
+}
+
+/* ============================================
+   ENTRANCE ANIMATIONS
+   ============================================ */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes revealFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes revealScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.reveal-up    { animation: revealUp    0.8s var(--ease-out-expo) both; }
+.reveal-fade  { animation: revealFade  0.6s var(--ease-out-expo) both; }
+.reveal-scale { animation: revealScale 0.7s var(--ease-out-expo) both; }
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.45s; }
+.delay-5 { animation-delay: 0.6s; }
+.delay-6 { animation-delay: 0.8s; }
+
+/* ============================================
+   WATER-THEMED ANIMATIONS
+   ============================================ */
+
+/* Floating water drop particle */
+@keyframes dropFloat {
+  0%, 100% {
+    transform: rotate(-45deg) translateY(0) scale(1);
+    opacity: 0;
+  }
+  8%  { opacity: 1; }
+  35% { transform: rotate(-49deg) translateY(-18px) scale(1.07); }
+  65% { transform: rotate(-42deg) translateY(-9px)  scale(0.96); }
+  92% { opacity: 0.85; }
+}
+
+/* Hero ring breathe */
+@keyframes breathe {
+  0%, 100% { opacity: 0.04; transform: translate(-50%,-50%) scale(1); }
+  50%       { opacity: 0.09; transform: translate(-50%,-50%) scale(1.05); }
+}
+
+/* Scroll nudge */
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1);    opacity: 0.4; }
+  50%       { transform: scaleY(1.35); opacity: 0.9; }
+}
+
+/* Badge shimmer */
+@keyframes badgeShimmer {
+  0%   { background-position: -200% center; }
+  60%  { background-position:  200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* Water ripple (for hover callout) */
+@keyframes waterRipple {
+  0%   { transform: scale(0.6); opacity: 0.5; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* Liquid shimmer — moves across the yield bar */
+@keyframes liquidShimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+/* Sustainability glow pulse */
+@keyframes sustainPulse {
+  0%, 100% { text-shadow: 0 0 40px rgba(141,163,153,0.0); }
+  50%       { text-shadow: 0 0 80px rgba(141,163,153,0.2); }
+}
+.sust-number-text {
+  animation: sustainPulse 4s ease-in-out infinite;
+}
+
+/* Testimonial accent line — needs left-origin for draw animation */
+.testi-accent-line {
+  transform-origin: left center;
+}
+
+/* Form success checkmark draw */
+@keyframes drawCheck {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Hero orbit ring spin */
+@keyframes orbitSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Ambient blob drift — slow, organic oscillation */
+@keyframes blobDrift {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  25%       { transform: translate(7%, 5%) scale(1.05); }
+  50%       { transform: translate(-4%, 9%) scale(0.96); }
+  75%       { transform: translate(5%, -6%) scale(1.03); }
+}
+
+/* Water drop breathing — scale pulse for SVG drops */
+@keyframes dropBreathe {
+  0%, 100% { transform: scale(1) translateY(0px); opacity: 0.6; }
+  50%       { transform: scale(1.07) translateY(-3px); opacity: 0.85; }
+}
+
+/* Iridescent hue shimmer — subtle chromatic cycling */
+@keyframes iridescentShift {
+  0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+  33%       { filter: hue-rotate(8deg)  brightness(1.04); }
+  66%       { filter: hue-rotate(-6deg) brightness(0.98); }
+}
+
+/* Ambient light blobs (hero background) */
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(52px);
+  pointer-events: none;
+}
+.hero-blob-1 {
+  width: 380px; height: 380px;
+  top: 10%; left: 5%;
+  background: var(--water-crystal);
+  opacity: 0.055;
+  animation: blobDrift 16s ease-in-out infinite;
+}
+.hero-blob-2 {
+  width: 300px; height: 300px;
+  top: 40%; right: 8%;
+  background: var(--champagne-gold);
+  opacity: 0.038;
+  animation: blobDrift 20s 4s ease-in-out infinite reverse;
+}
+.hero-blob-3 {
+  width: 220px; height: 220px;
+  bottom: 15%; left: 38%;
+  background: var(--morning-sage);
+  opacity: 0.045;
+  animation: blobDrift 24s 9s ease-in-out infinite;
+}
+html.dark .hero-blob-1 { opacity: 0.04; }
+html.dark .hero-blob-2 { opacity: 0.03; }
+html.dark .hero-blob-3 { opacity: 0.035; }
+
+/* Drop breathing applied to SVG product drops */
+.drop-breathe {
+  animation: dropBreathe 5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* ============================================
+   GEOMETRIC ACCENTS
+   ============================================ */
+.corner-frame { position: relative; }
+.corner-frame::before, .corner-frame::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--border-gold);
+  pointer-events: none;
+}
+.corner-frame::before { top: 0; left: 0;  border-top: 1px solid; border-left: 1px solid;  }
+.corner-frame::after  { bottom: 0; right: 0; border-bottom: 1px solid; border-right: 1px solid; }
+
+/* ============================================
+   HOVER INTERACTIONS
+   ============================================ */
+.hover-lift {
+  transition: transform 0.28s var(--ease-out-expo), box-shadow 0.28s var(--ease-out-expo);
+}
+.hover-lift:hover,
+.hover-lift:active {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 44px rgba(0,0,0,0.07);
+}
+html.dark .hover-lift:hover,
+html.dark .hover-lift:active {
+  box-shadow: 0 14px 44px rgba(0,0,0,0.22);
+}
+
+.hover-glow { transition: box-shadow 0.3s var(--ease-out-expo); }
+.hover-glow:hover { box-shadow: 0 0 60px var(--water-glow); }
+
+/* ============================================
+   HIW PROGRESS LINE
+   ============================================ */
+.hiw-progress-line {
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+/* ============================================
+   STAT COUNTER — prevent layout shift
+   ============================================ */
+.stat-number { min-width: 4ch; display: inline-block; }
+
+/* ============================================
+   3D PERSPECTIVE WRAPPER (ExplodedView)
+   ============================================ */
+.layers-3d {
+  perspective: 1100px;
+  perspective-origin: 50% 45%;
+}
+
+/* ============================================
+   EXPLODED VIEW — scroll-driven annotation panel
+   ============================================ */
+@keyframes featContentIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.feat-content-anim {
+  animation: featContentIn 0.55s var(--ease-out-expo) both;
+}
+
+@keyframes scrollCue {
+  0%, 100% { transform: translateY(-100%); }
+  50%       { transform: translateY(200%); }
+}
+
+/* ============================================
+   FEATURE CARDS
+   ============================================ */
+.feature-card {
+  transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo), border-color 0.25s;
+}
+.feature-card:hover,
+.feature-card:active {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.07);
+  border-color: var(--border-gold-strong) !important;
+}
+html.dark .feature-card:hover,
+html.dark .feature-card:active {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.26);
+}
+
+/* ============================================
+   CITY BUTTON
+   ============================================ */
+.city-btn {
+  transition: transform 0.25s var(--ease-out-expo), border-color 0.2s, background-color 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+}
+.city-btn:hover,
+.city-btn:active { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.05); }
+
+/* ============================================
+   YIELD BAR SHIMMER
+   ============================================ */
+.yield-bar-track { position: relative; overflow: hidden; }
+.yield-bar-fill  { position: relative; overflow: hidden; }
+.yield-bar-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  width: 40%;
+  animation: liquidShimmer 2.5s ease-in-out infinite;
+}
+
+/* ============================================
+   COMPARE TABLE
+   ============================================ */
+.compare-col {
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+/* Testimonial card hover */
+.testimonial-card {
+  transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo), border-color 0.2s;
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+}
+.testimonial-card:hover,
+.testimonial-card:active {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+  border-color: var(--border-gold-strong) !important;
+}
+html.dark .testimonial-card:hover,
+html.dark .testimonial-card:active {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.24);
+}
+
+/* Compare column cursor + transition */
+.compare-col {
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  :root { --section-pad: 80px; }
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.75rem; }
+  .vietnamese-sub { font-size: 9px; letter-spacing: 0.22em; }
+  .aerova-btn { padding: 0 28px; font-size: 10px; min-width: 0; }
+  nav a, nav button { min-height: 44px; display: inline-flex; align-items: center; }
+  body { font-size: 15px; }
+
+}
+
+@media (max-width: 480px) {
+  :root { --section-pad: 56px; }
+  h1 { font-size: 1.875rem; }
+  h2 { font-size: 1.5rem; }
+  body { font-size: 14px; }
+}
+
+/* ============================================
+   FILTRATION PIPELINE ANIMATION
+   ============================================ */
+
+/* Water droplet flowing down the stage connector line */
+@keyframes filtFlow {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 0.75; }
+  100% { transform: translateY(250%); opacity: 0; }
+}
+
+/* Connector line segment — needs relative + overflow to contain the particle */
+.filt-line-seg {
+  position: relative;
+  overflow: hidden;
+}
+
+/* The flowing water particle inside each connector */
+.filt-flow-particle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 28%;
+  background: linear-gradient(180deg, var(--water-crystal), rgba(122,184,200,0));
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Particle activates once stage is scrolled into view */
+.filt-stage.is-active .filt-flow-particle {
+  animation: filtFlow 2.6s ease-in-out infinite;
+  animation-delay: 0.5s; /* let line draw finish first */
+}
+
+
+/* ============================================
+   FILTRATION SECTION HEADING REVEAL
+   ============================================ */
+.filt-eyebrow-el  { opacity: 0; transform: translateY(16px); }
+.filt-headline-el { opacity: 0; transform: translateY(28px); }
+.filt-desc-el     { opacity: 0; transform: translateY(20px); }
+
+/* ============================================
+   HERO — MOBILE LAYOUT
+   Stacks text at the bottom so the canvas
+   machine/water animation fills the upper half
+   ============================================ */
+@media (max-width: 767px) {
+  .hero-left-gradient  { display: none !important; }
+  .hero-bottom-gradient { display: block !important; }
+
+  .hero-text-group {
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    bottom: 0 !important;
+    max-width: 100% !important;
+    padding: 0 24px 88px !important;
+    padding-right: 24px !important;
+    justify-content: flex-end !important;
+  }
+
+  .hero-text-group .hero-ctas {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-scroll-nudge {
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
-import { ThemeProvider } from './contexts/ThemeContext';
 import { LanguageProvider } from './contexts/LanguageContext';
 import App from './App';
 import './index.css';
+import 'flag-icons/css/flag-icons.min.css';
 import gsap from 'gsap';
 
 // Respect prefers-reduced-motion at the GSAP engine level.
@@ -17,11 +17,9 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HelmetProvider>
-      <ThemeProvider>
-        <LanguageProvider>
-          <App />
-        </LanguageProvider>
-      </ThemeProvider>
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
     </HelmetProvider>
   </React.StrictMode>
 );

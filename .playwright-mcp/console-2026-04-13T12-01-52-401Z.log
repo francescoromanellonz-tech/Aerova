@@ -1,0 +1,5 @@
+[     378ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5174/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:21608
+[     623ms] [WARNING] Invalid property scrollTrigger set to {trigger: .ct-grid, start: top 80%} Missing plugin? gsap.registerPlugin() @ http://localhost:5174/node_modules/.vite/deps/gsap.js?v=34bc7b71:85
+[     628ms] [WARNING] Invalid property scrollTrigger set to {trigger: .ct-grid, start: top 80%} Missing plugin? gsap.registerPlugin() @ http://localhost:5174/node_modules/.vite/deps/gsap.js?v=34bc7b71:85
+[     641ms] [WARNING] Invalid property scrollTrigger set to {trigger: .ct-grid, start: top 80%} Missing plugin? gsap.registerPlugin() @ http://localhost:5174/node_modules/.vite/deps/gsap.js?v=34bc7b71:85
+[     644ms] [WARNING] Invalid property scrollTrigger set to {trigger: .ct-grid, start: top 80%} Missing plugin? gsap.registerPlugin() @ http://localhost:5174/node_modules/.vite/deps/gsap.js?v=34bc7b71:85

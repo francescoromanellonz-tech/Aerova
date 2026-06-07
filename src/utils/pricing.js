@@ -1,10 +1,10 @@
 /**
  * pricing.js
- * AEROVA pricing helpers — VND first, USD secondary.
+ * AEROVA pricing helpers, VND first, USD secondary.
  *
  * VND_PER_USD is a fixed reference rate for display. Update periodically (or
  * fetch live from a Cloudflare Worker if exchange-rate accuracy becomes
- * important — currently the prices are themselves approximate so a fixed rate
+ * important, currently the prices are themselves approximate so a fixed rate
  * is fine for marketing display).
  *
  * VAT inclusion: Vietnamese consumer hardware prices are typically displayed
@@ -18,7 +18,6 @@ export const VND_PER_USD = 25400; // approx as of mid-2026; review quarterly
 /** Canonical SKU prices in USD (VAT-included consumer price). */
 export const PRICE_USD = {
   PURCHASE: 1500,
-  LEASE_MONTHLY: 89,
 };
 
 const fmtUSD = new Intl.NumberFormat('en-US', {
@@ -57,11 +56,6 @@ export function dualPrice(usdAmount) {
 /** Convenience: dual price for the standard $1,500 outright purchase. */
 export function purchasePrice() {
   return dualPrice(PRICE_USD.PURCHASE);
-}
-
-/** Convenience: dual price for the $89/month lease. */
-export function leaseMonthly() {
-  return dualPrice(PRICE_USD.LEASE_MONTHLY);
 }
 
 /**

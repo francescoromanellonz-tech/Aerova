@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import LangLink from './LangLink';
+import FooterWave from './FooterWave';
 import { useLanguage } from '../contexts/LanguageContext';
 import { t } from '../utils/translate';
 import { isValidEmail } from '../utils/validate';
@@ -45,53 +46,24 @@ function Footer() {
     <footer
       className="px-6 md:px-8 relative overflow-hidden"
       style={{
-        paddingTop:   '96px',
-        paddingBottom: '48px',
-        background:   'var(--bg)',
-        borderTop:    '1px solid var(--border-gold-faint)',
+        paddingTop:    '52px',
+        paddingBottom: '28px',
+        background:    'var(--bg)',
+        borderTop:     '1px solid var(--border-gold-faint)',
       }}
     >
-      {/* Large brand watermark — decorative background */}
-      <div
-        className="absolute right-0 bottom-0 select-none pointer-events-none"
-        aria-hidden="true"
-        style={{ opacity: 0.025 }}
-      >
-        <svg width="420" height="560" viewBox="0 0 28 36" fill="none" preserveAspectRatio="xMaxYMax meet">
-          <path d="M14 0C14 0 0 14 0 22a14 14 0 0028 0C28 14 14 0 14 0z" fill="var(--gold)"/>
-        </svg>
-      </div>
-
       <div className="max-w-6xl mx-auto relative z-10">
 
-        {/* ── Top statement ─────────────────────────────────────── */}
-        <div className="mb-16 pb-14" style={{ borderBottom: '1px solid var(--border-gold-faint)' }}>
-          <p
-            className="font-prata leading-tight mb-2"
-            style={{
-              fontSize:      'clamp(1.6rem, 4vw, 3.2rem)',
-              color:         'var(--text-main)',
-              letterSpacing: 'var(--letter-spacing-serif)',
-              maxWidth:      '680px',
-              opacity:       0.88,
-            }}
-          >
-            {t('footer_description', language)}
-          </p>
-          <span className="vietnamese-sub" style={{ opacity: 0.55 }}>Thiên Thủy — Nước Từ Trời</span>
-        </div>
-
         {/* ── Main grid: Brand | Navigation | Resources | Newsletter ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-12 lg:gap-14 mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-8">
 
           {/* Brand column */}
           <div>
-            <LangLink to="/" className="flex items-center gap-3 no-underline mb-6 group">
-              <div className="relative flex-shrink-0" style={{ width: 26, height: 33 }}>
-                <svg width="26" height="33" viewBox="0 0 28 36" fill="none" aria-hidden="true">
+            <LangLink to="/" className="flex items-center gap-2.5 no-underline mb-4 group">
+              <div className="relative flex-shrink-0" style={{ width: 22, height: 28 }}>
+                <svg width="22" height="28" viewBox="0 0 28 36" fill="none" aria-hidden="true">
                   <path d="M14 0C14 0 0 14 0 22a14 14 0 0028 0C28 14 14 0 14 0z" fill="none" stroke="var(--border-gold-strong)" strokeWidth="1"/>
                   <path d="M14 7C14 7 5 17 5 22a9 9 0 0018 0C23 17 14 7 14 7z" fill="var(--gold)" opacity="0.7"/>
-                  <ellipse cx="11" cy="19" rx="1.5" ry="2.2" fill="white" opacity="0.28" transform="rotate(-15 11 19)"/>
                 </svg>
               </div>
               <div>
@@ -99,14 +71,13 @@ function Footer() {
                 <span className="block" style={{ fontSize: '8px', letterSpacing: '0.16em', color: 'var(--gold)', fontWeight: 300, fontFamily: 'var(--font-body)', opacity: 0.75 }}>WATER FROM AIR</span>
               </div>
             </LangLink>
-            {/* Quality badges */}
-            <div className="flex flex-wrap gap-2 mt-4">
-              {['pH 7.4+', 'UV-C Treated', '99.9% Pure'].map(badge => (
+            <div className="flex flex-wrap gap-1.5">
+              {['pH 7.4+', 'UV-C', '99.9%'].map(badge => (
                 <span
                   key={badge}
-                  className="text-[9px] uppercase px-2.5 py-1"
+                  className="text-[8px] uppercase px-1.5 py-0.5"
                   style={{
-                    letterSpacing: '0.14em',
+                    letterSpacing: '0.12em',
                     color:         'var(--text-sub)',
                     border:        '1px solid var(--border-gold-faint)',
                     fontWeight:    400,
@@ -116,14 +87,28 @@ function Footer() {
                 </span>
               ))}
             </div>
+            <address className="not-italic mt-5 flex flex-col gap-1.5">
+              <span className="text-[9px] uppercase mb-1 block" style={{ letterSpacing: '0.2em', color: 'var(--gold)', fontWeight: 600, opacity: 0.75 }}>
+                {t('footer_contact_heading', language)}
+              </span>
+              <a href="tel:+84901234567" className="text-[10px] no-underline transition-opacity duration-200 hover:opacity-70" style={{ letterSpacing: '0.04em', color: 'var(--text-sub)', fontWeight: 300 }}>
+                {t('footer_phone', language)}
+              </a>
+              <a href="mailto:info@aerova.com" className="text-[10px] no-underline transition-opacity duration-200 hover:opacity-70" style={{ letterSpacing: '0.04em', color: 'var(--text-sub)', fontWeight: 300 }}>
+                {t('footer_email', language)}
+              </a>
+              <span className="text-[10px]" style={{ letterSpacing: '0.04em', color: 'var(--text-sub)', fontWeight: 300, opacity: 0.65 }}>
+                {t('footer_address_line', language)}
+              </span>
+            </address>
           </div>
 
           {/* Navigation column */}
           <div>
-            <h4 className="text-[9px] uppercase mb-5" style={{ letterSpacing: '0.28em', color: 'var(--gold)', fontWeight: 600 }}>
+            <h4 className="text-[9px] uppercase mb-3" style={{ letterSpacing: '0.28em', color: 'var(--gold)', fontWeight: 600 }}>
               Navigation
             </h4>
-            <nav className="flex flex-col gap-3.5">
+            <nav className="flex flex-col gap-2">
               {pageLinks.map((link) => (
                 <LangLink
                   key={link.key}
@@ -139,10 +124,10 @@ function Footer() {
 
           {/* Resources column */}
           <div>
-            <h4 className="text-[9px] uppercase mb-5" style={{ letterSpacing: '0.28em', color: 'var(--gold)', fontWeight: 600 }}>
+            <h4 className="text-[9px] uppercase mb-3" style={{ letterSpacing: '0.28em', color: 'var(--gold)', fontWeight: 600 }}>
               Resources
             </h4>
-            <nav className="flex flex-col gap-3.5">
+            <nav className="flex flex-col gap-2">
               {resourceLinks.map((link) => (
                 <LangLink
                   key={link.to}
@@ -158,12 +143,9 @@ function Footer() {
 
           {/* Newsletter column */}
           <div>
-            <h4 className="text-[9px] uppercase mb-5" style={{ letterSpacing: '0.28em', color: 'var(--gold)', fontWeight: 600 }}>
+            <h4 className="text-[9px] uppercase mb-3" style={{ letterSpacing: '0.28em', color: 'var(--gold)', fontWeight: 600 }}>
               {t('contact_newsletter_title', language)}
             </h4>
-            <p className="text-xs leading-relaxed mb-5" style={{ color: 'var(--text-sub)', fontWeight: 300, maxWidth: '280px' }}>
-              Updates on water technology, sustainability, and product launches.
-            </p>
             {subscribed ? (
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-2" style={{ color: 'var(--sage)' }}>
@@ -194,7 +176,7 @@ function Footer() {
                   required
                   aria-invalid={footerError}
                   aria-describedby={footerError ? 'footer-email-error' : undefined}
-                  className="w-full px-4 py-3 text-xs bg-transparent outline-none transition-colors duration-300"
+                  className="w-full px-3 py-2 text-xs bg-transparent outline-none transition-colors duration-300"
                   style={{
                     border:        footerError ? '1px solid var(--color-error)' : '1px solid var(--border-sage-strong)',
                     color:         'var(--text-main)',
@@ -215,7 +197,7 @@ function Footer() {
                 )}
                 <button
                   type="submit"
-                  className="w-full py-3 text-[10px] uppercase transition-all duration-300 hover:opacity-75"
+                  className="w-full py-2 text-[10px] uppercase transition-all duration-300 hover:opacity-75"
                   style={{
                     background:    'var(--surface-gold)',
                     border:        '1px solid var(--border-gold-strong)',
@@ -235,7 +217,7 @@ function Footer() {
 
         {/* ── Bottom bar ────────────────────────────────────────── */}
         <div
-          className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8"
+          className="flex flex-col md:flex-row items-center justify-between gap-3 pt-5"
           style={{ borderTop: '1px solid var(--border-gold-faint)' }}
         >
           {/* Legal links */}
@@ -244,8 +226,8 @@ function Footer() {
               <LangLink
                 key={link.key}
                 to={link.to}
-                className="text-[9px] uppercase no-underline transition-opacity duration-300 hover:opacity-80"
-                style={{ letterSpacing: '0.16em', color: 'var(--text-sub)', fontWeight: 300, opacity: 0.5 }}
+                className="text-[10px] uppercase no-underline transition-opacity duration-300 hover:opacity-80"
+                style={{ letterSpacing: '0.16em', color: 'var(--text-sub)', fontWeight: 300, opacity: 0.55 }}
               >
                 {t(link.key, language)}
               </LangLink>
@@ -254,13 +236,16 @@ function Footer() {
 
           {/* Copyright */}
           <p
-            className="text-[9px] uppercase"
-            style={{ letterSpacing: '0.14em', color: 'var(--text-sub)', fontWeight: 300, opacity: 0.35 }}
+            className="text-[10px] uppercase"
+            style={{ letterSpacing: '0.14em', color: 'var(--text-sub)', fontWeight: 300, opacity: 0.45 }}
           >
             {t('footer_copyright', language)}
           </p>
         </div>
       </div>
+
+      {/* Site-wide signature wave at the very bottom of the footer */}
+      <FooterWave />
     </footer>
   );
 }

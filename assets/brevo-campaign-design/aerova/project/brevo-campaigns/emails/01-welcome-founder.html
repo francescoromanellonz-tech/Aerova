@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<!--
+============================================================
+BREVO META — paste into the email campaign metadata
+============================================================
+Flow:          Welcome sequence · Email 01 of 5
+Trigger:       5 minutes after Sky Water Guide signup
+From name:     Franc from AEROVA
+From address:  franc@aerova.vn          (use the personal address, not marketing@)
+Reply-to:      franc@aerova.vn
+Subject:       Your water question, answered
+Preheader:     Your Sky Water Guide is attached. One number first.
+Format:        PLAIN TEXT ONLY — no HTML, no header image, no footer design.
+               Sending as HTML defeats the domain-warmup purpose of this email.
+Word count:    ~160 words
+============================================================
+-->
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Welcome 01 — Your water question, answered (plain text)</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#17191c;--ink-2:#3a3f47;--muted:#7a7771;--line:#d9d3c5;--paper:#f2ede1;--card:#fbf8ef;--graphite:#2a2c30;--rust:#7a3838;--gold:#b9893a}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif}
+  .wrap{max-width:920px;margin:0 auto;padding:48px 28px 100px}
+  @media(max-width:760px){.wrap{padding:24px 16px 60px}}
+  .topbar{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:18px;border-bottom:1px solid var(--ink);margin-bottom:30px;gap:18px;flex-wrap:wrap}
+  .back{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--ink)}
+  .topbar .id{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+
+  /* Brief panel */
+  .brief{background:var(--card);border:1px solid var(--line);padding:24px 28px;margin-bottom:30px}
+  .brief .eye{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .brief h1{font-family:'Fraunces',serif;font-weight:300;font-size:34px;line-height:1.05;letter-spacing:-0.02em;margin:0 0 16px}
+  .brief h1 em{font-style:italic;font-weight:400}
+  .brief dl{display:grid;grid-template-columns:120px 1fr;gap:6px 18px;margin:0;font-size:13px;line-height:1.55}
+  @media(max-width:560px){.brief dl{grid-template-columns:90px 1fr}}
+  .brief dt{color:var(--muted);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding-top:3px}
+  .brief dd{margin:0;color:var(--ink-2);padding:1px 0;border-bottom:1px dashed var(--line)}
+  .brief dd:last-child,.brief dt:last-of-type{border-bottom:0}
+  .brief .warn{margin-top:16px;padding:12px 14px;background:#1a1a1b;color:#e8e6e1;border-left:3px solid var(--rust);font-size:12.5px;line-height:1.6}
+  .brief .warn b{color:#d4af37}
+
+  /* Inbox preview */
+  .inbox-wrap{margin-bottom:36px}
+  .inbox-lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;display:flex;justify-content:space-between}
+  .inbox{background:#fff;border:1px solid var(--line);padding:0;max-width:680px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#202124}
+  .inbox-hdr{padding:24px 28px 18px;border-bottom:1px solid #e6e6e6}
+  .inbox-hdr h2{margin:0 0 12px;font-size:20px;font-weight:400;color:#202124;line-height:1.3}
+  .from-row{display:flex;gap:14px;align-items:flex-start;font-size:14px}
+  .avatar{width:38px;height:38px;border-radius:50%;background:#1a1a1b;color:#d4af37;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:16px;font-weight:400;flex-shrink:0}
+  .from-meta{flex:1;min-width:0}
+  .from-line{font-size:14px;color:#202124}
+  .from-line b{font-weight:500}
+  .from-line .addr{color:#5f6368;font-size:13px}
+  .to-line{color:#5f6368;font-size:12.5px;margin-top:2px}
+  .sent-time{color:#5f6368;font-size:12.5px;text-align:right;flex-shrink:0;padding-top:4px}
+
+  .inbox-body{padding:30px 28px 36px;font-size:14px;line-height:1.65;color:#202124;white-space:pre-wrap;word-wrap:break-word}
+
+  /* Raw text panel */
+  .raw{margin-top:36px;background:var(--card);border:1px solid var(--line)}
+  .raw-hdr{padding:14px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .raw-hdr h3{margin:0;font-family:'Fraunces',serif;font-weight:400;font-size:18px}
+  .raw-hdr .copy{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);cursor:pointer;border:1px solid var(--line);background:#fff;padding:6px 12px;font-family:inherit;transition:all .15s}
+  .raw-hdr .copy:hover{color:var(--ink);border-color:var(--ink)}
+  .raw-hdr .copy.copied{color:#2d5d6b;border-color:#2d5d6b}
+  pre.raw-body{margin:0;padding:24px 26px;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.7;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+
+  .notes{margin-top:36px;font-size:12px;color:var(--muted);line-height:1.65;border-top:1px solid var(--line);padding-top:18px}
+  .notes b{color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back" href="../index.html">← All campaigns</a>
+    <div class="id">Welcome · 01 of 05 · Day 0</div>
+  </div>
+
+  <div class="brief">
+    <div class="eye">Brevo brief · paste into campaign metadata</div>
+    <h1>Your water question, <em>answered.</em></h1>
+    <dl>
+      <dt>Flow</dt><dd>Welcome sequence · Email 01 of 5</dd>
+      <dt>Trigger</dt><dd>5 minutes after Sky Water Guide signup (transactional)</dd>
+      <dt>From name</dt><dd>Franc from AEROVA</dd>
+      <dt>From address</dt><dd>franc@aerova.vn — personal, not the marketing alias</dd>
+      <dt>Reply-to</dt><dd>franc@aerova.vn</dd>
+      <dt>Subject</dt><dd>Your water question, answered &nbsp;<span style="color:var(--muted);font-size:11px">(5 words · 29 chars)</span></dd>
+      <dt>Preheader</dt><dd>Your Sky Water Guide is attached. One number first.</dd>
+      <dt>CTA</dt><dd>Single link mid-text: <code style="font-family:'JetBrains Mono',monospace;background:#fff;padding:1px 5px;font-size:12px">{{guide_url}}</code></dd>
+      <dt>Format</dt><dd>Plain text only · no HTML wrapper, no header image, no footer chrome</dd>
+    </dl>
+    <div class="warn"><b>Why plain text matters here.</b> This email warms the sending domain. HTML signals "marketing" to mail servers and significantly increases the chance of landing in Promotions instead of the Primary inbox. Sending Email 01 as plain text from a personal address establishes the domain as legitimate human correspondence — every email after this gets the benefit. Do not switch to HTML for this send under any circumstance.</div>
+  </div>
+
+  <div class="inbox-wrap">
+    <div class="inbox-lbl"><span>As it appears in Gmail</span><span>plain text · no images</span></div>
+    <div class="inbox">
+      <div class="inbox-hdr">
+        <h2>Your water question, answered</h2>
+        <div class="from-row">
+          <div class="avatar">F</div>
+          <div class="from-meta">
+            <div class="from-line"><b>Franc from AEROVA</b> <span class="addr">&lt;franc@aerova.vn&gt;</span></div>
+            <div class="to-line">to me</div>
+          </div>
+          <div class="sent-time">Tue, 09:04</div>
+        </div>
+      </div>
+      <div class="inbox-body">Your guide is attached.
+
+A quick thing before you open it.
+
+Most families in Vietnam drink water that they think is clean. Boiled, filtered, or bought in bottles. It feels safe. It looks fine. It has no taste.
+
+But clean-looking and genuinely safe are two different things. And the gap between them is what we built this company to close.
+
+We made a machine that pulls water from the air above your home, filters it through seven stages, and puts it in your glass. No pipes. No bottles. No delivery schedule.
+
+The guide explains exactly how. Twelve pages. About ten minutes to read. Most people who finish it never look at a plastic water bottle the same way again.
+
+Open your guide:
+{{guide_url}}
+
+One question before you read it: what is your current water source at home, and how confident are you that it is genuinely safe?
+
+— Franc
+
+P.S. Reply to this email with any question. I read every reply personally.
+
+—
+Aerova · Vietnam
+Unsubscribe: {{unsubscribe_url}}</div>
+    </div>
+  </div>
+
+  <div class="raw">
+    <div class="raw-hdr">
+      <h3>Plain-text body</h3>
+      <button class="copy" data-copy>Copy</button>
+    </div>
+    <pre class="raw-body" id="raw-body">Your guide is attached.
+
+A quick thing before you open it.
+
+Most families in Vietnam drink water that they think is clean. Boiled, filtered, or bought in bottles. It feels safe. It looks fine. It has no taste.
+
+But clean-looking and genuinely safe are two different things. And the gap between them is what we built this company to close.
+
+We made a machine that pulls water from the air above your home, filters it through seven stages, and puts it in your glass. No pipes. No bottles. No delivery schedule.
+
+The guide explains exactly how. Twelve pages. About ten minutes to read. Most people who finish it never look at a plastic water bottle the same way again.
+
+Open your guide:
+{{guide_url}}
+
+One question before you read it: what is your current water source at home, and how confident are you that it is genuinely safe?
+
+— Franc
+
+P.S. Reply to this email with any question. I read every reply personally.
+
+—
+Aerova · Vietnam
+Unsubscribe: {{unsubscribe_url}}</pre>
+  </div>
+
+  <div class="notes">
+    <p><b>Brevo setup notes.</b> Create as a regular (manual) campaign in Brevo, switch the editor to <b>Plain text</b> mode (not "Drag &amp; drop" or "Rich HTML"). Paste the body above. Set the trigger via an automation workflow: <i>signup form submitted → wait 5 min → send this campaign</i>. Replace <code style="font-family:'JetBrains Mono',monospace;background:var(--card);padding:1px 5px">{{guide_url}}</code> and <code style="font-family:'JetBrains Mono',monospace;background:var(--card);padding:1px 5px">{{unsubscribe_url}}</code> with the real links. Brevo auto-inserts the unsubscribe token if you leave the placeholder out — use whichever is simpler.</p>
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('[data-copy]').forEach(btn=>{
+    btn.addEventListener('click',async()=>{
+      const txt=document.getElementById('raw-body').innerText;
+      try{await navigator.clipboard.writeText(txt);btn.textContent='Copied';btn.classList.add('copied');setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('copied')},1600)}catch(e){}
+    })
+  });
+</script>
+</body>
+</html>

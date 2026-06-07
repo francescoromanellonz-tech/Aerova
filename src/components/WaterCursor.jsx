@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * WaterCursor — Canvas 2D overlay that leaves water-ring ripples as the mouse moves.
+ * WaterCursor, Canvas 2D overlay that leaves water-ring ripples as the mouse moves.
  * Hovering a CTA button spawns a larger centred droplet impression.
  *
  * Zero GSAP conflict: uses its own RAF loop and does not touch the DOM scroll state.

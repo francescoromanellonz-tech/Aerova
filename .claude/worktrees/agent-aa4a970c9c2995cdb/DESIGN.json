@@ -1,0 +1,369 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-04-30T00:00:00.000Z",
+  "title": "Design System: AEROVA",
+  "extensions": {
+    "colorMeta": {
+      "obsidian": {
+        "role": "neutral",
+        "displayName": "Obsidian Matte",
+        "canonical": "oklch(15% 0.005 290)",
+        "tonalRamp": [
+          "oklch(15% 0.005 290)",
+          "oklch(26% 0.005 290)",
+          "oklch(37% 0.005 290)",
+          "oklch(48% 0.005 290)",
+          "oklch(59% 0.005 290)",
+          "oklch(70% 0.005 290)",
+          "oklch(81% 0.005 290)",
+          "oklch(92% 0.005 290)"
+        ]
+      },
+      "slate-charcoal": {
+        "role": "neutral",
+        "displayName": "Slate Charcoal",
+        "canonical": "oklch(34% 0.04 250)",
+        "tonalRamp": [
+          "oklch(18% 0.03 250)",
+          "oklch(28% 0.035 250)",
+          "oklch(38% 0.04 250)",
+          "oklch(48% 0.04 250)",
+          "oklch(58% 0.035 250)",
+          "oklch(70% 0.025 250)",
+          "oklch(82% 0.015 250)",
+          "oklch(94% 0.008 250)"
+        ]
+      },
+      "champagne-gold": {
+        "role": "primary",
+        "displayName": "Champagne Gold",
+        "canonical": "oklch(76% 0.135 90)",
+        "tonalRamp": [
+          "oklch(28% 0.07 85)",
+          "oklch(38% 0.09 87)",
+          "oklch(48% 0.11 88)",
+          "oklch(58% 0.125 89)",
+          "oklch(68% 0.13 90)",
+          "oklch(76% 0.135 90)",
+          "oklch(86% 0.085 92)",
+          "oklch(95% 0.04 95)"
+        ]
+      },
+      "morning-sage": {
+        "role": "secondary",
+        "displayName": "Morning Sage (light mode)",
+        "canonical": "oklch(50% 0.04 155)",
+        "tonalRamp": [
+          "oklch(20% 0.025 155)",
+          "oklch(30% 0.03 155)",
+          "oklch(40% 0.035 155)",
+          "oklch(50% 0.04 155)",
+          "oklch(60% 0.04 155)",
+          "oklch(72% 0.035 155)",
+          "oklch(84% 0.025 155)",
+          "oklch(94% 0.012 155)"
+        ]
+      },
+      "morning-sage-vibrant": {
+        "role": "secondary",
+        "displayName": "Morning Sage (dark mode vibrant)",
+        "canonical": "oklch(64% 0.04 155)",
+        "tonalRamp": [
+          "oklch(22% 0.025 155)",
+          "oklch(33% 0.03 155)",
+          "oklch(44% 0.035 155)",
+          "oklch(54% 0.04 155)",
+          "oklch(64% 0.04 155)",
+          "oklch(75% 0.035 155)",
+          "oklch(86% 0.022 155)",
+          "oklch(95% 0.01 155)"
+        ]
+      },
+      "atmosphere-blue": {
+        "role": "neutral",
+        "displayName": "Atmosphere Blue",
+        "canonical": "oklch(78% 0.015 240)",
+        "tonalRamp": [
+          "oklch(22% 0.012 240)",
+          "oklch(34% 0.014 240)",
+          "oklch(46% 0.015 240)",
+          "oklch(58% 0.015 240)",
+          "oklch(70% 0.015 240)",
+          "oklch(78% 0.015 240)",
+          "oklch(88% 0.01 240)",
+          "oklch(96% 0.006 240)"
+        ]
+      },
+      "water-crystal": {
+        "role": "tertiary",
+        "displayName": "Water Crystal (light mode)",
+        "canonical": "oklch(60% 0.075 220)",
+        "tonalRamp": [
+          "oklch(22% 0.04 220)",
+          "oklch(32% 0.055 220)",
+          "oklch(42% 0.07 220)",
+          "oklch(50% 0.08 220)",
+          "oklch(60% 0.075 220)",
+          "oklch(72% 0.065 220)",
+          "oklch(84% 0.04 220)",
+          "oklch(94% 0.02 220)"
+        ]
+      },
+      "water-crystal-vibrant": {
+        "role": "tertiary",
+        "displayName": "Water Crystal (dark mode vibrant)",
+        "canonical": "oklch(74% 0.06 220)",
+        "tonalRamp": [
+          "oklch(24% 0.035 220)",
+          "oklch(35% 0.045 220)",
+          "oklch(46% 0.055 220)",
+          "oklch(56% 0.06 220)",
+          "oklch(66% 0.06 220)",
+          "oklch(74% 0.06 220)",
+          "oklch(86% 0.04 220)",
+          "oklch(95% 0.018 220)"
+        ]
+      },
+      "water-deep": {
+        "role": "tertiary",
+        "displayName": "Water Deep",
+        "canonical": "oklch(50% 0.075 230)",
+        "tonalRamp": [
+          "oklch(20% 0.04 230)",
+          "oklch(30% 0.055 230)",
+          "oklch(40% 0.07 230)",
+          "oklch(50% 0.075 230)",
+          "oklch(60% 0.07 230)",
+          "oklch(72% 0.05 230)",
+          "oklch(84% 0.03 230)",
+          "oklch(94% 0.015 230)"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Fresh Water Cream",
+        "canonical": "oklch(95% 0.01 240)",
+        "tonalRamp": [
+          "oklch(20% 0.008 240)",
+          "oklch(34% 0.01 240)",
+          "oklch(48% 0.012 240)",
+          "oklch(62% 0.012 240)",
+          "oklch(74% 0.012 240)",
+          "oklch(85% 0.011 240)",
+          "oklch(92% 0.01 240)",
+          "oklch(96% 0.008 240)"
+        ]
+      },
+      "white-tinted": {
+        "role": "neutral",
+        "displayName": "Tinted White",
+        "canonical": "oklch(98% 0.005 90)",
+        "tonalRamp": [
+          "oklch(22% 0.005 90)",
+          "oklch(36% 0.005 90)",
+          "oklch(50% 0.005 90)",
+          "oklch(64% 0.005 90)",
+          "oklch(76% 0.005 90)",
+          "oklch(86% 0.005 90)",
+          "oklch(94% 0.005 90)",
+          "oklch(98% 0.005 90)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines only. One per page. Always paired with a 0.28em tracked Vietnamese tagline above or below."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles. Always preceded by an eyebrow label in champagne gold."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles, feature names, filtration stage names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Long-form prose. Capped at 65 to 75 characters per line on wide viewports."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Button labels, badge text, micro-eyebrows. 0.28em tracking, uppercase."
+      },
+      "eyebrow": {
+        "displayName": "Eyebrow",
+        "purpose": "Champagne-gold uppercase label that precedes every section headline."
+      }
+    },
+    "shadows": [
+      {
+        "name": "subtle",
+        "value": "0 1px 2px rgba(0,0,0,0.03)",
+        "purpose": "Small lifted surfaces (dropdowns, language menu)."
+      },
+      {
+        "name": "dropdown",
+        "value": "0 4px 12px rgba(0,0,0,0.08)",
+        "purpose": "Floating menus and the mobile overlay panel."
+      },
+      {
+        "name": "gold-hover-glow",
+        "value": "0 8px 32px rgba(212,175,55,0.18)",
+        "purpose": "Reactive lift on aerova-btn hover. The signature interaction shadow."
+      },
+      {
+        "name": "water-crystal-glow",
+        "value": "0 4px 24px rgba(122,184,200,0.12)",
+        "purpose": "Atmospheric refraction effect on data viz, badges, scroll dots."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The brand's signature easing. Used on every meaningful state transition."
+      },
+      {
+        "name": "transition-fast",
+        "value": "0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Hover color shifts, focus ring fades."
+      },
+      {
+        "name": "transition-base",
+        "value": "0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Default for most interactive transitions (input borders, badge fades)."
+      },
+      {
+        "name": "transition-slow",
+        "value": "0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Theme switch crossfades, page transitions."
+      },
+      {
+        "name": "btn-gold-sweep",
+        "value": "0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The aerova-btn gold-fill reveal duration. Do not shorten."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "2xl", "value": "1536px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The brand's signature outline button with a champagne-gold sweep that reveals on hover from the right edge.",
+      "html": "<button class=\"ds-btn-primary\"><span>REQUEST A QUOTE</span></button>",
+      "css": ".ds-btn-primary { position: relative; display: inline-flex; align-items: center; justify-content: center; min-width: 200px; height: 48px; padding: 0 36px; border: 1px solid #5E7A6E; background: transparent; color: #1F2F3D; font-family: 'Nunito', 'DM Sans', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; line-height: 1; cursor: pointer; overflow: hidden; isolation: isolate; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary::before { content: ''; position: absolute; inset: 0; background: #D4AF37; transform: scaleX(0); transform-origin: right; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); z-index: -1; } .ds-btn-primary:hover { background: transparent; border-color: #D4AF37; color: #1A1A1B; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(212,175,55,0.18); } .ds-btn-primary:hover::before { transform: scaleX(1); transform-origin: left; } .ds-btn-primary:focus-visible { outline: 2px solid #5A96A8; outline-offset: 3px; } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary > span { position: relative; z-index: 1; }"
+    },
+    {
+      "name": "Gold Button",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "Champagne-gold filled CTA used as the hero primary action and main quote/order entry points.",
+      "html": "<button class=\"ds-btn-gold\"><span>ORDER ONLINE</span></button>",
+      "css": ".ds-btn-gold { position: relative; display: inline-flex; align-items: center; justify-content: center; min-width: 200px; height: 48px; padding: 0 36px; border: 1px solid #D4AF37; background: #D4AF37; color: #1A1A1B; font-family: 'Nunito', 'DM Sans', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; line-height: 1; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(212,175,55,0.28); } .ds-btn-gold:focus-visible { outline: 2px solid #5A96A8; outline-offset: 3px; } .ds-btn-gold:active { transform: translateY(0); }"
+    },
+    {
+      "name": "Quality Badge",
+      "kind": "chip",
+      "refersTo": "badge-quality",
+      "description": "Pill-shaped water-quality credential. Carries shimmer animation suggesting atmospheric refraction.",
+      "html": "<span class=\"ds-badge-quality\">99.9% PURE</span>",
+      "css": ".ds-badge-quality { position: relative; display: inline-flex; align-items: center; gap: 5px; padding: 6px 14px; min-height: 30px; border: 1px solid rgba(122,184,200,0.28); border-radius: 20px; background: rgba(122,184,200,0.08); color: #3D7A8E; font-family: 'Nunito', 'DM Sans', sans-serif; font-weight: 600; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; backdrop-filter: blur(8px) saturate(140%); -webkit-backdrop-filter: blur(8px) saturate(140%); overflow: hidden; } .ds-badge-quality::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.22) 50%, transparent 100%); background-size: 200% 100%; animation: ds-badge-shimmer 3.5s ease-in-out infinite; pointer-events: none; } @keyframes ds-badge-shimmer { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }"
+    },
+    {
+      "name": "Purity Float Badge",
+      "kind": "chip",
+      "refersTo": "badge-purity-float",
+      "description": "Frosted gold-uppercase badge that floats beside the hero product image. Material-grade backdrop-filter, sharp rectangle.",
+      "html": "<span class=\"ds-purity-float\">PH 7.4+</span>",
+      "css": ".ds-purity-float { display: inline-block; padding: 6px 16px; border: 1px solid rgba(212,175,55,0.48); background: rgba(255,255,255,0.68); color: #D4AF37; font-family: 'Nunito', 'DM Sans', sans-serif; font-weight: 700; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); box-shadow: 0 1px 0 rgba(122,184,200,0.30) inset, 0 4px 20px rgba(212,175,55,0.08); }"
+    },
+    {
+      "name": "Eyebrow Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Champagne-gold uppercase label that precedes every section headline. The brand's typographic chapter marker.",
+      "html": "<span class=\"ds-eyebrow\">7-Stage Filtration</span>",
+      "css": ".ds-eyebrow { display: inline-block; color: #D4AF37; font-family: 'Nunito', 'DM Sans', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; line-height: 1; }"
+    },
+    {
+      "name": "Vietnamese Tagline",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Water-crystal Vietnamese subtitle that sits above or below display headlines. Required typographic signature for bilingual layouts.",
+      "html": "<span class=\"ds-vietnamese-sub\">Nước, Sinh ra Từ Không Khí</span>",
+      "css": ".ds-vietnamese-sub { display: block; margin-top: -6px; color: #5A96A8; font-family: 'Nunito', 'DM Sans', sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; line-height: 1; }"
+    },
+    {
+      "name": "Floating Label Input",
+      "kind": "input",
+      "refersTo": "input-floating",
+      "description": "Form input with a label that animates from placeholder position to a small uppercase eyebrow above on focus or fill.",
+      "html": "<div class=\"ds-float-field\"><input id=\"ds-email\" type=\"email\" placeholder=\" \" /><label for=\"ds-email\" class=\"ds-float-label\">Email Address</label></div>",
+      "css": ".ds-float-field { position: relative; display: inline-block; width: 320px; } .ds-float-field input { width: 100%; padding: 1.625rem 1.25rem 0.625rem; background: #EDF3F8; border: 1px solid rgba(141,163,153,0.30); color: #1F2F3D; font-family: 'Nunito', 'DM Sans', sans-serif; font-size: 1rem; font-weight: 350; line-height: 1; outline: none; transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1); } .ds-float-field input:focus { border-color: rgba(212,175,55,0.48); box-shadow: 0 0 0 3px rgba(212,175,55,0.07); } .ds-float-field input:focus-visible { outline: 2px solid #5A96A8; outline-offset: 2px; } .ds-float-label { position: absolute; left: 1.25rem; top: 1rem; pointer-events: none; color: #3B5268; opacity: 0.5; font-family: 'Nunito', 'DM Sans', sans-serif; font-weight: 300; font-size: 0.875rem; line-height: 1; transition: top 0.18s ease, font-size 0.18s ease, opacity 0.18s ease, color 0.18s ease, letter-spacing 0.18s ease; } .ds-float-field input:focus ~ .ds-float-label, .ds-float-field input:not(:placeholder-shown) ~ .ds-float-label { top: 0.4rem; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 1; color: #D4AF37; }"
+    },
+    {
+      "name": "Section Divider",
+      "kind": "custom",
+      "refersTo": "rounded.none",
+      "description": "Thin gold gradient line that marks the break between major narrative beats.",
+      "html": "<div class=\"ds-divider-thin\" role=\"separator\" aria-hidden=\"true\"></div>",
+      "css": ".ds-divider-thin { height: 1px; margin: 40px 0; background: linear-gradient(90deg, transparent, #D4AF37, transparent); opacity: 0.25; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Sky as Source",
+    "overview": "The site echoes what the product does: pull water from air and return it, mineralized, to the table. Every surface should feel like a passage between states — air becoming liquid, mist becoming droplet, dusk becoming dawn. Hero compositions are atmospheric rather than promotional. Color, motion, and typography conspire to make the technology feel inevitable rather than engineered. The system is editorial in pacing and material in texture. Cormorant Garamond carries craft and heritage; Nunito carries health and clarity. Champagne gold appears as an event, not a finish. Obsidian is a mood, not a default. Vietnamese typography is built into the system, not bolted on. The system explicitly rejects appliance-retail density and tech-SaaS conventions. The product is hardware that disappears into a serene space; the site behaves the same way.",
+    "keyCharacteristics": [
+      "Dual-register color: light mode is Restrained, dark mode is Committed.",
+      "Editorial pacing: large breathing room, exponential ease-outs, scroll-driven cinematics.",
+      "Material textures: film grain, gold gradients, crystal-blue glow, water-crystal pill badges.",
+      "Bilingual (VN/EN) by construction: 0.28em tagline tracking, diacritic-safe layout.",
+      "AA contrast in both modes (sage and water-crystal are darkened in light mode for AA).",
+      "Honors prefers-reduced-motion and Save-Data at the JS layer."
+    ],
+    "rules": [
+      { "name": "The One Metal Rule", "body": "Champagne gold is the brand's only warm metal. No brass, copper, bronze, or rose gold ever appears. Gold either does the job (focus rings, hover reveals, dividers, eyebrows) or it stays absent.", "section": "colors" },
+      { "name": "The No-Pure-Black, No-Pure-White Rule", "body": "#000 and #FFF are forbidden. Every neutral is tinted toward atmosphere blue or sage. Pure black flattens the cinematic dark mode; pure white shatters the cream warmth of light mode.", "section": "colors" },
+      { "name": "The Dual-Register Rule", "body": "Light mode runs Restrained — cream and tinted sage neutrals, gold accent ≤10%. Dark mode runs Committed — obsidian dominates 60%+ of every surface, gold expands to carry cinematic weight. Designs are dual-tested at this strategy boundary.", "section": "colors" },
+      { "name": "The Eyebrow-Then-Headline Rule", "body": "Section headlines are always preceded by a champagne-gold uppercase eyebrow label. Headlines without an eyebrow read like blog posts; with the eyebrow they read like product chapters.", "section": "typography" },
+      { "name": "The 0.28em Tagline Rule", "body": "Vietnamese taglines and label text use exactly 0.28em letter-spacing — the established --letter-spacing-tagline token. This is the brand's typographic signature; no other tracking value should be invented for label or tagline text.", "section": "typography" },
+      { "name": "The Body 65–75ch Rule", "body": "Long-form prose never exceeds 75 characters per line. The single most common readability failure on premium product sites is hero-width body copy; AEROVA refuses it.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Shadows appear only as a response to state — hover, focus, scroll-pin. Never use shadow to indicate hierarchy that color and spacing already convey.", "section": "elevation" },
+      { "name": "The Backdrop-Filter As Material Rule", "body": "backdrop-filter: blur() is used to convey physical material (frosted glass on the hero overlay, atmospheric purity-float badges, mobile nav). It is never decoration. If a blur could be removed and the surface still reads correctly, remove it.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do preserve the aerova-btn gold-reveal hover. The sweep is the brand's signature interaction and recognizable across the site.",
+      "Do lead every section headline with a champagne-gold uppercase eyebrow label.",
+      "Do use the 0.28em tagline tracking for all uppercase labels and Vietnamese subtitles.",
+      "Do keep body copy at 65 to 75 characters maximum line length on wide viewports.",
+      "Do use sharp 0-radius rectangles for buttons and cards. The hard edge is the brand.",
+      "Do apply dual-register color: light mode Restrained (gold ≤10%), dark mode Committed (obsidian dominates).",
+      "Do honor prefers-reduced-motion and Save-Data at the JS layer for canvas hero, filtration scroll-pin, and exploded view.",
+      "Do preserve Vietnamese diacritics and tracking in all bilingual layouts.",
+      "Do target WCAG 2.2 AA contrast in both light and dark modes."
+    ],
+    "donts": [
+      "Don't build appliance-retail layouts: spec-sheet density, price stickers, rotating product-on-white shots, electronics-store grids.",
+      "Don't build tech-SaaS or dashboard surfaces: gradient cards, hero-metric clichés in colored circles, repeating icon-plus-heading-plus-text feature tile grids.",
+      "Don't use #000 or #FFF. Every neutral must be tinted toward atmosphere or sage.",
+      "Don't introduce a second warm metal. Champagne gold is the only warm accent.",
+      "Don't use rounded corners on cards or buttons. The pill quality-badge is the only sanctioned rounded surface.",
+      "Don't use border-left or border-right greater than 1px as a colored stripe accent.",
+      "Don't apply gradient text (background-clip: text). Champagne gold on text is solid only.",
+      "Don't use backdrop-filter: blur() decoratively. Blur is reserved for material moments.",
+      "Don't wrap everything in a max-w-7xl mx-auto container. Containers are case-by-case, not a default.",
+      "Don't open a modal as a first thought. Exhaust inline and progressive alternatives.",
+      "Don't write em dashes or -- in copy. Use commas, colons, semicolons, periods, or parentheses.",
+      "Don't restate the headline in the body intro below it."
+    ]
+  }
+}

@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Aerova — Storyboards &amp; Prompts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17191c;
+    --ink-2:#3a3f47;
+    --muted:#7a7771;
+    --line:#d9d3c5;
+    --paper:#f2ede1;
+    --paper-2:#e8e2d2;
+    --card:#fbf8ef;
+    --graphite:#2a2c30;
+    --accent:#2d5d6b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1360px;margin:0 auto;padding:56px 44px 120px}
+  @media(max-width:760px){.wrap{padding:28px 18px 80px}}
+
+  /* Masthead */
+  .mast{border-bottom:1px solid var(--ink);padding-bottom:26px;margin-bottom:44px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+  .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(38px,5.8vw,66px);line-height:.98;letter-spacing:-0.025em;margin:14px 0 0}
+  h1 em{font-style:italic;font-weight:400}
+  .sub{font-family:'Fraunces',serif;font-weight:300;font-size:19px;color:var(--ink-2);max-width:720px;margin-top:16px;line-height:1.45}
+  .mast .meta{font-size:12px;color:var(--muted);text-align:right;line-height:1.7}
+  .mast .meta b{color:var(--ink);font-weight:500}
+
+  /* How-to strip */
+  .howto{background:var(--card);border:1px solid var(--line);padding:22px 26px;margin-bottom:46px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
+  @media(max-width:760px){.howto{grid-template-columns:1fr}}
+  .howto h3{margin:0 0 8px;font-family:'Fraunces',serif;font-weight:400;font-size:17px;letter-spacing:-0.01em}
+  .howto p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.55}
+  .howto b{color:var(--ink);font-weight:500}
+
+  /* Frame card */
+  .frame{margin-bottom:52px;display:grid;grid-template-columns:1.55fr 1fr;gap:34px;align-items:start}
+  @media(max-width:980px){.frame{grid-template-columns:1fr}}
+
+  .sketch{background:var(--card);border:1px solid var(--line);position:relative;overflow:hidden}
+  .sketch svg{display:block;width:100%;height:auto;background:var(--card)}
+  .slate{position:absolute;top:14px;left:14px;background:var(--graphite);color:#f7f5f0;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;padding:6px 10px;display:flex;gap:10px;align-items:center}
+  .slate .num{font-weight:500}
+  .slate .sep{opacity:.5}
+  .slate .pri{background:#8a6a28;padding:2px 6px;font-size:10px;letter-spacing:.14em}
+  .slate .pri.p1{background:#7a3838}
+  .slate .pri.p2{background:#8a6a28}
+  .slate .pri.p3{background:#315a66}
+  .ratio{position:absolute;bottom:12px;right:14px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--muted);background:rgba(251,248,239,.85);padding:4px 7px;border:1px solid var(--line)}
+
+  .spec h2{font-family:'Fraunces',serif;font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-0.02em;margin:0 0 6px}
+  .spec .page{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .spec .desc{color:var(--ink-2);font-size:14.5px;line-height:1.55;margin:0 0 18px}
+
+  .block{background:var(--card);border:1px solid var(--line);padding:14px 16px;margin-bottom:10px}
+  .block .lbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+  .copy{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);cursor:pointer;user-select:none;padding:2px 6px;border:1px solid var(--line);background:var(--paper);transition:all .15s}
+  .copy:hover{color:var(--ink);border-color:var(--ink)}
+  .copy.copied{color:var(--accent);border-color:var(--accent)}
+  .block pre{margin:0;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.55;color:var(--graphite);white-space:pre-wrap;word-break:break-word}
+  .block.neg pre{color:#6b4848}
+
+  .kv{display:grid;grid-template-columns:90px 1fr;font-size:12px;color:var(--ink-2);line-height:1.7;gap:0 14px;margin-top:10px}
+  .kv dt{color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-size:10px;padding-top:3px}
+  .kv dd{margin:0;padding:2px 0;border-bottom:1px dashed var(--line)}
+  .kv dt{padding-bottom:2px;border-bottom:1px dashed var(--line)}
+  .kv > *:nth-last-child(-n+2){border-bottom:0}
+
+  .foot{margin-top:40px;border-top:1px solid var(--ink);padding-top:22px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+  /* Section rule */
+  .rule{font-family:'Fraunces',serif;font-size:22px;font-weight:400;letter-spacing:-0.01em;color:var(--ink);margin:8px 0 28px;padding-bottom:14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
+  .rule .r{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div>
+      <div class="eyebrow">Aerova · Storyboards for AI image generation</div>
+      <h1>Twelve frames,<br/>drawn to <em>brief.</em></h1>
+      <p class="sub">Each frame below is a composition sketch, a written prompt, and a negative prompt. Paste the prompts into Midjourney, Flux, Nano Banana, or whichever model you prefer. The sketches are for you — they show what <em>in-frame</em> should look like, so you can reject generations that drift.</p>
+    </div>
+    <div class="meta">
+      <b>Aerova Water · Asia</b><br/>
+      Companion to the Asset Audit<br/>
+      12 frames · 3 priorities<br/>
+      <b>Use with image gen</b>
+    </div>
+  </header>
+
+  <div class="howto">
+    <div><h3>01 · Read the sketch first</h3><p>The line drawing shows <b>composition intent</b>: where the machine sits, where the eye lands, what the negative space is doing. Don't use it as input to the AI — it's your mental model.</p></div>
+    <div><h3>02 · Paste the prompt</h3><p>Copy the written prompt into your generator. Keep the <b>negative prompt</b> if your tool supports it — it blocks the AI-slop tropes the audit calls out.</p></div>
+    <div><h3>03 · Reject on drift</h3><p>If the generation shows a generic dispenser, smiling families, cold fluorescent grade, or a faked "3/4 kitchen," it failed the brief. Regenerate or move on.</p></div>
+  </div>
+
+  <!-- ============================================================
+       PRIORITY 1
+  ============================================================= -->
+  <div class="rule"><span>Priority 1 — unblocks the highest-traffic surfaces</span><span class="r">01 · 02 · 03</span></div>
+
+  <!-- FRAME 01 -->
+  <section class="frame">
+    <div class="sketch">
+      <div class="slate"><span class="num">SHOT 01</span><span class="sep">·</span><span>HOME / HERO</span><span class="sep">·</span><span class="pri p1">P1</span></div>
+      <span class="ratio">16:9 · 4K</span>
+      <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="rough1"><feTurbulence baseFrequency="0.9" numOctaves="1" seed="3"/><feDisplacementMap in="SourceGraphic" scale="0.7"/></filter>
+        </defs>
+        <g stroke="#2a2c30" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough1)">
+          <!-- window light shafts -->
+          <path d="M80 20 L190 260" stroke-dasharray="3 6" opacity=".4"/>
+          <path d="M200 20 L310 260" stroke-dasharray="3 6" opacity=".4"/>
+          <path d="M320 20 L430 260" stroke-dasharray="3 6" opacity=".4"/>
+          <!-- back wall / window frame -->
+          <path d="M40 60 L40 270 L760 270 L760 60"/>
+          <path d="M40 60 L760 60"/>
+          <path d="M280 60 L280 270 M500 60 L500 270"/>
+          <!-- horizon of counter -->
+          <path d="M0 320 L800 320"/>
+          <path d="M0 325 L800 325" opacity=".4"/>
+          <!-- counter edge -->
+          <path d="M0 450 L800 450"/>
+          <path d="M30 320 L30 450 M770 320 L770 450" opacity=".3"/>
+          <!-- Aerova unit: tall rectangle on counter -->
+          <path d="M470 150 L470 320 L570 320 L570 150 Z"/>
+          <path d="M485 175 L555 175 L555 225 L485 225 Z"/> <!-- display -->
+          <path d="M490 260 L550 260 M500 275 L540 275"/> <!-- vents -->
+          <!-- tap/nozzle area -->
+          <path d="M505 290 L505 305 L535 305 L535 290"/>
+          <!-- glass being filled -->
+          <path d="M515 310 L515 380 L535 380 L535 310"/>
+          <!-- water stream -->
+          <path d="M520 305 Q520 315 520 325 Q520 340 520 355" stroke-width="0.8" stroke-dasharray="1 3"/>
+          <!-- water level -->
+          <path d="M517 350 Q525 348 533 350" stroke-width="0.8"/>
+          <!-- hand holding glass -->
+          <path d="M500 385 Q505 395 520 395 L540 395 Q555 395 555 385 L555 420 L500 420 Z"/>
+          <path d="M510 395 L510 410 M520 395 L520 410 M530 395 L530 410 M540 395 L540 410" opacity=".5"/>
+          <!-- morning light wash -->
+          <path d="M100 200 Q200 250 300 310" stroke-dasharray="2 8" opacity=".3"/>
+          <path d="M150 180 Q260 240 360 310" stroke-dasharray="2 8" opacity=".3"/>
+          <!-- stone counter veining -->
+          <path d="M80 360 Q180 370 250 355 Q320 345 400 365" opacity=".35"/>
+          <path d="M420 380 Q520 370 620 385 Q700 395 760 380" opacity=".25"/>
+          <!-- pendant lamp -->
+          <path d="M180 60 L180 100 M175 100 Q175 115 180 115 Q185 115 185 100" opacity=".7"/>
+          <!-- annotation -->
+          <g font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7771">
+            <path d="M210 90 L160 60 M195 90 L195 80" stroke-width=".6" opacity=".6"/>
+            <text x="215" y="94">MORNING LIGHT</text>
+            <path d="M455 250 L440 280" stroke-width=".6" opacity=".6"/>
+            <text x="380" y="295">AEROVA</text>
+            <path d="M548 340 L580 365" stroke-width=".6" opacity=".6"/>
+            <text x="585" y="370">POUR · HERO BEAT</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="spec">
+      <div class="page">Home · hero film + stills</div>
+      <h2>Morning kitchen, water poured slow.</h2>
+      <p class="desc">Warm dawn light angles through a window onto a stone counter. The Aerova stands just right of centre. A hand lowers a short glass beneath the nozzle; the stream catches the light. The product is present but not the subject — the water is.</p>
+      <div class="block">
+        <div class="lbl"><span>Prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>Editorial photograph, warm morning light streaming through tall kitchen window onto pale travertine countertop, a matte black tall countertop water dispenser standing on the counter right of centre, a hand from the right lowering a short heavy-bottomed drinking glass under the dispenser nozzle, clear water stream visible filling the glass, soft shadows, 3200K natural light, Kinfolk-like stillness, muted palette of bone / warm greige / deep teal accent, shot on medium format 80mm f/4, shallow but not defocused, editorial food-photography tradition, film grain subtle, 16:9, --ar 16:9</pre>
+      </div>
+      <div class="block neg">
+        <div class="lbl"><span>Negative prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>cartoon, 3d render, cgi, illustration, smiling people, faces, family gathering, saturated blue, cold fluorescent light, generic water cooler, plastic bottle dispenser, office watercooler, showroom, white seamless background, logo, text, watermark, tilt-shift miniature, HDR, oversharpened</pre>
+      </div>
+      <dl class="kv">
+        <dt>Format</dt><dd>4K film + RAW stills</dd>
+        <dt>Aspect</dt><dd>16:9 + 4:5 crop</dd>
+        <dt>Light</dt><dd>Natural, east window, 3200K</dd>
+        <dt>Subject</dt><dd>Hand + glass + water column</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FRAME 02 -->
+  <section class="frame">
+    <div class="sketch">
+      <div class="slate"><span class="num">SHOT 02</span><span class="sep">·</span><span>HOME / CLOSING</span><span class="sep">·</span><span class="pri p1">P1</span></div>
+      <span class="ratio">16:9</span>
+      <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+        <defs><filter id="rough2"><feTurbulence baseFrequency="0.85" numOctaves="1" seed="5"/><feDisplacementMap in="SourceGraphic" scale="0.7"/></filter></defs>
+        <g stroke="#2a2c30" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough2)">
+          <!-- horizon / sea line -->
+          <path d="M0 210 L800 210" opacity=".5"/>
+          <!-- large window opening -->
+          <path d="M60 60 L60 380 L740 380 L740 60"/>
+          <path d="M60 60 L740 60"/>
+          <!-- setting sun -->
+          <circle cx="560" cy="170" r="28" opacity=".7"/>
+          <path d="M560 175 Q580 178 600 175" opacity=".3"/>
+          <!-- reflection -->
+          <path d="M540 220 L580 220 M535 230 L585 230 M530 240 L590 240" opacity=".3"/>
+          <!-- floor horizon -->
+          <path d="M0 380 L800 380"/>
+          <!-- Aerova unit against left window edge -->
+          <path d="M130 200 L130 380 L220 380 L220 200 Z"/>
+          <path d="M145 225 L205 225 L205 260 L145 260 Z"/>
+          <path d="M155 290 L195 290 M160 305 L190 305 M165 320 L185 320" opacity=".5"/>
+          <!-- tap detail -->
+          <path d="M170 340 L170 355 L195 355 L195 340"/>
+          <!-- low side table, right -->
+          <path d="M520 340 L520 380 L620 380 L620 340 Z"/>
+          <!-- vase with branches -->
+          <path d="M555 310 Q555 340 565 340 L585 340 Q595 340 595 310" />
+          <path d="M570 310 Q565 280 555 260 M580 310 Q585 280 590 255 M575 310 Q572 270 568 240" opacity=".8"/>
+          <!-- empty chair silhouette mid-ground -->
+          <path d="M340 290 L340 380 M410 290 L410 380 M340 290 L410 290 M340 310 L410 310" opacity=".7"/>
+          <path d="M340 290 L340 260 L405 260 L410 290" opacity=".7"/>
+          <!-- floor grain -->
+          <path d="M50 395 L760 395" opacity=".3"/>
+          <path d="M80 410 L720 410" opacity=".25"/>
+          <path d="M120 425 L680 425" opacity=".2"/>
+          <!-- annotations -->
+          <g font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7771">
+            <path d="M225 270 L260 250" stroke-width=".6" opacity=".6"/>
+            <text x="262" y="254">AEROVA · IN PLACE</text>
+            <path d="M590 160 L640 140" stroke-width=".6" opacity=".6"/>
+            <text x="642" y="144">LOW SUN · 2800K</text>
+            <text x="330" y="440">NO PEOPLE IN FRAME — THE ROOM SPEAKS</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="spec">
+      <div class="page">Home · closing lifestyle</div>
+      <h2>Evening living room, unit at rest.</h2>
+      <p class="desc">A real coastal living room at golden hour. The Aerova anchors the left third of the frame against an open window; the sea beyond. An empty chair, a vase with dried branches — signs of life, no one in frame. Warm, quiet, inhabited.</p>
+      <div class="block">
+        <div class="lbl"><span>Prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>Editorial interior photograph, coastal living room at golden hour, low setting sun through a large open window opening onto the sea, a matte black tall countertop water dispenser standing against the left window frame, an empty linen-upholstered chair mid-ground, a small side table with a stone vase and dried branches, warm wide-plank oak floor, natural materials, 2800K golden light, long soft shadows, Aesop-like stillness, muted editorial palette, no people, Architectural Digest feel, shot on medium format 50mm, 16:9</pre>
+      </div>
+      <div class="block neg">
+        <div class="lbl"><span>Negative prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>cgi, 3d render, illustration, people, faces, cold blue hour, overexposed sky, generic bottled water cooler, plastic jug, office setting, modern glass skyscraper, HDR, tilt-shift, oversaturated</pre>
+      </div>
+      <dl class="kv">
+        <dt>Format</dt><dd>RAW stills</dd>
+        <dt>Aspect</dt><dd>16:9 + 4:5</dd>
+        <dt>Light</dt><dd>Golden hour, 2800K</dd>
+        <dt>Loc</dt><dd>Real coastal home</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FRAME 03 -->
+  <section class="frame">
+    <div class="sketch">
+      <div class="slate"><span class="num">SHOT 03</span><span class="sep">·</span><span>SOCIAL / OG CARD</span><span class="sep">·</span><span class="pri p1">P1</span></div>
+      <span class="ratio">1200 × 630</span>
+      <svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+        <defs><filter id="rough3"><feTurbulence baseFrequency="0.9" numOctaves="1" seed="9"/><feDisplacementMap in="SourceGraphic" scale="0.7"/></filter></defs>
+        <g stroke="#2a2c30" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough3)">
+          <!-- safe area hint -->
+          <rect x="60" y="50" width="680" height="320" stroke-dasharray="3 5" opacity=".3"/>
+          <!-- paper ground line -->
+          <path d="M0 280 L800 280"/>
+          <!-- Aerova centred but offset left -->
+          <path d="M260 110 L260 380 L370 380 L370 110 Z"/>
+          <path d="M280 140 L350 140 L350 195 L280 195 Z"/>
+          <path d="M290 230 L340 230 M295 250 L335 250 M300 268 L330 268" opacity=".5"/>
+          <path d="M300 295 L300 315 L330 315 L330 295"/>
+          <!-- glass right of machine -->
+          <path d="M460 270 L460 350 L495 350 L495 270 Z"/>
+          <path d="M465 290 Q477 288 490 290" opacity=".5"/>
+          <!-- drop of water -->
+          <path d="M478 260 Q475 266 478 272 Q481 266 478 260" fill="#2a2c30" opacity=".7"/>
+          <!-- wordmark zone (empty rectangle placeholder) -->
+          <path d="M500 120 L700 120 L700 155 L500 155 Z" stroke-dasharray="3 4" opacity=".4"/>
+          <g font-family="Fraunces,serif" font-size="28" fill="#2a2c30" opacity=".5">
+            <text x="540" y="148" font-style="italic">aerova</text>
+          </g>
+          <!-- paper texture hatches -->
+          <path d="M0 305 L800 305" opacity=".2"/>
+          <path d="M0 330 L800 330" opacity=".15"/>
+          <!-- annotations -->
+          <g font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7771">
+            <path d="M55 45 L55 25 L200 25" stroke-width=".6" opacity=".6"/>
+            <text x="205" y="29">SAFE AREA · 1200×630</text>
+            <text x="250" y="410">WARM PAPER GROUND · PRODUCT + GLASS + WORDMARK</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="spec">
+      <div class="page">Social · /og-image.jpg</div>
+      <h2>The card every share preview deserves.</h2>
+      <p class="desc">Product, glass, wordmark — nothing else. A single editorial still composed for the 1200×630 OpenGraph aspect. Can be pulled from the Shot 01 session or shot independently as a tabletop still life. Replaces today's broken share preview.</p>
+      <div class="block">
+        <div class="lbl"><span>Prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>Editorial still-life photograph for social card, matte black tall water dispenser on left third of frame, a simple heavy-bottomed clear drinking glass right of centre on the same surface, warm bone-coloured paper background with subtle texture, directional soft window light from upper left, one gentle cast shadow, muted minimal composition, negative space top-right for logo placement, Aesop product still life feel, medium format, 85mm f/5.6, landscape orientation, 1200x630 aspect</pre>
+      </div>
+      <div class="block neg">
+        <div class="lbl"><span>Negative prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>busy background, props, multiple glasses, text, logo burned in, watermark, gradient background, glossy reflection, studio seamless white, cold blue light, 3d render, cgi, stock photography look</pre>
+      </div>
+      <dl class="kv">
+        <dt>Format</dt><dd>1200 × 630 JPG</dd>
+        <dt>File</dt><dd>/og-image.jpg</dd>
+        <dt>Light</dt><dd>Soft directional, upper left</dd>
+        <dt>Leave room</dt><dd>Upper right — no wordmark burned in</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRIORITY 2
+  ============================================================= -->
+  <div class="rule" style="margin-top:10px"><span>Priority 2 — product depth &amp; human context</span><span class="r">04 – 08</span></div>
+
+  <!-- FRAME 04 -->
+  <section class="frame">
+    <div class="sketch">
+      <div class="slate"><span class="num">SHOT 04</span><span class="sep">·</span><span>PRODUCT / TAP DETAIL</span><span class="sep">·</span><span class="pri p2">P2</span></div>
+      <span class="ratio">1:1 + 4:5</span>
+      <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+        <defs><filter id="rough4"><feTurbulence baseFrequency="0.9" numOctaves="1" seed="2"/><feDisplacementMap in="SourceGraphic" scale="0.7"/></filter></defs>
+        <g stroke="#2a2c30" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough4)">
+          <!-- dark matte ground fill hint -->
+          <path d="M0 320 L800 320"/>
+          <g opacity=".35">
+            <path d="M0 340 L800 340"/>
+            <path d="M0 360 L800 360"/>
+            <path d="M0 380 L800 380"/>
+            <path d="M0 400 L800 400"/>
+            <path d="M0 420 L800 420"/>
+          </g>
+          <!-- machine body edge, close crop -->
+          <path d="M200 30 L200 320"/>
+          <path d="M200 30 L600 30 L600 320"/>
+          <!-- chamfer detail -->
+          <path d="M200 260 L600 260" opacity=".4"/>
+          <!-- nozzle -->
+          <path d="M370 260 L370 300 L430 300 L430 260"/>
+          <path d="M385 300 L385 312 L415 312 L415 300"/>
+          <!-- water column, prominent -->
+          <path d="M400 312 L395 370 L405 370 Z" fill="#2a2c30" opacity=".6" stroke="none"/>
+          <!-- splash ripples -->
+          <path d="M370 390 Q400 380 430 390" opacity=".6"/>
+          <path d="M350 405 Q400 395 450 405" opacity=".4"/>
+          <path d="M330 418 Q400 410 470 418" opacity=".25"/>
+          <!-- tiny droplet mid-air -->
+          <circle cx="392" cy="350" r="1.5" fill="#2a2c30"/>
+          <circle cx="408" cy="360" r="1" fill="#2a2c30" opacity=".6"/>
+          <!-- rim light indication -->
+          <path d="M195 30 L195 320" stroke-dasharray="2 4" opacity=".5"/>
+          <!-- annotations -->
+          <g font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7771">
+            <path d="M190 100 L150 100" stroke-width=".6" opacity=".6"/>
+            <text x="60" y="104">RIM LIGHT · SINGLE</text>
+            <path d="M440 330 L500 340" stroke-width=".6" opacity=".6"/>
+            <text x="505" y="344">WATER COLUMN · HERO</text>
+            <text x="260" y="440">MATTE BLACK GROUND · ONE LIGHT</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="spec">
+      <div class="page">Product · feature card re-master</div>
+      <h2>Tap detail, dark ground.</h2>
+      <p class="desc">A tight, moody re-master of the current tap close-up. Matte black counter, a single directional rim light, a clean vertical column of water. Replaces the flat-backgrounded existing shot. Reads as product, not catalogue.</p>
+      <div class="block">
+        <div class="lbl"><span>Prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>Extreme close-up editorial product photograph, lower section of a matte black water dispenser, tap nozzle centred, a clean vertical column of clear water pouring onto matte black stone counter, fine droplet splash and subtle ripples, single hard rim light from upper left catching the edge of the machine and the water column, rest of scene in deep shadow, dramatic low-key, Apple product photography feel, medium format 100mm macro, f/8, 1:1 square aspect</pre>
+      </div>
+      <div class="block neg">
+        <div class="lbl"><span>Negative prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>bright white seamless, glossy reflective floor, colored lighting, gradient background, cgi, 3d render, HDR glow, lens flare, logo, text, busy background, multiple light sources</pre>
+      </div>
+      <dl class="kv">
+        <dt>Format</dt><dd>RAW stills</dd>
+        <dt>Aspect</dt><dd>1:1 + 4:5</dd>
+        <dt>Light</dt><dd>Single rim, upper left</dd>
+        <dt>Ground</dt><dd>Matte black stone</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FRAME 05 -->
+  <section class="frame">
+    <div class="sketch">
+      <div class="slate"><span class="num">SHOT 05</span><span class="sep">·</span><span>ABOUT / FOUNDER</span><span class="sep">·</span><span class="pri p2">P2</span></div>
+      <span class="ratio">4:5</span>
+      <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+        <defs><filter id="rough5"><feTurbulence baseFrequency="0.85" numOctaves="1" seed="7"/><feDisplacementMap in="SourceGraphic" scale="0.7"/></filter></defs>
+        <g stroke="#2a2c30" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough5)">
+          <!-- wall -->
+          <path d="M40 40 L760 40 L760 380 L40 380 Z" opacity=".6"/>
+          <!-- floor line -->
+          <path d="M40 380 L760 380"/>
+          <!-- window indication upper left -->
+          <path d="M80 60 L200 60 L200 190 L80 190 Z" opacity=".4"/>
+          <path d="M140 60 L140 190 M80 125 L200 125" opacity=".3"/>
+          <!-- chair -->
+          <path d="M330 260 L330 380 M470 260 L470 380 M330 260 L470 260 M330 290 L470 290" />
+          <path d="M330 260 L340 200 L460 200 L470 260"/>
+          <!-- seated figure (silhouette blocky) -->
+          <!-- torso -->
+          <path d="M360 150 L360 260 L440 260 L440 150"/>
+          <!-- head -->
+          <circle cx="400" cy="120" r="28"/>
+          <!-- neck -->
+          <path d="M390 145 L390 155 L410 155 L410 145"/>
+          <!-- hands on lap -->
+          <path d="M360 255 L360 240 L385 240 L385 260"/>
+          <path d="M415 260 L415 240 L440 240 L440 255"/>
+          <!-- shoulders detail -->
+          <path d="M355 170 L365 160 L395 155" opacity=".5"/>
+          <path d="M445 170 L435 160 L405 155" opacity=".5"/>
+          <!-- directional light on face -->
+          <path d="M200 100 L370 110" stroke-dasharray="3 5" opacity=".4"/>
+          <path d="M200 130 L370 130" stroke-dasharray="3 5" opacity=".3"/>
+          <!-- small side table with glass of water -->
+          <path d="M560 300 L560 380 L640 380 L640 300" opacity=".5"/>
+          <path d="M585 280 L585 310 L615 310 L615 280" />
+          <!-- annotations -->
+          <g font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7771">
+            <path d="M220 75 L240 75" stroke-width=".6" opacity=".6"/>
+            <text x="245" y="79">WINDOW · SOFT KEY</text>
+            <path d="M430 110 L510 90" stroke-width=".6" opacity=".6"/>
+            <text x="515" y="94">EYES CAMERA OR 3/4</text>
+            <path d="M605 280 L605 245" stroke-width=".6" opacity=".6"/>
+            <text x="535" y="240">GLASS OF AEROVA WATER · SUBTLE BRAND</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="spec">
+      <div class="page">About · founder portrait</div>
+      <h2>Founder, seated, one window.</h2>
+      <p class="desc">Editorial single-subject portrait. Neutral warm wall, seated on a linen chair, morning window as the only key. Hands resting. A filled glass on a small table — the brand is present without being posed with. Fraunces-era stillness, not corporate.</p>
+      <div class="block">
+        <div class="lbl"><span>Prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>Editorial portrait photograph, a person seated on a simple linen upholstered chair against a warm neutral plaster wall, soft directional morning light from a tall window to the left falling on one side of the face, hands resting calmly on lap, relaxed quiet expression, natural styling, a small side table to the right with a single clear glass of water, film grain, warm 3200K light, muted bone / warm greige palette, in the visual tradition of Kinfolk magazine portraits, shot on medium format 80mm f/2.8, 4:5 vertical aspect</pre>
+      </div>
+      <div class="block neg">
+        <div class="lbl"><span>Negative prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>corporate headshot, LinkedIn photo, stiff pose, fake smile, studio strobes, seamless backdrop, cyan background, HDR, glossy skin retouching, oversaturated, cgi, 3d render, bokeh halo, cold lighting</pre>
+      </div>
+      <dl class="kv">
+        <dt>Format</dt><dd>RAW stills</dd>
+        <dt>Aspect</dt><dd>4:5 vertical</dd>
+        <dt>Light</dt><dd>Single window, 3200K</dd>
+        <dt>Brand tie</dt><dd>Glass on side table, no logo</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FRAME 06 -->
+  <section class="frame">
+    <div class="sketch">
+      <div class="slate"><span class="num">SHOT 06</span><span class="sep">·</span><span>ABOUT / SUSTAINABILITY</span><span class="sep">·</span><span class="pri p2">P2</span></div>
+      <span class="ratio">3:2</span>
+      <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+        <defs><filter id="rough6"><feTurbulence baseFrequency="0.95" numOctaves="1" seed="11"/><feDisplacementMap in="SourceGraphic" scale="0.7"/></filter></defs>
+        <g stroke="#2a2c30" fill="none" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough6)">
+          <!-- grid of bottle silhouettes, top-down -->
+          <g>
+            <!-- create grid manually -->
+            <g id="bot">
+              <path d="M0 0 L12 0 L12 4 L16 6 L16 32 L-4 32 L-4 6 L0 4 Z"/>
+            </g>
+          </g>
+          <!-- rows -->
+          <g transform="translate(80 80)">
+            <g transform="translate(0 0)"><use href="#bot"/></g>
+            <g transform="translate(60 0)"><use href="#bot"/></g>
+            <g transform="translate(120 0)"><use href="#bot"/></g>
+            <g transform="translate(180 0)"><use href="#bot"/></g>
+            <g transform="translate(240 0)"><use href="#bot"/></g>
+            <g transform="translate(300 0)"><use href="#bot"/></g>
+            <g transform="translate(360 0)"><use href="#bot"/></g>
+            <g transform="translate(420 0)"><use href="#bot"/></g>
+            <g transform="translate(480 0)"><use href="#bot"/></g>
+            <g transform="translate(540 0)"><use href="#bot"/></g>
+          </g>
+          <g transform="translate(80 150)">
+            <g transform="translate(0 0)"><use href="#bot"/></g>
+            <g transform="translate(60 0)"><use href="#bot"/></g>
+            <g transform="translate(120 0)"><use href="#bot"/></g>
+            <g transform="translate(180 0)"><use href="#bot"/></g>
+            <g transform="translate(240 0)"><use href="#bot"/></g>
+            <g transform="translate(300 0)"><use href="#bot"/></g>
+            <g transform="translate(360 0)"><use href="#bot"/></g>
+            <g transform="translate(420 0)"><use href="#bot"/></g>
+            <g transform="translate(480 0)"><use href="#bot"/></g>
+            <g transform="translate(540 0)"><use href="#bot"/></g>
+          </g>
+          <g transform="translate(80 220)">
+            <g transform="translate(0 0)"><use href="#bot"/></g>
+            <g transform="translate(60 0)"><use href="#bot"/></g>
+            <g transform="translate(120 0)"><use href="#bot"/></g>
+            <g transform="translate(180 0)"><use href="#bot"/></g>
+            <g transform="translate(240 0)"><use href="#bot"/></g>
+            <g transform="translate(300 0)"><use href="#bot"/></g>
+            <g transform="translate(360 0)"><use href="#bot"/></g>
+            <g transform="translate(420 0)"><use href="#bot"/></g>
+            <g transform="translate(480 0)"><use href="#bot"/></g>
+            <g transform="translate(540 0)"><use href="#bot"/></g>
+          </g>
+          <g transform="translate(80 290)">
+            <g transform="translate(0 0)"><use href="#bot"/></g>
+            <g transform="translate(60 0)"><use href="#bot"/></g>
+            <g transform="translate(120 0)"><use href="#bot"/></g>
+            <g transform="translate(180 0)"><use href="#bot"/></g>
+            <g transform="translate(240 0)"><use href="#bot"/></g>
+            <g transform="translate(300 0)"><use href="#bot"/></g>
+            <g transform="translate(360 0)"><use href="#bot"/></g>
+            <g transform="translate(420 0)"><use href="#bot"/></g>
+            <g transform="translate(480 0)"><use href="#bot"/></g>
+            <g transform="translate(540 0)"><use href="#bot"/></g>
+          </g>
+          <!-- annotations -->
+          <g font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7771">
+            <text x="80" y="40">TOP-DOWN · EMPTY PET BOTTLES · UNIFORM GRID</text>
+            <text x="80" y="400">READS IN TWO SECONDS · MONOCHROME GRADE</text>
+            <path d="M620 195 L680 180" stroke-width=".6" opacity=".6"/>
+            <text x="685" y="184">11,000 / YEAR</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="spec">
+      <div class="page">About · sustainability</div>
+      <h2>Bottles counted, top-down.</h2>
+      <p class="desc">A visual for the "11,000 single-use bottles per year" stat. Uniform top-down grid of empty PET bottles on bone paper, graded near-monochrome. Should read instantly on mobile. Strong enough to hero the sustainability section without copy.</p>
+      <div class="block">
+        <div class="lbl"><span>Prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>Top-down editorial photograph, tightly packed uniform grid of empty clear PET single-use plastic water bottles laid on their sides on warm bone-coloured paper, geometric rhythm, soft overhead directional light, subtle shadows, near-monochrome warm grey tone, minimalist documentary still life, muted muted muted, medium format 50mm, square or 3:2 landscape, editorial aesthetic feel</pre>
+      </div>
+      <div class="block neg">
+        <div class="lbl"><span>Negative prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>cluttered landfill, garbage dump, dramatic, stock photography feel, smiling volunteers, text on bottles, branded labels visible, colored bottles, cgi, 3d render, HDR</pre>
+      </div>
+      <dl class="kv">
+        <dt>Format</dt><dd>RAW stills</dd>
+        <dt>Aspect</dt><dd>3:2 or 1:1</dd>
+        <dt>Light</dt><dd>Overhead soft, one direction</dd>
+        <dt>Grade</dt><dd>Near-monochrome warm</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FRAME 07 -->
+  <section class="frame">
+    <div class="sketch">
+      <div class="slate"><span class="num">SHOT 07</span><span class="sep">·</span><span>SERVICE / FILTER CHANGE</span><span class="sep">·</span><span class="pri p2">P2</span></div>
+      <span class="ratio">4:5</span>
+      <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+        <defs><filter id="rough7"><feTurbulence baseFrequency="0.88" numOctaves="1" seed="4"/><feDisplacementMap in="SourceGraphic" scale="0.7"/></filter></defs>
+        <g stroke="#2a2c30" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough7)">
+          <!-- open service panel of machine -->
+          <path d="M120 60 L120 390 L680 390 L680 60"/>
+          <path d="M180 100 L620 100 L620 360 L180 360 Z" opacity=".5"/>
+          <!-- filter housing inside -->
+          <path d="M260 150 L260 330 L330 330 L330 150 Z"/>
+          <path d="M370 150 L370 330 L440 330 L440 150 Z"/>
+          <path d="M480 150 L480 330 L550 330 L550 150 Z"/>
+          <!-- filter being pulled mid-action -->
+          <path d="M370 100 L370 150" stroke-dasharray="3 4" opacity=".6"/>
+          <path d="M355 50 L355 140 L455 140 L455 50 Z"/>
+          <path d="M360 60 L450 60 M360 75 L450 75 M360 90 L450 90 M360 105 L450 105 M360 120 L450 120" opacity=".4"/>
+          <!-- gloved hand holding it -->
+          <path d="M320 30 Q340 25 360 30 L360 70 L320 70 Z"/>
+          <path d="M330 30 L330 15 M345 30 L345 12" opacity=".6"/>
+          <!-- annotations -->
+          <g font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7771">
+            <path d="M340 30 L300 15" stroke-width=".6" opacity=".6"/>
+            <text x="200" y="20">GLOVED HAND · MID-ACTION</text>
+            <path d="M405 200 L500 210" stroke-width=".6" opacity=".6"/>
+            <text x="505" y="214">OLD FILTER · NEW FILTER</text>
+            <text x="230" y="420">DOCUMENTARY · NOT POSED</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="spec">
+      <div class="page">Service · filter exchange</div>
+      <h2>Gloved hands, mid-change.</h2>
+      <p class="desc">Documentary-feel frame of a technician mid-filter-change. The service panel open, housings visible, one filter in the hand. Close crop on hands and machine — face not needed. Pairs with a second wider frame showing the uniform.</p>
+      <div class="block">
+        <div class="lbl"><span>Prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>Documentary editorial photograph, close up of nitrile-gloved hands lifting a cylindrical water filter cartridge out of the open service compartment of a matte black water dispenser, three filter housings visible inside, clean quiet workshop light, warm 3400K, natural shadows, the hands and filter in sharp focus, shallow depth of field on the machine interior behind, Monocle magazine feel, medium format 85mm f/4, 4:5 vertical</pre>
+      </div>
+      <div class="block neg">
+        <div class="lbl"><span>Negative prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>staged corporate, plumber cliché, dirty workspace, cold blue lighting, fluorescent overhead, stock photography, fake smile, branded uniform logos, cgi, 3d render</pre>
+      </div>
+      <dl class="kv">
+        <dt>Format</dt><dd>RAW stills</dd>
+        <dt>Aspect</dt><dd>4:5 + 3:2 wide</dd>
+        <dt>Light</dt><dd>Soft workshop, 3400K</dd>
+        <dt>Talent</dt><dd>Real technician, hands only</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FRAME 08 -->
+  <section class="frame">
+    <div class="sketch">
+      <div class="slate"><span class="num">SHOT 08</span><span class="sep">·</span><span>PRODUCT / VERTICALS</span><span class="sep">·</span><span class="pri p2">P2</span></div>
+      <span class="ratio">4:5 × 4 tiles</span>
+      <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+        <defs><filter id="rough8"><feTurbulence baseFrequency="0.9" numOctaves="1" seed="6"/><feDisplacementMap in="SourceGraphic" scale="0.7"/></filter></defs>
+        <g stroke="#2a2c30" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough8)">
+          <!-- 4 tiles -->
+          <g transform="translate(50 70)">
+            <rect x="0" y="0" width="160" height="200"/>
+            <path d="M30 80 L30 180 L60 180 L60 80 Z"/>
+            <path d="M0 140 L160 140" opacity=".3"/>
+            <text x="5" y="195" font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7771">HOME · KITCHEN</text>
+          </g>
+          <g transform="translate(230 70)">
+            <rect x="0" y="0" width="160" height="200"/>
+            <path d="M90 70 L90 180 L125 180 L125 70 Z"/>
+            <path d="M10 180 L150 180" opacity=".4"/>
+            <path d="M20 140 L50 140 L50 180 M110 140 L140 140" opacity=".3"/>
+            <text x="5" y="195" font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7771">OFFICE · LOBBY</text>
+          </g>
+          <g transform="translate(410 70)">
+            <rect x="0" y="0" width="160" height="200"/>
+            <path d="M25 90 L25 180 L55 180 L55 90 Z"/>
+            <path d="M70 140 L70 180 L100 180 L100 140 Z" opacity=".5"/>
+            <path d="M115 140 L115 180 L145 180 L145 140 Z" opacity=".5"/>
+            <text x="5" y="195" font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7771">RESTAURANT</text>
+          </g>
+          <g transform="translate(590 70)">
+            <rect x="0" y="0" width="160" height="200"/>
+            <path d="M110 80 L110 180 L145 180 L145 80 Z"/>
+            <path d="M10 90 L10 180 L60 180 L60 160 L30 160" opacity=".4"/>
+            <text x="5" y="195" font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7771">HOTEL · SUITE</text>
+          </g>
+          <g font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7771">
+            <text x="160" y="40">SAME UNIT · FOUR REAL SPACES · UNIFORM LIGHT</text>
+            <text x="200" y="330">SHOOT AT ONE PROPERTY IF POSSIBLE</text>
+            <text x="200" y="348">(FOUR CORNERS = FOUR VERTICALS)</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="spec">
+      <div class="page">Product · verticals section</div>
+      <h2>Four rooms, one machine.</h2>
+      <p class="desc">Replace the four illustrative vertical tiles with real photography. Same unit, four real spaces, matched grade. If budget is tight, shoot all four at a single mixed-use property — a hotel with a kitchenette, meeting room, and restaurant covers the set.</p>
+      <div class="block">
+        <div class="lbl"><span>Prompt (base — vary location)</span><span class="copy" data-copy>Copy</span></div>
+        <pre>Editorial interior photograph, a matte black tall countertop water dispenser placed naturally inside [HOME: a warm residential kitchen / OFFICE: a quiet high-end office lobby with one armchair / RESTAURANT: a small restaurant pass corner with service station / HOTEL: a boutique hotel suite with seating area], warm natural light, muted editorial palette of bone and warm greige, no people in frame, Aesop-like quietness, medium format 50mm, 4:5 vertical</pre>
+      </div>
+      <div class="block neg">
+        <div class="lbl"><span>Negative prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>stock photography, generic office, open-plan corporate cliché, busy people, laughing staff, cold blue light, fluorescent, cgi, 3d render, illustration</pre>
+      </div>
+      <dl class="kv">
+        <dt>Format</dt><dd>RAW stills × 4</dd>
+        <dt>Aspect</dt><dd>4:5 matched</dd>
+        <dt>Grade</dt><dd>Single LUT across set</dd>
+        <dt>Goal</dt><dd>Read as one family</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRIORITY 3
+  ============================================================= -->
+  <div class="rule" style="margin-top:10px"><span>Priority 3 — polish &amp; supporting material</span><span class="r">09 – 12</span></div>
+
+  <!-- FRAME 09 -->
+  <section class="frame">
+    <div class="sketch">
+      <div class="slate"><span class="num">SHOT 09</span><span class="sep">·</span><span>CONTACT / SHOWROOM</span><span class="sep">·</span><span class="pri p3">P3</span></div>
+      <span class="ratio">16:9</span>
+      <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+        <defs><filter id="rough9"><feTurbulence baseFrequency="0.9" numOctaves="1" seed="8"/><feDisplacementMap in="SourceGraphic" scale="0.7"/></filter></defs>
+        <g stroke="#2a2c30" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough9)">
+          <!-- facade -->
+          <path d="M60 80 L60 380 L740 380 L740 80 Z"/>
+          <!-- door -->
+          <path d="M340 150 L340 380 L460 380 L460 150 Z"/>
+          <path d="M400 150 L400 380" opacity=".4"/>
+          <!-- signage band -->
+          <path d="M300 100 L500 100 L500 135 L300 135 Z" opacity=".5"/>
+          <g font-family="Fraunces,serif" font-size="22" fill="#2a2c30" font-style="italic" opacity=".6"><text x="360" y="125">aerova</text></g>
+          <!-- windows left/right -->
+          <path d="M100 160 L300 160 L300 340 L100 340 Z" opacity=".4"/>
+          <path d="M500 160 L700 160 L700 340 L500 340 Z" opacity=".4"/>
+          <!-- product inside window -->
+          <path d="M180 220 L180 330 L220 330 L220 220 Z"/>
+          <path d="M580 220 L580 330 L620 330 L620 220 Z"/>
+          <!-- plant outside -->
+          <path d="M30 330 Q40 290 30 250 Q20 290 30 330 Z" opacity=".5"/>
+          <!-- pavement -->
+          <path d="M0 410 L800 410"/>
+          <path d="M0 425 L800 425" opacity=".3"/>
+          <!-- annotations -->
+          <g font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7771">
+            <text x="260" y="60">QUIET EXTERIOR · MORNING · NO PASSERSBY</text>
+            <path d="M200 250 L140 220" stroke-width=".6" opacity=".6"/>
+            <text x="70" y="210">UNIT VISIBLE THROUGH WINDOW</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="spec">
+      <div class="page">Contact · showroom</div>
+      <h2>Showroom exterior, quiet morning.</h2>
+      <p class="desc">A single architectural exterior of the showroom at opening hour. Door, signage, one unit visible through the window. Anchors the Contact page and gives the Blog a default card image. Shoot an interior companion while you're inside.</p>
+      <div class="block">
+        <div class="lbl"><span>Prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>Architectural exterior photograph, quiet boutique showroom storefront at early morning, clean minimalist facade with a glass door centred, elegant wordmark signage in serif type, a water dispenser unit visible through the display window, warm paving, one small plant by the entrance, no passersby, natural diffused light, slight haze, Wallpaper magazine architectural photography feel, medium format 35mm, 16:9 landscape</pre>
+      </div>
+      <div class="block neg">
+        <div class="lbl"><span>Negative prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>busy street, crowds, cars, neon, nighttime, lens flare, HDR, fisheye distortion, illustrated, cgi, 3d render, wide-angle distortion</pre>
+      </div>
+      <dl class="kv">
+        <dt>Format</dt><dd>RAW stills</dd>
+        <dt>Aspect</dt><dd>16:9 exterior + 4:3 interior</dd>
+        <dt>Time</dt><dd>Opening hour, diffused light</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FRAME 10 -->
+  <section class="frame">
+    <div class="sketch">
+      <div class="slate"><span class="num">SHOT 10</span><span class="sep">·</span><span>PRODUCT / FILTERS RE-MASTER</span><span class="sep">·</span><span class="pri p3">P3</span></div>
+      <span class="ratio">1:1</span>
+      <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+        <defs><filter id="rough10"><feTurbulence baseFrequency="0.9" numOctaves="1" seed="12"/><feDisplacementMap in="SourceGraphic" scale="0.7"/></filter></defs>
+        <g stroke="#2a2c30" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough10)">
+          <!-- housing block -->
+          <path d="M220 120 L220 400 L580 400 L580 120 Z"/>
+          <!-- housing circle port -->
+          <circle cx="400" cy="260" r="70"/>
+          <circle cx="400" cy="260" r="85" opacity=".3"/>
+          <!-- filter cylinder half-inserted -->
+          <path d="M380 80 L380 260 L420 260 L420 80 Z"/>
+          <path d="M380 100 L420 100 M380 130 L420 130 M380 160 L420 160 M380 190 L420 190 M380 220 L420 220" opacity=".4"/>
+          <!-- motion up -->
+          <path d="M360 70 L360 50 M440 70 L440 50" stroke-dasharray="3 3" opacity=".5"/>
+          <!-- single drop of water on housing -->
+          <circle cx="500" cy="340" r="3" fill="#2a2c30"/>
+          <path d="M500 345 Q505 355 495 355 Q498 350 500 345" stroke="none" fill="#2a2c30" opacity=".4"/>
+          <!-- light from upper right -->
+          <path d="M700 60 L530 180" stroke-dasharray="3 6" opacity=".4"/>
+          <g font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7771">
+            <path d="M430 90 L470 70" stroke-width=".6" opacity=".6"/>
+            <text x="475" y="74">FILTER · HALF-INSERTED</text>
+            <path d="M510 345 L560 360" stroke-width=".6" opacity=".6"/>
+            <text x="565" y="364">ONE DROP</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="spec">
+      <div class="page">Product · UF &amp; PP re-master</div>
+      <h2>Filter in context.</h2>
+      <p class="desc">Replace the current feature-filter diagrams. Shoot the filter half-inserted into its housing, with a single water droplet on the black housing. Contextual, not catalogue. One setup covers UF and PP — swap cartridge only.</p>
+      <div class="block">
+        <div class="lbl"><span>Prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>Extreme close-up editorial product photograph, a cylindrical white water filter cartridge being lifted halfway out of a matte black filter housing, one single clear water droplet resting on the black housing surface, directional soft key light from upper right, deep matte shadow, product still life with scientific precision, no labels or text on cartridge, medium format macro 100mm f/8, 1:1 square aspect</pre>
+      </div>
+      <div class="block neg">
+        <div class="lbl"><span>Negative prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>catalogue product on white, text, branding, logo, colored filters, exploded diagram, cgi, 3d render, illustration, multiple filters scattered</pre>
+      </div>
+      <dl class="kv">
+        <dt>Format</dt><dd>RAW stills</dd>
+        <dt>Aspect</dt><dd>1:1</dd>
+        <dt>Variants</dt><dd>2 (UF + PP) same setup</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FRAME 11 -->
+  <section class="frame">
+    <div class="sketch">
+      <div class="slate"><span class="num">SHOT 11</span><span class="sep">·</span><span>ABOUT / ATELIER BROLL</span><span class="sep">·</span><span class="pri p3">P3</span></div>
+      <span class="ratio">4K · 12–20s</span>
+      <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+        <defs><filter id="rough11"><feTurbulence baseFrequency="0.88" numOctaves="1" seed="13"/><feDisplacementMap in="SourceGraphic" scale="0.7"/></filter></defs>
+        <g stroke="#2a2c30" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough11)">
+          <!-- 3 mini frames representing the b-roll -->
+          <g transform="translate(50 80)">
+            <rect x="0" y="0" width="220" height="180"/>
+            <path d="M20 130 L50 100 L80 120 L100 90 L140 110 L180 80 L200 100" />
+            <path d="M60 60 Q80 50 100 60 L100 130 L60 130 Z" opacity=".5"/>
+            <text x="5" y="200" font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7771">A · ASSEMBLY LINE WIDE</text>
+          </g>
+          <g transform="translate(290 80)">
+            <rect x="0" y="0" width="220" height="180"/>
+            <path d="M60 40 Q75 35 90 40 L90 100 L60 100 Z"/>
+            <path d="M90 70 L160 50 L165 60 L95 80"/>
+            <circle cx="170" cy="55" r="8"/>
+            <text x="5" y="200" font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7771">B · HAND · WRENCH · CLOSE</text>
+          </g>
+          <g transform="translate(530 80)">
+            <rect x="0" y="0" width="220" height="180"/>
+            <path d="M30 30 L30 160 L190 160 L190 30 Z"/>
+            <path d="M60 60 L160 60 L160 130 L60 130 Z" opacity=".4"/>
+            <path d="M80 80 L140 80 M80 95 L140 95 M80 110 L140 110" opacity=".4"/>
+            <text x="5" y="200" font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7771">C · UNIT BACK · WIRING</text>
+          </g>
+          <g font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7771">
+            <text x="80" y="50">THREE BEATS · INTERCUT · NO DIALOGUE</text>
+            <text x="140" y="320">WARM PRACTICAL LIGHT · HANDS · PROCESS</text>
+            <text x="140" y="340">EDIT TO 12–20 SECOND LOOP</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="spec">
+      <div class="page">About · making-of</div>
+      <h2>Atelier b-roll, three beats.</h2>
+      <p class="desc">Short video piece — three intercut shots from the manufacturing floor: a wide of the assembly line, a close on hands and a tool, a back-of-unit wiring detail. No dialogue. Supports the About page and any future story-driven content.</p>
+      <div class="block">
+        <div class="lbl"><span>Prompt (treat as video storyboard)</span><span class="copy" data-copy>Copy</span></div>
+        <pre>Three-shot editorial video b-roll sequence, documentary manufacturing atelier, warm practical lighting, 3200K. Shot A: wide of a quiet assembly line with one worker leaning over a component, shallow depth. Shot B: macro close-up of a gloved hand turning a precision wrench on a machine panel. Shot C: detail of the back of a matte black water dispenser showing clean wire routing and ports. Cinematic, Monocle travel film feel, 4K ProRes, no dialogue, ambient room tone only, slow handheld movement</pre>
+      </div>
+      <div class="block neg">
+        <div class="lbl"><span>Negative prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>industrial cold factory, sparks flying, drama, corporate voiceover, stock footage, crowds, cgi, fast cuts, text overlay</pre>
+      </div>
+      <dl class="kv">
+        <dt>Format</dt><dd>4K ProRes</dd>
+        <dt>Length</dt><dd>12–20 s loop</dd>
+        <dt>Audio</dt><dd>Ambient only</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- FRAME 12 -->
+  <section class="frame">
+    <div class="sketch">
+      <div class="slate"><span class="num">SHOT 12</span><span class="sep">·</span><span>SERVICE / CARE KIT</span><span class="sep">·</span><span class="pri p3">P3</span></div>
+      <span class="ratio">1:1 + 16:9</span>
+      <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+        <defs><filter id="rough12"><feTurbulence baseFrequency="0.9" numOctaves="1" seed="14"/><feDisplacementMap in="SourceGraphic" scale="0.7"/></filter></defs>
+        <g stroke="#2a2c30" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough12)">
+          <!-- paper ground -->
+          <rect x="60" y="60" width="680" height="330" opacity=".2"/>
+          <!-- filter cylinders -->
+          <path d="M120 140 L120 230 L170 230 L170 140 Z"/>
+          <path d="M120 150 L170 150 M120 170 L170 170 M120 190 L170 190 M120 210 L170 210" opacity=".4"/>
+          <path d="M200 170 L200 260 L250 260 L250 170 Z"/>
+          <path d="M200 180 L250 180 M200 200 L250 200 M200 220 L250 220 M200 240 L250 240" opacity=".4"/>
+          <!-- folded cloth -->
+          <path d="M320 220 L430 220 L430 290 L320 290 Z"/>
+          <path d="M320 240 L430 240 M320 260 L430 260" opacity=".3"/>
+          <!-- wrench -->
+          <path d="M470 140 L610 210 L600 225 L460 155 Z"/>
+          <path d="M470 140 Q455 130 455 145 L465 150" opacity=".8"/>
+          <path d="M610 210 Q625 220 625 205 L615 200" opacity=".8"/>
+          <!-- care card -->
+          <path d="M480 280 L620 280 L620 340 L480 340 Z"/>
+          <path d="M495 300 L590 300 M495 315 L570 315" opacity=".4"/>
+          <!-- annotations -->
+          <g font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7771">
+            <text x="60" y="45">TOP-DOWN FLATLAY · WARM PAPER · EVEN SOFT LIGHT</text>
+            <path d="M145 125 L145 100" stroke-width=".6" opacity=".6"/>
+            <text x="110" y="95">FILTERS × 2</text>
+            <path d="M375 215 L375 190" stroke-width=".6" opacity=".6"/>
+            <text x="350" y="185">MICROFIBER</text>
+            <path d="M540 140 L540 115" stroke-width=".6" opacity=".6"/>
+            <text x="520" y="110">WRENCH</text>
+            <path d="M550 345 L550 375" stroke-width=".6" opacity=".6"/>
+            <text x="520" y="390">CARE CARD</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="spec">
+      <div class="page">Service · care kit</div>
+      <h2>Care kit flatlay, editorial.</h2>
+      <p class="desc">Top-down of the service kit — two replacement filters, a folded microfiber cloth, a brass-handled wrench, a small printed care card. Warm paper ground. Supports the service page, service emails, and post-purchase unboxing touchpoints.</p>
+      <div class="block">
+        <div class="lbl"><span>Prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>Top-down editorial flatlay photograph on warm bone-coloured paper, two cylindrical white water filter cartridges, a neatly folded light grey microfiber cloth, a brass-handled precision wrench laid diagonally, a small printed care card with minimal serif type, composition breathes with generous negative space, soft even overhead daylight, muted warm palette, Aesop care-kit aesthetic, medium format 80mm f/8, 1:1 square aspect with 16:9 companion crop</pre>
+      </div>
+      <div class="block neg">
+        <div class="lbl"><span>Negative prompt</span><span class="copy" data-copy>Copy</span></div>
+        <pre>cluttered, busy, props spilling, plastic packaging, branded bags, loud colours, harsh shadows, direct overhead flash, seamless white, cgi, 3d render</pre>
+      </div>
+      <dl class="kv">
+        <dt>Format</dt><dd>RAW stills</dd>
+        <dt>Aspect</dt><dd>1:1 + 16:9 companion</dd>
+        <dt>Ground</dt><dd>Warm bone paper</dd>
+        <dt>Use</dt><dd>Service page + emails</dd>
+      </dl>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>Aerova · Storyboards v1 · For image generation briefs</span>
+    <span>Pair with · Aerova Asset Audit</span>
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('[data-copy]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pre = btn.closest('.block').querySelector('pre');
+      if (!pre) return;
+      navigator.clipboard.writeText(pre.textContent.trim()).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'Copied';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1400);
+      }).catch(() => { btn.textContent = 'Select + copy'; });
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 /**
  * BusinessPage.jsx
- * /business — commercial landing page (offices, hotels, restaurants, cafés).
+ * /business, commercial landing page (offices, hotels, restaurants, cafés).
  * Hero: Q-05 multi-unit hotel deployment shot.
  * Sections: case-study slots (placeholder), volume pricing, quote builder.
  */
@@ -12,7 +12,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 import { useLanguage } from '../contexts/LanguageContext';
 import { t } from '../utils/translate';
-import { buildHreflangLinks, buildCanonical } from '../utils/seo';
+import { buildHreflangLinks, buildCanonical, buildHeadExtras } from '../utils/seo';
 import { isValidEmail } from '../utils/validate';
 import { subscribeMailchimp } from '../utils/mailchimp';
 import HeroBackground from '../components/HeroBackground';
@@ -31,27 +31,27 @@ const INDUSTRIES = [
 ];
 
 const PILOT_DEPLOYMENTS = [
-  // Placeholder pilot deployments — replace with named clients once permission is granted.
+  // Placeholder pilot deployments, replace with named clients once permission is granted.
   {
     industry: 'Hotel',
     location: 'District 1, HCMC',
     units: '3 units',
     metric: '14,000 bottles displaced in first 90 days',
-    note: 'Pilot deployment — full case study available on request.',
+    note: 'Pilot deployment, full case study available on request.',
   },
   {
     industry: 'Office',
     location: 'Hanoi',
     units: '2 units',
     metric: '~₫15M / year saved vs prior bottled-water contract',
-    note: 'Pilot deployment — anonymised, full case study available on request.',
+    note: 'Pilot deployment, anonymised, full case study available on request.',
   },
   {
     industry: 'Specialty café',
     location: 'Đà Nẵng',
     units: '1 unit',
     metric: 'TDS 75–150 ppm matched their barista water spec',
-    note: 'Pilot deployment — full case study available on request.',
+    note: 'Pilot deployment, full case study available on request.',
   },
 ];
 
@@ -88,14 +88,22 @@ export default function BusinessPage() {
     e.preventDefault();
     if (!isValidEmail(contactEmail)) { setStatus('invalid'); return; }
     setStatus('loading');
-    /* For now, route the lead via Mailchimp tagged 'commercial-quote' so the
-       team is notified and the contact lands in Mailchimp's audience. The
-       structured fields (company / units / industry) are sent as merge fields.
-       Future: a Cloudflare Worker that posts a structured Slack notification
-       with the full payload. */
+    /* Route the lead via Brevo (/api/subscribe) tagged 'commercial-quote' with
+       the structured fields delivered as Brevo contact attributes (mergeFields).
+       Attribute names must match the Brevo contact schema (FNAME, COMPANY, etc.). */
     const result = await subscribeMailchimp(contactEmail, {
-      tag: 'commercial-quote',
+      tag:  'commercial-quote',
       lang: language,
+      mergeFields: {
+        FNAME:     contactName,
+        PHONE:     contactPhone,
+        COMPANY:   company,
+        INDUSTRY:  industry,
+        UNITS:     units,
+        CITY:      city,
+        TIMEFRAME: timeframe,
+        NOTES:     notes,
+      },
     });
     if (result.ok) { setStatus('success'); }
     else            { setStatus('error'); }
@@ -104,10 +112,23 @@ export default function BusinessPage() {
   return (
     <div ref={pageRef}>
       <Helmet>
-        <title>For Business — AEROVA</title>
-        <meta name="description" content="Multi-unit AEROVA deployments for Vietnamese offices, hotels, restaurants, and cafés. Volume pricing, lease options, and service-level agreements." />
+        <title>{t('meta_business_title', language)}</title>
+        <meta name="description" content={t('meta_business_desc', language)} />
         <link rel="canonical" href={buildCanonical('/business', language)} />
         {buildHreflangLinks('/business')}
+        {buildHeadExtras('/business', language)}
+        <meta property="og:type"         content="website" />
+        <meta property="og:url"          content={buildCanonical('/business', language)} />
+        <meta property="og:title"        content={t('meta_business_title', language)} />
+        <meta property="og:description"  content={t('meta_business_desc', language)} />
+        <meta property="og:image"        content="https://aerova.asia/og-image.png" />
+        <meta property="og:image:width"  content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name"    content="AEROVA" />
+        <meta name="twitter:card"        content="summary_large_image" />
+        <meta name="twitter:title"       content={t('meta_business_title', language)} />
+        <meta name="twitter:description" content={t('meta_business_desc', language)} />
+        <meta name="twitter:image"       content="https://aerova.asia/og-image.png" />
       </Helmet>
 
       {/* Hero */}
@@ -129,13 +150,13 @@ export default function BusinessPage() {
             </span>
             <h1 className="bz-headline font-prata text-3xl md:text-5xl lg:text-6xl leading-[1.05] mb-4"
                 style={{ color: 'var(--text-main)' }}>
-              Bottled water has a contract end date.<br/>AEROVA doesn’t.
+              Máy lọc nước văn phòng — office water purifier without the bottles.
             </h1>
-            <span className="bz-sub vietnamese-sub mb-8">Cho doanh nghiệp · Đà Nẵng · Hà Nội · TP.HCM</span>
+            <span className="bz-sub vietnamese-sub mb-8">Cho doanh nghiệp · Đà Nẵng · Hà Nội · TP.HCM · máy lọc nước cao cấp</span>
             <p className="bz-sub text-base md:text-lg leading-relaxed mb-8 max-w-2xl"
                style={{ color: 'var(--text-sub)', fontWeight: 300 }}>
-              Multi-unit deployments for offices, hotels, restaurants, and cafés. Volume pricing,
-              lease and purchase options, professional installation, and service contracts that
+              Multi-unit atmospheric water generator deployments for offices, hotels, restaurants, and cafés — an eco friendly water solution for smart home Vietnam and commercial environments. Volume pricing,
+              fleet purchase options, professional installation, and service contracts that
               keep every glass on spec.
             </p>
             <div className="flex flex-wrap gap-3 bz-sub">
@@ -162,9 +183,9 @@ export default function BusinessPage() {
             </span>
             <h2 className="font-prata mb-2"
                 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: 'var(--text-main)', letterSpacing: 'var(--letter-spacing-serif)', lineHeight: 1.18 }}>
-              Already in the field, by the numbers.
+              Sustainable water solution — already in the field, by the numbers.
             </h2>
-            <span className="vietnamese-sub block">Triển khai thực tế</span>
+            <span className="vietnamese-sub block">Triển khai thực tế · máy lọc nước cho chung cư &amp; văn phòng</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {PILOT_DEPLOYMENTS.map((p, i) => (
@@ -222,7 +243,7 @@ export default function BusinessPage() {
               Tell us about your deployment.
             </h2>
             <p className="mt-3" style={{ color: 'var(--text-sub)', fontWeight: 300, fontSize: '0.95rem', lineHeight: 1.7 }}>
-              We'll respond within one business day with volume pricing, lease vs purchase options, and a proposed installation timeline.
+              We'll respond within one business day with volume pricing, fleet configuration, and a proposed installation timeline. Suitable for cây nước nóng lạnh văn phòng replacements — no plumbing, no delivery contracts.
             </p>
           </div>
 

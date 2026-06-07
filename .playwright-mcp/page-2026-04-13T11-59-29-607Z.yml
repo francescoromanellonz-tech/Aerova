@@ -1,0 +1,159 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "AEROVA WATER FROM AIR" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+        - generic [ref=e12]:
+          - generic [ref=e13]: AEROVA
+          - generic [ref=e14]: WATER FROM AIR
+      - generic [ref=e15]:
+        - link "Home" [ref=e16] [cursor=pointer]:
+          - /url: /
+          - text: Home
+        - link "Product" [ref=e18] [cursor=pointer]:
+          - /url: /product
+          - text: Product
+        - link "About" [active] [ref=e19] [cursor=pointer]:
+          - /url: /about
+          - text: About
+        - link "Service" [ref=e20] [cursor=pointer]:
+          - /url: /service
+          - text: Service
+        - link "Contact" [ref=e21] [cursor=pointer]:
+          - /url: /contact
+          - text: Contact
+        - button "Switch to dark mode" [ref=e23] [cursor=pointer]:
+          - img [ref=e24]
+        - button "Select language" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+          - text: EN
+          - img [ref=e31]
+  - main [ref=e34]:
+    - generic [ref=e926]:
+      - generic [ref=e928]:
+        - generic [ref=e929]:
+          - generic [ref=e930]: Our Story
+          - heading "About AEROVA" [level=1] [ref=e931]
+          - generic [ref=e932]: Câu Chuyện Của Chúng Tôi
+        - paragraph [ref=e934]: We believe everyone deserves access to clean water without the plastic tax, without pipes, and without compromise.
+      - img [ref=e937]
+      - generic [ref=e941]:
+        - generic [ref=e942]: Our Mission
+        - generic [ref=e943]:
+          - paragraph [ref=e944]: AEROVA was founded to lead a water revolution in Southeast Asia. We engineer atmospheric water generators that deliver independence and sustainability, turning Vietnam's humid air into a private, pristine utility for every home and office.
+          - paragraph [ref=e945]: AEROVA was founded to bring atmospheric water generation technology to Southeast Asia — starting with Vietnam, where high humidity and growing environmental awareness create the perfect conditions for a water revolution.
+      - img [ref=e948]
+      - generic [ref=e953]:
+        - img "AEROVA in a modern Vietnamese home — seamlessly integrated into daily life" [ref=e955]
+        - img "AEROVA LT-AWG20G — three-quarter view showcasing premium design" [ref=e957]
+      - img [ref=e960]
+      - generic [ref=e964]:
+        - generic [ref=e965]:
+          - generic [ref=e966]: What We Stand For
+          - heading "Our Values" [level=2] [ref=e967]
+        - generic [ref=e968]:
+          - generic [ref=e969]:
+            - generic [ref=e970]: "01"
+            - heading "Purity" [level=3] [ref=e971]
+            - paragraph [ref=e972]: Every drop of AEROVA water passes through our 7-stage filtration system, ensuring the highest standard of drinking water quality.
+          - generic [ref=e973]:
+            - generic [ref=e974]: "02"
+            - heading "Innovation" [level=3] [ref=e975]
+            - paragraph [ref=e976]: We leverage cutting-edge atmospheric water generation technology, continuously improving efficiency and output for tropical climates.
+          - generic [ref=e977]:
+            - generic [ref=e978]: "03"
+            - heading "Sustainability" [level=3] [ref=e979]
+            - paragraph [ref=e980]: Zero plastic waste, zero delivery trucks, zero dependency on contaminated water sources. AEROVA is water independence.
+      - img [ref=e983]
+      - generic [ref=e987]:
+        - generic [ref=e988]:
+          - generic [ref=e989]: Climate Advantage
+          - heading "Vietnam's Climate is Your Resource" [level=2] [ref=e990]
+          - generic [ref=e991]: Thiết Kế Cho Khí Hậu Việt Nam
+        - paragraph [ref=e992]: Vietnam's average humidity of 84% is an untapped asset. While others see tropical heat, AEROVA sees the ideal environment to harvest over 20L of pure water every day, consistently exceeding rated specifications.
+        - paragraph [ref=e993]: With average humidity exceeding 80% across major cities, Vietnam offers some of the highest atmospheric water generation yields in the world. AEROVA machines consistently exceed their rated 20L/day capacity in Vietnamese conditions.
+      - img "AEROVA LT-AWG20G dispensing pure atmospheric water" [ref=e995]
+      - generic [ref=e997]:
+        - generic [ref=e998]: Sustainability Impact
+        - heading "Delete the Plastic Tax. Own the Source." [level=2] [ref=e999]
+        - generic [ref=e1000]: Không Nhựa. Không Lãng Phí.
+        - paragraph [ref=e1001]: Each AEROVA unit eliminates over 11,000 single-use bottles per year. No delivery trucks on your streets. No plastic in your ocean. Just pure water, pulled from the air around you.
+        - generic [ref=e1002]:
+          - generic [ref=e1003]:
+            - generic [ref=e1004]: 11,000+
+            - text: Bottles Deleted Per Year
+          - generic [ref=e1005]:
+            - generic [ref=e1006]: "0"
+            - text: Delivery trucks required
+          - generic [ref=e1007]:
+            - generic [ref=e1008]: 100%
+            - text: From atmosphere — no source water needed
+      - img [ref=e1011]
+      - generic [ref=e1015]:
+        - generic [ref=e1016]:
+          - generic [ref=e1017]: Our Journey
+          - heading "Building the Future of Water" [level=2] [ref=e1018]
+        - generic [ref=e1019]:
+          - generic [ref=e1020]:
+            - generic [ref=e1021]: "2025"
+            - generic [ref=e1022]: Q1 2026
+            - generic [ref=e1023]: Q2 2026
+            - generic [ref=e1024]: "2027"
+          - generic [ref=e1035]:
+            - paragraph [ref=e1037]: AEROVA founded. Supplier partnership established with leading AWG manufacturer in China.
+            - paragraph [ref=e1039]: First units deployed in Ho Chi Minh City. Pilot programme with residential and commercial clients.
+            - paragraph [ref=e1041]: Expansion to Da Nang and Vung Tau. Lease programme launched for commercial clients.
+            - paragraph [ref=e1043]: Nationwide coverage across Vietnam. Larger commercial AWG units added to product line.
+      - img [ref=e1046]
+      - generic [ref=e1050]:
+        - heading "Experience Atmospheric Balance" [level=2] [ref=e1051]
+        - link "Request a Consultation" [ref=e1052] [cursor=pointer]:
+          - /url: /contact
+  - contentinfo [ref=e566]:
+    - generic:
+      - img
+    - generic [ref=e567]:
+      - generic [ref=e568]:
+        - paragraph [ref=e569]: "AEROVA: Engineered to reflect purity, flow, and atmospheric balance. We provide high-end, infrastructure-independent water solutions designed specifically for Vietnam's unique tropical climate."
+        - generic [ref=e570]: Thiên Thủy — Nước Từ Trời
+      - generic [ref=e571]:
+        - generic [ref=e572]:
+          - link "AEROVA WATER FROM AIR" [ref=e573] [cursor=pointer]:
+            - /url: /
+            - img [ref=e575]
+            - generic [ref=e579]:
+              - generic [ref=e580]: AEROVA
+              - generic [ref=e581]: WATER FROM AIR
+          - generic [ref=e582]:
+            - generic [ref=e583]: pH 7.4+
+            - generic [ref=e584]: UV-C Treated
+            - generic [ref=e585]: 99.9% Pure
+        - generic [ref=e586]:
+          - heading "Navigation" [level=4] [ref=e587]
+          - navigation [ref=e588]:
+            - link "Home" [ref=e589] [cursor=pointer]:
+              - /url: /
+            - link "Product" [ref=e590] [cursor=pointer]:
+              - /url: /product
+            - link "About" [ref=e591] [cursor=pointer]:
+              - /url: /about
+            - link "Service" [ref=e592] [cursor=pointer]:
+              - /url: /service
+            - link "Contact" [ref=e593] [cursor=pointer]:
+              - /url: /contact
+        - generic [ref=e594]:
+          - heading "Stay Updated on the Water Revolution" [level=4] [ref=e595]
+          - paragraph [ref=e596]: Updates on water technology, sustainability, and product launches.
+          - generic [ref=e597]:
+            - textbox "Enter your email" [ref=e598]
+            - button "Join" [ref=e599] [cursor=pointer]
+      - generic [ref=e600]:
+        - generic [ref=e601]:
+          - link "Privacy Policy" [ref=e602] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "Terms & Conditions" [ref=e603] [cursor=pointer]:
+            - /url: /terms-and-conditions
+          - link "Legal" [ref=e604] [cursor=pointer]:
+            - /url: /legal
+        - paragraph [ref=e605]: © 2026 AEROVA Technologies — All Rights Reserved

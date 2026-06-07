@@ -3,6 +3,14 @@ import React from 'react';
 const HOSTNAME = 'https://aerova.asia';
 const LANG_PREFIXES = { en: '', vi: '/vi', ru: '/ru', fr: '/fr', zh: '/zh' };
 const HREFLANG_MAP = { en: 'en', vi: 'vi', ru: 'ru', fr: 'fr', zh: 'zh-Hans' };
+const OG_LOCALE_MAP = { en: 'en_US', vi: 'vi_VN', ru: 'ru_RU', fr: 'fr_FR', zh: 'zh_CN' };
+
+/**
+ * Open Graph locale for a given language, e.g. getOgLocale('vi') → 'vi_VN'.
+ */
+export function getOgLocale(language = 'en') {
+  return OG_LOCALE_MAP[language] || 'en_US';
+}
 
 /**
  * Build canonical URL for a given path and language.
@@ -50,4 +58,26 @@ export function buildHreflangLinks(path) {
   );
 
   return links;
+}
+
+/**
+ * Shared per-page head tags that were previously missing site-wide:
+ *  - og:locale (locale-specific social/SEO signal)
+ *  - twitter:url (must mirror the canonical exactly)
+ * Use inside <Helmet> alongside buildHreflangLinks, e.g.
+ *   {buildHeadExtras('/product', language)}
+ */
+export function buildHeadExtras(path, language = 'en') {
+  return [
+    <meta
+      key="og-locale"
+      property="og:locale"
+      content={getOgLocale(language)}
+    />,
+    <meta
+      key="twitter-url"
+      name="twitter:url"
+      content={buildCanonical(path, language)}
+    />,
+  ];
 }

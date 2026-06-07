@@ -374,190 +374,438 @@
     <priority>0.5</priority>
   </url>
 
-  <!-- ===== PRIVACY POLICY ===== -->
+  <!-- ===== FAQ ===== -->
   <url>
-    <loc>https://aerova.asia/privacy-policy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/privacy-policy" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
+    <loc>https://aerova.asia/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/faq" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/faq" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/faq" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/faq" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/faq" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aerova.asia/vi/privacy-policy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/privacy-policy" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
+    <loc>https://aerova.asia/vi/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/faq" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/faq" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/faq" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/faq" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/faq" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aerova.asia/ru/privacy-policy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/privacy-policy" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
+    <loc>https://aerova.asia/ru/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/faq" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/faq" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/faq" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/faq" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/faq" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aerova.asia/fr/privacy-policy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/privacy-policy" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
+    <loc>https://aerova.asia/fr/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/faq" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/faq" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/faq" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/faq" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/faq" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aerova.asia/zh/privacy-policy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/privacy-policy" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
+    <loc>https://aerova.asia/zh/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/faq" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/faq" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/faq" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/faq" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/faq" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <!-- ===== TERMS AND CONDITIONS ===== -->
-  <url>
-    <loc>https://aerova.asia/terms-and-conditions</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/terms-and-conditions" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://aerova.asia/vi/terms-and-conditions</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/terms-and-conditions" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://aerova.asia/ru/terms-and-conditions</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/terms-and-conditions" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://aerova.asia/fr/terms-and-conditions</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/terms-and-conditions" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://aerova.asia/zh/terms-and-conditions</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/terms-and-conditions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/terms-and-conditions" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.6</priority>
   </url>
 
-  <!-- ===== LEGAL ===== -->
+  <!-- ===== SUPPORT ===== -->
   <url>
-    <loc>https://aerova.asia/legal</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/legal" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/legal" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/legal" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/legal" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/legal" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/legal" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
+    <loc>https://aerova.asia/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/support" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/support" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/support" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/support" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/support" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/support" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aerova.asia/vi/legal</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/legal" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/legal" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/legal" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/legal" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/legal" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/legal" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
+    <loc>https://aerova.asia/vi/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/support" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/support" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/support" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/support" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/support" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/support" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aerova.asia/ru/legal</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/legal" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/legal" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/legal" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/legal" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/legal" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/legal" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
+    <loc>https://aerova.asia/ru/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/support" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/support" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/support" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/support" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/support" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/support" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aerova.asia/fr/legal</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/legal" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/legal" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/legal" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/legal" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/legal" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/legal" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
+    <loc>https://aerova.asia/fr/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/support" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/support" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/support" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/support" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/support" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/support" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://aerova.asia/zh/legal</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/legal" />
-    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/legal" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/legal" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/legal" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/legal" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/legal" />
-    <lastmod>2026-04-13T00:00:00.000Z</lastmod>
+    <loc>https://aerova.asia/zh/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/support" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/support" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/support" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/support" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/support" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/support" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ===== BUSINESS ===== -->
+  <url>
+    <loc>https://aerova.asia/business</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/business" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/business" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/business" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/business" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/business" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/business" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/vi/business</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/business" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/business" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/business" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/business" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/business" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/business" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/ru/business</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/business" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/business" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/business" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/business" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/business" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/business" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/fr/business</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/business" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/business" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/business" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/business" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/business" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/business" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/zh/business</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/business" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/business" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/business" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/business" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/business" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/business" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ===== BLOG POST: loi-loc-nuoc-la-gi ===== -->
+  <url>
+    <loc>https://aerova.asia/blog/loi-loc-nuoc-la-gi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/loi-loc-nuoc-la-gi" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/vi/blog/loi-loc-nuoc-la-gi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/loi-loc-nuoc-la-gi" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/ru/blog/loi-loc-nuoc-la-gi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/loi-loc-nuoc-la-gi" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/fr/blog/loi-loc-nuoc-la-gi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/loi-loc-nuoc-la-gi" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/zh/blog/loi-loc-nuoc-la-gi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/loi-loc-nuoc-la-gi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/loi-loc-nuoc-la-gi" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ===== BLOG POST: sua-may-loc-nuoc-tai-nha ===== -->
+  <url>
+    <loc>https://aerova.asia/blog/sua-may-loc-nuoc-tai-nha</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/sua-may-loc-nuoc-tai-nha" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/vi/blog/sua-may-loc-nuoc-tai-nha</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/sua-may-loc-nuoc-tai-nha" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/ru/blog/sua-may-loc-nuoc-tai-nha</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/sua-may-loc-nuoc-tai-nha" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/fr/blog/sua-may-loc-nuoc-tai-nha</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/sua-may-loc-nuoc-tai-nha" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/zh/blog/sua-may-loc-nuoc-tai-nha</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/sua-may-loc-nuoc-tai-nha" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/sua-may-loc-nuoc-tai-nha" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ===== BLOG POST: is-tap-water-safe-in-vietnam ===== -->
+  <url>
+    <loc>https://aerova.asia/blog/is-tap-water-safe-in-vietnam</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/is-tap-water-safe-in-vietnam" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/vi/blog/is-tap-water-safe-in-vietnam</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/is-tap-water-safe-in-vietnam" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/ru/blog/is-tap-water-safe-in-vietnam</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/is-tap-water-safe-in-vietnam" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/fr/blog/is-tap-water-safe-in-vietnam</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/is-tap-water-safe-in-vietnam" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/zh/blog/is-tap-water-safe-in-vietnam</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/is-tap-water-safe-in-vietnam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/is-tap-water-safe-in-vietnam" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ===== BLOG POST: may-loc-nuoc-de-ban-vs-am-tu ===== -->
+  <url>
+    <loc>https://aerova.asia/blog/may-loc-nuoc-de-ban-vs-am-tu</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/vi/blog/may-loc-nuoc-de-ban-vs-am-tu</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/ru/blog/may-loc-nuoc-de-ban-vs-am-tu</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/fr/blog/may-loc-nuoc-de-ban-vs-am-tu</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aerova.asia/zh/blog/may-loc-nuoc-de-ban-vs-am-tu</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aerova.asia/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://aerova.asia/vi/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aerova.asia/ru/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aerova.asia/fr/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://aerova.asia/zh/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aerova.asia/blog/may-loc-nuoc-de-ban-vs-am-tu" />
+    <lastmod>2026-05-13T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>

@@ -1,0 +1,135 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "AEROVA WATER FROM AIR" [ref=e5] [cursor=pointer]:
+        - /url: /vi/
+        - img [ref=e7]
+        - generic [ref=e12]:
+          - generic [ref=e13]: AEROVA
+          - generic [ref=e14]: WATER FROM AIR
+      - generic [ref=e15]:
+        - link "Trang Chủ" [ref=e1306] [cursor=pointer]:
+          - /url: /vi/
+          - text: Trang Chủ
+        - link "Sản Phẩm" [ref=e1307] [cursor=pointer]:
+          - /url: /vi/product
+          - text: Sản Phẩm
+        - link "Giới Thiệu" [ref=e1308] [cursor=pointer]:
+          - /url: /vi/about
+          - text: Giới Thiệu
+        - link "Dịch Vụ" [ref=e1309] [cursor=pointer]:
+          - /url: /vi/service
+          - text: Dịch Vụ
+        - link "Liên Hệ" [ref=e1310] [cursor=pointer]:
+          - /url: /vi/contact
+          - text: Liên Hệ
+        - button "Switch to light mode" [ref=e1283] [cursor=pointer]:
+          - img [ref=e24]
+        - button "Select language" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+          - text: VI
+          - img [ref=e31]
+  - main [ref=e34]:
+    - generic [ref=e1311]:
+      - generic [ref=e1314]:
+        - generic [ref=e1315]:
+          - generic [ref=e1316]: Liên Hệ
+          - heading "Trải Nghiệm Sự Cân Bằng Khí Quyển" [level=1] [ref=e1317]
+          - generic [ref=e1318]: Experience Atmospheric Balance
+        - generic [ref=e1319]:
+          - generic [ref=e1320]:
+            - generic [ref=e1321]: Email
+            - link "info@aerova.com" [ref=e1322] [cursor=pointer]:
+              - /url: mailto:info@aerova.com
+          - generic [ref=e1323]:
+            - generic [ref=e1324]: Địa Điểm
+            - text: Ho Chi Minh City, Vietnam
+      - generic [ref=e1326]:
+        - generic [ref=e1327]:
+          - generic [ref=e1328]: Gửi Tin Nhắn Cho Chúng Tôi
+          - heading "Chúng Tôi Rất Muốn Nghe Từ Bạn" [level=2] [ref=e1329]
+          - generic [ref=e1330]:
+            - generic [ref=e1331]:
+              - textbox "Tên của bạn" [ref=e1332]:
+                - /placeholder: " "
+              - generic: Tên của bạn
+            - generic [ref=e1334]:
+              - textbox "Nhập email của bạn" [ref=e1335]:
+                - /placeholder: " "
+              - generic: Nhập email của bạn
+            - combobox [ref=e1337]:
+              - option "Enquiry type" [disabled] [selected]
+              - option "Home Use"
+              - option "Business / Commercial"
+              - option "Partnership / Distributor"
+            - generic [ref=e1338]:
+              - textbox "Tin nhắn của bạn" [ref=e1339]:
+                - /placeholder: " "
+              - generic: Tin nhắn của bạn
+            - button "Gửi Tin Nhắn" [ref=e1340] [cursor=pointer]
+        - generic [ref=e1341]:
+          - generic [ref=e1342]: Cập Nhật Cuộc Cách Mạng Nước
+          - heading "Là Người Đầu Tiên Biết" [level=2] [ref=e1343]
+          - paragraph [ref=e1344]: Hãy là người đầu tiên đưa AEROVA vào nhà hoặc văn phòng của bạn. Nhập email để nhận cập nhật độc quyền.
+          - generic [ref=e1345]:
+            - textbox "Nhập email của bạn" [ref=e1346]
+            - button "Yêu Cầu Tư Vấn" [ref=e1347] [cursor=pointer]
+          - generic [ref=e1348]:
+            - generic [ref=e1349]:
+              - generic [ref=e1350]: Email
+              - link "info@aerova.com" [ref=e1351] [cursor=pointer]:
+                - /url: mailto:info@aerova.com
+            - generic [ref=e1352]:
+              - generic [ref=e1353]: Địa Điểm
+              - generic [ref=e1354]: Ho Chi Minh City, Vietnam
+            - generic [ref=e1355]:
+              - generic [ref=e1356]: WhatsApp
+              - link "+84 90 123 4567" [ref=e1357] [cursor=pointer]:
+                - /url: https://wa.me/84901234567
+  - contentinfo [ref=e566]:
+    - generic:
+      - img
+    - generic [ref=e567]:
+      - generic [ref=e568]:
+        - paragraph [ref=e569]: "AEROVA: Được thiết kế để phản ánh sự tinh khiết, dòng chảy và cân bằng khí quyển. Chúng tôi cung cấp giải pháp nước cao cấp, độc lập hạ tầng, được thiết kế riêng cho khí hậu nhiệt đới đặc trưng của Việt Nam."
+        - generic [ref=e570]: Thiên Thủy — Nước Từ Trời
+      - generic [ref=e571]:
+        - generic [ref=e572]:
+          - link "AEROVA WATER FROM AIR" [ref=e573] [cursor=pointer]:
+            - /url: /vi/
+            - img [ref=e575]
+            - generic [ref=e579]:
+              - generic [ref=e580]: AEROVA
+              - generic [ref=e581]: WATER FROM AIR
+          - generic [ref=e582]:
+            - generic [ref=e583]: pH 7.4+
+            - generic [ref=e584]: UV-C Treated
+            - generic [ref=e585]: 99.9% Pure
+        - generic [ref=e586]:
+          - heading "Navigation" [level=4] [ref=e587]
+          - navigation [ref=e588]:
+            - link "Trang Chủ" [ref=e1358] [cursor=pointer]:
+              - /url: /vi/
+            - link "Sản Phẩm" [ref=e1359] [cursor=pointer]:
+              - /url: /vi/product
+            - link "Giới Thiệu" [ref=e1360] [cursor=pointer]:
+              - /url: /vi/about
+            - link "Dịch Vụ" [ref=e1361] [cursor=pointer]:
+              - /url: /vi/service
+            - link "Liên Hệ" [ref=e1362] [cursor=pointer]:
+              - /url: /vi/contact
+        - generic [ref=e594]:
+          - heading "Cập Nhật Cuộc Cách Mạng Nước" [level=4] [ref=e1363]
+          - paragraph [ref=e596]: Updates on water technology, sustainability, and product launches.
+          - generic [ref=e597]:
+            - textbox "Nhập email của bạn" [ref=e1364]
+            - button "Tham Gia" [ref=e1365] [cursor=pointer]
+      - generic [ref=e600]:
+        - generic [ref=e601]:
+          - link "Chính Sách Bảo Mật" [ref=e1366] [cursor=pointer]:
+            - /url: /vi/privacy-policy
+          - link "Điều Khoản & Điều Kiện" [ref=e1367] [cursor=pointer]:
+            - /url: /vi/terms-and-conditions
+          - link "Pháp Lý" [ref=e1368] [cursor=pointer]:
+            - /url: /vi/legal
+        - paragraph [ref=e605]: © 2026 AEROVA Technologies — Bảo Lưu Mọi Quyền

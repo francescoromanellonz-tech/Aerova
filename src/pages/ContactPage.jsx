@@ -6,12 +6,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 import { useLanguage } from '../contexts/LanguageContext';
 import { t } from '../utils/translate';
-import { buildHreflangLinks, buildCanonical } from '../utils/seo';
+import { buildHreflangLinks, buildCanonical, buildHeadExtras } from '../utils/seo';
 import { isValidEmail } from '../utils/validate';
 import { subscribeMailchimp } from '../utils/mailchimp';
 import HeroBackground from '../components/HeroBackground';
-
-const FORMSPREE_ENDPOINT = '';
+import SubmitCinematic from '../components/SubmitCinematic';
 
 function ContactPage() {
   const pageRef = useRef(null);
@@ -25,6 +24,9 @@ function ContactPage() {
   const [contactSending, setContactSending] = useState(false);
   const [contactError, setContactError] = useState(false);
   const [contactEmailError, setContactEmailError] = useState(false);
+  /* submitPhase: 'idle' | 'dissolving', drives the cinematic */
+  const [submitPhase, setSubmitPhase] = useState('idle');
+  const sentResultRef = useRef(false);
 
   const [nlEmail, setNlEmail] = useState('');
   const [nlStatus, setNlStatus] = useState('idle');
@@ -48,6 +50,22 @@ function ContactPage() {
     return () => ctx.revert();
   }, []);
 
+  /* Pre-fill from ?type=... and ?doc=... so /support and other entry points
+     can route users into the contact form with intent intact. */
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get('type');
+    const doc  = params.get('doc');
+    if (type === 'document-request') {
+      setContactEnquiryType('Business / Commercial');
+      if (doc) {
+        setContactMessage(`Please send me the following document: ${doc}.\n\nCompany name:\nRole:`);
+      }
+    } else if (type === 'warranty' || type === 'return' || type === 'service' || type === 'order-status' || type === 'certifications') {
+      setContactEnquiryType('Home Use');
+    }
+  }, []);
+
   const handleContact = async (e) => {
     e.preventDefault();
     if (!isValidEmail(contactEmail)) {
@@ -57,19 +75,13 @@ function ContactPage() {
     setContactEmailError(false);
     setContactError(false);
     setContactSending(true);
+    sentResultRef.current = false;
+    setSubmitPhase('dissolving');
 
-    /* If no Formspree endpoint configured, fall back to mailto */
-    if (!FORMSPREE_ENDPOINT) {
-      const subject = encodeURIComponent('AEROVA Enquiry' + (contactEnquiryType ? ` — ${contactEnquiryType}` : ''));
-      const body = encodeURIComponent(`Name: ${contactName}\nEmail: ${contactEmail}\nEnquiry type: ${contactEnquiryType || 'General'}\n\n${contactMessage}`);
-      window.open(`mailto:info@aerova.com?subject=${subject}&body=${body}`, '_self');
-      setContactSending(false);
-      setContactSent(true);
-      return;
-    }
-
+    /* POST to the Vercel /api/contact function, which emails the enquiry to the
+       business inbox via Brevo transactional email. Same-origin, no key client-side. */
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
@@ -79,8 +91,9 @@ function ContactPage() {
           message: contactMessage,
         }),
       });
-      if (res.ok) {
-        setContactSent(true);
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        sentResultRef.current = true;
       } else {
         setContactError(true);
       }
@@ -89,6 +102,11 @@ function ContactPage() {
     } finally {
       setContactSending(false);
     }
+  };
+
+  const handleCinematicComplete = () => {
+    setSubmitPhase('idle');
+    if (sentResultRef.current) setContactSent(true);
   };
 
   const handleNewsletter = async (e) => {
@@ -114,15 +132,40 @@ function ContactPage() {
         <meta name="description" content={t('meta_contact_desc', language)} />
         <link rel="canonical" href={buildCanonical('/contact', language)} />
         {buildHreflangLinks('/contact')}
+        {buildHeadExtras('/contact', language)}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={buildCanonical('/contact', language)} />
         <meta property="og:title" content={t('meta_contact_title', language)} />
         <meta property="og:description" content={t('meta_contact_desc', language)} />
-        <meta property="og:image" content="https://aerova.asia/og-image.png" />
-        <meta property="og:site_name" content="AEROVA" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={t('meta_contact_title', language)} />
+        <meta property="og:image"        content="https://aerova.asia/og-image.png" />
+        <meta property="og:image:width"  content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name"    content="AEROVA" />
+        <meta name="twitter:card"        content="summary_large_image" />
+        <meta name="twitter:title"       content={t('meta_contact_title', language)} />
         <meta name="twitter:description" content={t('meta_contact_desc', language)} />
+        <meta name="twitter:image"       content="https://aerova.asia/og-image.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "AEROVA Technologies",
+          "url": "https://aerova.asia",
+          "logo": "https://aerova.asia/favicon.svg",
+          "email": "info@aerova.com",
+          "telephone": "+84-90-123-4567",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ho Chi Minh City",
+            "addressCountry": "VN"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+84-90-123-4567",
+            "email": "info@aerova.com",
+            "contactType": "customer service",
+            "availableLanguage": ["English", "Vietnamese"]
+          }
+        })}</script>
       </Helmet>
 
       {/* ═══ HERO ═══ */}
@@ -137,7 +180,7 @@ function ContactPage() {
       >
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-20 items-end">
-            {/* Left — headline */}
+            {/* Left, headline */}
             <div>
               <span
                 className="ct-eyebrow inline-block text-[10px] md:text-xs uppercase mb-6 px-4 py-1.5"
@@ -154,7 +197,7 @@ function ContactPage() {
               <span className="ct-sub vietnamese-sub">{t('contact_subtitle', language)}</span>
             </div>
 
-            {/* Right — direct contact at a glance */}
+            {/* Right, direct contact at a glance */}
             <div className="ct-sub flex flex-col gap-5 lg:pb-3 lg:text-right lg:items-end">
               <div>
                 <span className="text-[9px] uppercase block mb-1"
@@ -187,7 +230,7 @@ function ContactPage() {
         style={{ paddingTop: '60px', paddingBottom: 'var(--section-pad)', background: 'var(--bg-alt)' }}
       >
         <div className="ct-grid max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Left — Contact form */}
+          {/* Left, Contact form */}
           <div className="ct-left">
             <span
               className="text-[11px] uppercase block mb-3"
@@ -199,6 +242,19 @@ function ContactPage() {
               {t('ct_form_headline', language)}
             </h2>
 
+            <div className="ct-form-stage relative" style={{ minHeight: '420px' }}>
+              <SubmitCinematic
+                playing={submitPhase === 'dissolving'}
+                onComplete={handleCinematicComplete}
+                durationMs={1700}
+              />
+              <div
+                style={{
+                  opacity: submitPhase === 'dissolving' ? 0 : 1,
+                  transition: 'opacity 0.45s ease-out',
+                  pointerEvents: submitPhase === 'dissolving' ? 'none' : 'auto',
+                }}
+              >
             {contactSent ? (
               <div className="p-8 rounded-lg" style={{ border: '1px solid var(--border-sage-strong)' }}>
                 <span className="text-sm uppercase block mb-3" style={{ letterSpacing: '0.15em', color: 'var(--sage)', fontWeight: 400 }}>
@@ -217,7 +273,7 @@ function ContactPage() {
               </div>
             ) : (
               <form className="flex flex-col gap-5" onSubmit={handleContact}>
-                {/* Name — floating label */}
+                {/* Name, floating label */}
                 <div className="float-field">
                   <input
                     id="ct-name"
@@ -230,7 +286,7 @@ function ContactPage() {
                     {t('contact_name_placeholder', language)}
                   </label>
                 </div>
-                {/* Email — floating label */}
+                {/* Email, floating label */}
                 <div>
                   <div className="float-field">
                     <input
@@ -273,7 +329,7 @@ function ContactPage() {
                     <option value="Partnership / Distributor">Partnership / Distributor</option>
                   </select>
                 </div>
-                {/* Message — floating label */}
+                {/* Message, floating label */}
                 <div className="float-field">
                   <textarea
                     id="ct-message"
@@ -302,9 +358,11 @@ function ContactPage() {
                 </button>
               </form>
             )}
+              </div>
+            </div>
           </div>
 
-          {/* Right — Newsletter + Details */}
+          {/* Right, Newsletter + Details */}
           <div className="ct-right">
             <span
               className="text-[11px] uppercase block mb-3"

@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 /**
  * Two responsibilities:
@@ -10,9 +12,26 @@ function ScrollToTop() {
   const [visible, setVisible] = useState(false);
   const { pathname } = useLocation();
 
-  /* Reset scroll on navigation */
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  /* Prevent the browser from restoring scroll positions on history traversal. */
+  useLayoutEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  /* useLayoutEffect fires synchronously after DOM commit but BEFORE browser
+     paint and BEFORE child useEffect hooks. This means scroll resets to 0
+     before any page component (TechnicalSpecifications pin, ProductPage GSAP
+     context, etc.) creates new ScrollTriggers — eliminating the race condition
+     where GSAP initialized triggers with the old scroll position. */
+  useLayoutEffect(() => {
+    /* Kill all live ScrollTriggers from the outgoing page so pins/scrubs
+       cannot fight the scroll reset or re-position after we leave. */
+    ScrollTrigger.getAll().forEach(st => st.kill());
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, [pathname]);
 
   useEffect(() => {

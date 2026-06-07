@@ -3,11 +3,11 @@ import { createContext, useContext, useState, useEffect, useCallback } from 'rea
 const LanguageContext = createContext();
 
 export const LANGUAGES = [
-  { code: 'en', label: 'EN', name: 'English' },
-  { code: 'vi', label: 'VI', name: 'Tiếng Việt' },
-  { code: 'ru', label: 'RU', name: 'Русский' },
-  { code: 'fr', label: 'FR', name: 'Français' },
-  { code: 'zh', label: '中文', name: '中文' },
+  { code: 'en', label: 'EN',   name: 'English',    flagCode: 'gb' },
+  { code: 'vi', label: 'VI',   name: 'Tiếng Việt', flagCode: 'vn' },
+  { code: 'ru', label: 'RU',   name: 'Русский',     flagCode: 'ru' },
+  { code: 'fr', label: 'FR',   name: 'Français',    flagCode: 'fr' },
+  { code: 'zh', label: '中文', name: '中文',         flagCode: 'cn' },
 ];
 
 export const useLanguage = () => {
@@ -29,7 +29,7 @@ export const LanguageProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    document.documentElement.setAttribute('lang', language === 'zh' ? 'zh' : language);
+    document.documentElement.setAttribute('lang', language === 'zh' ? 'zh-Hans' : language);
   }, [language]);
 
   return (

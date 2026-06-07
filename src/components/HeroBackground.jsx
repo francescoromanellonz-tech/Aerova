@@ -5,25 +5,28 @@
  * Desktop: photo pinned to the right ~50%, gradient overlay covers the left
  *          text-side, optional gold/water-crystal hairline at the photo edge.
  * Mobile: photo becomes a watermark behind text at low opacity (0.18 default,
- *         configurable), full-width.
- *
- * Children render the section's content at z-index above the photo + overlay.
+ *         configurable), full-width. If `mobileSrc` is provided, that image
+ *         is used on mobile instead of `src` (typically a portrait crop) and
+ *         a stronger bottom-up gradient keeps the body copy readable.
  *
  * Props:
- *   src             — image path (string)
- *   alt             — accessible alt text; pass "" for purely decorative
- *   accent          — 'gold' | 'water-crystal' | 'none' (the hairline color at photo edge)
- *   mobileOpacity   — number 0-1 for mobile watermark (default 0.18)
- *   desktopOpacity  — number 0-1 for desktop photo (default 1)
- *   gradientStop    — % at which the gradient becomes transparent on desktop (default 55)
- *   side            — 'right' | 'left' — which side the photo pins to (default 'right')
- *   minHeight       — section min-height (default 'auto'; pass e.g. '70vh' for full hero)
- *   className       — extra classes for the wrapper section
- *   bgVar           — CSS var name for the gradient base color (default '--bg')
+ *   src            , desktop image path (string)
+ *   mobileSrc      , optional mobile-specific image (portrait recommended)
+ *   alt            , accessible alt text; pass "" for purely decorative
+ *   accent         , 'gold' | 'water-crystal' | 'none'
+ *   mobileOpacity  , number 0-1 for mobile photo (default 0.18; bump when
+ *                     mobileSrc is a real hero image rather than a watermark)
+ *   desktopOpacity , number 0-1 for desktop photo (default 1)
+ *   gradientStop   , % at which the gradient becomes transparent on desktop
+ *   side           , 'right' | 'left', desktop photo side (default 'right')
+ *   minHeight      , section min-height (default 'auto')
+ *   className      , extra classes for the wrapper section
+ *   bgVar          , CSS var for the gradient base color (default '--bg')
  */
 
 export default function HeroBackground({
   src,
+  mobileSrc,
   alt = '',
   accent = 'gold',
   mobileOpacity = 0.18,
@@ -35,6 +38,8 @@ export default function HeroBackground({
   bgVar = '--bg',
   children,
 }) {
+  const phoneSrc = mobileSrc || src;
+  const hasDedicatedMobile = Boolean(mobileSrc);
   const accentColor =
     accent === 'gold' ? 'var(--gold)' :
     accent === 'water-crystal' ? 'var(--water-crystal)' :
@@ -49,15 +54,31 @@ export default function HeroBackground({
       className={`relative overflow-hidden ${className}`}
       style={{ background: bg, minHeight }}
     >
-      {/* Photo — desktop: 50% width, pinned to one side. Mobile: full width watermark. */}
+      {/* Mobile photo, full width, hidden on lg+. Uses mobileSrc when given. */}
       <img
-        src={src}
+        src={phoneSrc}
         alt={alt}
         loading="lazy"
         draggable="false"
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none hero-bg-img"
+        className="lg:hidden absolute inset-0 w-full h-full object-cover pointer-events-none hero-bg-img"
+        style={{ opacity: mobileOpacity }}
+      />
+
+      {/* Mobile-only readability gradient. Three-stop ramp:
+          - top 18% stays transparent (atmospheric headroom for the first eyebrow)
+          - 18→55% darkens to ~50% bg over the headline + body zone
+          - 55→100% lands fully on bg under the body / stats / CTA stack
+          Always present on mobile (not gated on hasDedicatedMobile), even a
+          watermark image needs the readability ramp under text. */}
+      <div
+        className="lg:hidden absolute inset-0 pointer-events-none"
         style={{
-          opacity: mobileOpacity,
+          background: `linear-gradient(to bottom,
+            transparent 0%,
+            transparent 18%,
+            rgba(26,26,27,0.50) 38%,
+            rgba(26,26,27,0.78) 60%,
+            rgba(26,26,27,1.00) 92%)`,
         }}
       />
 

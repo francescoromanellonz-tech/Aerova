@@ -1,0 +1,50 @@
+# AEROVA
+
+> Premium atmospheric water generators (AWG) for Vietnam. Creates mineralized, alkaline drinking water directly from air humidity — no water pipes, no plastic bottles.
+
+AEROVA Technologies manufactures the LT-AWG20G atmospheric water generator, which condenses moisture from the air through a 7-stage filtration system to produce up to 20 litres per day of mineralised alkaline drinking water (pH 7.4+). Designed specifically for Vietnam's humid tropical climate (70–85% average humidity). No pipe connection required. Free installation in Ho Chi Minh City and Hanoi.
+
+## Product
+
+- [AEROVA LT-AWG20G — Atmospheric Water Generator](https://aerova.asia/product): Full product specifications. 20L/day output, 7-stage filtration (HEPA → condensation → sediment → activated carbon → reverse osmosis → UV-C → mineralisation), 45dB operating noise, mildly alkaline pH 7.4+, 2-year warranty, 30-day money-back guarantee.
+
+## Key Facts
+
+- Technology: Atmospheric Water Generation (AWG) — extracts drinking water from ambient air humidity
+- Output: up to 20 litres per day at 80% relative humidity, 25°C
+- Filtration stages: 7 (HEPA air filter, condensation coils, PP sediment, GAC activated carbon, RO membrane, UV-C sterilisation, calcium-magnesium mineralisation)
+- Water quality: pH 7.4–8.5 (mildly alkaline), TDS <50ppm after RO stage
+- Operating noise: 45dB
+- No plumbing required: runs from a standard 220V power outlet
+- Target market: Vietnam residential (apartments, villas), hospitality, and commercial
+- Purchase price: approx. USD 1,500 (VAT included)
+- Running cost: approx. USD 0.03 per litre vs USD 0.30–0.60 for bottled water
+- Free installation: Ho Chi Minh City and Hanoi
+
+## Pages
+
+- [Home](https://aerova.asia/): Overview, how atmospheric water generation works, sustainability benefits
+- [Product](https://aerova.asia/product): Full specifications, filtration stages, pricing, comparison vs bottled and tap water
+- [About](https://aerova.asia/about): Company mission, values, Vietnam story, sustainability commitment
+- [Service & Purchase](https://aerova.asia/service): Purchase, installation, filter replacement service
+- [Business / B2B](https://aerova.asia/business): Hotel, restaurant, office, and multi-unit commercial solutions
+- [FAQ](https://aerova.asia/faq): Common questions about atmospheric water generation, safety, and maintenance
+- [Support](https://aerova.asia/support): Owner support, troubleshooting, filter cycle guide
+- [Blog](https://aerova.asia/blog): Water quality guides for Vietnam, maintenance tips, buying guides
+
+## Blog Articles (published)
+
+- [What Are Water Filter Cartridges? How Often to Replace & Real Costs 2025](https://aerova.asia/blog/loi-loc-nuoc-la-gi)
+- [How to Fix a Water Purifier at Home: 7 Common Problems Solved](https://aerova.asia/blog/sua-may-loc-nuoc-tai-nha)
+- [Is Tap Water Safe to Drink in Vietnam? (2025)](https://aerova.asia/blog/is-tap-water-safe-in-vietnam)
+- [Countertop vs Under-Sink Water Filter: Full Comparison (2025)](https://aerova.asia/blog/may-loc-nuoc-de-ban-vs-am-tu)
+
+## Contact
+
+- Website: https://aerova.asia
+- Location: Ho Chi Minh City, Vietnam
+- Languages: English, Vietnamese, Russian, French, Chinese (Simplified)
+
+## Optional
+
+- [Sitemap](https://aerova.asia/sitemap.xml)

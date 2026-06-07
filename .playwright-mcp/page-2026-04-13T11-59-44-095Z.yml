@@ -1,0 +1,135 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "AEROVA WATER FROM AIR" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+        - generic [ref=e12]:
+          - generic [ref=e13]: AEROVA
+          - generic [ref=e14]: WATER FROM AIR
+      - generic [ref=e15]:
+        - link "Home" [ref=e16] [cursor=pointer]:
+          - /url: /
+          - text: Home
+        - link "Product" [ref=e18] [cursor=pointer]:
+          - /url: /product
+          - text: Product
+        - link "About" [ref=e19] [cursor=pointer]:
+          - /url: /about
+          - text: About
+        - link "Service" [ref=e20] [cursor=pointer]:
+          - /url: /service
+          - text: Service
+        - link "Contact" [active] [ref=e21] [cursor=pointer]:
+          - /url: /contact
+          - text: Contact
+        - button "Switch to dark mode" [ref=e23] [cursor=pointer]:
+          - img [ref=e24]
+        - button "Select language" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+          - text: EN
+          - img [ref=e31]
+  - main [ref=e34]:
+    - generic [ref=e1236]:
+      - generic [ref=e1239]:
+        - generic [ref=e1240]:
+          - generic [ref=e1241]: Get in Touch
+          - heading "Experience Atmospheric Balance" [level=1] [ref=e1242]
+          - generic [ref=e1243]: Trải Nghiệm Sự Cân Bằng Khí Quyển
+        - generic [ref=e1244]:
+          - generic [ref=e1245]:
+            - generic [ref=e1246]: Email
+            - link "info@aerova.com" [ref=e1247] [cursor=pointer]:
+              - /url: mailto:info@aerova.com
+          - generic [ref=e1248]:
+            - generic [ref=e1249]: Location
+            - text: Ho Chi Minh City, Vietnam
+      - generic [ref=e1251]:
+        - generic [ref=e1252]:
+          - generic [ref=e1253]: Send Us a Message
+          - heading "We'd Love to Hear From You" [level=2] [ref=e1254]
+          - generic [ref=e1255]:
+            - generic [ref=e1256]:
+              - textbox "Your name" [ref=e1257]:
+                - /placeholder: " "
+              - generic: Your name
+            - generic [ref=e1259]:
+              - textbox "Enter your email" [ref=e1260]:
+                - /placeholder: " "
+              - generic: Enter your email
+            - combobox [ref=e1262]:
+              - option "Enquiry type" [disabled] [selected]
+              - option "Home Use"
+              - option "Business / Commercial"
+              - option "Partnership / Distributor"
+            - generic [ref=e1263]:
+              - textbox "Your message" [ref=e1264]:
+                - /placeholder: " "
+              - generic: Your message
+            - button "Send Message" [ref=e1265] [cursor=pointer]
+        - generic [ref=e1266]:
+          - generic [ref=e1267]: Stay Updated on the Water Revolution
+          - heading "Be the First to Know" [level=2] [ref=e1268]
+          - paragraph [ref=e1269]: Be among the first to bring AEROVA into your home or office. Enter your email to receive exclusive updates.
+          - generic [ref=e1270]:
+            - textbox "Enter your email" [ref=e1271]
+            - button "Request a Consultation" [ref=e1272] [cursor=pointer]
+          - generic [ref=e1273]:
+            - generic [ref=e1274]:
+              - generic [ref=e1275]: Email
+              - link "info@aerova.com" [ref=e1276] [cursor=pointer]:
+                - /url: mailto:info@aerova.com
+            - generic [ref=e1277]:
+              - generic [ref=e1278]: Location
+              - generic [ref=e1279]: Ho Chi Minh City, Vietnam
+            - generic [ref=e1280]:
+              - generic [ref=e1281]: WhatsApp
+              - link "+84 90 123 4567" [ref=e1282] [cursor=pointer]:
+                - /url: https://wa.me/84901234567
+  - contentinfo [ref=e566]:
+    - generic:
+      - img
+    - generic [ref=e567]:
+      - generic [ref=e568]:
+        - paragraph [ref=e569]: "AEROVA: Engineered to reflect purity, flow, and atmospheric balance. We provide high-end, infrastructure-independent water solutions designed specifically for Vietnam's unique tropical climate."
+        - generic [ref=e570]: Thiên Thủy — Nước Từ Trời
+      - generic [ref=e571]:
+        - generic [ref=e572]:
+          - link "AEROVA WATER FROM AIR" [ref=e573] [cursor=pointer]:
+            - /url: /
+            - img [ref=e575]
+            - generic [ref=e579]:
+              - generic [ref=e580]: AEROVA
+              - generic [ref=e581]: WATER FROM AIR
+          - generic [ref=e582]:
+            - generic [ref=e583]: pH 7.4+
+            - generic [ref=e584]: UV-C Treated
+            - generic [ref=e585]: 99.9% Pure
+        - generic [ref=e586]:
+          - heading "Navigation" [level=4] [ref=e587]
+          - navigation [ref=e588]:
+            - link "Home" [ref=e589] [cursor=pointer]:
+              - /url: /
+            - link "Product" [ref=e590] [cursor=pointer]:
+              - /url: /product
+            - link "About" [ref=e591] [cursor=pointer]:
+              - /url: /about
+            - link "Service" [ref=e592] [cursor=pointer]:
+              - /url: /service
+            - link "Contact" [ref=e593] [cursor=pointer]:
+              - /url: /contact
+        - generic [ref=e594]:
+          - heading "Stay Updated on the Water Revolution" [level=4] [ref=e595]
+          - paragraph [ref=e596]: Updates on water technology, sustainability, and product launches.
+          - generic [ref=e597]:
+            - textbox "Enter your email" [ref=e598]
+            - button "Join" [ref=e599] [cursor=pointer]
+      - generic [ref=e600]:
+        - generic [ref=e601]:
+          - link "Privacy Policy" [ref=e602] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "Terms & Conditions" [ref=e603] [cursor=pointer]:
+            - /url: /terms-and-conditions
+          - link "Legal" [ref=e604] [cursor=pointer]:
+            - /url: /legal
+        - paragraph [ref=e605]: © 2026 AEROVA Technologies — All Rights Reserved

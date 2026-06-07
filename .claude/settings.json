@@ -1,0 +1,47 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Glob|Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -f graphify-out/graph.json ] && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"graphify: Knowledge graph exists. Read graphify-out/GRAPH_REPORT.md for god nodes and community structure before searching raw files.\"}}' || true"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "timeout": 15,
+            "statusMessage": "Checking git push status...",
+            "command": "cd \"C:/Users/roman/Documents/development/React/Aerova\" 2>/dev/null && { st=$(git status --porcelain 2>/dev/null); ah=$(git rev-list --count @{u}..HEAD 2>/dev/null || echo 0); if [ -n \"$st\" ] || [ \"$ah\" != \"0\" ]; then m=\"Git reminder:\"; [ -n \"$st\" ] && m=\"$m uncommitted changes;\"; [ \"$ah\" != \"0\" ] && m=\"$m $ah unpushed commit(s);\"; m=\"$m commit & git push when ready.\"; printf '{\"systemMessage\":\"%s\"}\\n' \"$m\"; fi; }"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "ask": [
+      "Bash(git push*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean*)",
+      "Bash(wrangler*)",
+      "Bash(npx wrangler*)",
+      "PowerShell(git push*)",
+      "PowerShell(git reset --hard*)",
+      "PowerShell(wrangler*)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "PowerShell(Remove-Item -Recurse -Force *)",
+      "PowerShell(git push --force*)"
+    ]
+  }
+}

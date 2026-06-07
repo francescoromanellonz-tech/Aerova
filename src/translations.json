@@ -37,16 +37,16 @@
   "hero_headline": {
     "en": "The Sky is Your Source",
     "vi": "Bầu Trời Là Nguồn Nước",
-    "ru": "Небо — ваш источник",
+    "ru": "Небо: ваш источник",
     "fr": "Le ciel est votre source",
     "zh": "天空就是你的水源"
   },
   "hero_subheadline": {
-    "en": "Thiên Thủy — Nước Từ Trời",
-    "vi": "Thiên Thủy — Nước Từ Trời",
-    "ru": "Thiên Thủy — Небесная Вода",
-    "fr": "Thiên Thủy — L'Eau du Ciel",
-    "zh": "Thiên Thủy — 天水"
+    "en": "Thiên Thủy: Nước Từ Trời",
+    "vi": "Thiên Thủy: Nước Từ Trời",
+    "ru": "Thiên Thủy: Небесная Вода",
+    "fr": "Thiên Thủy: L'Eau du Ciel",
+    "zh": "Thiên Thủy: 天水"
   },
   "hero_description": {
     "en": "Pristine, mineralized water drawn from the atmosphere. No pipes. No plastic. No compromise.",
@@ -61,6 +61,41 @@
     "ru": "Изучить технологию",
     "fr": "Explorer la technologie",
     "zh": "探索技术"
+  },
+  "hero_two_doors_eyebrow": {
+    "en": "Choose your path",
+    "vi": "Chọn lộ trình của bạn",
+    "ru": "Выберите ваш путь",
+    "fr": "Choisissez votre voie",
+    "zh": "选择您的路径"
+  },
+  "hero_residential_cta": {
+    "en": "For Your Home",
+    "vi": "Cho Gia Đình",
+    "ru": "Для дома",
+    "fr": "Pour Votre Maison",
+    "zh": "家用"
+  },
+  "hero_commercial_cta": {
+    "en": "For Your Business",
+    "vi": "Cho Doanh Nghiệp",
+    "ru": "Для бизнеса",
+    "fr": "Pour Votre Entreprise",
+    "zh": "商用"
+  },
+  "prod_hero_b2b_prompt": {
+    "en": "Buying for an office, hotel, or restaurant?",
+    "vi": "Mua cho văn phòng, khách sạn hoặc nhà hàng?",
+    "ru": "Покупаете для офиса, отеля или ресторана?",
+    "fr": "Achat pour un bureau, hôtel ou restaurant ?",
+    "zh": "为办公室、酒店或餐厅采购？"
+  },
+  "prod_hero_b2b_cta": {
+    "en": "Get a commercial quote",
+    "vi": "Yêu cầu báo giá thương mại",
+    "ru": "Получить коммерческое предложение",
+    "fr": "Obtenir un devis commercial",
+    "zh": "获取商业报价"
   },
   "why_headline": {
     "en": "Why Choose Water from Air",
@@ -91,11 +126,11 @@
     "zh": "84%"
   },
   "why_card2_text": {
-    "en": "average humidity in Vietnam — the ideal climate for atmospheric water generation",
-    "vi": "độ ẩm trung bình tại Việt Nam — khí hậu lý tưởng cho công nghệ tạo nước từ không khí",
-    "ru": "средняя влажность во Вьетнаме — идеальный климат для атмосферной генерации воды",
-    "fr": "humidité moyenne au Vietnam — le climat idéal pour la génération d'eau atmosphérique",
-    "zh": "越南平均湿度——大气制水的理想气候"
+    "en": "average humidity in Vietnam, the ideal climate for atmospheric water generation",
+    "vi": "độ ẩm trung bình tại Việt Nam, khí hậu lý tưởng cho công nghệ tạo nước từ không khí",
+    "ru": "средняя влажность во Вьетнаме, идеальный климат для атмосферной генерации воды",
+    "fr": "humidité moyenne au Vietnam, le climat idéal pour la génération d'eau atmosphérique",
+    "zh": "越南平均湿度，大气制水的理想气候"
   },
   "why_card3_title": {
     "en": "Beyond Filtration",
@@ -105,11 +140,11 @@
     "zh": "超越过滤"
   },
   "why_card3_text": {
-    "en": "Unlike traditional purifiers, AEROVA creates water from a completely independent source — the air itself",
-    "vi": "Khác với máy lọc truyền thống, AEROVA tạo nước từ nguồn hoàn toàn độc lập — chính bầu không khí",
-    "ru": "В отличие от традиционных фильтров, AEROVA создаёт воду из полностью независимого источника — самого воздуха",
-    "fr": "Contrairement aux purificateurs traditionnels, AEROVA crée de l'eau à partir d'une source totalement indépendante — l'air lui-même",
-    "zh": "与传统净水器不同，AEROVA从完全独立的来源——空气本身——创造水"
+    "en": "Unlike traditional purifiers, AEROVA creates water from a completely independent source, the air itself",
+    "vi": "Khác với máy lọc truyền thống, AEROVA tạo nước từ nguồn hoàn toàn độc lập, chính bầu không khí",
+    "ru": "В отличие от традиционных фильтров, AEROVA создаёт воду из полностью независимого источника, самого воздуха",
+    "fr": "Contrairement aux purificateurs traditionnels, AEROVA crée de l'eau à partir d'une source totalement indépendante, l'air lui-même",
+    "zh": "与传统净水器不同，AEROVA从完全独立的来源，空气本身，创造水"
   },
   "why_card4_title": {
     "en": "Sustainable Living",
@@ -427,23 +462,23 @@
     "zh": "毛重"
   },
   "specs_product_image_closed": {
-    "en": "Product Image — Closed Unit",
-    "vi": "Hình Sản Phẩm — Máy Đóng",
-    "ru": "Изображение — Закрытый Корпус",
-    "fr": "Image Produit — Unité Fermée",
-    "zh": "产品图片 — 整机"
+    "en": "Product Image: Closed Unit",
+    "vi": "Hình Sản Phẩm: Máy Đóng",
+    "ru": "Изображение: Закрытый Корпус",
+    "fr": "Image Produit: Unité Fermée",
+    "zh": "产品图片: 整机"
   },
   "specs_product_image_open": {
-    "en": "Product Image — Open Base View",
-    "vi": "Hình Sản Phẩm — Mặt Đáy Mở",
-    "ru": "Изображение — Вид Снизу",
-    "fr": "Image Produit — Vue Base Ouverte",
-    "zh": "产品图片 — 底部视图"
+    "en": "Product Image: Open Base View",
+    "vi": "Hình Sản Phẩm: Mặt Đáy Mở",
+    "ru": "Изображение: Вид Снизу",
+    "fr": "Image Produit: Vue Base Ouverte",
+    "zh": "产品图片: 底部视图"
   },
   "vietnam_headline": {
     "en": "Vietnam's Climate is Your Resource",
     "vi": "Khí Hậu Việt Nam Là Tài Nguyên Của Bạn",
-    "ru": "Климат Вьетнама — ваш ресурс",
+    "ru": "Климат Вьетнама: ваш ресурс",
     "fr": "Le climat du Vietnam est votre ressource",
     "zh": "越南的气候就是你的资源"
   },
@@ -457,7 +492,7 @@
   "vietnam_description": {
     "en": "Vietnam's average humidity of 84% is an untapped asset. While others see tropical heat, AEROVA sees the ideal environment to harvest over 20L of pure water every day, consistently exceeding rated specifications.",
     "vi": "Độ ẩm trung bình 84% của Việt Nam là tài sản chưa được khai thác. Trong khi người khác thấy nóng nhiệt đới, AEROVA thấy môi trường lý tưởng để thu hoạch hơn 20L nước tinh khiết mỗi ngày, liên tục vượt thông số định mức.",
-    "ru": "Средняя влажность Вьетнама 84% — неиспользованный актив. Пока другие видят тропическую жару, AEROVA видит идеальную среду для получения более 20 литров чистой воды ежедневно, стабильно превышая номинальные характеристики.",
+    "ru": "Средняя влажность Вьетнама 84%, неиспользованный актив. Пока другие видят тропическую жару, AEROVA видит идеальную среду для получения более 20 литров чистой воды ежедневно, стабильно превышая номинальные характеристики.",
     "fr": "L'humidité moyenne de 84% au Vietnam est un atout inexploité. Là où d'autres voient la chaleur tropicale, AEROVA voit l'environnement idéal pour récolter plus de 20L d'eau pure chaque jour, dépassant constamment les spécifications nominales.",
     "zh": "越南84%的平均湿度是未被开发的资产。当其他人看到热带高温时，AEROVA看到的是每天收获超过20升纯净水的理想环境，持续超越额定规格。"
   },
@@ -553,11 +588,11 @@
     "zh": "所需运输车辆"
   },
   "sustainability_source": {
-    "en": "From atmosphere — no source water needed",
-    "vi": "Từ khí quyển — không cần nguồn nước",
-    "ru": "Из атмосферы — не требует источника воды",
-    "fr": "De l'atmosphère — pas d'eau source nécessaire",
-    "zh": "来自大气——无需水源"
+    "en": "From atmosphere: no source water needed",
+    "vi": "Từ khí quyển: không cần nguồn nước",
+    "ru": "Из атмосферы: не требует источника воды",
+    "fr": "De l'atmosphère: pas d'eau source nécessaire",
+    "zh": "来自大气，无需水源"
   },
   "contact_headline": {
     "en": "Experience Atmospheric Balance",
@@ -595,25 +630,25 @@
     "zh": "请求咨询"
   },
   "contact_thanks": {
-    "en": "Thank you — we'll be in touch.",
-    "vi": "Cảm ơn bạn — chúng tôi sẽ liên hệ sớm.",
-    "ru": "Спасибо — мы свяжемся с вами.",
-    "fr": "Merci — nous vous recontacterons.",
-    "zh": "谢谢——我们会与您联系。"
+    "en": "Thank you: we'll be in touch.",
+    "vi": "Cảm ơn bạn: chúng tôi sẽ liên hệ sớm.",
+    "ru": "Спасибо: мы свяжемся с вами.",
+    "fr": "Merci: nous vous recontacterons.",
+    "zh": "谢谢，我们会与您联系。"
   },
   "footer_tagline": {
-    "en": "Water from Air — Engineered for Vietnam",
-    "vi": "Nước Từ Không Khí — Thiết Kế Cho Việt Nam",
-    "ru": "Вода из воздуха — Спроектировано для Вьетнама",
-    "fr": "L'eau de l'air — Conçue pour le Vietnam",
-    "zh": "空气取水 — 为越南而设计"
+    "en": "Water from Air: Engineered for Vietnam",
+    "vi": "Nước Từ Không Khí: Thiết Kế Cho Việt Nam",
+    "ru": "Вода из воздуха: Спроектировано для Вьетнама",
+    "fr": "L'eau de l'air: Conçue pour le Vietnam",
+    "zh": "空气取水: 为越南而设计"
   },
   "footer_copyright": {
-    "en": "© 2026 AEROVA Technologies — All Rights Reserved",
-    "vi": "© 2026 AEROVA Technologies — Bảo Lưu Mọi Quyền",
-    "ru": "© 2026 AEROVA Technologies — Все права защищены",
-    "fr": "© 2026 AEROVA Technologies — Tous droits réservés",
-    "zh": "© 2026 AEROVA Technologies — 版权所有"
+    "en": "© 2026 AEROVA Technologies: All Rights Reserved",
+    "vi": "© 2026 AEROVA Technologies: Bảo Lưu Mọi Quyền",
+    "ru": "© 2026 AEROVA Technologies: Все права защищены",
+    "fr": "© 2026 AEROVA Technologies: Tous droits réservés",
+    "zh": "© 2026 AEROVA Technologies: 版权所有"
   },
   "footer_privacy": {
     "en": "Privacy Policy",
@@ -685,6 +720,13 @@
     "fr": "Blog",
     "zh": "博客"
   },
+  "nav_business": {
+    "en": "Business",
+    "vi": "Doanh Nghiệp",
+    "ru": "Бизнес",
+    "fr": "Entreprise",
+    "zh": "企业"
+  },
   "home_why_aerova": {
     "en": "Why AEROVA",
     "vi": "Tại Sao Chọn AEROVA",
@@ -716,7 +758,7 @@
   "home_highlight2_desc": {
     "en": "From installation to maintenance, AEROVA provides end-to-end service for residential and commercial clients.",
     "vi": "Từ lắp đặt đến bảo trì, AEROVA cung cấp dịch vụ trọn gói cho khách hàng dân cư và thương mại.",
-    "ru": "От установки до обслуживания — AEROVA обеспечивает полный цикл сервиса для жилых и коммерческих клиентов.",
+    "ru": "От установки до обслуживания, AEROVA обеспечивает полный цикл сервиса для жилых и коммерческих клиентов.",
     "fr": "De l'installation à la maintenance, AEROVA fournit un service complet pour les clients résidentiels et commerciaux.",
     "zh": "从安装到维护，AEROVA为住宅和商业客户提供端到端服务。"
   },
@@ -814,7 +856,7 @@
   "about_value3_desc": {
     "en": "Zero plastic waste, zero delivery trucks, zero dependency on contaminated water sources. AEROVA is water independence.",
     "vi": "Không rác thải nhựa, không xe giao hàng, không phụ thuộc vào nguồn nước ô nhiễm. AEROVA là sự độc lập về nước.",
-    "ru": "Ноль пластиковых отходов, ноль грузовиков, ноль зависимости от загрязнённых источников воды. AEROVA — это водная независимость.",
+    "ru": "Ноль пластиковых отходов, ноль грузовиков, ноль зависимости от загрязнённых источников воды. AEROVA, это водная независимость.",
     "fr": "Zéro déchet plastique, zéro camions de livraison, zéro dépendance aux sources d'eau contaminées. AEROVA, c'est l'indépendance hydrique.",
     "zh": "零塑料废物，零运输车辆，零对污染水源的依赖。AEROVA就是水源独立。"
   },
@@ -835,7 +877,7 @@
   "service_description": {
     "en": "AEROVA provides comprehensive atmospheric water generation solutions for residential and commercial clients across Vietnam. From initial consultation to ongoing maintenance, we ensure your system delivers optimal performance.",
     "vi": "AEROVA cung cấp giải pháp tạo nước từ khí quyển toàn diện cho khách hàng dân cư và thương mại trên toàn Việt Nam. Từ tư vấn ban đầu đến bảo trì liên tục, chúng tôi đảm bảo hệ thống hoạt động tối ưu.",
-    "ru": "AEROVA предоставляет комплексные решения по атмосферной генерации воды для жилых и коммерческих клиентов по всему Вьетнаму. От первичной консультации до постоянного обслуживания — мы обеспечиваем оптимальную работу вашей системы.",
+    "ru": "AEROVA предоставляет комплексные решения по атмосферной генерации воды для жилых и коммерческих клиентов по всему Вьетнаму. От первичной консультации до постоянного обслуживания, мы обеспечиваем оптимальную работу вашей системы.",
     "fr": "AEROVA fournit des solutions complètes de génération d'eau atmosphérique pour les clients résidentiels et commerciaux au Vietnam. De la consultation initiale à la maintenance continue, nous assurons des performances optimales.",
     "zh": "AEROVA为越南各地的住宅和商业客户提供全面的大气水生成解决方案。从初始咨询到持续维护，我们确保您的系统提供最佳性能。"
   },
@@ -957,6 +999,132 @@
     "ru": "Tin Tức & Kiến Thức",
     "fr": "Tin Tức & Kiến Thức",
     "zh": "Tin Tức & Kiến Thức"
+  },
+  "blog_related": {
+    "en": "Related Articles",
+    "vi": "Bài viết liên quan",
+    "ru": "Похожие статьи",
+    "fr": "Articles connexes",
+    "zh": "相关文章"
+  },
+  "blog_min_read": {
+    "en": "min read",
+    "vi": "phút đọc",
+    "ru": "мин чтения",
+    "fr": "min de lecture",
+    "zh": "分钟阅读"
+  },
+  "blog_back_to_blog": {
+    "en": "Back to Blog",
+    "vi": "Quay lại Blog",
+    "ru": "Назад к блогу",
+    "fr": "Retour au blog",
+    "zh": "返回博客"
+  },
+  "blog_see_machine": {
+    "en": "See the machine",
+    "vi": "Xem sản phẩm",
+    "ru": "Смотреть устройство",
+    "fr": "Voir l'appareil",
+    "zh": "查看产品"
+  },
+  "blog_view_faqs": {
+    "en": "View all FAQs",
+    "vi": "Câu hỏi thường gặp",
+    "ru": "Все вопросы и ответы",
+    "fr": "Voir la FAQ",
+    "zh": "常见问题"
+  },
+  "blog_tags": {
+    "en": "Tags",
+    "vi": "Thẻ",
+    "ru": "Теги",
+    "fr": "Étiquettes",
+    "zh": "标签"
+  },
+  "blog_cta_button": {
+    "en": "Discover AEROVA",
+    "vi": "Khám phá AEROVA",
+    "ru": "Откройте AEROVA",
+    "fr": "Découvrir AEROVA",
+    "zh": "探索 AEROVA"
+  },
+  "blog_post_coming_soon": {
+    "en": "Coming Soon",
+    "vi": "Sắp ra mắt",
+    "ru": "Скоро",
+    "fr": "Bientôt disponible",
+    "zh": "即将推出"
+  },
+  "blog_post_preparing": {
+    "en": "This article is being prepared. Please check back soon.",
+    "vi": "Bài viết này đang được biên soạn. Vui lòng quay lại sớm.",
+    "ru": "Эта статья готовится. Пожалуйста, зайдите позже.",
+    "fr": "Cet article est en préparation. Revenez bientôt.",
+    "zh": "本文正在编写中，请稍后再来查看。"
+  },
+  "blog_read": {
+    "en": "Read →",
+    "vi": "Đọc →",
+    "ru": "Читать →",
+    "fr": "Lire →",
+    "zh": "阅读 →"
+  },
+  "blog_soon": {
+    "en": "Soon",
+    "vi": "Sắp ra mắt",
+    "ru": "Скоро",
+    "fr": "Bientôt",
+    "zh": "即将"
+  },
+  "blog_min": {
+    "en": "min",
+    "vi": "phút",
+    "ru": "мин",
+    "fr": "min",
+    "zh": "分钟"
+  },
+  "blog_stat_articles": {
+    "en": "Atmospheric water articles",
+    "vi": "Bài viết về máy tạo nước từ không khí",
+    "ru": "Статьи об атмосферной воде",
+    "fr": "Articles sur l'eau atmosphérique",
+    "zh": "大气制水文章"
+  },
+  "blog_stat_published": {
+    "en": "Published guides",
+    "vi": "Đã xuất bản",
+    "ru": "Опубликованные руководства",
+    "fr": "Guides publiés",
+    "zh": "已发布指南"
+  },
+  "blog_latest": {
+    "en": "— Latest article",
+    "vi": "— Bài viết mới nhất",
+    "ru": "— Последняя статья",
+    "fr": "— Dernier article",
+    "zh": "— 最新文章"
+  },
+  "blog_all": {
+    "en": "— All articles",
+    "vi": "— Tất cả bài viết",
+    "ru": "— Все статьи",
+    "fr": "— Tous les articles",
+    "zh": "— 全部文章"
+  },
+  "blog_latest_featured": {
+    "en": "— Latest article on water purifier for home & atmospheric water",
+    "vi": "— Bài viết mới nhất về nước uống & máy tạo nước từ không khí",
+    "ru": "— Последняя статья о домашней очистке воды и атмосферной воде",
+    "fr": "— Dernier article sur l'eau potable et l'eau atmosphérique",
+    "zh": "— 关于家用净水与大气制水的最新文章"
+  },
+  "blog_all_featured": {
+    "en": "— All articles: eco friendly water, water quality Vietnam & home water guides",
+    "vi": "— Tất cả bài viết: nước uống giảm cân, chất lượng nước & giải pháp nước sạch",
+    "ru": "— Все статьи: качество воды и решения для чистой воды",
+    "fr": "— Tous les articles : qualité de l'eau et solutions d'eau potable",
+    "zh": "— 全部文章：水质与洁净水解决方案"
   },
   "blog_coming_soon": {
     "en": "Coming Soon",
@@ -1136,7 +1304,7 @@
   "terms_section1_text": {
     "en": "AEROVA is an atmospheric water generation technology company operating in Vietnam. We design, manufacture, and distribute premium water-from-air generators for residential and commercial use.",
     "vi": "AEROVA là công ty công nghệ tạo nước từ khí quyển hoạt động tại Việt Nam. Chúng tôi thiết kế, sản xuất và phân phối máy tạo nước từ không khí cao cấp cho sử dụng dân cư và thương mại.",
-    "ru": "AEROVA — технологическая компания по атмосферной генерации воды, работающая во Вьетнаме. Мы проектируем, производим и распространяем премиальные генераторы воды из воздуха для бытового и коммерческого использования.",
+    "ru": "AEROVA, технологическая компания по атмосферной генерации воды, работающая во Вьетнаме. Мы проектируем, производим и распространяем премиальные генераторы воды из воздуха для бытового и коммерческого использования.",
     "fr": "AEROVA est une entreprise de technologie de génération d'eau atmosphérique opérant au Vietnam. Nous concevons, fabriquons et distribuons des générateurs d'eau premium pour usage résidentiel et commercial.",
     "zh": "AEROVA是一家在越南运营的大气水生成技术公司。我们设计、制造和分销用于住宅和商业用途的高端空气制水机。"
   },
@@ -1253,11 +1421,11 @@
     "zh": "本网站上显示的所有商标、标志和品牌名称均为AEROVA Technologies或其各自所有者的财产。严禁未经授权使用。"
   },
   "home_eyebrow": {
-    "en": "Water from Air — Vietnam",
-    "vi": "Nước Từ Không Khí — Việt Nam",
-    "ru": "Вода из воздуха — Вьетнам",
-    "fr": "L'eau de l'air — Vietnam",
-    "zh": "空气取水 — 越南"
+    "en": "Water from Air: Vietnam",
+    "vi": "Nước Từ Không Khí: Việt Nam",
+    "ru": "Вода из воздуха: Вьетнам",
+    "fr": "L'eau de l'air: Vietnam",
+    "zh": "空气取水: 越南"
   },
   "home_scroll": {
     "en": "Scroll",
@@ -1267,11 +1435,11 @@
     "zh": "向下滚动"
   },
   "home_product_image_placeholder": {
-    "en": "LT-AWG20G — Product Image",
-    "vi": "LT-AWG20G — Hình Sản Phẩm",
-    "ru": "LT-AWG20G — Изображение",
-    "fr": "LT-AWG20G — Image du produit",
-    "zh": "LT-AWG20G — 产品图片"
+    "en": "LT-AWG20G: Product Image",
+    "vi": "LT-AWG20G: Hình Sản Phẩm",
+    "ru": "LT-AWG20G: Изображение",
+    "fr": "LT-AWG20G: Image du produit",
+    "zh": "LT-AWG20G: 产品图片"
   },
   "stat_purity": {
     "en": "99.9%",
@@ -1372,11 +1540,11 @@
     "zh": "医疗级防护屏障"
   },
   "home_feat1_desc": {
-    "en": "HEPA air scrubbing, reverse osmosis, and UV-C sterilization remove what boiling cannot. Every drop exits mineralized to an alkaline-balanced 75–150 TDS — tuned for specialty coffee and ST25 rice.",
-    "vi": "Lọc không khí HEPA, thẩm thấu ngược và khử trùng UV-C loại bỏ những gì đun sôi không thể. Mỗi giọt nước khoáng hóa đến TDS 75–150 cân bằng kiềm — tối ưu cho cà phê đặc sản và gạo ST25.",
-    "ru": "HEPA-очистка воздуха, обратный осмос и UV-C стерилизация удаляют то, что кипячение не может. Каждая капля минерализована до щелочного баланса 75–150 TDS — настроена для спешелти-кофе и риса ST25.",
-    "fr": "Filtration HEPA, osmose inverse et stérilisation UV-C éliminent ce que l'ébullition ne peut pas. Chaque goutte est minéralisée à un TDS alcalin de 75–150 — calibrée pour le café de spécialité et le riz ST25.",
-    "zh": "HEPA空气净化、反渗透和UV-C杀菌去除沸腾无法消除的污染物。每一滴水矿化至碱性平衡的75–150 TDS——为精品咖啡和ST25大米调校。"
+    "en": "HEPA air scrubbing, reverse osmosis, and UV-C sterilization remove what boiling cannot. Every drop exits mineralized to an alkaline-balanced 75–150 TDS, tuned for specialty coffee and ST25 rice.",
+    "vi": "Lọc không khí HEPA, thẩm thấu ngược và khử trùng UV-C loại bỏ những gì đun sôi không thể. Mỗi giọt nước khoáng hóa đến TDS 75–150 cân bằng kiềm, tối ưu cho cà phê đặc sản và gạo ST25.",
+    "ru": "HEPA-очистка воздуха, обратный осмос и UV-C стерилизация удаляют то, что кипячение не может. Каждая капля минерализована до щелочного баланса 75–150 TDS, настроена для спешелти-кофе и риса ST25.",
+    "fr": "Filtration HEPA, osmose inverse et stérilisation UV-C éliminent ce que l'ébullition ne peut pas. Chaque goutte est minéralisée à un TDS alcalin de 75–150, calibrée pour le café de spécialité et le riz ST25.",
+    "zh": "HEPA空气净化、反渗透和UV-C杀菌去除沸腾无法消除的污染物。每一滴水矿化至碱性平衡的75–150 TDS，为精品咖啡和ST25大米调校。"
   },
   "home_feat2_eyebrow": {
     "en": "Hot & Cold",
@@ -1414,11 +1582,11 @@
     "zh": "45分贝低噪运行"
   },
   "home_feat3_desc": {
-    "en": "Quieter than a library. The LT-AWG20G operates at just 45 dB — designed to blend seamlessly into your living or working space without disruption.",
-    "vi": "Yên tĩnh hơn thư viện. LT-AWG20G hoạt động chỉ ở mức 45 dB — được thiết kế để hòa nhập liền mạch vào không gian sống hoặc làm việc của bạn.",
-    "ru": "Тише библиотеки. LT-AWG20G работает при 45 дБ — спроектирован для бесшумной интеграции в жилое или рабочее пространство.",
-    "fr": "Plus silencieux qu'une bibliothèque. Le LT-AWG20G fonctionne à seulement 45 dB — conçu pour s'intégrer parfaitement dans votre espace de vie ou de travail.",
-    "zh": "比图书馆更安静。LT-AWG20G仅45分贝运行——无缝融入您的生活或工作空间。"
+    "en": "Quieter than a library. The LT-AWG20G operates at just 45 dB, designed to blend seamlessly into your living or working space without disruption.",
+    "vi": "Yên tĩnh hơn thư viện. LT-AWG20G hoạt động chỉ ở mức 45 dB, được thiết kế để hòa nhập liền mạch vào không gian sống hoặc làm việc của bạn.",
+    "ru": "Тише библиотеки. LT-AWG20G работает при 45 дБ, спроектирован для бесшумной интеграции в жилое или рабочее пространство.",
+    "fr": "Plus silencieux qu'une bibliothèque. Le LT-AWG20G fonctionne à seulement 45 dB, conçu pour s'intégrer parfaitement dans votre espace de vie ou de travail.",
+    "zh": "比图书馆更安静。LT-AWG20G仅45分贝运行，无缝融入您的生活或工作空间。"
   },
   "home_see_specs": {
     "en": "View Full Specifications",
@@ -1484,11 +1652,11 @@
     "zh": "家庭"
   },
   "usecase_home_desc": {
-    "en": "Clean, mineralized water for your family — straight from the air. No more plastic bottles or delivery schedules.",
-    "vi": "Nước sạch, khoáng hóa cho gia đình bạn — trực tiếp từ không khí. Không cần chai nhựa hay lịch giao hàng.",
-    "ru": "Чистая минерализованная вода для вашей семьи — прямо из воздуха. Никаких пластиковых бутылок и графиков доставки.",
-    "fr": "De l'eau propre et minéralisée pour votre famille — directement de l'air. Plus de bouteilles en plastique.",
-    "zh": "为家人提供清洁矿化水——直接来自空气。告别塑料瓶和送水计划。"
+    "en": "Clean, mineralized water for your family, straight from the air. No more plastic bottles or delivery schedules.",
+    "vi": "Nước sạch, khoáng hóa cho gia đình bạn, trực tiếp từ không khí. Không cần chai nhựa hay lịch giao hàng.",
+    "ru": "Чистая минерализованная вода для вашей семьи, прямо из воздуха. Никаких пластиковых бутылок и графиков доставки.",
+    "fr": "De l'eau propre et minéralisée pour votre famille, directement de l'air. Plus de bouteilles en plastique.",
+    "zh": "为家人提供清洁矿化水，直接来自空气。告别塑料瓶和送水计划。"
   },
   "usecase_office_title": {
     "en": "Offices",
@@ -1512,11 +1680,11 @@
     "zh": "餐厅和咖啡馆"
   },
   "usecase_restaurant_desc": {
-    "en": "Serve guests the purest water available. Hot and cold on demand — perfect for premium dining and specialty coffee.",
-    "vi": "Phục vụ khách hàng loại nước tinh khiết nhất. Nóng và lạnh theo yêu cầu — hoàn hảo cho ẩm thực cao cấp và cà phê đặc sản.",
-    "ru": "Предложите гостям самую чистую воду. Горячая и холодная по запросу — идеально для премиум-ресторанов и кофеен.",
-    "fr": "Servez l'eau la plus pure à vos clients. Chaude et froide à la demande — parfait pour la restauration premium.",
-    "zh": "为客人提供最纯净的水。冷热按需供应——适合高端餐饮和精品咖啡。"
+    "en": "Serve guests the purest water available. Hot and cold on demand, perfect for premium dining and specialty coffee.",
+    "vi": "Phục vụ khách hàng loại nước tinh khiết nhất. Nóng và lạnh theo yêu cầu, hoàn hảo cho ẩm thực cao cấp và cà phê đặc sản.",
+    "ru": "Предложите гостям самую чистую воду. Горячая и холодная по запросу, идеально для премиум-ресторанов и кофеен.",
+    "fr": "Servez l'eau la plus pure à vos clients. Chaude et froide à la demande, parfait pour la restauration premium.",
+    "zh": "为客人提供最纯净的水。冷热按需供应，适合高端餐饮和精品咖啡。"
   },
   "usecase_hotel_title": {
     "en": "Hotels & Resorts",
@@ -1574,29 +1742,167 @@
     "fr": "Toutes les eaux ne se valent pas",
     "zh": "并非所有的水都平等"
   },
-  "compare_aerova": { "en": "AEROVA", "vi": "AEROVA", "ru": "AEROVA", "fr": "AEROVA", "zh": "AEROVA" },
-  "compare_bottled": { "en": "Bottled Water", "vi": "Nước Đóng Chai", "ru": "Бутилированная", "fr": "En bouteille", "zh": "瓶装水" },
-  "compare_tap": { "en": "Tap Water", "vi": "Nước Máy", "ru": "Водопроводная", "fr": "Eau du robinet", "zh": "自来水" },
-  "compare_row1": { "en": "Source", "vi": "Nguồn Gốc", "ru": "Источник", "fr": "Source", "zh": "水源" },
-  "compare_row2": { "en": "Purity", "vi": "Độ Tinh Khiết", "ru": "Чистота", "fr": "Pureté", "zh": "纯净度" },
-  "compare_row3": { "en": "Minerals", "vi": "Khoáng Chất", "ru": "Минералы", "fr": "Minéraux", "zh": "矿物质" },
-  "compare_row4": { "en": "Plastic Waste", "vi": "Rác Nhựa", "ru": "Пластик", "fr": "Plastique", "zh": "塑料废物" },
-  "compare_row5": { "en": "pH Level", "vi": "Độ pH", "ru": "Уровень pH", "fr": "Niveau de pH", "zh": "pH值" },
-  "compare_aerova_r1": { "en": "Atmospheric air", "vi": "Không khí", "ru": "Атмосферный воздух", "fr": "Air atmosphérique", "zh": "大气空气" },
-  "compare_aerova_r2": { "en": "99.9% filtered", "vi": "Lọc 99.9%", "ru": "99.9% фильтрации", "fr": "Filtré à 99,9%", "zh": "99.9%过滤" },
-  "compare_aerova_r3": { "en": "Added & balanced", "vi": "Thêm & cân bằng", "ru": "Добавлены и сбалансированы", "fr": "Ajoutés et équilibrés", "zh": "添加并平衡" },
-  "compare_aerova_r4": { "en": "Zero", "vi": "Không", "ru": "Ноль", "fr": "Zéro", "zh": "零" },
-  "compare_aerova_r5": { "en": "7.4 – 8.2 alkaline", "vi": "7.4 – 8.2 kiềm", "ru": "7.4 – 8.2 щелочная", "fr": "7,4 – 8,2 alcaline", "zh": "7.4–8.2碱性" },
-  "compare_bottled_r1": { "en": "Spring / processed", "vi": "Suối / Xử lý", "ru": "Родниковая / обработанная", "fr": "Source / traitée", "zh": "泉水/处理水" },
-  "compare_bottled_r2": { "en": "Variable", "vi": "Biến động", "ru": "Переменная", "fr": "Variable", "zh": "不稳定" },
-  "compare_bottled_r3": { "en": "Sometimes added", "vi": "Đôi khi thêm", "ru": "Иногда добавляют", "fr": "Parfois ajoutés", "zh": "有时添加" },
-  "compare_bottled_r4": { "en": "High", "vi": "Cao", "ru": "Высокий", "fr": "Élevé", "zh": "高" },
-  "compare_bottled_r5": { "en": "6.5 – 7.5 neutral", "vi": "6.5 – 7.5 trung tính", "ru": "6.5 – 7.5 нейтральная", "fr": "6,5 – 7,5 neutre", "zh": "6.5–7.5中性" },
-  "compare_tap_r1": { "en": "Municipal supply", "vi": "Cấp nước đô thị", "ru": "Муниципальный водопровод", "fr": "Réseau municipal", "zh": "市政供水" },
-  "compare_tap_r2": { "en": "Treated, not pure", "vi": "Đã xử lý, chưa tinh", "ru": "Обработана, не чистая", "fr": "Traitée, pas pure", "zh": "处理过，非纯净" },
-  "compare_tap_r3": { "en": "Inconsistent", "vi": "Không ổn định", "ru": "Непостоянные", "fr": "Inconsistants", "zh": "不稳定" },
-  "compare_tap_r4": { "en": "None", "vi": "Không có", "ru": "Нет", "fr": "Aucun", "zh": "无" },
-  "compare_tap_r5": { "en": "6.5 – 8.5 varies", "vi": "6.5 – 8.5 thay đổi", "ru": "6.5 – 8.5 варьируется", "fr": "6,5 – 8,5 varie", "zh": "6.5–8.5不定" },
+  "compare_aerova": {
+    "en": "AEROVA",
+    "vi": "AEROVA",
+    "ru": "AEROVA",
+    "fr": "AEROVA",
+    "zh": "AEROVA"
+  },
+  "compare_bottled": {
+    "en": "Bottled Water",
+    "vi": "Nước Đóng Chai",
+    "ru": "Бутилированная",
+    "fr": "En bouteille",
+    "zh": "瓶装水"
+  },
+  "compare_tap": {
+    "en": "Tap Water",
+    "vi": "Nước Máy",
+    "ru": "Водопроводная",
+    "fr": "Eau du robinet",
+    "zh": "自来水"
+  },
+  "compare_row1": {
+    "en": "Source",
+    "vi": "Nguồn Gốc",
+    "ru": "Источник",
+    "fr": "Source",
+    "zh": "水源"
+  },
+  "compare_row2": {
+    "en": "Purity",
+    "vi": "Độ Tinh Khiết",
+    "ru": "Чистота",
+    "fr": "Pureté",
+    "zh": "纯净度"
+  },
+  "compare_row3": {
+    "en": "Minerals",
+    "vi": "Khoáng Chất",
+    "ru": "Минералы",
+    "fr": "Minéraux",
+    "zh": "矿物质"
+  },
+  "compare_row4": {
+    "en": "Plastic Waste",
+    "vi": "Rác Nhựa",
+    "ru": "Пластик",
+    "fr": "Plastique",
+    "zh": "塑料废物"
+  },
+  "compare_row5": {
+    "en": "pH Level",
+    "vi": "Độ pH",
+    "ru": "Уровень pH",
+    "fr": "Niveau de pH",
+    "zh": "pH值"
+  },
+  "compare_aerova_r1": {
+    "en": "Atmospheric air",
+    "vi": "Không khí",
+    "ru": "Атмосферный воздух",
+    "fr": "Air atmosphérique",
+    "zh": "大气空气"
+  },
+  "compare_aerova_r2": {
+    "en": "99.9% filtered",
+    "vi": "Lọc 99.9%",
+    "ru": "99.9% фильтрации",
+    "fr": "Filtré à 99,9%",
+    "zh": "99.9%过滤"
+  },
+  "compare_aerova_r3": {
+    "en": "Added & balanced",
+    "vi": "Thêm & cân bằng",
+    "ru": "Добавлены и сбалансированы",
+    "fr": "Ajoutés et équilibrés",
+    "zh": "添加并平衡"
+  },
+  "compare_aerova_r4": {
+    "en": "Zero",
+    "vi": "Không",
+    "ru": "Ноль",
+    "fr": "Zéro",
+    "zh": "零"
+  },
+  "compare_aerova_r5": {
+    "en": "7.4 – 8.2 alkaline",
+    "vi": "7.4 – 8.2 kiềm",
+    "ru": "7.4 – 8.2 щелочная",
+    "fr": "7,4 – 8,2 alcaline",
+    "zh": "7.4–8.2碱性"
+  },
+  "compare_bottled_r1": {
+    "en": "Spring / processed",
+    "vi": "Suối / Xử lý",
+    "ru": "Родниковая / обработанная",
+    "fr": "Source / traitée",
+    "zh": "泉水/处理水"
+  },
+  "compare_bottled_r2": {
+    "en": "Variable",
+    "vi": "Biến động",
+    "ru": "Переменная",
+    "fr": "Variable",
+    "zh": "不稳定"
+  },
+  "compare_bottled_r3": {
+    "en": "Sometimes added",
+    "vi": "Đôi khi thêm",
+    "ru": "Иногда добавляют",
+    "fr": "Parfois ajoutés",
+    "zh": "有时添加"
+  },
+  "compare_bottled_r4": {
+    "en": "High",
+    "vi": "Cao",
+    "ru": "Высокий",
+    "fr": "Élevé",
+    "zh": "高"
+  },
+  "compare_bottled_r5": {
+    "en": "6.5 – 7.5 neutral",
+    "vi": "6.5 – 7.5 trung tính",
+    "ru": "6.5 – 7.5 нейтральная",
+    "fr": "6,5 – 7,5 neutre",
+    "zh": "6.5–7.5中性"
+  },
+  "compare_tap_r1": {
+    "en": "Municipal supply",
+    "vi": "Cấp nước đô thị",
+    "ru": "Муниципальный водопровод",
+    "fr": "Réseau municipal",
+    "zh": "市政供水"
+  },
+  "compare_tap_r2": {
+    "en": "Treated, not pure",
+    "vi": "Đã xử lý, chưa tinh",
+    "ru": "Обработана, не чистая",
+    "fr": "Traitée, pas pure",
+    "zh": "处理过，非纯净"
+  },
+  "compare_tap_r3": {
+    "en": "Inconsistent",
+    "vi": "Không ổn định",
+    "ru": "Непостоянные",
+    "fr": "Inconsistants",
+    "zh": "不稳定"
+  },
+  "compare_tap_r4": {
+    "en": "None",
+    "vi": "Không có",
+    "ru": "Нет",
+    "fr": "Aucun",
+    "zh": "无"
+  },
+  "compare_tap_r5": {
+    "en": "6.5 – 8.5 varies",
+    "vi": "6.5 – 8.5 thay đổi",
+    "ru": "6.5 – 8.5 варьируется",
+    "fr": "6,5 – 8,5 varie",
+    "zh": "6.5–8.5不定"
+  },
   "home_testimonials_eyebrow": {
     "en": "Trusted by Customers",
     "vi": "Được Khách Hàng Tin Tưởng",
@@ -1612,136 +1918,172 @@
     "zh": "因清洁水而改变的生活"
   },
   "testimonial_1_text": {
-    "en": "We installed AEROVA in our restaurant kitchen six months ago. The water quality is genuinely different — our staff can taste it, our guests notice the ice clarity. Worth every đồng.",
-    "vi": "Chúng tôi lắp đặt AEROVA trong bếp nhà hàng 6 tháng trước. Chất lượng nước thực sự khác biệt — nhân viên cảm nhận được, khách hàng nhận ra qua độ trong của đá. Xứng đáng từng đồng.",
-    "ru": "Мы установили AEROVA на кухне ресторана шесть месяцев назад. Качество воды действительно другое — наш персонал ощущает это, гости замечают прозрачность льда.",
-    "fr": "Nous avons installé AEROVA dans notre cuisine il y a six mois. La qualité de l'eau est vraiment différente — notre personnel le ressent, nos clients remarquent la clarté de la glace.",
-    "zh": "六个月前我们在餐厅厨房安装了AEROVA。水质确实不同——员工能感受到，客人注意到冰块的清澈度。物超所值。"
+    "en": "We installed AEROVA in our restaurant kitchen six months ago. The water quality is genuinely different, our staff can taste it, our guests notice the ice clarity. Worth every đồng.",
+    "vi": "Chúng tôi lắp đặt AEROVA trong bếp nhà hàng 6 tháng trước. Chất lượng nước thực sự khác biệt, nhân viên cảm nhận được, khách hàng nhận ra qua độ trong của đá. Xứng đáng từng đồng.",
+    "ru": "Мы установили AEROVA на кухне ресторана шесть месяцев назад. Качество воды действительно другое, наш персонал ощущает это, гости замечают прозрачность льда.",
+    "fr": "Nous avons installé AEROVA dans notre cuisine il y a six mois. La qualité de l'eau est vraiment différente, notre personnel le ressent, nos clients remarquent la clarté de la glace.",
+    "zh": "六个月前我们在餐厅厨房安装了AEROVA。水质确实不同，员工能感受到，客人注意到冰块的清澈度。物超所值。"
   },
-  "testimonial_1_name": { "en": "Nguyen Minh Duc", "vi": "Nguyễn Minh Đức", "ru": "Нгуен Минь Дык", "fr": "Nguyen Minh Duc", "zh": "阮明德" },
-  "testimonial_1_role": { "en": "Restaurant Owner, Ho Chi Minh City", "vi": "Chủ Nhà Hàng, TP.HCM", "ru": "Владелец ресторана, Хошимин", "fr": "Restaurateur, Hô-Chi-Minh-Ville", "zh": "餐厅老板，胡志明市" },
+  "testimonial_1_name": {
+    "en": "Nguyen Minh Duc",
+    "vi": "Nguyễn Minh Đức",
+    "ru": "Нгуен Минь Дык",
+    "fr": "Nguyen Minh Duc",
+    "zh": "阮明德"
+  },
+  "testimonial_1_role": {
+    "en": "Restaurant Owner, Ho Chi Minh City",
+    "vi": "Chủ Nhà Hàng, TP.HCM",
+    "ru": "Владелец ресторана, Хошимин",
+    "fr": "Restaurateur, Hô-Chi-Minh-Ville",
+    "zh": "餐厅老板，胡志明市"
+  },
   "testimonial_2_text": {
     "en": "As a nutritionist, I recommend water quality as the foundation of good health. AEROVA's mineralized, alkaline output is exactly what I advise my clients to seek. The technology is sound.",
     "vi": "Là chuyên gia dinh dưỡng, tôi coi chất lượng nước là nền tảng của sức khỏe tốt. Nước khoáng kiềm của AEROVA chính xác là điều tôi khuyên khách hàng tìm kiếm.",
-    "ru": "Как диетолог, я рекомендую качество воды как основу здоровья. Минерализованная щелочная вода AEROVA — это именно то, что я советую своим клиентам.",
+    "ru": "Как диетолог, я рекомендую качество воды как основу здоровья. Минерализованная щелочная вода AEROVA, это именно то, что я советую своим клиентам.",
     "fr": "En tant que nutritionniste, je recommande la qualité de l'eau comme base d'une bonne santé. L'eau minéralisée et alcaline d'AEROVA est exactement ce que je conseille à mes clients.",
     "zh": "作为营养师，我将水质视为健康的基础。AEROVA的矿化碱性水正是我建议客户寻找的。"
   },
-  "testimonial_2_name": { "en": "Dr. Tran Thi Lan", "vi": "TS. Trần Thị Lan", "ru": "Д-р Тхи Лан Чан", "fr": "Dr. Tran Thi Lan", "zh": "陈氏兰博士" },
-  "testimonial_2_role": { "en": "Clinical Nutritionist, Hanoi", "vi": "Chuyên Gia Dinh Dưỡng Lâm Sàng, Hà Nội", "ru": "Клинический диетолог, Ханой", "fr": "Nutritionniste clinique, Hanoï", "zh": "临床营养师，河内" },
-  "testimonial_3_text": {
-    "en": "I work in a high-rise office with no reliable water supply. AEROVA draws from the air itself — completely independent. Setup took 30 minutes. The water is outstanding.",
-    "vi": "Tôi làm việc trong tòa nhà cao tầng không có nguồn nước đáng tin cậy. AEROVA lấy nước từ chính không khí — hoàn toàn độc lập. Cài đặt chỉ mất 30 phút. Nước rất tuyệt vời.",
-    "ru": "Я работаю в высотном офисе без надёжного водоснабжения. AEROVA берёт воду из воздуха — полностью независимо. Установка заняла 30 минут. Вода превосходна.",
-    "fr": "Je travaille dans un immeuble de bureaux sans alimentation en eau fiable. AEROVA puise dans l'air lui-même — totalement indépendant. L'installation a pris 30 minutes. L'eau est excellente.",
-    "zh": "我在一栋没有可靠供水的高层办公楼工作。AEROVA直接从空气中取水——完全独立。安装只需30分钟。水质非常出色。"
+  "testimonial_2_name": {
+    "en": "Dr. Tran Thi Lan",
+    "vi": "TS. Trần Thị Lan",
+    "ru": "Д-р Тхи Лан Чан",
+    "fr": "Dr. Tran Thi Lan",
+    "zh": "陈氏兰博士"
   },
-  "testimonial_3_name": { "en": "Marcus Hoffmann", "vi": "Marcus Hoffmann", "ru": "Маркус Хофманн", "fr": "Marcus Hoffmann", "zh": "马库斯·霍夫曼" },
-  "testimonial_3_role": { "en": "Senior Engineer, Da Nang Tech Hub", "vi": "Kỹ Sư Cao Cấp, Trung Tâm Công Nghệ Đà Nẵng", "ru": "Старший инженер, технопарк Дананга", "fr": "Ingénieur senior, Da Nang Tech Hub", "zh": "高级工程师，岘港科技园" },
+  "testimonial_2_role": {
+    "en": "Clinical Nutritionist, Hanoi",
+    "vi": "Chuyên Gia Dinh Dưỡng Lâm Sàng, Hà Nội",
+    "ru": "Клинический диетолог, Ханой",
+    "fr": "Nutritionniste clinique, Hanoï",
+    "zh": "临床营养师，河内"
+  },
+  "testimonial_3_text": {
+    "en": "I work in a high-rise office with no reliable water supply. AEROVA draws from the air itself, completely independent. Setup took 30 minutes. The water is outstanding.",
+    "vi": "Tôi làm việc trong tòa nhà cao tầng không có nguồn nước đáng tin cậy. AEROVA lấy nước từ chính không khí, hoàn toàn độc lập. Cài đặt chỉ mất 30 phút. Nước rất tuyệt vời.",
+    "ru": "Я работаю в высотном офисе без надёжного водоснабжения. AEROVA берёт воду из воздуха, полностью независимо. Установка заняла 30 минут. Вода превосходна.",
+    "fr": "Je travaille dans un immeuble de bureaux sans alimentation en eau fiable. AEROVA puise dans l'air lui-même, totalement indépendant. L'installation a pris 30 minutes. L'eau est excellente.",
+    "zh": "我在一栋没有可靠供水的高层办公楼工作。AEROVA直接从空气中取水，完全独立。安装只需30分钟。水质非常出色。"
+  },
+  "testimonial_3_name": {
+    "en": "Marcus Hoffmann",
+    "vi": "Marcus Hoffmann",
+    "ru": "Маркус Хофманн",
+    "fr": "Marcus Hoffmann",
+    "zh": "马库斯·霍夫曼"
+  },
+  "testimonial_3_role": {
+    "en": "Senior Engineer, Da Nang Tech Hub",
+    "vi": "Kỹ Sư Cao Cấp, Trung Tâm Công Nghệ Đà Nẵng",
+    "ru": "Старший инженер, технопарк Дананга",
+    "fr": "Ingénieur senior, Da Nang Tech Hub",
+    "zh": "高级工程师，岘港科技园"
+  },
   "meta_home_title": {
-    "en": "AEROVA — Water, Born from Air",
-    "vi": "AEROVA — Nước, Sinh Ra Từ Không Khí",
-    "ru": "AEROVA — Вода, рождённая из воздуха",
-    "fr": "AEROVA — L'eau, née de l'air",
-    "zh": "AEROVA — 水，源于空气"
+    "en": "Atmospheric Water Generator Vietnam | AEROVA",
+    "vi": "Máy Tạo Nước Từ Không Khí | AEROVA Việt Nam",
+    "ru": "Атмосферный генератор воды во Вьетнаме | AEROVA",
+    "fr": "Générateur d'eau atmosphérique au Vietnam | AEROVA",
+    "zh": "越南大气水发生器 | AEROVA"
   },
   "meta_home_desc": {
-    "en": "AEROVA creates pristine, mineralized drinking water from the atmosphere. No pipes. No plastic. No compromise.",
-    "vi": "AEROVA tạo ra nước uống tinh khiết, khoáng hóa từ bầu khí quyển. Không ống dẫn. Không nhựa. Không thỏa hiệp.",
-    "ru": "AEROVA создаёт чистейшую минерализованную питьевую воду из атмосферы. Без труб. Без пластика. Без компромиссов.",
-    "fr": "AEROVA crée une eau potable minéralisée et pure à partir de l'atmosphère. Sans tuyaux. Sans plastique. Sans compromis.",
-    "zh": "AEROVA从大气中创造纯净的矿化饮用水。无管道。无塑料。不妥协。"
+    "en": "AEROVA produces pure, mineralized water from air humidity — no plastic bottles, no pipes. The sustainable water solution for Vietnam. Discover the LT-AWG20G.",
+    "vi": "AEROVA tạo nước uống khoáng sạch từ độ ẩm không khí — không chai nhựa, không ống dẫn. Giải pháp nước bền vững cho Việt Nam. Khám phá ngay LT-AWG20G.",
+    "ru": "AEROVA производит чистую минерализованную питьевую воду из влажности воздуха — без пластика и труб. Экологичное водоснабжение для Вьетнама. Узнайте о LT-AWG20G.",
+    "fr": "AEROVA produit une eau potable minéralisée à partir de l'humidité de l'air — sans plastique ni tuyaux. La solution eau durable pour le Vietnam. Découvrez le LT-AWG20G.",
+    "zh": "AEROVA从空气湿度中生产纯净矿化饮用水——无塑料瓶，无管道。越南可持续饮水解决方案。了解LT-AWG20G。"
   },
   "meta_product_title": {
-    "en": "AEROVA LT-AWG20G — Product Specifications",
-    "vi": "AEROVA LT-AWG20G — Thông Số Sản Phẩm",
-    "ru": "AEROVA LT-AWG20G — Характеристики продукта",
-    "fr": "AEROVA LT-AWG20G — Spécifications du produit",
-    "zh": "AEROVA LT-AWG20G — 产品规格"
+    "en": "LT-AWG20G Atmospheric Water Generator | AEROVA",
+    "vi": "Máy Tạo Nước Từ Không Khí LT-AWG20G | AEROVA",
+    "ru": "Атмосферный генератор воды LT-AWG20G | AEROVA",
+    "fr": "Générateur d'eau atmosphérique LT-AWG20G | AEROVA",
+    "zh": "大气水发生器LT-AWG20G | AEROVA"
   },
   "meta_product_desc": {
-    "en": "AEROVA LT-AWG20G atmospheric water generator. 7-stage filtration, up to 20L/day, hot & cold dispensing.",
-    "vi": "Máy tạo nước từ không khí AEROVA LT-AWG20G. Lọc 7 tầng, lên đến 20L/ngày, nước nóng & lạnh.",
-    "ru": "Атмосферный генератор воды AEROVA LT-AWG20G. 7-ступенчатая фильтрация, до 20 л/день, горячая и холодная подача.",
-    "fr": "Générateur d'eau atmosphérique AEROVA LT-AWG20G. Filtration en 7 étapes, jusqu'à 20L/jour, distribution chaude et froide.",
-    "zh": "AEROVA LT-AWG20G大气水发生器。七级过滤，日产20升，冷热出水。"
+    "en": "The LT-AWG20G atmospheric water generator: hot & cold purified water from air, 8-stage filtration, up to 20L/day. Check AWG price for Vietnam.",
+    "vi": "Máy tạo nước từ không khí LT-AWG20G cho nước nóng & lạnh tinh khiết — 8 tầng lọc, lên đến 20L/ngày. Xem giá AWG tại Việt Nam.",
+    "ru": "Атмосферный генератор воды LT-AWG20G: горячая и холодная очищенная вода из воздуха — 8 ступеней фильтрации, до 20 л/день. Узнайте цену AWG во Вьетнаме.",
+    "fr": "Le LT-AWG20G génère eau chaude et froide purifiée depuis l'air — 8 étapes de filtration, jusqu'à 20L/jour. Consultez le prix AWG au Vietnam.",
+    "zh": "LT-AWG20G大气水发生器提供冷热净化水——8级过滤，日产最高20升。查看越南AWG价格。"
   },
   "meta_about_title": {
-    "en": "About AEROVA — Our Mission",
-    "vi": "Về AEROVA — Sứ Mệnh Của Chúng Tôi",
-    "ru": "О компании AEROVA — Наша миссия",
-    "fr": "À propos d'AEROVA — Notre mission",
-    "zh": "关于AEROVA — 我们的使命"
+    "en": "Sustainable Water Solution Vietnam | About AEROVA",
+    "vi": "Giải Pháp Nước Bền Vững Việt Nam | Về AEROVA",
+    "ru": "Экологичное водоснабжение во Вьетнаме | Об AEROVA",
+    "fr": "Solution eau durable au Vietnam | À propos d'AEROVA",
+    "zh": "越南可持续饮水解决方案 | 关于AEROVA"
   },
   "meta_about_desc": {
-    "en": "Learn about AEROVA's mission to provide clean, sustainable drinking water from the atmosphere for Vietnam and beyond.",
-    "vi": "Tìm hiểu về sứ mệnh của AEROVA cung cấp nước uống sạch, bền vững từ bầu khí quyển cho Việt Nam và hơn thế nữa.",
-    "ru": "Узнайте о миссии AEROVA по обеспечению чистой и устойчивой питьевой водой из атмосферы для Вьетнама и мира.",
-    "fr": "Découvrez la mission d'AEROVA : fournir une eau potable propre et durable à partir de l'atmosphère pour le Vietnam et au-delà.",
-    "zh": "了解AEROVA为越南及更广泛地区提供清洁可持续大气饮用水的使命。"
+    "en": "AEROVA's mission: end plastic bottle dependence with eco-friendly atmospheric water technology. Discover our story and plastic-free water vision for Vietnam.",
+    "vi": "AEROVA hướng đến chấm dứt sự phụ thuộc vào chai nhựa bằng công nghệ nước từ không khí thân thiện môi trường. Khám phá câu chuyện và tầm nhìn nước không nhựa cho Việt Nam.",
+    "ru": "AEROVA стремится покончить с пластиковыми бутылками с помощью экологичных атмосферных водных технологий. Узнайте о нашей миссии и видении безпластикового водоснабжения.",
+    "fr": "AEROVA a pour mission de mettre fin à la dépendance aux bouteilles plastiques grâce à une technologie d'eau atmosphérique éco-responsable. Découvrez notre vision sans plastique.",
+    "zh": "AEROVA致力于通过环保大气水技术终结塑料瓶依赖。了解我们为越南打造无塑料饮水未来的使命与愿景。"
   },
   "meta_service_title": {
-    "en": "Services — AEROVA",
-    "vi": "Dịch Vụ — AEROVA",
-    "ru": "Услуги — AEROVA",
-    "fr": "Services — AEROVA",
-    "zh": "服务 — AEROVA"
+    "en": "AWG Installation & Maintenance Vietnam | AEROVA",
+    "vi": "Lắp Đặt & Sửa Máy Lọc Nước AWG Việt Nam | AEROVA",
+    "ru": "Установка и обслуживание AWG во Вьетнаме | AEROVA",
+    "fr": "Installation et maintenance AWG au Vietnam | AEROVA",
+    "zh": "越南AWG安装与维护 | AEROVA"
   },
   "meta_service_desc": {
-    "en": "AEROVA services: residential and commercial atmospheric water generation, installation, maintenance, and consultation.",
-    "vi": "Dịch vụ AEROVA: tạo nước từ không khí cho dân dụng và thương mại, lắp đặt, bảo trì và tư vấn.",
-    "ru": "Услуги AEROVA: бытовая и коммерческая генерация воды из воздуха, установка, обслуживание и консультации.",
-    "fr": "Services AEROVA : génération d'eau atmosphérique résidentielle et commerciale, installation, maintenance et consultation.",
-    "zh": "AEROVA服务：住宅和商业大气水生成、安装、维护和咨询。"
+    "en": "Free AWG installation in Ho Chi Minh City & Hanoi. Professional water purifier maintenance, no cartridge replacements — ever. Book a consultation today.",
+    "vi": "AEROVA cung cấp lắp đặt AWG miễn phí tại TP.HCM và Hà Nội, kèm dịch vụ sửa máy lọc nước chuyên nghiệp. Không thay lõi lọc — bao giờ hết. Đặt tư vấn ngay.",
+    "ru": "AEROVA предлагает бесплатную установку AWG в Хошимине и Ханое, а также профессиональное обслуживание очистителей воды. Замена картриджей не требуется. Запишитесь на консультацию.",
+    "fr": "AEROVA propose l'installation gratuite d'AWG à Ho Chi Minh-Ville et Hanoi, ainsi que la maintenance professionnelle de purificateurs d'eau. Sans remplacement de cartouche. Prenez rendez-vous.",
+    "zh": "AEROVA在胡志明市和河内提供免费AWG安装服务，专业净水器维护。永无滤芯更换烦恼。立即预约咨询。"
   },
   "meta_contact_title": {
-    "en": "Contact — AEROVA",
-    "vi": "Liên Hệ — AEROVA",
-    "ru": "Контакты — AEROVA",
-    "fr": "Contact — AEROVA",
-    "zh": "联系我们 — AEROVA"
+    "en": "Contact AEROVA | AWG Dealer Ho Chi Minh City",
+    "vi": "Liên Hệ AEROVA | Đại Lý AWG TP. Hồ Chí Minh",
+    "ru": "Контакты AEROVA | Дилер AWG Хошимин",
+    "fr": "Contacter AEROVA | Revendeur AWG Hô Chi Minh-Ville",
+    "zh": "联系AEROVA | 胡志明市AWG经销商"
   },
   "meta_contact_desc": {
-    "en": "Get in touch with the AEROVA team. We're happy to help with questions about our atmospheric water generators.",
-    "vi": "Liên hệ với đội ngũ AEROVA. Chúng tôi sẵn lòng hỗ trợ mọi câu hỏi về máy tạo nước từ không khí.",
-    "ru": "Свяжитесь с командой AEROVA. Мы рады помочь с вопросами о наших атмосферных генераторах воды.",
-    "fr": "Contactez l'équipe AEROVA. Nous sommes heureux de répondre à vos questions sur nos générateurs d'eau atmosphérique.",
-    "zh": "联系AEROVA团队。我们很乐意解答有关大气水发生器的问题。"
+    "en": "Contact the AEROVA team in Vietnam — your atmospheric water generator dealer in Ho Chi Minh City. Get a quote, book a demo, or ask about the LT-AWG20G.",
+    "vi": "Liên hệ đội ngũ AEROVA tại Việt Nam — đại lý máy tạo nước từ không khí tại TP.HCM. Nhận báo giá, đặt demo hoặc hỏi về LT-AWG20G.",
+    "ru": "Свяжитесь с командой AEROVA во Вьетнаме — дилером атмосферных генераторов воды в Хошимине. Запросите предложение, закажите демонстрацию или узнайте о LT-AWG20G.",
+    "fr": "Contactez l'équipe AEROVA au Vietnam — votre revendeur de générateurs d'eau atmosphérique à Hô Chi Minh-Ville. Obtenez un devis ou réservez une démo.",
+    "zh": "联系越南AEROVA团队——胡志明市大气水发生器经销商。获取报价、预约演示或咨询LT-AWG20G。"
   },
   "meta_blog_title": {
-    "en": "Blog — AEROVA",
-    "vi": "Blog — AEROVA",
-    "ru": "Блог — AEROVA",
-    "fr": "Blog — AEROVA",
-    "zh": "博客 — AEROVA"
+    "en": "Water Quality Vietnam & AWG Guides | AEROVA Blog",
+    "vi": "Chất Lượng Nước Việt Nam & Hướng Dẫn AWG | Blog AEROVA",
+    "ru": "Качество воды во Вьетнаме и руководства AWG | Блог AEROVA",
+    "fr": "Qualité de l'eau au Vietnam & guides AWG | Blog AEROVA",
+    "zh": "越南水质与AWG指南 | AEROVA博客"
   },
   "meta_blog_desc": {
-    "en": "AEROVA blog — insights on atmospheric water generation, sustainability, and clean water technology.",
-    "vi": "Blog AEROVA — thông tin về công nghệ tạo nước từ không khí, bền vững và công nghệ nước sạch.",
-    "ru": "Блог AEROVA — статьи о генерации воды из воздуха, устойчивом развитии и технологиях чистой воды.",
-    "fr": "Blog AEROVA — perspectives sur la génération d'eau atmosphérique, la durabilité et la technologie de l'eau propre.",
-    "zh": "AEROVA博客——大气水生成、可持续发展和清洁水技术的见解。"
+    "en": "Is tap water safe in Vietnam? Read AEROVA's guides on water quality, atmospheric water generation, and eco-friendly purification — tips for expats and families.",
+    "vi": "Nước máy ở Việt Nam có an toàn không? Đọc hướng dẫn về chất lượng nước, công nghệ tạo nước từ không khí và lọc nước thân thiện môi trường từ AEROVA.",
+    "ru": "Безопасна ли водопроводная вода во Вьетнаме? Читайте руководства AEROVA по качеству воды, атмосферной генерации и экологичной очистке — советы для экспатов и семей.",
+    "fr": "L'eau du robinet est-elle sûre au Vietnam ? Explorez les guides AEROVA sur la qualité de l'eau, la génération atmosphérique et la purification éco-responsable.",
+    "zh": "越南自来水安全吗？探索AEROVA关于水质、大气水生成和环保净化的指南——面向外籍人士和家庭的实用建议。"
   },
   "meta_privacy_title": {
-    "en": "Privacy Policy — AEROVA",
-    "vi": "Chính Sách Bảo Mật — AEROVA",
-    "ru": "Политика конфиденциальности — AEROVA",
-    "fr": "Politique de confidentialité — AEROVA",
-    "zh": "隐私政策 — AEROVA"
+    "en": "Privacy Policy: AEROVA",
+    "vi": "Chính Sách Bảo Mật: AEROVA",
+    "ru": "Политика конфиденциальности: AEROVA",
+    "fr": "Politique de confidentialité: AEROVA",
+    "zh": "隐私政策: AEROVA"
   },
   "meta_terms_title": {
-    "en": "Terms & Conditions — AEROVA",
-    "vi": "Điều Khoản & Điều Kiện — AEROVA",
-    "ru": "Условия использования — AEROVA",
-    "fr": "Conditions générales — AEROVA",
-    "zh": "条款与条件 — AEROVA"
+    "en": "Terms & Conditions: AEROVA",
+    "vi": "Điều Khoản & Điều Kiện: AEROVA",
+    "ru": "Условия использования: AEROVA",
+    "fr": "Conditions générales: AEROVA",
+    "zh": "条款与条件: AEROVA"
   },
   "meta_legal_title": {
-    "en": "Legal — AEROVA",
-    "vi": "Pháp Lý — AEROVA",
-    "ru": "Юридическая информация — AEROVA",
-    "fr": "Mentions légales — AEROVA",
-    "zh": "法律信息 — AEROVA"
+    "en": "Legal: AEROVA",
+    "vi": "Pháp Lý: AEROVA",
+    "ru": "Юридическая информация: AEROVA",
+    "fr": "Mentions légales: AEROVA",
+    "zh": "法律信息: AEROVA"
   },
   "contact_eyebrow": {
     "en": "Get in Touch",
@@ -1779,9 +2121,9 @@
     "zh": "大气水发生器"
   },
   "prod_hero_desc": {
-    "en": "The LT-AWG20G extracts pure drinking water from humid air through 7 stages of medical-grade filtration. Featuring instant hot and cold dispensing, it requires zero plumbing and removes the need for plastic delivery entirely.",
-    "vi": "LT-AWG20G chiết xuất nước uống tinh khiết từ không khí ẩm qua 7 tầng lọc cấp y tế. Với hệ thống nước nóng lạnh tức thì, không cần đường ống và loại bỏ hoàn toàn nhu cầu giao nước nhựa.",
-    "ru": "LT-AWG20G извлекает чистую питьевую воду из влажного воздуха через 7 ступеней медицинской фильтрации. С мгновенной подачей горячей и холодной воды, без водопровода и без пластиковых доставок.",
+    "en": "The LT-AWG20G extracts pure drinking water from humid air through 8 stages of medical-grade filtration. Featuring instant hot and cold dispensing, it requires zero plumbing and removes the need for plastic delivery entirely.",
+    "vi": "LT-AWG20G chiết xuất nước uống tinh khiết từ không khí ẩm qua 8 tầng lọc cấp y tế. Với hệ thống nước nóng lạnh tức thì, không cần đường ống và loại bỏ hoàn toàn nhu cầu giao nước nhựa.",
+    "ru": "LT-AWG20G извлекает чистую питьевую воду из влажного воздуха через 8 ступеней медицинской фильтрации. С мгновенной подачей горячей и холодной воды, без водопровода и без пластиковых доставок.",
     "fr": "Le LT-AWG20G extrait de l'eau potable pure de l'air humide à travers 7 étapes de filtration de qualité médicale. Avec distribution chaude et froide instantanée, zéro plomberie et plus besoin de livraisons en plastique.",
     "zh": "LT-AWG20G通过7级医疗级过滤从湿润空气中提取纯净饮用水。即时冷热出水，零管道需求，彻底消除塑料送水的需要。"
   },
@@ -1816,16 +2158,16 @@
   "prod_feat1_title": {
     "en": "Every Drop, Verified Pure",
     "vi": "Mỗi Giọt Nước, Tinh Khiết Tuyệt Đối",
-    "ru": "Каждая капля — гарантия чистоты",
+    "ru": "Каждая капля: гарантия чистоты",
     "fr": "Chaque goutte, vérifiée pure",
     "zh": "每一滴，纯净可验"
   },
   "prod_feat1_desc": {
-    "en": "From HEPA air intake to UV-C sterilization and PureSky mineralization — the LT-AWG20G runs atmospheric moisture through seven independent purification stages. The result exceeds WHO drinking water standards with alkaline-balanced, mineral-enriched water ready on demand.",
-    "vi": "Từ đầu vào không khí HEPA đến khử trùng UV-C và khoáng hóa PureSky — LT-AWG20G xử lý độ ẩm không khí qua bảy giai đoạn lọc độc lập. Kết quả vượt tiêu chuẩn nước uống WHO với nước cân bằng kiềm, giàu khoáng chất sẵn sàng theo yêu cầu.",
-    "ru": "От HEPA-фильтрации воздуха до UV-C стерилизации и минерализации PureSky — LT-AWG20G пропускает атмосферную влагу через семь независимых ступеней очистки. Результат превышает стандарты ВОЗ: щелочная минерализованная вода по запросу.",
-    "fr": "De l'aspiration HEPA à la stérilisation UV-C et la minéralisation PureSky — le LT-AWG20G fait passer l'humidité à travers sept étapes indépendantes. Le résultat dépasse les normes OMS avec une eau alcaline et minéralisée à la demande.",
-    "zh": "从HEPA空气进气到UV-C杀菌和PureSky矿化——LT-AWG20G将大气湿度通过七个独立净化阶段。结果超过WHO饮用水标准，提供碱性平衡、富含矿物质的水。"
+    "en": "From HEPA air intake to UV-C sterilization and PureSky mineralization, the LT-AWG20G runs atmospheric moisture through seven independent purification stages. The result exceeds WHO drinking water standards with alkaline-balanced, mineral-enriched water ready on demand.",
+    "vi": "Từ đầu vào không khí HEPA đến khử trùng UV-C và khoáng hóa PureSky, LT-AWG20G xử lý độ ẩm không khí qua bảy giai đoạn lọc độc lập. Kết quả vượt tiêu chuẩn nước uống WHO với nước cân bằng kiềm, giàu khoáng chất sẵn sàng theo yêu cầu.",
+    "ru": "От HEPA-фильтрации воздуха до UV-C стерилизации и минерализации PureSky, LT-AWG20G пропускает атмосферную влагу через семь независимых ступеней очистки. Результат превышает стандарты ВОЗ: щелочная минерализованная вода по запросу.",
+    "fr": "De l'aspiration HEPA à la stérilisation UV-C et la minéralisation PureSky, le LT-AWG20G fait passer l'humidité à travers sept étapes indépendantes. Le résultat dépasse les normes OMS avec une eau alcaline et minéralisée à la demande.",
+    "zh": "从HEPA空气进气到UV-C杀菌和PureSky矿化，LT-AWG20G将大气湿度通过七个独立净化阶段。结果超过WHO饮用水标准，提供碱性平衡、富含矿物质的水。"
   },
   "prod_feat1_stat": {
     "en": "Water Purity",
@@ -1856,11 +2198,11 @@
     "zh": "冷热随需"
   },
   "prod_feat2_desc": {
-    "en": "Chilled water for drinking. Near-boiling water for tea, coffee, and cooking. The LT-AWG20G delivers both instantly through separate taps — no kettle, no waiting. Integrated child-safety lock on the hot water dispenser.",
-    "vi": "Nước lạnh để uống. Nước gần sôi cho trà, cà phê và nấu ăn. LT-AWG20G cung cấp cả hai ngay lập tức qua các vòi riêng biệt — không cần ấm, không phải chờ. Khóa an toàn trẻ em tích hợp trên vòi nước nóng.",
-    "ru": "Охлаждённая вода для питья. Почти кипящая — для чая, кофе и готовки. LT-AWG20G подаёт и то, и другое мгновенно через отдельные краны. Встроенная защита от детей на горячем кране.",
+    "en": "Chilled water for drinking. Near-boiling water for tea, coffee, and cooking. The LT-AWG20G delivers both instantly through separate taps, no kettle, no waiting. Integrated child-safety lock on the hot water dispenser.",
+    "vi": "Nước lạnh để uống. Nước gần sôi cho trà, cà phê và nấu ăn. LT-AWG20G cung cấp cả hai ngay lập tức qua các vòi riêng biệt, không cần ấm, không phải chờ. Khóa an toàn trẻ em tích hợp trên vòi nước nóng.",
+    "ru": "Охлаждённая вода для питья. Почти кипящая, для чая, кофе и готовки. LT-AWG20G подаёт и то, и другое мгновенно через отдельные краны. Встроенная защита от детей на горячем кране.",
     "fr": "Eau fraîche pour boire. Eau presque bouillante pour le thé, le café et la cuisine. Le LT-AWG20G fournit les deux instantanément via des robinets séparés. Sécurité enfant intégrée.",
-    "zh": "冰水饮用。近沸水泡茶、咖啡和烹饪。LT-AWG20G通过独立出水口即时提供两种水温——无需水壶，无需等待。热水出口配备儿童安全锁。"
+    "zh": "冰水饮用。近沸水泡茶、咖啡和烹饪。LT-AWG20G通过独立出水口即时提供两种水温，无需水壶，无需等待。热水出口配备儿童安全锁。"
   },
   "prod_feat2_stat": {
     "en": "Temperature Range",
@@ -1891,11 +2233,11 @@
     "zh": "融入空间的设计"
   },
   "prod_feat3_desc": {
-    "en": "At just 45 dB — quieter than a library — the LT-AWG20G disappears into your living room, bedroom, or office. The slim 375mm depth fits against any wall. No plumbing connections, no installation complexity. Plug in and pour.",
-    "vi": "Chỉ với 45 dB — yên tĩnh hơn thư viện — LT-AWG20G hòa nhập vào phòng khách, phòng ngủ hoặc văn phòng. Độ sâu 375mm gọn gàng phù hợp mọi bức tường. Không cần kết nối ống nước, không phức tạp lắp đặt. Cắm điện và rót nước.",
-    "ru": "Всего 45 дБ — тише библиотеки — LT-AWG20G растворяется в гостиной, спальне или офисе. Глубина 375 мм позволяет разместить у любой стены. Без водопровода, без сложной установки. Подключите и наливайте.",
-    "fr": "À seulement 45 dB — plus silencieux qu'une bibliothèque — le LT-AWG20G se fond dans votre salon, chambre ou bureau. Sa profondeur de 375 mm s'adapte à tout mur. Sans plomberie. Branchez et servez.",
-    "zh": "仅45分贝——比图书馆更安静——LT-AWG20G融入客厅、卧室或办公室。375mm超薄机身贴墙放置。无需管道连接，安装零复杂度。插电即用。"
+    "en": "At just 45 dB, quieter than a library, the LT-AWG20G disappears into your living room, bedroom, or office. The slim 375mm depth fits against any wall. No plumbing connections, no installation complexity. Plug in and pour.",
+    "vi": "Chỉ với 45 dB, yên tĩnh hơn thư viện, LT-AWG20G hòa nhập vào phòng khách, phòng ngủ hoặc văn phòng. Độ sâu 375mm gọn gàng phù hợp mọi bức tường. Không cần kết nối ống nước, không phức tạp lắp đặt. Cắm điện và rót nước.",
+    "ru": "Всего 45 дБ, тише библиотеки, LT-AWG20G растворяется в гостиной, спальне или офисе. Глубина 375 мм позволяет разместить у любой стены. Без водопровода, без сложной установки. Подключите и наливайте.",
+    "fr": "À seulement 45 dB, plus silencieux qu'une bibliothèque, le LT-AWG20G se fond dans votre salon, chambre ou bureau. Sa profondeur de 375 mm s'adapte à tout mur. Sans plomberie. Branchez et servez.",
+    "zh": "仅45分贝，比图书馆更安静，LT-AWG20G融入客厅、卧室或办公室。375mm超薄机身贴墙放置。无需管道连接，安装零复杂度。插电即用。"
   },
   "prod_feat3_stat": {
     "en": "Noise Level",
@@ -1905,11 +2247,11 @@
     "zh": "噪音水平"
   },
   "prod_feat3_image": {
-    "en": "Lifestyle — Home Setting",
-    "vi": "Phong Cách Sống — Tại Nhà",
+    "en": "Lifestyle: Home Setting",
+    "vi": "Phong Cách Sống: Tại Nhà",
     "ru": "В интерьере дома",
-    "fr": "Style de vie — À la maison",
-    "zh": "生活场景 — 家庭环境"
+    "fr": "Style de vie: À la maison",
+    "zh": "生活场景: 家庭环境"
   },
   "filt_eyebrow": {
     "en": "Inside the Machine",
@@ -1919,18 +2261,18 @@
     "zh": "机器内部"
   },
   "filt_headline": {
-    "en": "7 Stages. Zero Compromise.",
-    "vi": "7 Tầng. Không Thỏa Hiệp.",
-    "ru": "7 ступеней. Без компромиссов.",
-    "fr": "7 étapes. Zéro compromis.",
-    "zh": "七级过滤。零妥协。"
+    "en": "8 Stages. Zero Compromise.",
+    "vi": "8 Tầng. Không Thỏa Hiệp.",
+    "ru": "8 ступеней. Без компромиссов.",
+    "fr": "8 étapes. Zéro compromis.",
+    "zh": "八级过滤。零妥协。"
   },
   "filt_desc": {
-    "en": "Each stage targets a specific category of contaminant — from airborne particles to dissolved minerals. Nothing passes through unchecked.",
-    "vi": "Mỗi tầng nhắm vào một loại chất gây ô nhiễm cụ thể — từ các hạt trong không khí đến khoáng chất hòa tan. Không có gì đi qua mà không được kiểm tra.",
-    "ru": "Каждая ступень нацелена на определённую категорию загрязнителей — от частиц в воздухе до растворённых минералов. Ничто не проходит без проверки.",
-    "fr": "Chaque étape cible une catégorie spécifique de contaminants — des particules en suspension aux minéraux dissous. Rien ne passe sans être vérifié.",
-    "zh": "每个阶段针对特定类别的污染物——从空气中的颗粒到溶解矿物质。没有任何物质未经检查就通过。"
+    "en": "Each stage targets a specific category of contaminant, from airborne particles to dissolved minerals. Nothing passes through unchecked.",
+    "vi": "Mỗi tầng nhắm vào một loại chất gây ô nhiễm cụ thể, từ các hạt trong không khí đến khoáng chất hòa tan. Không có gì đi qua mà không được kiểm tra.",
+    "ru": "Каждая ступень нацелена на определённую категорию загрязнителей, от частиц в воздухе до растворённых минералов. Ничто не проходит без проверки.",
+    "fr": "Chaque étape cible une catégorie spécifique de contaminants, des particules en suspension aux minéraux dissous. Rien ne passe sans être vérifié.",
+    "zh": "每个阶段针对特定类别的污染物，从空气中的颗粒到溶解矿物质。没有任何物质未经检查就通过。"
   },
   "filt_stage1_title": {
     "en": "HEPA Air Filter",
@@ -1996,39 +2338,53 @@
     "zh": "反渗透"
   },
   "filt_stage5_desc": {
-    "en": "RO membrane removes dissolved solids, heavy metals, bacteria, and contaminants at the molecular level — the gold standard of water purification.",
-    "vi": "Màng RO loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn và chất gây ô nhiễm ở cấp phân tử — tiêu chuẩn vàng của lọc nước.",
-    "ru": "RO-мембрана удаляет растворённые вещества, тяжёлые металлы, бактерии и загрязнители на молекулярном уровне — золотой стандарт очистки воды.",
-    "fr": "La membrane RO élimine les solides dissous, métaux lourds, bactéries et contaminants au niveau moléculaire — le standard d'excellence.",
-    "zh": "RO膜在分子水平去除溶解固体、重金属、细菌和污染物——水净化的黄金标准。"
+    "en": "RO membrane removes dissolved solids, heavy metals, bacteria, and contaminants at the molecular level, the gold standard of water purification.",
+    "vi": "Màng RO loại bỏ chất rắn hòa tan, kim loại nặng, vi khuẩn và chất gây ô nhiễm ở cấp phân tử, tiêu chuẩn vàng của lọc nước.",
+    "ru": "RO-мембрана удаляет растворённые вещества, тяжёлые металлы, бактерии и загрязнители на молекулярном уровне, золотой стандарт очистки воды.",
+    "fr": "La membrane RO élimine les solides dissous, métaux lourds, bactéries et contaminants au niveau moléculaire, le standard d'excellence.",
+    "zh": "RO膜在分子水平去除溶解固体、重金属、细菌和污染物，水净化的黄金标准。"
   },
   "filt_stage6_title": {
-    "en": "UV-C Sterilization",
-    "vi": "Khử Trùng UV-C",
-    "ru": "UV-C стерилизация",
-    "fr": "Stérilisation UV-C",
-    "zh": "UV-C杀菌"
+    "en": "Mineral Restoration",
+    "vi": "Tái Khoáng Hóa",
+    "ru": "Восстановление минералов",
+    "fr": "Reminéralisation",
+    "zh": "矿物质恢复"
   },
   "filt_stage6_desc": {
-    "en": "Ultraviolet light at 254nm destroys 99.99% of remaining bacteria, viruses, and pathogens without chemicals.",
-    "vi": "Ánh sáng cực tím ở bước sóng 254nm tiêu diệt 99.99% vi khuẩn, virus và mầm bệnh còn lại mà không cần hóa chất.",
-    "ru": "Ультрафиолет на 254 нм уничтожает 99,99% оставшихся бактерий, вирусов и патогенов без химикатов.",
-    "fr": "La lumière ultraviolette à 254 nm détruit 99,99% des bactéries, virus et pathogènes restants sans produits chimiques.",
-    "zh": "254nm紫外光在不使用化学品的情况下消灭99.99%的残留细菌、病毒和病原体。"
+    "en": "Essential minerals — calcium, magnesium, potassium and sodium — are added back to the purified water, restoring optimal alkaline pH and the natural taste of genuinely good drinking water.",
+    "vi": "Các khoáng chất thiết yếu — canxi, magiê, kali và natri — được bổ sung lại vào nước tinh khiết, khôi phục pH kiềm tối ưu và hương vị tự nhiên của nước uống thực sự tốt.",
+    "ru": "Основные минералы — кальций, магний, калий и натрий — возвращаются в очищенную воду, восстанавливая оптимальный щелочной pH и натуральный вкус качественной питьевой воды.",
+    "fr": "Les minéraux essentiels — calcium, magnésium, potassium et sodium — sont réintroduits dans l'eau purifiée, rétablissant un pH alcalin optimal et le goût naturel d'une excellente eau de boisson.",
+    "zh": "必要矿物质——钙、镁、钾和钠——被重新添加到纯净水中，恢复最佳碱性pH值和真正优质饮用水的自然口感。"
   },
   "filt_stage7_title": {
-    "en": "PureSky Mineralization",
-    "vi": "Khoáng Hóa PureSky",
-    "ru": "Минерализация PureSky",
-    "fr": "Minéralisation PureSky",
-    "zh": "PureSky矿化"
+    "en": "Nano Ceram-PAC",
+    "vi": "Lọc Nano Ceram-PAC",
+    "ru": "Нано Керам-PAC фильтр",
+    "fr": "Filtre Nano Ceram-PAC",
+    "zh": "纳米陶瓷PAC过滤器"
   },
   "filt_stage7_desc": {
-    "en": "Essential minerals — calcium, magnesium, and potassium — are restored to the purified water, bringing it to an optimal alkaline pH balance for taste and health.",
-    "vi": "Các khoáng chất thiết yếu — canxi, magiê và kali — được phục hồi vào nước tinh khiết, đưa nước đến cân bằng pH kiềm tối ưu cho hương vị và sức khỏe.",
-    "ru": "Необходимые минералы — кальций, магний и калий — восстанавливаются в очищенной воде, доводя её до оптимального щелочного баланса pH.",
-    "fr": "Les minéraux essentiels — calcium, magnésium et potassium — sont restaurés dans l'eau purifiée pour un équilibre alcalin optimal.",
-    "zh": "必需矿物质——钙、镁和钾——被恢复到净化水中，使其达到最佳碱性pH平衡，兼顾口感和健康。"
+    "en": "A final cartridge combining nano-ceramic media and powdered activated carbon, eliminating residual bacteria in the water lines and polishing the water before it enters the storage tanks.",
+    "vi": "Lõi lọc cuối kết hợp vật liệu nano gốm và than hoạt tính dạng bột, loại bỏ vi khuẩn còn lại trong đường nước và tinh lọc nước trước khi vào bình chứa.",
+    "ru": "Финальный картридж, сочетающий нано-керамические среды и порошкообразный активированный уголь, устраняющий остаточные бактерии и доочищающий воду перед поступлением в баки.",
+    "fr": "Une cartouche finale combinant médias nano-céramiques et charbon actif en poudre, éliminant les bactéries résiduelles et polissant l'eau avant son entrée dans les cuves de stockage.",
+    "zh": "最后一个滤芯，结合纳米陶瓷介质和粉末活性炭，消除水管中的残余细菌，在水进入储水箱之前进行最终精滤。"
+  },
+  "filt_stage8_title": {
+    "en": "Dual UV Sterilization",
+    "vi": "Khử Trùng UV Kép",
+    "ru": "Двойная UV-стерилизация",
+    "fr": "Stérilisation UV double",
+    "zh": "双重紫外线灭菌"
+  },
+  "filt_stage8_desc": {
+    "en": "Twin LED UV lamps — one in the lower collection tank, one in the upper storage tank — continuously destroy bacteria and microorganisms. Stored water is automatically re-circulated through the full filter system every three hours to stay fresh.",
+    "vi": "Hai đèn LED UV — một trong bình chứa phía dưới, một trong bình chứa phía trên — liên tục tiêu diệt vi khuẩn và vi sinh vật. Nước tự động tuần hoàn qua toàn bộ hệ thống lọc mỗi ba giờ để luôn tươi sạch.",
+    "ru": "Двойные LED UV-лампы — одна в нижнем баке, одна в верхнем — непрерывно уничтожают бактерии. Хранящаяся вода автоматически рециркулирует каждые три часа.",
+    "fr": "Deux lampes LED UV — une dans le réservoir inférieur, une dans le supérieur — détruisent continuellement bactéries et micro-organismes. L'eau est recirculée automatiquement toutes les trois heures.",
+    "zh": "两盏LED紫外灯——一盏在下方收集箱，一盏在上方储水箱——持续消灭细菌和微生物。储存的水每三小时自动再循环，保持新鲜。"
   },
   "prod_closer_look": {
     "en": "Take a Closer Look",
@@ -2052,11 +2408,11 @@
     "zh": "对AEROVA感兴趣？"
   },
   "prod_cta_desc": {
-    "en": "Whether for your home, office, or hospitality business — we'll match you with the right solution. Purchase or lease, we handle everything from consultation to installation.",
-    "vi": "Dù cho gia đình, văn phòng hay doanh nghiệp hospitality — chúng tôi sẽ giúp bạn tìm giải pháp phù hợp. Mua hoặc thuê, chúng tôi xử lý mọi thứ từ tư vấn đến lắp đặt.",
-    "ru": "Для дома, офиса или гостиничного бизнеса — мы подберём подходящее решение. Покупка или аренда — мы возьмём на себя всё от консультации до установки.",
-    "fr": "Pour votre maison, bureau ou entreprise hôtelière — nous trouverons la solution adaptée. Achat ou location, nous gérons tout, de la consultation à l'installation.",
-    "zh": "无论是家庭、办公室还是酒店业务——我们将为您匹配合适的解决方案。购买或租赁，从咨询到安装我们全程处理。"
+    "en": "Whether for your home, office, or hospitality business, we'll match you with the right solution. We handle everything from consultation to installation.",
+    "vi": "Dù cho gia đình, văn phòng hay doanh nghiệp hospitality, chúng tôi sẽ giúp bạn tìm giải pháp phù hợp. Chúng tôi xử lý mọi thứ từ tư vấn đến lắp đặt.",
+    "ru": "Для дома, офиса или гостиничного бизнеса: мы подберём подходящее решение и возьмём на себя всё от консультации до установки.",
+    "fr": "Pour votre maison, bureau ou entreprise hôtelière, nous trouverons la solution adaptée. Nous gérons tout, de la consultation à l'installation.",
+    "zh": "无论是家庭、办公室还是酒店业务，我们将为您匹配合适的解决方案，从咨询到安装全程处理。"
   },
   "about_eyebrow": {
     "en": "Our Story",
@@ -2075,23 +2431,23 @@
   "about_mission_quote": {
     "en": "We believe everyone deserves access to clean water without the plastic tax, without pipes, and without compromise.",
     "vi": "Chúng tôi tin rằng mọi người đều xứng đáng được tiếp cận nước sạch mà không phải chịu thuế nhựa, không cần đường ống, và không thỏa hiệp.",
-    "ru": "Мы верим, что каждый заслуживает чистую воду — без пластикового налога, без труб и без компромиссов.",
-    "fr": "Nous croyons que chacun mérite l'accès à l'eau propre — sans la taxe du plastique, sans tuyaux et sans compromis.",
-    "zh": "我们相信每个人都应该获得清洁水——没有塑料税、没有管道、没有妥协。"
+    "ru": "Мы верим, что каждый заслуживает чистую воду, без пластикового налога, без труб и без компромиссов.",
+    "fr": "Nous croyons que chacun mérite l'accès à l'eau propre, sans la taxe du plastique, sans tuyaux et sans compromis.",
+    "zh": "我们相信每个人都应该获得清洁水，没有塑料税、没有管道、没有妥协。"
   },
   "about_mission_p2": {
-    "en": "AEROVA was founded to bring atmospheric water generation technology to Southeast Asia — starting with Vietnam, where high humidity and growing environmental awareness create the perfect conditions for a water revolution.",
-    "vi": "AEROVA được thành lập để mang công nghệ tạo nước từ không khí đến Đông Nam Á — bắt đầu từ Việt Nam, nơi độ ẩm cao và nhận thức môi trường ngày càng tăng tạo điều kiện hoàn hảo cho cuộc cách mạng nước.",
-    "ru": "AEROVA основана для продвижения технологии генерации воды из воздуха в Юго-Восточную Азию — начиная с Вьетнама, где высокая влажность и растущая экологическая осознанность создают идеальные условия.",
-    "fr": "AEROVA a été fondée pour apporter la technologie de génération d'eau atmosphérique en Asie du Sud-Est — en commençant par le Vietnam, où l'humidité élevée et la conscience environnementale créent les conditions parfaites.",
-    "zh": "AEROVA成立的目的是将大气水生成技术带到东南亚——从越南开始，那里高湿度和日益增长的环保意识为水革命创造了完美条件。"
+    "en": "AEROVA was founded to bring atmospheric water generation technology to Southeast Asia, starting with Vietnam, where high humidity and growing environmental awareness create the perfect conditions for a water revolution.",
+    "vi": "AEROVA được thành lập để mang công nghệ tạo nước từ không khí đến Đông Nam Á, bắt đầu từ Việt Nam, nơi độ ẩm cao và nhận thức môi trường ngày càng tăng tạo điều kiện hoàn hảo cho cuộc cách mạng nước.",
+    "ru": "AEROVA основана для продвижения технологии генерации воды из воздуха в Юго-Восточную Азию, начиная с Вьетнама, где высокая влажность и растущая экологическая осознанность создают идеальные условия.",
+    "fr": "AEROVA a été fondée pour apporter la technologie de génération d'eau atmosphérique en Asie du Sud-Est, en commençant par le Vietnam, où l'humidité élevée et la conscience environnementale créent les conditions parfaites.",
+    "zh": "AEROVA成立的目的是将大气水生成技术带到东南亚，从越南开始，那里高湿度和日益增长的环保意识为水革命创造了完美条件。"
   },
   "about_team_placeholder": {
-    "en": "Team Photo — Coming Soon",
-    "vi": "Ảnh Đội Ngũ — Sắp Ra Mắt",
-    "ru": "Фото команды — скоро",
-    "fr": "Photo d'équipe — Bientôt",
-    "zh": "团队照片 — 即将推出"
+    "en": "Team Photo: Coming Soon",
+    "vi": "Ảnh Đội Ngũ: Sắp Ra Mắt",
+    "ru": "Фото команды: скоро",
+    "fr": "Photo d'équipe: Bientôt",
+    "zh": "团队照片: 即将推出"
   },
   "about_values_eyebrow": {
     "en": "What We Stand For",
@@ -2157,11 +2513,11 @@
     "zh": "2026年第二季度"
   },
   "about_tl3_event": {
-    "en": "Expansion to Da Nang and Vung Tau. Lease programme launched for commercial clients.",
-    "vi": "Mở rộng đến Đà Nẵng và Vũng Tàu. Chương trình thuê ra mắt cho khách hàng thương mại.",
-    "ru": "Расширение в Дананг и Вунгтау. Запуск программы аренды для коммерческих клиентов.",
-    "fr": "Expansion à Da Nang et Vung Tau. Programme de location lancé pour les clients commerciaux.",
-    "zh": "扩展至岘港和头顿。为商业客户推出租赁计划。"
+    "en": "Expansion to Da Nang and Vung Tau. Commercial pilot deployments at hotel and office partners.",
+    "vi": "Mở rộng đến Đà Nẵng và Vũng Tàu. Triển khai thí điểm thương mại với đối tác khách sạn và văn phòng.",
+    "ru": "Расширение в Дананг и Вунгтау. Пилотные коммерческие развёртывания у партнёров: отелей и офисов.",
+    "fr": "Expansion à Da Nang et Vung Tau. Déploiements pilotes commerciaux chez des partenaires hôteliers et de bureaux.",
+    "zh": "扩展至岘港和头顿。在酒店与办公合作伙伴处进行商业试点部署。"
   },
   "about_tl4_year": {
     "en": "2027",
@@ -2185,18 +2541,18 @@
     "zh": "我们的服务"
   },
   "svc_models_eyebrow": {
-    "en": "Flexible Options",
-    "vi": "Tùy Chọn Linh Hoạt",
-    "ru": "Гибкие варианты",
-    "fr": "Options flexibles",
-    "zh": "灵活选择"
+    "en": "Ownership",
+    "vi": "Sở Hữu",
+    "ru": "Владение",
+    "fr": "Propriété",
+    "zh": "拥有"
   },
   "svc_models_headline": {
-    "en": "Purchase or Lease",
-    "vi": "Mua Hoặc Thuê",
-    "ru": "Покупка или аренда",
-    "fr": "Achat ou location",
-    "zh": "购买或租赁"
+    "en": "Outright purchase",
+    "vi": "Mua Trọn Gói",
+    "ru": "Покупка целиком",
+    "fr": "Achat outright",
+    "zh": "一次性购买"
   },
   "svc_purchase_eyebrow": {
     "en": "Purchase",
@@ -2239,55 +2595,6 @@
     "ru": "Доступны планы обслуживания",
     "fr": "Plans de maintenance optionnels disponibles",
     "zh": "可选维护计划"
-  },
-  "svc_lease_eyebrow": {
-    "en": "Lease",
-    "vi": "Thuê",
-    "ru": "Аренда",
-    "fr": "Location",
-    "zh": "租赁"
-  },
-  "svc_lease_title": {
-    "en": "Purity as a Service",
-    "vi": "Tinh Khiết Như Dịch Vụ",
-    "ru": "Чистота как услуга",
-    "fr": "La pureté en tant que service",
-    "zh": "纯净即服务"
-  },
-  "svc_lease_desc": {
-    "en": "Enjoy the future of water with no upfront cost. Our all-inclusive monthly fee covers delivery, professional installation, and all scheduled maintenance and filter changes.",
-    "vi": "Tận hưởng tương lai của nước không cần chi phí ban đầu. Phí hàng tháng trọn gói bao gồm giao hàng, lắp đặt chuyên nghiệp, và tất cả bảo trì và thay bộ lọc định kỳ.",
-    "ru": "Наслаждайтесь будущим воды без начальных затрат. Наша ежемесячная плата включает доставку, профессиональную установку, всё плановое обслуживание и замену фильтров.",
-    "fr": "Profitez de l'avenir de l'eau sans coût initial. Notre forfait mensuel tout compris couvre la livraison, l'installation professionnelle, et toute la maintenance et les changements de filtres programmés.",
-    "zh": "零前期费用享受水的未来。我们的全包月费涵盖配送、专业安装，以及所有计划维护和滤芯更换。"
-  },
-  "svc_lease_feat1": {
-    "en": "Zero upfront investment",
-    "vi": "Không đầu tư ban đầu",
-    "ru": "Нулевые начальные затраты",
-    "fr": "Zéro investissement initial",
-    "zh": "零前期投资"
-  },
-  "svc_lease_feat2": {
-    "en": "All maintenance included",
-    "vi": "Bao gồm tất cả bảo trì",
-    "ru": "Всё обслуживание включено",
-    "fr": "Toute la maintenance incluse",
-    "zh": "包含所有维护"
-  },
-  "svc_lease_feat3": {
-    "en": "Filter replacements at no extra cost",
-    "vi": "Thay bộ lọc không phụ phí",
-    "ru": "Замена фильтров без доплат",
-    "fr": "Remplacement des filtres sans frais",
-    "zh": "免费更换滤芯"
-  },
-  "svc_lease_feat4": {
-    "en": "Upgrade or return at any time",
-    "vi": "Nâng cấp hoặc trả lại bất kỳ lúc nào",
-    "ru": "Обновление или возврат в любое время",
-    "fr": "Mise à niveau ou retour à tout moment",
-    "zh": "随时升级或退还"
   },
   "svc_recommended": {
     "en": "Recommended",
@@ -2339,11 +2646,11 @@
     "zh": "咨询"
   },
   "svc_process1_desc": {
-    "en": "We assess your space, water needs, and budget to recommend the right solution — purchase or lease.",
-    "vi": "Chúng tôi đánh giá không gian, nhu cầu nước và ngân sách để đề xuất giải pháp phù hợp — mua hoặc thuê.",
-    "ru": "Мы оценим ваше пространство, потребности в воде и бюджет, чтобы предложить оптимальное решение.",
-    "fr": "Nous évaluons votre espace, vos besoins en eau et votre budget pour recommander la bonne solution.",
-    "zh": "我们评估您的空间、用水需求和预算，推荐合适的解决方案——购买或租赁。"
+    "en": "We assess your space, water needs, and budget to recommend the right configuration.",
+    "vi": "Chúng tôi đánh giá không gian, nhu cầu nước và ngân sách để đề xuất cấu hình phù hợp.",
+    "ru": "Мы оценим ваше пространство, потребности в воде и бюджет, чтобы предложить оптимальную конфигурацию.",
+    "fr": "Nous évaluons votre espace, vos besoins en eau et votre budget pour recommander la bonne configuration.",
+    "zh": "我们评估您的空间、用水需求和预算，推荐合适的配置。"
   },
   "svc_process2_title": {
     "en": "Delivery & Installation",
@@ -2353,11 +2660,11 @@
     "zh": "配送与安装"
   },
   "svc_process2_desc": {
-    "en": "We deliver and install your AEROVA unit at no charge. No plumbing required — just a power outlet.",
-    "vi": "Chúng tôi giao và lắp đặt thiết bị AEROVA miễn phí. Không cần đường ống — chỉ cần ổ cắm điện.",
-    "ru": "Бесплатная доставка и установка. Водопровод не нужен — только розетка.",
-    "fr": "Livraison et installation gratuites. Pas de plomberie nécessaire — juste une prise électrique.",
-    "zh": "免费配送和安装。无需管道——只需一个电源插座。"
+    "en": "We deliver and install your AEROVA unit at no charge. No plumbing required, just a power outlet.",
+    "vi": "Chúng tôi giao và lắp đặt thiết bị AEROVA miễn phí. Không cần đường ống, chỉ cần ổ cắm điện.",
+    "ru": "Бесплатная доставка и установка. Водопровод не нужен, только розетка.",
+    "fr": "Livraison et installation gratuites. Pas de plomberie nécessaire, juste une prise électrique.",
+    "zh": "免费配送和安装。无需管道，只需一个电源插座。"
   },
   "svc_process3_title": {
     "en": "Activation",
@@ -2435,5 +2742,229 @@
     "ru": "Средние значения при средней температуре 25°C.",
     "fr": "Valeurs moyennes à une température moyenne de 25°C.",
     "zh": "以上为25°C平均温度下的平均值。"
+  },
+  "cancel_meta_title": {
+    "en": "Payment Cancelled: AEROVA",
+    "vi": "Đã Hủy Thanh Toán: AEROVA",
+    "ru": "Платёж отменён: AEROVA",
+    "fr": "Paiement annulé: AEROVA",
+    "zh": "付款已取消: AEROVA"
+  },
+  "cancel_eyebrow": {
+    "en": "Payment cancelled",
+    "vi": "Đã hủy thanh toán",
+    "ru": "Платёж отменён",
+    "fr": "Paiement annulé",
+    "zh": "付款已取消"
+  },
+  "cancel_headline": {
+    "en": "No charge was made.",
+    "vi": "Bạn không bị tính phí.",
+    "ru": "Списание не произведено.",
+    "fr": "Aucun débit n'a été effectué.",
+    "zh": "未产生任何扣款。"
+  },
+  "cancel_body": {
+    "en": "Your card wasn't charged and your details weren't saved. The LT-AWG20G is still here when you're ready, and we're here if you'd like a different path.",
+    "vi": "Thẻ của bạn chưa bị tính phí và thông tin của bạn không được lưu. LT-AWG20G vẫn sẵn sàng khi bạn quay lại, và chúng tôi luôn ở đây nếu bạn muốn một hướng đi khác.",
+    "ru": "С вашей карты ничего не списано, ваши данные не сохранены. LT-AWG20G ждёт вас, когда будете готовы, и мы рядом, если вы хотите выбрать другой путь.",
+    "fr": "Votre carte n'a pas été débitée et vos informations n'ont pas été enregistrées. Le LT-AWG20G vous attend lorsque vous serez prêt, et nous sommes là si vous souhaitez une autre voie.",
+    "zh": "您的卡未被扣款，信息也未被保存。当您准备好时，LT-AWG20G 仍在等候；如果您希望选择另一种方式，我们随时为您服务。"
+  },
+  "cancel_recovery_eyebrow": {
+    "en": "Where to next",
+    "vi": "Bước tiếp theo",
+    "ru": "Что дальше",
+    "fr": "Et ensuite",
+    "zh": "下一步"
+  },
+  "cancel_try_again_label": {
+    "en": "Try again",
+    "vi": "Thử lại",
+    "ru": "Попробовать снова",
+    "fr": "Réessayer",
+    "zh": "再试一次"
+  },
+  "cancel_try_again_desc": {
+    "en": "Return to the order page and complete your purchase when you're ready.",
+    "vi": "Quay lại trang đặt hàng và hoàn tất mua hàng khi bạn sẵn sàng.",
+    "ru": "Вернитесь на страницу заказа и завершите покупку, когда будете готовы.",
+    "fr": "Retournez à la page de commande et finalisez votre achat lorsque vous serez prêt.",
+    "zh": "返回订购页面，准备好后完成购买。"
+  },
+  "cancel_try_again_cta": {
+    "en": "Back to order",
+    "vi": "Trở lại đặt hàng",
+    "ru": "Вернуться к заказу",
+    "fr": "Retour à la commande",
+    "zh": "返回订购"
+  },
+  "cancel_specs_label": {
+    "en": "Send me the spec sheet",
+    "vi": "Gửi tôi bảng thông số kỹ thuật",
+    "ru": "Пришлите мне спецификацию",
+    "fr": "Envoyez-moi la fiche technique",
+    "zh": "把规格表发给我"
+  },
+  "cancel_specs_desc": {
+    "en": "Full LT-AWG20G specifications, yield curves, filter intervals, and installation notes. We'll email the PDF to you so you can review at your own pace.",
+    "vi": "Thông số đầy đủ của LT-AWG20G, biểu đồ sản lượng, chu kỳ lọc và ghi chú lắp đặt. Chúng tôi sẽ gửi PDF qua email để bạn xem khi rảnh.",
+    "ru": "Полная спецификация LT-AWG20G, кривые производительности, интервалы замены фильтров и заметки по установке. Мы отправим вам PDF на почту.",
+    "fr": "Fiche technique complète du LT-AWG20G, courbes de rendement, intervalles de filtres et notes d'installation. Nous vous enverrons le PDF par e-mail.",
+    "zh": "LT-AWG20G 的完整规格、产水曲线、滤芯周期与安装说明。我们会把 PDF 发到您邮箱，您可以从容查阅。"
+  },
+  "cancel_talk_label": {
+    "en": "Talk to a person",
+    "vi": "Trò chuyện với chúng tôi",
+    "ru": "Поговорите с человеком",
+    "fr": "Parler à quelqu'un",
+    "zh": "与我们对话"
+  },
+  "cancel_talk_desc": {
+    "en": "If you'd rather not finish online, our team can walk you through it directly.",
+    "vi": "Nếu bạn không muốn hoàn tất trực tuyến, đội ngũ của chúng tôi có thể hướng dẫn bạn trực tiếp.",
+    "ru": "Если не хочется оформлять онлайн, наша команда поможет вам напрямую.",
+    "fr": "Si vous préférez ne pas finaliser en ligne, notre équipe peut vous accompagner directement.",
+    "zh": "如果您不想在线完成，我们的团队可以直接为您提供指导。"
+  },
+  "cancel_talk_email_label": {
+    "en": "Email",
+    "vi": "Email",
+    "ru": "Эл. почта",
+    "fr": "E-mail",
+    "zh": "邮箱"
+  },
+  "cancel_talk_phone_label": {
+    "en": "Phone",
+    "vi": "Điện thoại",
+    "ru": "Телефон",
+    "fr": "Téléphone",
+    "zh": "电话"
+  },
+  "cancel_home_link": {
+    "en": "Return to the home page",
+    "vi": "Quay về trang chủ",
+    "ru": "Вернуться на главную",
+    "fr": "Retour à l'accueil",
+    "zh": "返回首页"
+  },
+  "cancel_specs_email_placeholder": {
+    "en": "you@example.com",
+    "vi": "ban@vidu.com",
+    "ru": "vy@example.com",
+    "fr": "vous@exemple.com",
+    "zh": "you@example.com"
+  },
+  "cancel_specs_email_aria": {
+    "en": "Email for spec sheet delivery",
+    "vi": "Email để nhận bảng thông số kỹ thuật",
+    "ru": "Эл. почта для отправки спецификации",
+    "fr": "E-mail pour recevoir la fiche technique",
+    "zh": "用于接收规格表的邮箱"
+  },
+  "cancel_specs_cta": {
+    "en": "Send me the PDF",
+    "vi": "Gửi tôi PDF",
+    "ru": "Прислать PDF",
+    "fr": "M'envoyer le PDF",
+    "zh": "发送 PDF 给我"
+  },
+  "cancel_specs_saving": {
+    "en": "Saving…",
+    "vi": "Đang lưu…",
+    "ru": "Сохраняем…",
+    "fr": "Enregistrement…",
+    "zh": "保存中…"
+  },
+  "cancel_specs_success": {
+    "en": "Done. The spec sheet is on its way to your inbox.",
+    "vi": "Xong. Bảng thông số đang được gửi đến hộp thư của bạn.",
+    "ru": "Готово. Спецификация уже на пути к вам в почту.",
+    "fr": "Fait. La fiche technique arrive dans votre boîte mail.",
+    "zh": "已完成。规格表正在发送到您的邮箱。"
+  },
+  "cancel_specs_invalid": {
+    "en": "Please enter a valid email address.",
+    "vi": "Vui lòng nhập địa chỉ email hợp lệ.",
+    "ru": "Введите действительный адрес эл. почты.",
+    "fr": "Veuillez saisir une adresse e-mail valide.",
+    "zh": "请输入有效的邮箱地址。"
+  },
+  "cancel_specs_error": {
+    "en": "Could not submit. Please try again.",
+    "vi": "Không thể gửi. Vui lòng thử lại.",
+    "ru": "Не удалось отправить. Попробуйте ещё раз.",
+    "fr": "Échec de l'envoi. Veuillez réessayer.",
+    "zh": "提交失败，请重试。"
+  },
+  "footer_contact_heading": {
+    "en": "Contact",
+    "vi": "Liên Hệ",
+    "ru": "Контакты",
+    "fr": "Contact",
+    "zh": "联系我们"
+  },
+  "footer_address_line": {
+    "en": "Ho Chi Minh City, Vietnam",
+    "vi": "Tp. Hồ Chí Minh, Việt Nam",
+    "ru": "Хошимин, Вьетнам",
+    "fr": "Hô Chi Minh-Ville, Vietnam",
+    "zh": "越南胡志明市"
+  },
+  "footer_phone": {
+    "en": "+84 90 123 4567",
+    "vi": "+84 90 123 4567",
+    "ru": "+84 90 123 4567",
+    "fr": "+84 90 123 4567",
+    "zh": "+84 90 123 4567"
+  },
+  "footer_email": {
+    "en": "info@aerova.com",
+    "vi": "info@aerova.com",
+    "ru": "info@aerova.com",
+    "fr": "info@aerova.com",
+    "zh": "info@aerova.com"
+  },
+  "meta_faq_title": {
+    "en": "AEROVA FAQ, Atmospheric Water Generator Vietnam | LT-AWG20G",
+    "vi": "Câu hỏi thường gặp AEROVA, Máy tạo nước từ không khí Việt Nam | LT-AWG20G",
+    "ru": "AEROVA FAQ — генератор воды из воздуха во Вьетнаме | LT-AWG20G",
+    "fr": "FAQ AEROVA, générateur d'eau atmosphérique Vietnam | LT-AWG20G",
+    "zh": "AEROVA 常见问题｜越南空气制水机 LT-AWG20G"
+  },
+  "meta_faq_desc": {
+    "en": "How the AEROVA LT-AWG20G atmospheric water generator works in Vietnam's humidity — daily yield, water temperature, filter intervals, electricity, install and warranty.",
+    "vi": "Cách máy tạo nước từ không khí AEROVA LT-AWG20G hoạt động trong độ ẩm Việt Nam — lượng nước mỗi ngày, nhiệt độ, chu kỳ thay lõi lọc, điện năng, lắp đặt và bảo hành.",
+    "ru": "Как генератор воды из воздуха AEROVA LT-AWG20G работает во влажном климате Вьетнама: суточный объём, температура воды, замена фильтров, энергопотребление, установка и гарантия.",
+    "fr": "Le générateur d'eau atmosphérique AEROVA LT-AWG20G dans l'humidité du Vietnam : production quotidienne, température de l'eau, filtres, électricité, installation et garantie.",
+    "zh": "了解 AEROVA LT-AWG20G 空气制水机如何在越南潮湿气候下运作：日产水量、水温、滤芯更换周期、耗电量、安装与质保。"
+  },
+  "meta_support_title": {
+    "en": "AEROVA Owner Support | LT-AWG20G Warranty, Filters & Repairs Vietnam",
+    "vi": "Hỗ trợ chủ sở hữu AEROVA | Bảo hành, lõi lọc & sửa chữa LT-AWG20G Việt Nam",
+    "ru": "Поддержка владельцев AEROVA | LT-AWG20G: гарантия, фильтры, ремонт",
+    "fr": "Assistance propriétaires AEROVA | Garantie, filtres et réparations LT-AWG20G Vietnam",
+    "zh": "AEROVA 用户支持｜LT-AWG20G 质保、滤芯与维修（越南）"
+  },
+  "meta_support_desc": {
+    "en": "Warranty terms, returns policy, repair scheduling, and downloads for AEROVA LT-AWG20G owners and procurement teams in Vietnam.",
+    "vi": "Điều khoản bảo hành, chính sách đổi trả, lịch sửa chữa và tài liệu tải về cho chủ sở hữu AEROVA LT-AWG20G và bộ phận mua hàng tại Việt Nam.",
+    "ru": "Условия гарантии, политика возврата, запись на ремонт и загрузки для владельцев AEROVA LT-AWG20G и отделов закупок во Вьетнаме.",
+    "fr": "Conditions de garantie, retours, prise de rendez-vous pour réparations et téléchargements pour les propriétaires et acheteurs AEROVA LT-AWG20G au Vietnam.",
+    "zh": "为越南的 AEROVA LT-AWG20G 用户及采购团队提供质保条款、退货政策、维修预约与资料下载。"
+  },
+  "meta_business_title": {
+    "en": "AEROVA for Business | Atmospheric Water Generator Multi-Unit Vietnam",
+    "vi": "AEROVA cho doanh nghiệp | Máy tạo nước từ không khí đa thiết bị Việt Nam",
+    "ru": "AEROVA для бизнеса | Генераторы воды из воздуха для компаний",
+    "fr": "AEROVA pour les pros | Générateur d'eau atmosphérique multi-unités Vietnam",
+    "zh": "AEROVA 企业方案｜越南空气制水机多机部署"
+  },
+  "meta_business_desc": {
+    "en": "Multi-unit AEROVA deployments for Vietnamese offices, hotels, restaurants, and cafés. Volume pricing, fleet options, and service-level agreements.",
+    "vi": "Triển khai AEROVA đa thiết bị cho văn phòng, khách sạn, nhà hàng và quán cà phê Việt Nam. Giá theo số lượng, gói thiết bị và cam kết mức dịch vụ.",
+    "ru": "Поставки AEROVA для офисов, отелей, ресторанов и кафе Вьетнама. Оптовые цены, парковые решения и соглашения об уровне обслуживания (SLA).",
+    "fr": "Déploiements multi-unités AEROVA pour bureaux, hôtels, restaurants et cafés vietnamiens. Tarifs dégressifs, options de parc et accords de niveau de service.",
+    "zh": "为越南的办公室、酒店、餐厅与咖啡馆提供 AEROVA 多机部署：批量价格、机群方案与服务级别协议。"
   }
 }

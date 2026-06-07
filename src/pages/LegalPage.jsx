@@ -15,7 +15,7 @@ function LegalPage() {
         <meta name="description" content="AEROVA legal information, company registration, and regulatory disclosures." />
         <link rel="canonical" href={buildCanonical('/legal', language)} />
         {buildHreflangLinks('/legal')}
-        <meta name="robots" content="noindex, follow" />
+        <meta name="robots" content="noindex" />
       </Helmet>
 
       {/* Page Header */}

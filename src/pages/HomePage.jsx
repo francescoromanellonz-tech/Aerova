@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import LangLink from '../components/LangLink';
 import SectionBreak from '../components/SectionBreak';
 import StickyCTABar from '../components/StickyCTABar';
+import FiltrationStageScroll from '../components/FiltrationStageScroll';
 import { Helmet } from 'react-helmet-async';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../contexts/LanguageContext';
 import { t } from '../utils/translate';
-import { buildHreflangLinks, buildCanonical } from '../utils/seo';
+import { buildHreflangLinks, buildCanonical, buildHeadExtras } from '../utils/seo';
+import { subscribeMailchimp } from '../utils/mailchimp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,26 +34,26 @@ const steps = [
     num: '01',
     titleKey: 'hiw_step1_title',
     textKey:  'hiw_step1_text',
-    why: 'No pipes — no rust, lead, or bacterial contamination from ageing infrastructure.',
-    imageLabel: 'Air intake — humid atmosphere drawn into the unit through HEPA pre-filter',
-    imgSrc: '/assets/images/hiw-step1-air-intake.jpg',
+    why: 'No pipes, no rust, lead, or bacterial contamination from ageing infrastructure — a direct answer to poor water quality in Vietnam\'s urban centres.',
+    imageLabel: 'AEROVA atmospheric water generator air intake — humid atmosphere drawn into the unit through HEPA pre-filter',
+    imgSrc: '/assets/images/hiw-step1-air-in-v2.png',
     iconPath: 'M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2',
   },
   {
     num: '02',
     titleKey: 'hiw_step2_title',
     textKey:  'hiw_step2_text',
-    why: 'Created fresh on demand — no plastic contact, no storage time, no delivery chain.',
-    imageLabel: 'Condensation stage — moisture crystallising from air into pure water droplets',
-    imgSrc: '/assets/images/hiw-step2-condensation-droplet.jpg',
+    why: 'Created fresh on demand — no plastic contact, no storage time, no delivery chain. Every litre is plastic free water produced at the point of use.',
+    imageLabel: 'Condensation stage inside the AEROVA atmospheric water generator, moisture crystallising from air into pure water droplets',
+    imgSrc: '/assets/images/hiw-step2-condense-v2.png',
     iconPath: 'M12 2C6 8 4 12 4 15a8 8 0 0 0 16 0c0-3-2-7-8-13z',
   },
   {
     num: '03',
     titleKey: 'hiw_step3_title',
     textKey:  'hiw_step3_text',
-    why: 'Medical-grade purity — the same filtration standard used in clinical environments.',
-    imageLabel: '7-stage filter core — sediment, carbon block, RO membrane, UV-C sterilisation',
+    why: 'Medical-grade purity, the same filtration standard used in clinical environments. No lõi lọc nước replacements — the system self-regenerates.',
+    imageLabel: 'AEROVA 7-stage filter core — sediment, carbon block, RO membrane, UV-C sterilisation. No replaceable lõi lọc nước cartridges required.',
     imgSrc: '/assets/images/aerova-water-dispenser-7-stage-filtration-filter-cartridges.jpg',
     iconPath: 'M4 6h16M7 12h10M10 18h4',
   },
@@ -59,9 +61,9 @@ const steps = [
     num: '04',
     titleKey: 'hiw_step4_title',
     textKey:  'hiw_step4_text',
-    why: 'Minerals added at clinically optimal levels — tap strips them; bottled water never balances them.',
-    imageLabel: 'Mineral pellet cartridge — calcium and magnesium restored to alkaline pH 7.4+',
-    imgSrc: '/assets/images/hiw-step4-mineralisation.jpg',
+    why: 'Minerals added at clinically optimal levels — tap water strips them, bottled water never balances them. The result is nước tốt cho sức khỏe: alkaline, mineral-rich drinking water.',
+    imageLabel: 'AEROVA mineral stone cartridge — calcium and magnesium restored to alkaline pH 7.4+, producing healthy nước kiềm',
+    imgSrc: '/assets/images/hiw-step4-mineralise-v2.png',
     iconPath: 'M7 21h10M12 3v18M5 7l7-4 7 4',
   },
 ];
@@ -80,24 +82,24 @@ const STAT_DEFS = [
   { val: 20,   suffix: 'L', dp: 0, labelKey: 'stat_yield_label' },
 ];
 
-/* Water quality certifications — label + tooltip explanation */
+/* Water quality certifications, label + tooltip explanation */
 const QUALITY_BADGES = [
-  { label: 'pH 7.4+',      tip: 'Slightly alkaline — the clinically optimal range for drinking water.' },
+  { label: 'pH 7.4+',      tip: 'Slightly alkaline, the clinically optimal range for drinking water.' },
   { label: 'TDS < 50 ppm', tip: 'Total Dissolved Solids below 50 parts per million. Exceptionally pure.' },
   { label: 'UV-C Treated', tip: 'Ultraviolet-C sterilisation destroys bacteria and viruses. No chemicals.' },
-  { label: 'Mineralized',  tip: 'Calcium and magnesium restored to balanced, natural levels after filtration.' },
-  { label: 'Alkaline',     tip: 'pH above 7 — neutralises acidity and supports optimal cellular hydration.' },
+  { label: 'Mineralized',  tip: 'Calcium and magnesium restored to balanced, natural levels after filtration — nước kiềm là gì? Alkaline mineral water at pH 7.4+, produced fresh from air.' },
+  { label: 'Alkaline',     tip: 'pH above 7, neutralises the tác hại của nước cứng (hard water damage) and supports optimal cellular hydration.' },
 ];
 
 /* 7-stage filtration pipeline */
 const FILTER_STAGES = [
-  { num: '01', name: 'HEPA Pre-Filter',    color: 'var(--water-crystal)', desc: 'Captures dust, pollen and airborne bacteria before moisture enters the system.', img: '/assets/images/aerova-atmospheric-water-generator-air-intake-hepa-filter.jpg', imgAlt: 'AEROVA HEPA pre-filter — captures airborne particulates' },
-  { num: '02', name: 'Condensation',       color: 'var(--water-crystal)', desc: 'Chilled coils pull humidity from air and crystallise it into raw droplets.',          img: '/assets/images/aerova-water-generator-condensation-cooling-system.jpg',           imgAlt: 'Atmospheric condensation cooling coils inside the AEROVA tower' },
-  { num: '03', name: 'Sediment',           color: 'var(--sage)',          desc: 'Removes suspended particles and sediment down to 5 microns.',                         img: '/assets/images/aerova-pp-sediment-filter-cartridge-clean-water.jpg',              imgAlt: 'PP sediment cartridge — 5 micron suspended-solids filter' },
-  { num: '04', name: 'Carbon Block',       color: 'var(--sage)',          desc: 'Eliminates chlorine, organic compounds, and trace odours.',                           img: '/assets/images/aerova-carbon-block-gac-filter-activated-carbon-purification.jpg',  imgAlt: 'Activated carbon block — adsorbs chlorine and organic compounds' },
-  { num: '05', name: 'Reverse Osmosis',    color: 'var(--sage)',          desc: 'Strips 99% of dissolved solids — TDS below 50 ppm guaranteed.',                       img: '/assets/images/aerova-ro-reverse-osmosis-membrane-dissolved-solids-removal.jpg',   imgAlt: 'Reverse osmosis membrane — removes dissolved solids and heavy metals' },
-  { num: '06', name: 'UV-C Sterilisation', color: 'var(--gold)',          desc: 'Destroys bacteria and viruses at 254 nm wavelength. No chemicals.',                  img: '/assets/images/aerova-uvc-sterilization-lamp-bacteria-virus-elimination.jpg',      imgAlt: 'UV-C sterilization lamp — destroys bacteria and viruses at 254 nm' },
-  { num: '07', name: 'Mineralisation',     color: 'var(--gold)',          desc: 'Restores calcium and magnesium to achieve pH 7.4+ — clinically optimal.',            img: '/assets/images/aerova-mineral-stone-cartridge-calcium-magnesium-alkaline.jpg',     imgAlt: 'Mineral stone cartridge — restores calcium and magnesium for alkaline pH' },
+  { num: '01', name: 'HEPA Pre-Filter',    color: 'var(--water-crystal)', desc: 'Captures dust, pollen and airborne bacteria before moisture enters the system.', img: '/assets/images/aerova-atmospheric-water-generator-air-intake-hepa-filter.jpg', imgAlt: 'AEROVA HEPA pre-filter, captures airborne particulates' },
+  { num: '02', name: 'Condensation',       color: 'var(--water-crystal)', desc: 'Chilled coils pull humidity from air and crystallise it into raw droplets — the eco friendly water cycle that needs no pipes and no plastic.',          img: '/assets/images/aerova-water-generator-condensation-cooling-system.jpg',           imgAlt: 'Atmospheric condensation cooling coils inside the AEROVA atmospheric water generator tower' },
+  { num: '03', name: 'Sediment',           color: 'var(--sage)',          desc: 'Removes suspended particles and sediment down to 5 microns. Unlike conventional lõi lọc nước, AEROVA\'s sealed stage never needs user replacement.',                         img: '/assets/images/aerova-pp-sediment-filter-cartridge-clean-water.jpg',              imgAlt: 'AEROVA PP sediment stage, 5-micron suspended-solids filter — no lõi lọc nước cartridge to replace' },
+  { num: '04', name: 'Carbon Block',       color: 'var(--sage)',          desc: 'Eliminates chlorine, organic compounds, and trace odours.',                           img: '/assets/images/aerova-carbon-block-gac-filter-activated-carbon-purification.jpg',  imgAlt: 'Activated carbon block, adsorbs chlorine and organic compounds' },
+  { num: '05', name: 'Reverse Osmosis',    color: 'var(--sage)',          desc: 'Strips 99% of dissolved solids, TDS below 50 ppm guaranteed.',                       img: '/assets/images/aerova-ro-reverse-osmosis-membrane-dissolved-solids-removal.jpg',   imgAlt: 'Reverse osmosis membrane, removes dissolved solids and heavy metals' },
+  { num: '06', name: 'UV-C Sterilisation', color: 'var(--gold)',          desc: 'Destroys bacteria and viruses at 254 nm wavelength. No chemicals.',                  img: '/assets/images/aerova-uvc-sterilization-lamp-bacteria-virus-elimination.jpg',      imgAlt: 'UV-C sterilization lamp, destroys bacteria and viruses at 254 nm' },
+  { num: '07', name: 'Mineralisation',     color: 'var(--gold)',          desc: 'Restores calcium and magnesium to achieve pH 7.4+, clinically optimal. The final step that makes AEROVA a thiết bị nước thông minh — smart home water for Vietnam.',            img: '/assets/images/aerova-mineral-glass-cold-fill-v2.png',                              imgAlt: 'Glass of chilled mineralised alkaline water from AEROVA atmospheric water generator — thiết bị nước thông minh' },
 ];
 
 /* Purity highlights anchored to product */
@@ -107,7 +109,7 @@ const PURITY_FLOATS = [
   { label: 'Mineralized', bottom: '20%', right: '-4px' },
 ];
 
-/* Water drop particles — teardrops drifting upward */
+/* Water drop particles, teardrops drifting upward */
 const DROPS = Array.from({ length: 22 }, (_, i) => ({
   id:      i,
   left:    `${4 + (i * 4.3) % 92}%`,
@@ -128,10 +130,6 @@ function HomePage() {
   const framesRef    = useRef([]);
   const statRefs     = useRef([]);
   const successRef           = useRef(null);
-  const mobilePinWrapRef     = useRef(null);
-  const mobileTrackRef       = useRef(null);
-  const activeMobileStageRef = useRef(0);
-  const [activeMobileStage, setActiveMobileStage] = useState(0);
   const { language } = useLanguage();
   const [selectedCity, setSelectedCity] = useState(0);
   const [geoDetected, setGeoDetected]   = useState(false);
@@ -157,7 +155,7 @@ function HomePage() {
         setSelectedCity(closest);
         setGeoDetected(true);
       },
-      () => {} // permission denied or unavailable — keep default
+      () => {} // permission denied or unavailable, keep default
     );
   }, []);
 
@@ -166,7 +164,7 @@ function HomePage() {
     if (!submitted || !successRef.current) return;
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) {
-      /* Skip animation — just make it visible immediately */
+      /* Skip animation, just make it visible immediately */
       gsap.set(successRef.current, { opacity: 1, y: 0, scale: 1 });
       return;
     }
@@ -176,47 +174,11 @@ function HomePage() {
     );
   }, [submitted]);
 
-  /* ── Mobile pipeline: progress-based stage tracking ─── */
-  /* ── Filtration pipeline: RAF-throttled progress driver (all viewports) ── */
-  useEffect(() => {
-    let rafId = null;
-    const onScroll = () => {
-      if (rafId) return;
-      rafId = requestAnimationFrame(() => {
-        rafId = null;
-        const wrapper = mobilePinWrapRef.current;
-        if (!wrapper) return;
-        const { top, height } = wrapper.getBoundingClientRect();
-        const budget = height - window.innerHeight;
-        if (budget <= 0) return;
-        const progress = Math.max(0, Math.min(1, -top / budget));
-        const idx = Math.min(FILTER_STAGES.length - 1, Math.floor(progress * FILTER_STAGES.length));
-        if (idx !== activeMobileStageRef.current) {
-          activeMobileStageRef.current = idx;
-          setActiveMobileStage(idx);
-        }
-      });
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      if (rafId) cancelAnimationFrame(rafId);
-    };
-  }, []);
-
-  /* ── Mobile pipeline: GSAP track animation ── */
-  useEffect(() => {
-    if (!mobileTrackRef.current) return;
-    gsap.to(mobileTrackRef.current, {
-      xPercent:  -(activeMobileStage * (100 / FILTER_STAGES.length)),
-      duration:  0.55,
-      ease:      'power3.out',
-      overwrite: 'auto',
-    });
-  }, [activeMobileStage]);
+  /* The pipeline progress driver and GSAP track animation now live inside
+     <FiltrationStageScroll />. Removed from HomePage 2026-05-11. */
 
   useEffect(() => {
-    /* Respect prefers-reduced-motion — skip all GSAP if user requested it */
+    /* Respect prefers-reduced-motion, skip all GSAP if user requested it */
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ── CANVAS FRAME SEQUENCE ENGINE ────────────────────────── */
@@ -225,7 +187,7 @@ function HomePage() {
     const framesArr = framesRef.current;
     framesArr.length = 0;
 
-    /* RAF-lerp state — smoothly chases scroll position */
+    /* RAF-lerp state, smoothly chases scroll position */
     let targetFrame  = 0;
     let displayFrame = 0;
     let rafId        = null;
@@ -239,15 +201,17 @@ function HomePage() {
       const iw = img.naturalWidth, ih = img.naturalHeight;
       const scale = Math.max(cw / iw, ch / ih);
       const dw = iw * scale, dh = ih * scale;
-      // On mobile, shift left so the machine/taps (right-center of frame) are visible
-      const xBase = cw < 768
-        ? -(dw - cw) * 0.65
-        : (cw - dw) / 2;
+      const isMobile = cw < 768;
+      // x: 0.65 brings the cold tap (right-centre of frame) into the viewport
+      const xBase = isMobile ? -(dw - cw) * 0.65 : (cw - dw) / 2;
+      // y: shift image up so the cold tap (≈55% down the frame) lands at ~35% from
+      //    the top — clearly in the transparent zone above the text gradient.
+      const yBase = isMobile ? (ch - dh) / 2 - ch * 0.20 : (ch - dh) / 2;
       c.clearRect(0, 0, cw, ch);
-      c.drawImage(img, xBase, (ch - dh) / 2, dw, dh);
+      c.drawImage(img, xBase, yBase, dw, dh);
     };
 
-    /* Lerp loop — runs every RAF, smooths displayFrame toward targetFrame */
+    /* Lerp loop, runs every RAF, smooths displayFrame toward targetFrame */
     const tick = () => {
       const diff = targetFrame - displayFrame;
       if (Math.abs(diff) > 0.08) {
@@ -267,15 +231,28 @@ function HomePage() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    /* Preload all frames — skip on reduced motion or data-saver connections */
+    /* Preload all frames, skip on reduced motion or data-saver connections */
     const saveData = navigator.connection?.saveData;
     const slowConn = ['slow-2g', '2g'].includes(navigator.connection?.effectiveType);
     if (!prefersReduced && !saveData && !slowConn) {
+      const EAGER_FRAMES = 20;
       for (let i = 1; i <= TOTAL_FRAMES; i++) {
         const img = new Image();
-        img.onload = () => { if (i === 1) drawFrame(0); };
-        img.src = `/assets/frames/frame-${String(i).padStart(4, '0')}.jpg`;
         framesArr.push(img);
+        if (i <= EAGER_FRAMES) {
+          img.onload = () => { if (i === 1) drawFrame(0); };
+          img.src = `/assets/frames/frame-${String(i).padStart(4, '0')}.webp`;
+        }
+      }
+      const loadDeferred = () => {
+        for (let i = EAGER_FRAMES + 1; i <= TOTAL_FRAMES; i++) {
+          framesArr[i - 1].src = `/assets/frames/frame-${String(i).padStart(4, '0')}.webp`;
+        }
+      };
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadDeferred);
+      } else {
+        setTimeout(loadDeferred, 200);
       }
     }
 
@@ -327,7 +304,7 @@ function HomePage() {
         .from('.hero-ctas',     { y: 20, opacity: 0, duration: 0.8 }, '-=0.60')
         .from('.purity-float',  { y: 10, opacity: 0, stagger: 0.15, duration: 0.6, ease: 'power2.out' }, 1.0);
 
-      /* ── 2. HERO scroll — text fades as hero scrolls out of view ── */
+      /* ── 2. HERO scroll, text fades as hero scrolls out of view ── */
       const heroScroll = gsap.timeline({
         scrollTrigger: {
           trigger: heroOuterRef.current,
@@ -362,7 +339,7 @@ function HomePage() {
               : Math.round(obj.v) + s.suffix;
           },
           onComplete() {
-            /* Soft landing pulse — number arrives, settles */
+            /* Soft landing pulse, number arrives, settles */
             gsap.to(el, {
               keyframes: [
                 { scale: 1.022, duration: 0.18, ease: 'power2.out'   },
@@ -374,7 +351,7 @@ function HomePage() {
         });
       });
 
-      /* ── 4. HIW — each row animates as it enters the viewport ── */
+      /* ── 4. HIW, each row animates as it enters the viewport ── */
       gsap.utils.toArray('.hiw-step').forEach((el) => {
         gsap.fromTo(el,
           { y: 60, opacity: 0 },
@@ -386,12 +363,10 @@ function HomePage() {
         );
       });
 
-      /* ── 5. PIPELINE ────────────────────────────────────────── */
-      gsap.from('.pipeline-stage', {
-        scrollTrigger: { trigger: '.pipeline-section', start: 'top 78%' },
-        y: 30, opacity: 0, stagger: 0.08, duration: 0.7, ease: 'power3.out',
-      });
-      gsap.from('.pipeline-intro > *', {
+      /* Pipeline section animations now self-contained in
+         <FiltrationStageScroll />. The intro children are still under the
+         .pipeline-section className, so add a single stagger entry here. */
+      gsap.from('.pipeline-section .filt-stage-intro > *', {
         scrollTrigger: { trigger: '.pipeline-section', start: 'top 82%' },
         y: 25, opacity: 0, stagger: 0.12, duration: 0.8, ease: 'power3.out',
       });
@@ -464,14 +439,14 @@ function HomePage() {
     };
   }, []);
 
-  const handleEmailSubmit = (e) => {
+  const handleEmailSubmit = async (e) => {
     e.preventDefault();
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
     if (!valid) { setEmailError(true); return; }
     setEmailError(false);
-    // TODO: wire to Mailchimp / ConvertKit / Formspree before going live
-    setSubmitted(true);
-    setEmail('');
+    const result = await subscribeMailchimp(email, { tag: 'home-hero', lang: language });
+    if (result.ok) { setSubmitted(true); setEmail(''); }
+    else           { setEmailError(true); }
   };
 
   return (
@@ -481,28 +456,51 @@ function HomePage() {
         <meta name="description" content={t('meta_home_desc', language)} />
         <link rel="canonical" href={buildCanonical('/', language)} />
         {buildHreflangLinks('/')}
-        <meta property="og:title"       content={t('meta_home_title', language)} />
-        <meta property="og:description" content={t('meta_home_desc', language)} />
-        <meta property="og:url"         content={buildCanonical('/', language)} />
-        <meta property="og:type"        content="website" />
-        <meta property="og:image"       content="https://aerova.asia/og-image.png" />
+        {buildHeadExtras('/', language)}
+        <meta property="og:title"        content={t('meta_home_title', language)} />
+        <meta property="og:description"  content={t('meta_home_desc', language)} />
+        <meta property="og:url"          content={buildCanonical('/', language)} />
+        <meta property="og:type"         content="website" />
+        <meta property="og:image"        content="https://aerova.asia/og/home.png" />
+        <meta property="og:image:width"  content="1376" />
+        <meta property="og:image:height" content="768" />
+        <meta name="twitter:card"        content="summary_large_image" />
+        <meta name="twitter:title"       content={t('meta_home_title', language)} />
+        <meta name="twitter:description" content={t('meta_home_desc', language)} />
+        <meta name="twitter:image"       content="https://aerova.asia/og/home.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'AEROVA',
+          url: 'https://aerova.asia',
+          description: 'Premium atmospheric water generator creating mineralized drinking water from Vietnam\'s humid air. No pipes. No plastic.',
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'AEROVA',
+          url: 'https://aerova.asia',
+          logo: 'https://aerova.asia/og-image.png',
+          description: 'AEROVA designs premium atmospheric water generators that create mineralized, alkaline drinking water from humid air — for homes and businesses in Vietnam.',
+        })}</script>
       </Helmet>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 1 — HERO  (200 vh sticky)
+          SECTION 1, HERO  (200 vh sticky)
       ═══════════════════════════════════════════════════════════ */}
       <div ref={heroOuterRef} className="hero-outer relative" style={{ height: '120vh' }}>
         <div
           className="sticky top-0 h-screen overflow-hidden relative"
           style={{ background: 'var(--bg)' }}
         >
-          {/* Static fallback — visible until canvas frame sequence loads */}
+          {/* Static fallback, visible until canvas frame sequence loads */}
           <img
-            src="/assets/frames/frame-0001.jpg"
+            src="/assets/frames/frame-0001.webp"
             alt=""
             aria-hidden="true"
             draggable="false"
             fetchpriority="high"
+            className="hero-frame-fallback"
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
           />
           <canvas
@@ -519,17 +517,17 @@ function HomePage() {
             style={{ height: '120px', background: 'linear-gradient(to bottom, var(--bg) 0%, transparent 100%)' }} />
           <div className="absolute inset-x-0 bottom-0 pointer-events-none z-10"
             style={{ height: '120px', background: 'linear-gradient(to top, var(--bg) 0%, transparent 100%)' }} />
-          {/* Text backing — desktop: left solid fade */}
+          {/* Text backing, desktop: left solid fade */}
           <div className="hero-left-gradient absolute inset-y-0 left-0 pointer-events-none z-10"
             style={{
               width: 'clamp(280px, 62%, 860px)',
               background: 'linear-gradient(to right, var(--bg) 0%, var(--bg) 38%, transparent 80%)',
             }} />
-          {/* Text backing — mobile: bottom solid fade (hidden on md+) */}
-          <div className="hero-bottom-gradient absolute inset-x-0 bottom-0 pointer-events-none z-10 hidden"
+          {/* Text backing, mobile: full-viewport gradient — solid from bottom up to 65%,
+               fading to transparent in the upper zone where the tap spotlight sits. */}
+          <div className="hero-bottom-gradient absolute inset-0 pointer-events-none z-10 hidden"
             style={{
-              height: '62%',
-              background: 'linear-gradient(to top, var(--bg) 0%, var(--bg) 42%, transparent 100%)',
+              background: 'linear-gradient(to top, var(--bg) 0%, var(--bg) 55%, transparent 72%)',
             }} />
 
           {/* ── Text column ─────────────────────────────────────────
@@ -539,8 +537,8 @@ function HomePage() {
             className="hero-text-group absolute top-0 bottom-0 z-20 flex flex-col justify-center"
             style={{
               left:        'clamp(60px, 12vw, 200px)',
-              maxWidth:    'clamp(300px, 42vw, 540px)',
-              paddingRight: '24px',
+              maxWidth:    'clamp(260px, 35vw, 540px)',
+              paddingRight: 'clamp(24px, 3vw, 48px)',
               paddingTop:  '80px',
             }}
           >
@@ -571,13 +569,31 @@ function HomePage() {
               {t('hero_description', language)}
             </p>
 
-            <div className="hero-ctas flex flex-wrap items-center gap-5">
-              <LangLink to="/product" className="aerova-btn aerova-btn--gold">
-                {t('hero_cta', language)}
-              </LangLink>
+            {/* Two doors, explicit residential / commercial routing per
+                PRODUCT.md §"Design Principles". Surfaces both audiences
+                above the fold instead of defaulting to a single CTA. */}
+            <div className="hero-ctas flex flex-col gap-3">
+              <span
+                className="text-[10px] uppercase"
+                style={{
+                  letterSpacing: 'var(--letter-spacing-tagline)',
+                  color: 'var(--gold)',
+                  fontWeight: 500,
+                }}
+              >
+                {t('hero_two_doors_eyebrow', language)}
+              </span>
+              <div className="flex flex-wrap items-center gap-3">
+                <LangLink to="/product" className="aerova-btn aerova-btn--gold">
+                  {t('hero_residential_cta', language)}
+                </LangLink>
+                <LangLink to="/business" className="aerova-btn">
+                  {t('hero_commercial_cta', language)}
+                </LangLink>
+              </div>
               <LangLink
                 to="/contact"
-                className="text-xs uppercase no-underline transition-opacity duration-300 hover:opacity-60"
+                className="text-xs uppercase no-underline transition-opacity duration-300 hover:opacity-60 mt-1"
                 style={{ letterSpacing: '0.14em', color: 'var(--text-sub)', fontWeight: 400 }}
               >
                 {t('contact_cta', language)} →
@@ -617,14 +633,14 @@ function HomePage() {
       <SectionBreak />
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 7 — VIETNAM ADVANTAGE
+          SECTION 7, VIETNAM ADVANTAGE
           Split editorial: narrative left / interactive data right
       ═══════════════════════════════════════════════════════════ */}
       <section
         className="vietnam-section px-6 md:px-8 relative overflow-hidden"
         style={{ paddingTop: 'var(--section-pad)', paddingBottom: 'var(--section-pad)', background: 'var(--bg)' }}
       >
-        {/* City-skyline backdrop stack — cross-fades on city selection */}
+        {/* City-skyline backdrop stack, cross-fades on city selection */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           {cities.map((city, i) => (
             <img
@@ -721,8 +737,8 @@ function HomePage() {
             {/* ── Right: Interactive data panel ────────────────────── */}
             <div className="flex-1 min-w-0">
 
-              {/* City selector — tab strip */}
-              <div className="flex mb-10 w-fit"
+              {/* City selector, tab strip */}
+              <div className="city-tab-strip flex mb-10 w-fit"
                 style={{
                   background: 'var(--surface-card)',
                   border:     '1px solid var(--border-gold-faint)',
@@ -768,13 +784,13 @@ function HomePage() {
                     <span className="aerova-tooltip text-[9px] uppercase block mt-1"
                       style={{ letterSpacing: '0.2em', color: 'var(--text-sub)', fontWeight: 600 }}>
                       RH
-                      <span className="tooltip-text" style={{ fontSize: '10px', whiteSpace: 'nowrap' }}>Relative Humidity — the percentage of moisture in the air. Higher RH means more water can be extracted.</span>
+                      <span className="tooltip-text" style={{ fontSize: '10px', whiteSpace: 'nowrap' }}>Relative Humidity, the percentage of moisture in the air. Higher RH means more water can be extracted.</span>
                     </span>
                   </div>
                 </div>
                 <span className="text-[10px] uppercase"
                   style={{ letterSpacing: '0.2em', color: 'var(--text-sub)', fontWeight: 400 }}>
-                  {t('vietnam_avg_humidity', language)} — {t(cities[selectedCity].nameKey, language)}
+                  {t('vietnam_avg_humidity', language)}, {t(cities[selectedCity].nameKey, language)}
                 </span>
               </div>
 
@@ -899,7 +915,7 @@ function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 2 — HOW IT WORKS
+          SECTION 2, HOW IT WORKS (The Invisible River)
       ═══════════════════════════════════════════════════════════ */}
       <section
         id="how-it-works"
@@ -922,10 +938,10 @@ function HomePage() {
             </p>
           </div>
 
-          {/* Steps — alternating image / text layout */}
+          {/* Steps, alternating image / text layout */}
           <div className="relative">
 
-            {/* Vertical timeline line — desktop only */}
+            {/* Vertical timeline line, desktop only */}
             <div
               className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px pointer-events-none"
               style={{ background: 'linear-gradient(180deg, transparent, var(--water-crystal) 12%, var(--sage) 50%, var(--gold) 88%, transparent)', opacity: 0.25, transform: 'translateX(-50%)' }}
@@ -1032,8 +1048,29 @@ function HomePage() {
         </div>
       </section>
 
+      <SectionBreak />
+
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 8b — TESTIMONIALS
+          SECTION 3B, 7-STAGE FILTRATION PIPELINE
+      ═══════════════════════════════════════════════════════════ */}
+      <FiltrationStageScroll
+        className="pipeline-section"
+        accent="var(--water-crystal)"
+        eyebrow="Sustainable Water Solution"
+        headline={<>7 Stages.<br />Zero Compromise.</>}
+        vietHeadline="7 tầng lọc — Công nghệ tiết kiệm nước"
+        intro="From open air to alkaline drinking water. Every stage removes a threat your tap water carries — and eliminates the need for a conventional water purifier for home."
+        stages={FILTER_STAGES}
+        certifications={[
+          { code: 'NSF/ANSI 42', label: 'Taste & Odor Reduction' },
+          { code: 'NSF/ANSI 58', label: 'Reverse Osmosis Systems' },
+          { code: 'WHO',         label: 'Drinking Water Guidelines' },
+          { code: 'QCVN 6-1',    label: 'Vietnam Water Standard' },
+        ]}
+      />
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 8b, TESTIMONIALS
       ═══════════════════════════════════════════════════════════ */}
       <section
         className="testimonials-section px-6 md:px-8 relative overflow-hidden"
@@ -1089,7 +1126,7 @@ function HomePage() {
                     ))}
                   </div>
 
-                  {/* Quote — serif, larger, more editorial */}
+                  {/* Quote, serif, larger, more editorial */}
                   <blockquote
                     className="flex-1 mb-8 leading-relaxed"
                     style={{
@@ -1172,7 +1209,7 @@ function HomePage() {
       <SectionBreak />
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 3 — STATS + WATER QUALITY STRIP
+          SECTION 3, STATS + WATER QUALITY STRIP
       ═══════════════════════════════════════════════════════════ */}
       <section
         className="stats-strip px-6 md:px-8 relative overflow-hidden"
@@ -1180,7 +1217,7 @@ function HomePage() {
       >
         <div className="max-w-5xl mx-auto">
 
-          {/* Water quality badge row — left-aligned, anchored to stats */}
+          {/* Water quality badge row, left-aligned, anchored to stats */}
           <div className="flex flex-wrap items-center gap-2 mb-10">
             {QUALITY_BADGES.map((badge, i) => (
               <span key={badge.label} className="quality-badge aerova-tooltip" style={{ '--badge-delay': `${i * 0.7}s` }}>
@@ -1236,7 +1273,7 @@ function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 8 — USE CASES
+          SECTION 8, USE CASES
           Editorial asymmetric layout: featured home panel left,
           three business contexts stacked right.
       ═══════════════════════════════════════════════════════════ */}
@@ -1245,7 +1282,7 @@ function HomePage() {
         style={{ paddingTop: 'var(--section-pad)', paddingBottom: 'var(--section-pad)', background: 'var(--bg-alt)' }}
       >
         <div className="max-w-6xl mx-auto">
-          {/* Header — left-aligned, not centered */}
+          {/* Header, left-aligned, not centered */}
           <div className="mb-14 md:mb-16">
             <span className="text-[11px] md:text-xs uppercase block mb-4"
               style={{ letterSpacing: '0.3em', color: 'var(--water-crystal)', fontWeight: 400 }}>
@@ -1303,7 +1340,7 @@ function HomePage() {
                   {t(useCases[0].titleKey, language)}
                 </span>
 
-                {/* Description as the hero text — large Prata */}
+                {/* Description as the hero text, large Prata */}
                 <h3
                   className="font-prata leading-snug mb-8"
                   style={{
@@ -1385,214 +1422,13 @@ function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 3B — 7-STAGE FILTRATION PIPELINE
-      ═══════════════════════════════════════════════════════════ */}
-      <section
-        className="pipeline-section px-6 md:px-8 relative"
-        style={{ paddingTop: '88px', paddingBottom: '96px', background: 'var(--bg)' }}
-      >
-        <div className="max-w-6xl mx-auto">
-
-          {/* Header */}
-          <div className="pipeline-intro mb-14 md:mb-16">
-            <span className="text-[11px] uppercase block mb-4"
-              style={{ letterSpacing: '0.3em', color: 'var(--water-crystal)', fontWeight: 600 }}>
-              Filtration Technology
-            </span>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
-              <div>
-                <h2 className="font-prata text-3xl md:text-[2.6rem] lg:text-[3.2rem] leading-tight mb-2"
-                  style={{ color: 'var(--text-main)', letterSpacing: 'var(--letter-spacing-serif)' }}>
-                  7 Stages.<br />Zero Compromise.
-                </h2>
-                <span className="vietnamese-sub" style={{ opacity: 0.6 }}>7 tầng lọc — Không thỏa hiệp</span>
-              </div>
-              <p className="text-sm leading-relaxed"
-                style={{ color: 'var(--text-sub)', fontWeight: 300, maxWidth: '340px' }}>
-                From open air to alkaline drinking water — every stage removes a threat your tap water carries.
-              </p>
-            </div>
-          </div>
-
-          {/* Pipeline — viewport-locked scroll, photo-led with clean text alongside.
-              Wrapper height = scroll budget. Each stage gets one viewport-height of scroll
-              on desktop (80vh per stage), more on touch sizes (110vh per stage). */}
-          <div
-            ref={mobilePinWrapRef}
-            className="relative -mx-6 md:-mx-8"
-            style={{ height: `calc(var(--stages-step, 80vh) * ${FILTER_STAGES.length})` }}
-          >
-            <div
-              className="sticky top-0 overflow-hidden"
-              style={{ height: '100vh', background: 'var(--bg)' }}
-            >
-              {/* Photo layer — full-bleed, cross-fades between stages on every viewport.
-                  On desktop it fills the left 55%; on mobile it fills the top 58% via
-                  responsive positioning rules below. */}
-              <div className="absolute inset-0 lg:right-[45%] bottom-[48%] lg:bottom-0">
-                {FILTER_STAGES.map((stage, i) => {
-                  const isActive = i === activeMobileStage;
-                  return (
-                    <img
-                      key={i}
-                      src={stage.img}
-                      alt={isActive ? stage.imgAlt : ''}
-                      loading={i === 0 ? 'eager' : 'lazy'}
-                      decoding="async"
-                      aria-hidden={!isActive}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      style={{
-                        opacity: isActive ? 1 : 0,
-                        transform: isActive ? 'scale(1)' : 'scale(1.04)',
-                        transition: 'opacity 0.6s ease, transform 1.6s cubic-bezier(0.16,1,0.3,1)',
-                      }}
-                    />
-                  );
-                })}
-                {/* Soft fade at the photo's text-side edge so the panel never reads as a hard rectangle.
-                    Desktop: fades to bg on the right. Mobile: fades to bg at the bottom. */}
-                <div className="hidden lg:block absolute inset-y-0 right-0 w-32"
-                     style={{ background: 'linear-gradient(to right, transparent, var(--bg))', pointerEvents: 'none' }} />
-                <div className="lg:hidden absolute inset-x-0 bottom-0 h-24"
-                     style={{ background: 'linear-gradient(to bottom, transparent, var(--bg))', pointerEvents: 'none' }} />
-              </div>
-
-              {/* Text panel — right 45% on desktop, bottom 42% on mobile.
-                  Vertically centered, generous padding, single source of truth for stage copy. */}
-              <div
-                className="absolute inset-x-0 bottom-0 h-[48%] lg:inset-y-0 lg:h-auto lg:left-[55%] lg:right-0 flex items-center"
-                style={{ background: 'var(--bg)' }}
-              >
-                <div
-                  className="w-full px-6 md:px-10 lg:px-16 xl:px-20 mx-auto"
-                  style={{ maxWidth: '520px' }}
-                >
-                  {/* Eyebrow: stage counter only — name lives in the headline below */}
-                  <span
-                    className="block uppercase mb-3"
-                    aria-live="polite"
-                    style={{
-                      fontSize: '10px',
-                      letterSpacing: '0.32em',
-                      color: FILTER_STAGES[activeMobileStage].color,
-                      fontWeight: 600,
-                      transition: 'color 0.5s ease',
-                    }}
-                  >
-                    Stage {FILTER_STAGES[activeMobileStage].num} of 07
-                  </span>
-
-                  {/* Cross-fading copy stack: name as headline, desc as body */}
-                  <div className="relative" style={{ minHeight: 'clamp(150px, 22vh, 220px)' }}>
-                    {FILTER_STAGES.map((stage, i) => {
-                      const isActive = i === activeMobileStage;
-                      return (
-                        <div
-                          key={i}
-                          aria-hidden={!isActive}
-                          className="absolute inset-0"
-                          style={{
-                            opacity: isActive ? 1 : 0,
-                            transition: 'opacity 0.45s ease',
-                            pointerEvents: isActive ? 'auto' : 'none',
-                          }}
-                        >
-                          <h3
-                            className="font-prata mb-4"
-                            style={{
-                              fontSize: 'clamp(1.7rem, 3.4vw, 2.6rem)',
-                              color: 'var(--text-main)',
-                              letterSpacing: 'var(--letter-spacing-serif)',
-                              lineHeight: 1.1,
-                            }}
-                          >
-                            {stage.name}
-                          </h3>
-                          <p
-                            style={{
-                              color: 'var(--text-sub)',
-                              fontWeight: 300,
-                              fontSize: 'clamp(0.95rem, 1.05vw, 1.05rem)',
-                              lineHeight: 1.7,
-                              maxWidth: '420px',
-                            }}
-                          >
-                            {stage.desc}
-                          </p>
-                        </div>
-                      );
-                    })}
-                  </div>
-
-                  {/* Slim segmented progress bar */}
-                  <div className="flex gap-1.5 mt-6" aria-hidden="true">
-                    {FILTER_STAGES.map((_, j) => {
-                      const passed = j <= activeMobileStage;
-                      return (
-                        <div
-                          key={j}
-                          className="flex-1"
-                          style={{
-                            height: '2px',
-                            background: passed ? FILTER_STAGES[activeMobileStage].color : 'var(--border-gold-faint)',
-                            opacity: passed && j < activeMobileStage ? 0.4 : 1,
-                            transition: 'background 0.4s ease, opacity 0.4s ease',
-                          }}
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Hidden sliding track — kept for the GSAP xPercent driver compatibility */}
-          <div ref={mobileTrackRef} aria-hidden="true" className="hidden" />
-
-          {/* Bottom certification strip */}
-          <div
-            className="mt-12 pt-8 flex flex-wrap items-center gap-4 md:gap-6"
-            style={{ borderTop: '1px solid var(--border-gold-faint)' }}
-          >
-            <span className="text-[10px] uppercase"
-              style={{ letterSpacing: '0.22em', color: 'var(--text-sub)', fontWeight: 600, opacity: 0.7 }}>
-              Certified to
-            </span>
-            {[
-              { code: 'NSF/ANSI 42', label: 'Taste & Odor Reduction' },
-              { code: 'NSF/ANSI 58', label: 'Reverse Osmosis Systems' },
-              { code: 'WHO',         label: 'Drinking Water Guidelines' },
-              { code: 'QCVN 6-1',   label: 'Vietnam Water Standard' },
-            ].map(cert => (
-              <span key={cert.code}
-                className="inline-flex flex-col items-center px-4 py-2"
-                style={{
-                  border: '1px solid var(--border-gold)',
-                }}>
-                <span className="text-[10px] uppercase block"
-                  style={{ letterSpacing: '0.16em', color: 'var(--gold)', fontWeight: 600 }}>
-                  {cert.code}
-                </span>
-                <span className="text-[9px] block mt-0.5"
-                  style={{ letterSpacing: '0.06em', color: 'var(--text-sub)', fontWeight: 400 }}>
-                  {cert.label}
-                </span>
-              </span>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 4 — SUSTAINABILITY
+          SECTION 4, SUSTAINABILITY
       ═══════════════════════════════════════════════════════════ */}
       <section
         className="sust-section px-6 md:px-8 relative overflow-hidden"
         style={{ paddingTop: 'var(--section-pad)', paddingBottom: 'var(--section-pad)', background: 'var(--bg)' }}
       >
-        {/* Bottle-becoming-vapor backdrop — the "delete the plastic tax" visual */}
+        {/* Bottle-becoming-vapor backdrop, the "delete the plastic tax" visual */}
         <img
           src="/assets/images/aerova-sustainability-bottle-vapor-transition.png"
           alt=""
@@ -1633,7 +1469,7 @@ function HomePage() {
 
           {/* Health impact strip */}
           <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-            {['Zero Plastic', 'Zero Pipes', 'Zero Delivery', '100% Atmospheric'].map(item => (
+            {['Plastic Free Water', 'Zero Pipes', 'Zero Delivery', '100% Atmospheric'].map(item => (
               <span key={item} className="quality-badge">{item}</span>
             ))}
           </div>
@@ -1663,7 +1499,7 @@ function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 9 — FINAL CTA
+          SECTION 9, FINAL CTA
       ═══════════════════════════════════════════════════════════ */}
       <section
         className="final-cta px-6 md:px-8 relative overflow-hidden"
@@ -1673,7 +1509,7 @@ function HomePage() {
           background:    'var(--bg-alt-2)',
         }}
       >
-        {/* Diagonal machine — atmospheric background right side */}
+        {/* Diagonal machine, atmospheric background right side */}
         <div
           className="absolute right-0 top-0 bottom-0 pointer-events-none select-none hidden lg:block"
           style={{ width: '42%' }}
@@ -1784,6 +1620,11 @@ function HomePage() {
               className="text-xs uppercase no-underline transition-all duration-300 hover:opacity-80"
               style={{ letterSpacing: '0.15em', color: 'var(--water-deep)', fontWeight: 600 }}>
               {t('contact_form_title', language)} →
+            </LangLink>
+            <LangLink to="/blog"
+              className="text-xs uppercase no-underline transition-all duration-300 hover:opacity-70"
+              style={{ letterSpacing: '0.15em', color: 'var(--sage)', fontWeight: 400, opacity: 0.75 }}>
+              {language === 'vi' ? 'Đọc bài viết' : 'From the journal'} →
             </LangLink>
           </div>
         </div>

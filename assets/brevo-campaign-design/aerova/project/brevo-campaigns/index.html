@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Aerova — Brevo Email Campaigns</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17191c;
+    --ink-2:#3a3f47;
+    --muted:#7a7771;
+    --line:#d9d3c5;
+    --paper:#f2ede1;
+    --paper-2:#e8e2d2;
+    --card:#fbf8ef;
+    --graphite:#2a2c30;
+    --gold:#8a6a28;
+    --gold-bright:#b9893a;
+    --teal:#2d5d6b;
+    --sage:#5E7A6E;
+    --rust:#7a3838;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1360px;margin:0 auto;padding:56px 44px 120px}
+  @media(max-width:760px){.wrap{padding:28px 18px 80px}}
+
+  .mast{border-bottom:1px solid var(--ink);padding-bottom:26px;margin-bottom:44px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+  .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(38px,5.8vw,66px);line-height:.98;letter-spacing:-0.025em;margin:14px 0 0}
+  h1 em{font-style:italic;font-weight:400}
+  .sub{font-family:'Fraunces',serif;font-weight:300;font-size:19px;color:var(--ink-2);max-width:760px;margin-top:16px;line-height:1.45}
+  .mast .meta{font-size:12px;color:var(--muted);text-align:right;line-height:1.7}
+  .mast .meta b{color:var(--ink);font-weight:500}
+
+  .howto{background:var(--card);border:1px solid var(--line);padding:22px 26px;margin-bottom:46px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
+  @media(max-width:760px){.howto{grid-template-columns:1fr}}
+  .howto h3{margin:0 0 8px;font-family:'Fraunces',serif;font-weight:400;font-size:17px;letter-spacing:-0.01em}
+  .howto p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.55}
+  .howto b{color:var(--ink);font-weight:500}
+
+  .rule{font-family:'Fraunces',serif;font-size:22px;font-weight:400;letter-spacing:-0.01em;color:var(--ink);margin:36px 0 22px;padding-bottom:14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap}
+  .rule .r{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase}
+  .rule:first-of-type{margin-top:8px}
+
+  .flow-intro{font-size:13.5px;color:var(--ink-2);line-height:1.65;max-width:780px;margin:-10px 0 22px}
+
+  .emails{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:920px){.emails{grid-template-columns:1fr}}
+
+  .em{background:var(--card);border:1px solid var(--line);display:grid;grid-template-columns:60px 1fr;gap:0;text-decoration:none;color:inherit;transition:border-color .15s, transform .15s;cursor:pointer;text-align:left;font:inherit;padding:0;width:100%}
+  .em:hover{border-color:var(--ink);transform:translateY(-1px)}
+  .em-tag{background:var(--graphite);color:#f7f5f0;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px 6px;gap:4px;line-height:1.3}
+  .em-tag .num{font-weight:500;font-size:13px}
+  .em-tag .day{opacity:.6;font-size:9px}
+  .em-body{padding:18px 22px 20px}
+  .em-eye{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+  .em-eye .badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;padding:2px 6px;background:var(--paper);border:1px solid var(--line);color:var(--ink-2)}
+  .em-eye .badge.plain{background:#fff;border-color:var(--ink-2);color:var(--ink)}
+  .em-eye .badge.html{background:#fff;border-color:var(--sage);color:var(--sage)}
+  .em-subject{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:24px;line-height:1.15;letter-spacing:-0.005em;margin:0 0 8px}
+  .em-purpose{font-size:13px;color:var(--ink-2);line-height:1.55;margin:0 0 12px}
+  .em-meta{display:flex;gap:14px;font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;flex-wrap:wrap}
+  .em-meta span{display:inline-flex;gap:6px;align-items:center}
+  .em-meta span b{color:var(--ink-2);font-weight:500}
+
+  .sender{background:#1a1a1b;color:#e8e6e1;padding:26px 30px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin-bottom:46px;border:1px solid var(--ink)}
+  @media(max-width:760px){.sender{grid-template-columns:1fr;gap:14px}}
+  .sender h4{margin:0 0 6px;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:18px;color:#d4af37;letter-spacing:.02em}
+  .sender p{margin:0;font-size:13px;line-height:1.55;color:#c8c5be}
+  .sender code{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#e8e6e1;background:rgba(212,175,55,.08);padding:1px 6px;letter-spacing:.04em}
+
+  .foot{margin-top:60px;border-top:1px solid var(--ink);padding-top:22px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);gap:18px;flex-wrap:wrap}
+
+  .principles{background:var(--card);border:1px solid var(--line);padding:24px 28px;margin-bottom:44px}
+  .principles h3{margin:0 0 10px;font-family:'Fraunces',serif;font-weight:400;font-size:18px}
+  .principles ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px 32px}
+  @media(max-width:760px){.principles ul{grid-template-columns:1fr}}
+  .principles li{font-size:13px;color:var(--ink-2);line-height:1.6;padding-left:18px;position:relative}
+  .principles li::before{content:'';position:absolute;left:0;top:9px;width:8px;height:1px;background:var(--gold-bright)}
+  .principles li b{color:var(--ink);font-weight:500}
+
+  /* ===== Email viewer overlay ===== */
+  .viewer{position:fixed;inset:0;background:rgba(23,25,28,.78);backdrop-filter:blur(6px);z-index:200;display:none;align-items:stretch;justify-content:center;padding:20px}
+  .viewer.open{display:flex}
+  .viewer-shell{background:var(--paper);width:100%;max-width:1180px;display:grid;grid-template-rows:auto 1fr;border:1px solid var(--ink);overflow:hidden}
+  .viewer-hdr{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:18px;padding:14px 22px;background:#1a1a1b;color:#e8e6e1;border-bottom:1px solid var(--ink)}
+  .viewer-hdr .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:#d4af37;background:rgba(212,175,55,.1);padding:4px 10px;border:1px solid rgba(212,175,55,.3);text-transform:uppercase}
+  .viewer-hdr .title{font-family:'Fraunces',serif;font-weight:400;font-size:18px;color:#e8e6e1;line-height:1.2;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .viewer-hdr .title em{font-style:italic;color:#d4af37}
+  .viewer-hdr button{background:transparent;border:1px solid rgba(232,230,225,.3);color:#e8e6e1;font:inherit;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:8px 14px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s}
+  .viewer-hdr button:hover{border-color:#d4af37;color:#d4af37}
+  .viewer-hdr .nav{display:flex;gap:6px}
+  .viewer-hdr .nav button{padding:8px 12px}
+  .viewer-hdr .nav button[disabled]{opacity:.3;cursor:not-allowed}
+  .viewer-body{position:relative;background:#f2ede1;overflow:hidden}
+  .viewer-iframe{width:100%;height:100%;border:0;display:block;background:var(--paper)}
+
+  /* meta strip below header */
+  .viewer-meta{padding:10px 22px;background:#0f1012;color:#a0adb5;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;display:flex;gap:24px;flex-wrap:wrap;border-bottom:1px solid #2a2c30}
+  .viewer-meta b{color:#e8e6e1;font-weight:500}
+  .viewer-meta span{display:inline-flex;gap:6px;align-items:center}
+
+  body.locked{overflow:hidden}
+  @media(max-width:760px){
+    .viewer{padding:0}
+    .viewer-shell{max-width:100%;border:0}
+    .viewer-hdr{padding:12px 14px;grid-template-columns:auto 1fr auto;gap:10px}
+    .viewer-hdr .title{font-size:14px}
+    .viewer-hdr .nav{display:none}
+    .viewer-meta{padding:8px 14px;gap:12px;font-size:9.5px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div>
+      <div class="eyebrow">Aerova · Brevo email campaigns · Phase 1</div>
+      <h1>Fifteen emails,<br/>four <em>flows.</em></h1>
+      <p class="sub">Every email in the Phase 1 system, written for Brevo. Welcome sequence anchors trust. Nurture keeps the list warm. Re-engagement recovers attention. Post-purchase turns customers into advocates. Click any card to open the production HTML — ready to paste, or import via Brevo's MCP.</p>
+    </div>
+    <div class="meta">
+      <b>Aerova · Vietnam</b><br/>
+      Companion to Phase 1 Strategy<br/>
+      15 emails · 4 flows<br/>
+      <b>Import-ready for Brevo</b>
+    </div>
+  </header>
+
+  <div class="howto">
+    <div><h3>01 · Click a card to preview</h3><p>The email opens inside this page — you can <b>step through with the arrows</b> or arrow keys, and close with Esc. No tabs, no auth, no friction.</p></div>
+    <div><h3>02 · Subject + preheader at the top</h3><p>Inside each email file, the first HTML comment has the <b>subject line, preview text, sender, and send day</b>. Open the source to copy that block into Brevo's metadata.</p></div>
+    <div><h3>03 · Email 01 &amp; 09 are plain text</h3><p>The founder's message and re-engagement note are intentionally <b>not</b> designed templates. Send them as plain text from a personal address — they warm the sending domain.</p></div>
+  </div>
+
+  <div class="sender">
+    <div>
+      <h4>From</h4>
+      <p>Franc from AEROVA<br/><code>franc@aerova.vn</code></p>
+    </div>
+    <div>
+      <h4>Reply-to</h4>
+      <p>Same address. Every email ends with an open question — every reply lands in Franc's inbox.</p>
+    </div>
+    <div>
+      <h4>Send window</h4>
+      <p>Tuesday – Thursday<br/>09:00 – 11:00 ICT for educational sends<br/>19:00 – 21:00 ICT for lifestyle sends</p>
+    </div>
+  </div>
+
+  <div class="principles">
+    <h3>Copy &amp; design principles applied across the system</h3>
+    <ul>
+      <li><b>Subject lines</b> · 4 – 7 words, 20 – 40 chars. Visible on a mobile lock screen.</li>
+      <li><b>Body length</b> · 75 – 150 words; education emails up to 220.</li>
+      <li><b>Paragraphs</b> · Three sentences max. White space is the design.</li>
+      <li><b>One CTA per email</b> · Multiple CTAs split attention.</li>
+      <li><b>Open question at the end</b> · Every email invites a reply.</li>
+      <li><b>Sender name personal</b> · "Franc from AEROVA" — never the brand alone.</li>
+      <li><b>No urgency, no hype</b> · "Don't miss" and "Act now" trigger spam filters and erode trust in a premium category.</li>
+      <li><b>Cream over obsidian</b> · The website lives in dark register. Email lives in the inbox — a softer, warmer expression of the brand.</li>
+    </ul>
+  </div>
+
+  <!-- WELCOME -->
+  <div class="rule"><span>Flow 01 — Welcome Sequence</span><span class="r">5 emails · Day 0 – 14</span></div>
+  <p class="flow-intro">Triggered by Sky Water Guide download. Sequence is paced over 14 days, leading with category education and ending with a soft consultation invitation. Email 01 is plain text from <code style="font-family:'JetBrains Mono',monospace;font-size:12px">franc@aerova.vn</code> for inbox-placement reasons; Emails 02 – 05 use the HTML template.</p>
+  <div class="emails">
+
+    <button class="em" data-src="emails/01-welcome-founder.html" data-subject="Your water question, answered" data-flow="Welcome · 01 of 05 · Day 0" data-format="plain">
+      <span class="em-tag"><span class="num">01</span><span class="day">DAY 0</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Welcome · Founder</span><span class="badge plain">PLAIN TEXT</span></span>
+        <span class="em-subject">Your water question, answered</span>
+        <span class="em-purpose" style="display:block">Delivers the Sky Water Guide. Establishes voice. Plain-text on purpose — looks like a personal email, warms the sending domain.</span>
+        <span class="em-meta"><span><b>5 min</b> after signup</span><span>160 words</span><span>CTA → guide</span></span>
+      </span>
+    </button>
+
+    <button class="em" data-src="emails/02-welcome-boiling.html" data-subject="What boiling actually removes" data-flow="Welcome · 02 of 05 · Day 3" data-format="html">
+      <span class="em-tag"><span class="num">02</span><span class="day">DAY 3</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Welcome · Education</span><span class="badge html">HTML</span></span>
+        <span class="em-subject">What boiling actually removes</span>
+        <span class="em-purpose" style="display:block">Dismantles the boiling myth without alarmism. Heavy metals, arsenic, lead — and what they actually do in the body.</span>
+        <span class="em-meta"><span>220 words</span><span>CTA → guide</span></span>
+      </span>
+    </button>
+
+    <button class="em" data-src="emails/03-welcome-nanoplastics.html" data-subject="240,000 particles per litre" data-flow="Welcome · 03 of 05 · Day 6" data-format="html">
+      <span class="em-tag"><span class="num">03</span><span class="day">DAY 6</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Welcome · Education + Zalo bridge</span><span class="badge html">HTML</span></span>
+        <span class="em-subject">240,000 particles per litre</span>
+        <span class="em-purpose" style="display:block">The most visceral insight in the category. Introduces the Zalo OA as the preferred conversation channel.</span>
+        <span class="em-meta"><span>250 words</span><span>CTA → Zalo OA</span></span>
+      </span>
+    </button>
+
+    <button class="em" data-src="emails/04-welcome-cost.html" data-subject="The cost of your current water" data-flow="Welcome · 04 of 05 · Day 10" data-format="html">
+      <span class="em-tag"><span class="num">04</span><span class="day">DAY 10</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Welcome · ROI</span><span class="badge html">HTML</span></span>
+        <span class="em-subject">The cost of your current water</span>
+        <span class="em-purpose" style="display:block">First pricing mention, justified by three education emails before it. Per-litre cost as the simple anchor.</span>
+        <span class="em-meta"><span>200 words</span><span>CTA → Plastic Tax Calculator</span></span>
+      </span>
+    </button>
+
+    <button class="em" data-src="emails/05-welcome-consultation.html" data-subject="Water independence starts here" data-flow="Welcome · 05 of 05 · Day 14" data-format="html">
+      <span class="em-tag"><span class="num">05</span><span class="day">DAY 14</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Welcome · Soft close</span><span class="badge html">HTML</span></span>
+        <span class="em-subject">Water independence starts here</span>
+        <span class="em-purpose" style="display:block">The conversion email that doesn't feel like one. 20 minutes, no pressure, the offer to talk stays open forever.</span>
+        <span class="em-meta"><span>200 words</span><span>CTA → consultation</span></span>
+      </span>
+    </button>
+
+  </div>
+
+  <!-- NURTURE -->
+  <div class="rule"><span>Flow 02 — Nurture</span><span class="r">3 broadcasts · monthly cadence</span></div>
+  <p class="flow-intro">Sent to the full subscribed list once a month after the welcome sequence completes. Pillars rotate: lifestyle (coffee), authority (global context), Vietnamese cultural anchor (cooking). Never sell — always teach or expand worldview.</p>
+  <div class="emails">
+
+    <button class="em" data-src="emails/06-nurture-coffee.html" data-subject="What your morning coffee is made of" data-flow="Nurture · Month 1" data-format="html">
+      <span class="em-tag"><span class="num">06</span><span class="day">MONTH 1</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Nurture · Lifestyle (Coffee)</span><span class="badge html">HTML</span></span>
+        <span class="em-subject">What your morning coffee is made of</span>
+        <span class="em-purpose" style="display:block">Reaches coffee drinkers and café owners simultaneously. Specialty Coffee Association water standard, anchored in a sensory insight.</span>
+        <span class="em-meta"><span>100 words</span><span>CTA → product page</span></span>
+      </span>
+    </button>
+
+    <button class="em" data-src="emails/07-nurture-un.html" data-subject="The UN said something in January" data-flow="Nurture · Month 2" data-format="html">
+      <span class="em-tag"><span class="num">07</span><span class="day">MONTH 2</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Nurture · Authority</span><span class="badge html">HTML</span></span>
+        <span class="em-subject">The UN said something in January</span>
+        <span class="em-purpose" style="display:block">Places Aerova inside a credible global narrative. "Water bankruptcy" reframes independence as a rational decision, not a luxury.</span>
+        <span class="em-meta"><span>160 words</span><span>CTA → Sky Water Guide</span></span>
+      </span>
+    </button>
+
+    <button class="em" data-src="emails/08-nurture-pho.html" data-subject="What pho is actually made of" data-flow="Nurture · Month 3" data-format="html">
+      <span class="em-tag"><span class="num">08</span><span class="day">MONTH 3</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Nurture · Cooking</span><span class="badge html">HTML</span></span>
+        <span class="em-subject">What pho is actually made of</span>
+        <span class="em-purpose" style="display:block">Expands product value from drinking to cooking. Mineral leaching from RO water, anchored in a Vietnamese kitchen.</span>
+        <span class="em-meta"><span>185 words</span><span>CTA → mineralization section</span></span>
+      </span>
+    </button>
+
+  </div>
+
+  <!-- RE-ENGAGEMENT -->
+  <div class="rule"><span>Flow 03 — Re-engagement</span><span class="r">1 email · 30+ days inactive</span></div>
+  <p class="flow-intro">Plain text. Lowercase subject. The absence of design is the design choice — looks like a personal note, not a marketing send.</p>
+  <div class="emails">
+
+    <button class="em" data-src="emails/09-reengagement.html" data-subject="a question about your water" data-flow="Re-engagement · 30+ days inactive" data-format="plain">
+      <span class="em-tag"><span class="num">09</span><span class="day">30+ DAYS</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Re-engagement · Plain text</span><span class="badge plain">PLAIN TEXT</span></span>
+        <span class="em-subject">a question about your water</span>
+        <span class="em-purpose" style="display:block">Not a reminder. Not a promotion. One question, one reply. The reply-cost is one sentence; the unsubscribe option is a sign of respect.</span>
+        <span class="em-meta"><span>80 words</span><span>CTA → consultation (text link)</span></span>
+      </span>
+    </button>
+
+  </div>
+
+  <!-- POST-PURCHASE -->
+  <div class="rule"><span>Flow 04 — Post-purchase &amp; Retention</span><span class="r">6 emails · Day 1 – Month 12</span></div>
+  <p class="flow-intro">Triggered by purchase. The post-purchase experience is the pre-purchase experience for the next customer. Every touchpoint surfaces testimonial material, catches service issues early, and seeds referrals without asking. Anniversary email closes the loop and asks the advocate question.</p>
+  <div class="emails">
+
+    <button class="em" data-src="emails/10-post-delivery.html" data-subject="Your unit is on the way" data-flow="Post-purchase · Day 1" data-format="html">
+      <span class="em-tag"><span class="num">10</span><span class="day">DAY 1</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Post-purchase · Delivery</span><span class="badge html">HTML</span></span>
+        <span class="em-subject">Your unit is on the way</span>
+        <span class="em-purpose" style="display:block">Warm, practical. Confirms delivery, sets expectations for the first 48 hours, links to the setup guide.</span>
+        <span class="em-meta"><span>140 words</span><span>CTA → setup guide</span></span>
+      </span>
+    </button>
+
+    <button class="em" data-src="emails/11-post-week.html" data-subject="One week in. What's surprised you?" data-flow="Post-purchase · Day 7" data-format="html">
+      <span class="em-tag"><span class="num">11</span><span class="day">DAY 7</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Post-purchase · First week</span><span class="badge html">HTML</span></span>
+        <span class="em-subject">One week in. What's surprised you?</span>
+        <span class="em-purpose" style="display:block">Surfaces testimonial material. Catches service issues early. A reply at this stage is worth ten reviews.</span>
+        <span class="em-meta"><span>110 words</span><span>CTA → reply</span></span>
+      </span>
+    </button>
+
+    <button class="em" data-src="emails/12-post-habit.html" data-subject="Ninety bottles, your first month" data-flow="Post-purchase · Day 30" data-format="html">
+      <span class="em-tag"><span class="num">12</span><span class="day">DAY 30</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Post-purchase · Habit + referral</span><span class="badge html">HTML</span></span>
+        <span class="em-subject">Ninety bottles, your first month</span>
+        <span class="em-purpose" style="display:block">Anchors the new habit. Introduces the referral programme. Identity reinforcement done with one stat.</span>
+        <span class="em-meta"><span>170 words</span><span>CTA → referral link</span></span>
+      </span>
+    </button>
+
+    <button class="em" data-src="emails/13-post-filter.html" data-subject="Time to look after your filters" data-flow="Post-purchase · Month 6" data-format="html">
+      <span class="em-tag"><span class="num">13</span><span class="day">MONTH 6</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Post-purchase · Service</span><span class="badge html">HTML</span></span>
+        <span class="em-subject">Time to look after your filters</span>
+        <span class="em-purpose" style="display:block">Proactive filter change reminder before the customer notices any change. Framed as care, not maintenance.</span>
+        <span class="em-meta"><span>130 words</span><span>CTA → book service</span></span>
+      </span>
+    </button>
+
+    <button class="em" data-src="emails/14-post-buyback.html" data-subject="Staying, or moving on?" data-flow="Post-purchase · Month 11 · Expat" data-format="html">
+      <span class="em-tag"><span class="num">14</span><span class="day">MONTH 11</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Post-purchase · Expat buyback</span><span class="badge html">HTML</span></span>
+        <span class="em-subject">Staying, or moving on?</span>
+        <span class="em-purpose" style="display:block">For expat customers. Initiates the buyback proactively. The ease of the buyback is the final proof of confidence in the product.</span>
+        <span class="em-meta"><span>150 words</span><span>CTA → buyback / stay</span></span>
+      </span>
+    </button>
+
+    <button class="em" data-src="emails/15-post-anniversary.html" data-subject="One year of water from the sky" data-flow="Post-purchase · Month 12 · Anniversary" data-format="html">
+      <span class="em-tag"><span class="num">15</span><span class="day">MONTH 12</span></span>
+      <span class="em-body">
+        <span class="em-eye"><span>Post-purchase · Anniversary</span><span class="badge html">HTML</span></span>
+        <span class="em-subject">One year of water from the sky</span>
+        <span class="em-purpose" style="display:block">Cumulative impact: bottles eliminated, litres produced. Asks the advocate question that often produces testimonials without asking.</span>
+        <span class="em-meta"><span>160 words</span><span>CTA → share your story</span></span>
+      </span>
+    </button>
+
+  </div>
+
+  <div class="foot">
+    <div>Aerova · Vietnam · phase 1 marketing system</div>
+    <div>15 emails · 4 flows · brevo-ready</div>
+  </div>
+
+</div>
+
+<!-- ============== Email viewer overlay ============== -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Email preview">
+  <div class="viewer-shell">
+    <div class="viewer-hdr">
+      <span class="tag" id="vTag">EMAIL</span>
+      <div class="title" id="vTitle">—</div>
+      <div class="nav">
+        <button id="vPrev" type="button" aria-label="Previous email">← Prev</button>
+        <button id="vNext" type="button" aria-label="Next email">Next →</button>
+      </div>
+      <button id="vClose" type="button" aria-label="Close preview">Close ✕</button>
+    </div>
+    <div class="viewer-meta" id="vMeta">
+      <span><b>From</b> Franc from AEROVA</span>
+      <span><b>Reply-to</b> franc@aerova.vn</span>
+      <span id="vFormat"><b>Format</b> —</span>
+      <span id="vFile"><b>File</b> —</span>
+    </div>
+    <div class="viewer-body">
+      <iframe id="vFrame" class="viewer-iframe" src="about:blank" title="Email preview"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const cards = Array.from(document.querySelectorAll('.em[data-src]'));
+  const v = document.getElementById('viewer');
+  const vFrame = document.getElementById('vFrame');
+  const vTitle = document.getElementById('vTitle');
+  const vTag = document.getElementById('vTag');
+  const vFormat = document.getElementById('vFormat');
+  const vFile = document.getElementById('vFile');
+  const vPrev = document.getElementById('vPrev');
+  const vNext = document.getElementById('vNext');
+  const vClose = document.getElementById('vClose');
+  let idx = -1;
+
+  function open(i){
+    if (i < 0 || i >= cards.length) return;
+    idx = i;
+    const c = cards[i];
+    const src = c.getAttribute('data-src');
+    const subject = c.getAttribute('data-subject') || '';
+    const flow = c.getAttribute('data-flow') || '';
+    const fmt = c.getAttribute('data-format') || 'html';
+    vFrame.src = src;
+    vTitle.innerHTML = subject.replace(/\b(actually|on the way|moving on|made of|from the sky|surprised|starts here)\b/i, '<em>$1</em>');
+    vTag.textContent = flow;
+    vFormat.innerHTML = '<b>Format</b> ' + (fmt === 'plain' ? 'Plain text' : 'HTML');
+    vFile.innerHTML = '<b>File</b> ' + src;
+    vPrev.disabled = i === 0;
+    vNext.disabled = i === cards.length - 1;
+    v.classList.add('open');
+    document.body.classList.add('locked');
+  }
+
+  function close(){
+    v.classList.remove('open');
+    document.body.classList.remove('locked');
+    vFrame.src = 'about:blank';
+    idx = -1;
+  }
+
+  cards.forEach((c, i) => {
+    c.addEventListener('click', () => open(i));
+  });
+
+  vClose.addEventListener('click', close);
+  vPrev.addEventListener('click', () => open(idx - 1));
+  vNext.addEventListener('click', () => open(idx + 1));
+
+  v.addEventListener('click', (e) => {
+    if (e.target === v) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!v.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft' && idx > 0) open(idx - 1);
+    if (e.key === 'ArrowRight' && idx < cards.length - 1) open(idx + 1);
+  });
+})();
+</script>
+</body>
+</html>

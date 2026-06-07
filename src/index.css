@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 /* ============================================
-   AEROVA — DESIGN SYSTEM v4
+   AEROVA — DESIGN SYSTEM v4 (Dark-Mode Only)
    Water · Health · Atmosphere
+
+   Dark-mode only as of 2026-05-11. Light-mode tokens
+   preserved at src/index.css.lightmode.bak.
 
    Approved Brand Palette:
    - Slate Charcoal  #334155  (primary text)
@@ -27,14 +30,14 @@
   /* ── Approved brand palette ── */
   --slate-charcoal:  #334155;
   --champagne-gold:  #D4AF37;
-  --morning-sage:    #5E7A6E;  /* darkened for light-mode AA contrast */
+  --morning-sage:    #8DA399;  /* vibrant for dark backgrounds */
   --atmosphere-blue: #B0BEC5;
   --obsidian-matte:  #1A1A1B;
   --white:           #FAFAF8;
-  --cream:           #EDF3F8;  /* cooler, crisper — fresh water feel */
+  --cream:           #EDF3F8;  /* retained for legacy --sky alias only */
 
   /* Extended water palette */
-  --water-crystal:   #5A96A8;  /* darkened for light-mode AA contrast */
+  --water-crystal:   #7AB8C8;  /* vibrant for dark backgrounds */
   --water-deep:      #3D7A8E;
   --water-light:     rgba(122,184,200,0.10);
   --water-glow:      rgba(122,184,200,0.16);
@@ -47,61 +50,61 @@
   --sky:      var(--cream);
   --slate:    var(--slate-charcoal);
 
-  /* ── Light mode semantic tokens ── */
-  --bg:         var(--cream);
-  --bg-alt:     rgba(141,163,153,0.22);   /* lifted for section contrast */
-  --bg-alt-2:   rgba(141,163,153,0.32);   /* lifted for section contrast */
-  --text-main:  #1F2F3D;                  /* deeper than slate for better contrast */
-  --text-sub:   #3B5268;                  /* was #4A5660 — contrast ratio ~5.8:1 */
+  /* ── Semantic tokens (dark mode) ── */
+  --bg:         var(--obsidian-matte);
+  --bg-alt:     rgba(141,163,153,0.07);
+  --bg-alt-2:   rgba(141,163,153,0.11);
+  --text-main:  #E8E6E1;
+  --text-sub:   #A0ADB5;
   --accent:     var(--morning-sage);
-  --nav-bg:     rgba(237,243,248,0.92);
-  --btn-bg:     transparent;
-  --btn-text:   #1F2F3D;
-  --btn-gold-bg:   transparent;
-  --btn-gold-text: #1F2F3D;
+  --nav-bg:     rgba(26,26,27,0.90);
+  --btn-bg:     var(--morning-sage);
+  --btn-text:   var(--obsidian-matte);
+  --btn-gold-bg:   var(--champagne-gold);
+  --btn-gold-text: var(--obsidian-matte);
 
-  /* ── Border tokens — more visible in light mode ── */
-  --border-gold:        rgba(212,175,55,0.28);   /* was 0.18 */
-  --border-gold-strong: rgba(212,175,55,0.48);   /* was 0.30 */
-  --border-gold-faint:  rgba(212,175,55,0.14);   /* was 0.09 */
-  --border-sage:        rgba(141,163,153,0.30);   /* was 0.18 */
-  --border-sage-strong: rgba(141,163,153,0.48);   /* was 0.30 */
+  /* ── Border tokens ── */
+  --border-gold:        rgba(212,175,55,0.22);
+  --border-gold-strong: rgba(212,175,55,0.40);
+  --border-gold-faint:  rgba(212,175,55,0.12);
+  --border-sage:        rgba(141,163,153,0.22);
+  --border-sage-strong: rgba(141,163,153,0.40);
 
-  /* ── Surface tokens — enough contrast to distinguish sections ── */
-  --surface-gold: rgba(212,175,55,0.08);     /* was 0.05 */
-  --surface-sage: rgba(141,163,153,0.14);    /* was 0.10 */
-  --surface-card: rgba(255,255,255,0.96);    /* white card on sage sections */
+  /* ── Surface tokens ── */
+  --surface-gold: rgba(212,175,55,0.07);
+  --surface-sage: rgba(141,163,153,0.13);
+  --surface-card: rgba(141,163,153,0.05);
 
   /* ── Interactive tokens ── */
-  --hover-bg:   rgba(141,163,153,0.10);
-  --focus-ring: rgba(141,163,153,0.50);
-  --toggle-bg:  rgba(31,47,61,0.07);
-  --overlay-bg: rgba(237,243,248,0.97);
+  --hover-bg:   rgba(141,163,153,0.11);
+  --focus-ring: rgba(141,163,153,0.55);
+  --toggle-bg:  rgba(232,230,225,0.07);
+  --overlay-bg: rgba(26,26,27,0.97);
 
   /* ── Atmosphere ── */
-  --grain-opacity: 0.02;
-  --glow-sage: rgba(141,163,153,0.14);
-  --glow-gold: rgba(212,175,55,0.10);
+  --grain-opacity: 0.035;
+  --glow-sage: rgba(141,163,153,0.09);
+  --glow-gold: rgba(212,175,55,0.07);
 
   /* ── Section break ── */
   --section-break-line: rgba(212,175,55,0.38);
   --section-break-drop: rgba(122,184,200,0.6);
 
   /* ── Compare table / grid stripes ── */
-  --water-faint:     rgba(122,184,200,0.04);
-  --water-tint-sm:   rgba(122,184,200,0.06);
-  --bg-stripe-alt:   rgba(122,184,200,0.03);
-  --glow-gold-sm:    rgba(212,175,55,0.07);
+  --water-faint:     rgba(122,184,200,0.03);
+  --water-tint-sm:   rgba(122,184,200,0.04);
+  --bg-stripe-alt:   rgba(122,184,200,0.02);
+  --glow-gold-sm:    rgba(212,175,55,0.05);
   --gold-border-row: rgba(212,175,55,0.12);
   --gold-row-bg:     rgba(212,175,55,0.025);
 
   /* ── How It Works ── */
-  --water-progress: rgba(122,184,200,0.15);
-  --water-dot-glow: rgba(122,184,200,0.5);
+  --water-progress: rgba(122,184,200,0.18);
+  --water-dot-glow: rgba(122,184,200,0.4);
 
   /* ── Vietnam / overlays ── */
-  --water-bar-track:   rgba(122,184,200,0.14);
-  --overlay-hero-dark: rgba(0,0,0,0.22);
+  --water-bar-track:   rgba(122,184,200,0.10);
+  --overlay-hero-dark: rgba(0,0,0,0.45);
 
   /* ── Image mask gradients ── */
   --mask-fade-mid:    rgba(0,0,0,0.6);
@@ -119,7 +122,7 @@
   --font-serif: 'Cormorant Garamond', Georgia, serif;
 
   /* ── State colors ── */
-  --color-error: rgba(180,60,60,0.85);
+  --color-error: rgba(220,100,100,0.9);
 
   /* ── Faint surfaces ── */
   --surface-sage-light:  rgba(141,163,153,0.04);
@@ -139,9 +142,9 @@
   --shadow-dropdown: rgba(0,0,0,0.08);
 
   /* ── Gradient tokens ── */
-  --gradient-hero:    radial-gradient(ellipse at 50% 40%, rgba(122,184,200,0.12) 0%, rgba(141,163,153,0.08) 40%, transparent 70%);
-  --gradient-section: radial-gradient(ellipse at 30% 50%, rgba(141,163,153,0.07) 0%, transparent 55%);
-  --gradient-card:    linear-gradient(135deg, rgba(255,255,255,0.8), rgba(237,243,248,0.6));
+  --gradient-hero:    radial-gradient(ellipse at 50% 40%, rgba(122,184,200,0.07) 0%, rgba(141,163,153,0.05) 40%, transparent 70%);
+  --gradient-section: radial-gradient(ellipse at 30% 50%, rgba(141,163,153,0.05) 0%, transparent 55%);
+  --gradient-card:    linear-gradient(135deg, rgba(141,163,153,0.05), rgba(212,175,55,0.02));
   --gradient-subtle:  linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
 
   /* ── Spacing ── */
@@ -159,59 +162,6 @@
   --transition-fast:  0.2s var(--ease-out-expo);
   --transition-base:  0.4s var(--ease-out-expo);
   --transition-slow:  0.6s var(--ease-out-expo);
-}
-
-/* ============================================
-   DARK THEME
-   ============================================ */
-html.dark {
-  --morning-sage:  #8DA399;  /* restore vibrant value for dark backgrounds */
-  --water-crystal: #7AB8C8;  /* restore vibrant value for dark backgrounds */
-
-  --bg:       var(--obsidian-matte);
-  --bg-alt:   rgba(141,163,153,0.07);
-  --bg-alt-2: rgba(141,163,153,0.11);
-  --text-main: #E8E6E1;
-  --text-sub:  #A0ADB5;
-  --nav-bg:    rgba(26,26,27,0.90);
-  --btn-bg:    var(--morning-sage);
-  --btn-text:  var(--obsidian-matte);
-  --btn-gold-bg:   var(--champagne-gold);
-  --btn-gold-text: var(--obsidian-matte);
-
-  --border-gold:        rgba(212,175,55,0.22);
-  --border-gold-strong: rgba(212,175,55,0.40);
-  --border-gold-faint:  rgba(212,175,55,0.12);
-  --border-sage:        rgba(141,163,153,0.22);
-  --border-sage-strong: rgba(141,163,153,0.40);
-  --surface-gold: rgba(212,175,55,0.07);
-  --surface-sage: rgba(141,163,153,0.13);
-  --surface-card: rgba(141,163,153,0.05);
-
-  --hover-bg:   rgba(141,163,153,0.11);
-  --focus-ring: rgba(141,163,153,0.55);
-  --toggle-bg:  rgba(232,230,225,0.07);
-  --overlay-bg: rgba(26,26,27,0.97);
-
-  --grain-opacity: 0.035;
-  --glow-sage: rgba(141,163,153,0.09);
-  --glow-gold: rgba(212,175,55,0.07);
-  --glow-gold-sm:    rgba(212,175,55,0.05);
-
-  --water-faint:     rgba(122,184,200,0.03);
-  --water-tint-sm:   rgba(122,184,200,0.04);
-  --bg-stripe-alt:   rgba(122,184,200,0.02);
-  --water-progress:  rgba(122,184,200,0.18);
-  --water-dot-glow:  rgba(122,184,200,0.4);
-  --water-bar-track: rgba(122,184,200,0.10);
-  --overlay-hero-dark: rgba(0,0,0,0.45);
-
-  --gradient-hero:    radial-gradient(ellipse at 50% 40%, rgba(122,184,200,0.07) 0%, rgba(141,163,153,0.05) 40%, transparent 70%);
-  --gradient-section: radial-gradient(ellipse at 30% 50%, rgba(141,163,153,0.05) 0%, transparent 55%);
-  --gradient-card:    linear-gradient(135deg, rgba(141,163,153,0.05), rgba(212,175,55,0.02));
-  --gradient-subtle:  linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
-
-  --color-error: rgba(220,100,100,0.9);
 }
 
 /* ============================================
@@ -400,9 +350,9 @@ h3 { font-weight: 500; font-size: 1.5rem; line-height: 1.18; }
   font-size: 9.5px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--water-deep);
-  background: rgba(122,184,200,0.08);
-  border: 1px solid var(--water-border);
+  color: var(--water-crystal);
+  background: rgba(122,184,200,0.07);
+  border: 1px solid rgba(122,184,200,0.22);
   font-family: 'Nunito', 'DM Sans', sans-serif;
   font-weight: 600;
   position: relative;
@@ -422,11 +372,6 @@ h3 { font-weight: 500; font-size: 1.5rem; line-height: 1.18; }
   border-radius: inherit;
   pointer-events: none;
 }
-html.dark .quality-badge {
-  color: var(--water-crystal);
-  background: rgba(122,184,200,0.07);
-  border-color: rgba(122,184,200,0.22);
-}
 
 /* ============================================
    PURITY FLOATING BADGES (hero)
@@ -435,9 +380,9 @@ html.dark .quality-badge {
   position: absolute;
   padding: 6px 16px;
   border: 1px solid var(--border-gold-strong);
-  background: rgba(255,255,255,0.68);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background: rgba(26,26,27,0.72);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
   font-size: 9px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -447,12 +392,6 @@ html.dark .quality-badge {
   white-space: nowrap;
   pointer-events: none;
   /* Subtle iridescent top edge */
-  box-shadow: 0 1px 0 rgba(122,184,200,0.30) inset, 0 4px 20px rgba(212,175,55,0.08);
-}
-html.dark .purity-float {
-  background: rgba(26,26,27,0.72);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
   box-shadow: 0 1px 0 rgba(122,184,200,0.18) inset, 0 4px 20px rgba(212,175,55,0.06);
 }
 
@@ -672,6 +611,50 @@ a { transition: color var(--transition-base), opacity var(--transition-base); }
   92% { opacity: 0.85; }
 }
 
+/* FAQ accordion: condensing word reveal + ripple burst from chevron */
+@keyframes faqCondense {
+  0%   { opacity: 0; transform: translateY(8px); filter: blur(6px); }
+  60%  { filter: blur(0px); }
+  100% { opacity: 1; transform: translateY(0);   filter: blur(0px); }
+}
+.faq-ripple {
+  animation: faqRipple 0.85s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+@keyframes faqRipple {
+  0%   { transform: scale(0.4); opacity: 0.85; }
+  100% { transform: scale(8);   opacity: 0;    }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-word    { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
+  .faq-ripple  { animation: none !important; opacity: 0 !important; }
+}
+
+/* Footer wave — slow horizontal translation of repeating sine pattern */
+.footer-wave-svg {
+  animation: footerWaveDrift 18s linear infinite;
+}
+.footer-wave-wrap::after {
+  /* subtle breathing opacity layered on top */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(7,11,15,0.35) 100%);
+  animation: footerWaveBreathe 8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes footerWaveDrift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-240px); }   /* one PATTERN_W cycle */
+}
+@keyframes footerWaveBreathe {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.7; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-wave-svg          { animation: none !important; }
+  .footer-wave-wrap::after  { animation: none !important; opacity: 0.55 !important; }
+}
+
 /* Hero ring breathe */
 @keyframes breathe {
   0%, 100% { opacity: 0.04; transform: translate(-50%,-50%) scale(1); }
@@ -760,26 +743,23 @@ a { transition: color var(--transition-base), opacity var(--transition-base); }
   width: 380px; height: 380px;
   top: 10%; left: 5%;
   background: var(--water-crystal);
-  opacity: 0.055;
+  opacity: 0.04;
   animation: blobDrift 16s ease-in-out infinite;
 }
 .hero-blob-2 {
   width: 300px; height: 300px;
   top: 40%; right: 8%;
   background: var(--champagne-gold);
-  opacity: 0.038;
+  opacity: 0.03;
   animation: blobDrift 20s 4s ease-in-out infinite reverse;
 }
 .hero-blob-3 {
   width: 220px; height: 220px;
   bottom: 15%; left: 38%;
   background: var(--morning-sage);
-  opacity: 0.045;
+  opacity: 0.035;
   animation: blobDrift 24s 9s ease-in-out infinite;
 }
-html.dark .hero-blob-1 { opacity: 0.04; }
-html.dark .hero-blob-2 { opacity: 0.03; }
-html.dark .hero-blob-3 { opacity: 0.035; }
 
 /* Drop breathing applied to SVG product drops */
 .drop-breathe {
@@ -811,10 +791,6 @@ html.dark .hero-blob-3 { opacity: 0.035; }
 .hover-lift:hover,
 .hover-lift:active {
   transform: translateY(-4px);
-  box-shadow: 0 14px 44px rgba(0,0,0,0.07);
-}
-html.dark .hover-lift:hover,
-html.dark .hover-lift:active {
   box-shadow: 0 14px 44px rgba(0,0,0,0.22);
 }
 
@@ -867,12 +843,8 @@ html.dark .hover-lift:active {
 .feature-card:hover,
 .feature-card:active {
   transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.07);
-  border-color: var(--border-gold-strong) !important;
-}
-html.dark .feature-card:hover,
-html.dark .feature-card:active {
   box-shadow: 0 20px 60px rgba(0,0,0,0.26);
+  border-color: var(--border-gold-strong) !important;
 }
 
 /* ============================================
@@ -915,12 +887,8 @@ html.dark .feature-card:active {
 .testimonial-card:hover,
 .testimonial-card:active {
   transform: translateY(-5px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.06);
-  border-color: var(--border-gold-strong) !important;
-}
-html.dark .testimonial-card:hover,
-html.dark .testimonial-card:active {
   box-shadow: 0 20px 60px rgba(0,0,0,0.24);
+  border-color: var(--border-gold-strong) !important;
 }
 
 /* Compare column cursor + transition */
@@ -931,7 +899,7 @@ html.dark .testimonial-card:active {
 /* ============================================
    RESPONSIVE
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   :root { --section-pad: 80px; }
   h1 { font-size: 2.25rem; }
   h2 { font-size: 1.75rem; }
@@ -939,14 +907,12 @@ html.dark .testimonial-card:active {
   .aerova-btn { padding: 0 28px; font-size: 10px; min-width: 0; }
   nav a, nav button { min-height: 44px; display: inline-flex; align-items: center; }
   body { font-size: 15px; }
-
 }
 
-@media (max-width: 480px) {
+@media (max-width: 479px) {
   :root { --section-pad: 56px; }
   h1 { font-size: 1.875rem; }
   h2 { font-size: 1.5rem; }
-  body { font-size: 14px; }
 }
 
 /* ============================================
@@ -1000,8 +966,11 @@ html.dark .testimonial-card:active {
    machine/water animation fills the upper half
    ============================================ */
 @media (max-width: 767px) {
-  .hero-left-gradient  { display: none !important; }
+  .hero-left-gradient   { display: none !important; }
   .hero-bottom-gradient { display: block !important; }
+
+/* Static fallback: right-shift matches 0.65 xBase, 55% y targets tap zone */
+  .hero-frame-fallback { object-position: 85% 55%; }
 
   .hero-text-group {
     left: 0 !important;
@@ -1010,17 +979,35 @@ html.dark .testimonial-card:active {
     bottom: 0 !important;
     max-width: 100% !important;
     padding: 0 24px 88px !important;
-    padding-right: 24px !important;
+    padding-right: 88px !important;
     justify-content: flex-end !important;
   }
 
   .hero-text-group .hero-ctas {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+  }
+
+  .hero-text-group .hero-ctas .aerova-btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .hero-scroll-nudge {
     left: 50% !important;
     transform: translateX(-50%);
+  }
+
+  /* Extra clearance so the StickyCTABar (~82px) never covers the last content row */
+  .vietnam-section  { padding-bottom: calc(var(--section-pad) + 96px) !important; }
+  .usecase-section  { padding-bottom: calc(var(--section-pad) + 96px) !important; }
+
+  /* City tab strip: full-width + horizontal scroll when names don't fit */
+  .city-tab-strip   { width: 100% !important; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  .hero-text-group {
+    padding-bottom: 40px !important;
   }
 }

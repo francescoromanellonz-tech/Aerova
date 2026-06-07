@@ -7,13 +7,26 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../contexts/LanguageContext';
 import { t } from '../utils/translate';
-import { buildHreflangLinks, buildCanonical } from '../utils/seo';
+import { buildHreflangLinks, buildCanonical, buildHeadExtras } from '../utils/seo';
 import LangLink from '../components/LangLink';
 import { getPostsSortedByDate, getPublishedPosts } from '../data/blogPosts';
 import { sanityClient } from '../lib/sanityClient';
 import { POSTS_LIST_QUERY } from '../lib/queries';
 
 gsap.registerPlugin(ScrollTrigger);
+
+// BCP-47 locale per content language, for date formatting.
+const DATE_LOCALE = { vi: 'vi-VN', en: 'en-GB', ru: 'ru-RU', fr: 'fr-FR', zh: 'zh-CN' };
+
+// Scalar localized fields use a suffix convention (titleVI/EN/RU/FR/ZH).
+// `category` is special: its Vietnamese value is the unsuffixed `category`.
+function locField(post, base, lang) {
+  const S = lang.toUpperCase();
+  if (base === 'category') {
+    return lang === 'vi' ? post.category : (post['category' + S] || post.categoryEN || post.category);
+  }
+  return post[base + S] || post[base + 'EN'] || post[base + 'VI'] || '';
+}
 
 // ─── Sanity image URL helper ──────────────────────────────────────────────────
 
@@ -40,9 +53,9 @@ function CategoryTag({ label }) {
 }
 
 function ArticleCard({ post, lang, featured = false }) {
-  const title   = lang === 'vi' ? post.titleVI   : post.titleEN;
-  const excerpt = lang === 'vi' ? post.excerptVI : post.excerptEN;
-  const cat     = lang === 'vi' ? post.category  : post.categoryEN;
+  const title   = locField(post, 'title', lang);
+  const excerpt = locField(post, 'excerpt', lang);
+  const cat     = locField(post, 'category', lang);
   const hasContent = post.sections.length > 0;
 
   return (
@@ -62,7 +75,7 @@ function ArticleCard({ post, lang, featured = false }) {
               className="text-[9px] uppercase"
               style={{ letterSpacing: '0.25em', color: 'var(--text-sub)', opacity: 0.4 }}
             >
-              {lang === 'vi' ? 'Sắp ra mắt' : 'Soon'}
+              {t('blog_soon', lang)}
             </span>
           )}
         </div>
@@ -86,7 +99,7 @@ function ArticleCard({ post, lang, featured = false }) {
             className="text-[9px] uppercase"
             style={{ letterSpacing: '0.2em', color: 'var(--text-sub)', opacity: 0.45 }}
           >
-            {new Date(post.date).toLocaleDateString(lang === 'vi' ? 'vi-VN' : 'en-GB', {
+            {new Date(post.date).toLocaleDateString(DATE_LOCALE[lang] || 'en-GB', {
               day: 'numeric', month: 'long', year: 'numeric',
             })}
           </span>
@@ -95,7 +108,7 @@ function ArticleCard({ post, lang, featured = false }) {
             className="text-[9px] uppercase"
             style={{ letterSpacing: '0.2em', color: 'var(--text-sub)', opacity: 0.45 }}
           >
-            {post.readTime} {lang === 'vi' ? 'phút' : 'min'}
+            {post.readTime} {t('blog_min', lang)}
           </span>
           {hasContent && (
             <>
@@ -104,7 +117,7 @@ function ArticleCard({ post, lang, featured = false }) {
                 className="text-[9px] uppercase"
                 style={{ letterSpacing: '0.2em', color: 'var(--gold)', opacity: 0.8 }}
               >
-                {lang === 'vi' ? 'Đọc →' : 'Read →'}
+                {t('blog_read', lang)}
               </span>
             </>
           )}
@@ -120,7 +133,7 @@ function SanityArticleCard({ post, lang, featured = false }) {
   const imgUrl = sanityImageUrl(post.mainImage);
   const cats   = post.categories || [];
   const dateStr = post.publishedAt
-    ? new Date(post.publishedAt).toLocaleDateString(lang === 'vi' ? 'vi-VN' : 'en-GB', {
+    ? new Date(post.publishedAt).toLocaleDateString(DATE_LOCALE[lang] || 'en-GB', {
         day: 'numeric', month: 'long', year: 'numeric',
       })
     : '';
@@ -193,7 +206,7 @@ function SanityArticleCard({ post, lang, featured = false }) {
               className="text-[9px] uppercase"
               style={{ letterSpacing: '0.2em', color: 'var(--gold)', opacity: 0.8 }}
             >
-              {lang === 'vi' ? 'Đọc →' : 'Read →'}
+              {t('blog_read', lang)}
             </span>
           </div>
         </div>
@@ -207,7 +220,7 @@ function SanityArticleCard({ post, lang, featured = false }) {
 function BlogPage() {
   const pageRef = useRef(null);
   const { language } = useLanguage();
-  const lang = language === 'vi' ? 'vi' : 'en';
+  const lang = language;
 
   // Local static posts (always available, used as fallback)
   const allLocalPosts    = getPostsSortedByDate();
@@ -269,6 +282,7 @@ function BlogPage() {
         <meta name="description" content={t('meta_blog_desc', language)} />
         <link rel="canonical" href={buildCanonical('/blog', language)} />
         {buildHreflangLinks('/blog')}
+        {buildHeadExtras('/blog', language)}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={buildCanonical('/blog', language)} />
         <meta property="og:title" content={t('meta_blog_title', language)} />
@@ -325,14 +339,14 @@ function BlogPage() {
               <div>
                 <div className="font-prata text-2xl" style={{ color: 'var(--gold)' }}>{totalCount}</div>
                 <div className="text-[9px] uppercase" style={{ letterSpacing: '0.25em', color: 'rgba(242,239,232,0.4)' }}>
-                  {lang === 'vi' ? 'Bài viết về máy tạo nước từ không khí' : 'Atmospheric water articles'}
+                  {t('blog_stat_articles', lang)}
                 </div>
               </div>
               <div style={{ width: 1, height: 32, background: 'rgba(212,175,55,0.25)' }} />
               <div>
                 <div className="font-prata text-2xl" style={{ color: 'var(--gold)' }}>{publishedCount}</div>
                 <div className="text-[9px] uppercase" style={{ letterSpacing: '0.25em', color: 'rgba(242,239,232,0.4)' }}>
-                  {lang === 'vi' ? 'Đã xuất bản' : 'Published guides'}
+                  {t('blog_stat_published', lang)}
                 </div>
               </div>
             </div>
@@ -355,7 +369,7 @@ function BlogPage() {
                 className="text-[9px] uppercase block mb-8"
                 style={{ letterSpacing: '0.3em', color: 'var(--gold)' }}
               >
-                {lang === 'vi' ? '— Bài viết mới nhất' : '— Latest article'}
+                {t('blog_latest', lang)}
               </span>
               <SanityArticleCard post={sanityFeatured} lang={lang} featured />
             </div>
@@ -372,7 +386,7 @@ function BlogPage() {
                   className="text-[9px] uppercase block mb-8"
                   style={{ letterSpacing: '0.3em', color: 'var(--text-sub)', opacity: 0.5 }}
                 >
-                  {lang === 'vi' ? '— Tất cả bài viết' : '— All articles'}
+                  {t('blog_all', lang)}
                 </span>
                 <div className="blg-cards-grid grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                   {sanityRest.map((post) => (
@@ -401,7 +415,7 @@ function BlogPage() {
                   className="text-[9px] uppercase block mb-8"
                   style={{ letterSpacing: '0.3em', color: 'var(--gold)' }}
                 >
-                  {lang === 'vi' ? '— Bài viết mới nhất về nước uống & máy tạo nước từ không khí' : '— Latest article on water purifier for home & atmospheric water'}
+                  {t('blog_latest_featured', lang)}
                 </span>
                 <ArticleCard post={localFeatured} lang={lang} featured />
               </div>
@@ -424,7 +438,7 @@ function BlogPage() {
                     className="text-[9px] uppercase block mb-8"
                     style={{ letterSpacing: '0.3em', color: 'var(--text-sub)', opacity: 0.5 }}
                   >
-                    {lang === 'vi' ? '— Tất cả bài viết: nước uống giảm cân, chất lượng nước & giải pháp nước sạch' : '— All articles: eco friendly water, water quality Vietnam & home water guides'}
+                    {t('blog_all_featured', lang)}
                   </span>
                   <div className="blg-cards-grid grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {localRest.map((post) => (

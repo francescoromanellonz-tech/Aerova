@@ -16,7 +16,7 @@ export function useLanguageSwitch() {
     const prefix = LANG_TO_URL[internalCode];
 
     if (!prefix) {
-      // English — no prefix
+      // English, no prefix
       navigate(cleanPath);
     } else {
       const target = cleanPath === '/'

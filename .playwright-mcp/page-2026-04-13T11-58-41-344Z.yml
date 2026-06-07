@@ -1,0 +1,505 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "AEROVA WATER FROM AIR" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+        - generic [ref=e12]:
+          - generic [ref=e13]: AEROVA
+          - generic [ref=e14]: WATER FROM AIR
+      - generic [ref=e15]:
+        - link "Home" [ref=e16] [cursor=pointer]:
+          - /url: /
+          - text: Home
+        - link "Product" [ref=e18] [cursor=pointer]:
+          - /url: /product
+          - text: Product
+        - link "About" [ref=e19] [cursor=pointer]:
+          - /url: /about
+          - text: About
+        - link "Service" [ref=e20] [cursor=pointer]:
+          - /url: /service
+          - text: Service
+        - link "Contact" [ref=e21] [cursor=pointer]:
+          - /url: /contact
+          - text: Contact
+        - button "Switch to dark mode" [ref=e23] [cursor=pointer]:
+          - img [ref=e24]
+        - button "Select language" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+          - text: EN
+          - img [ref=e31]
+  - main [ref=e34]:
+    - generic [ref=e35]:
+      - generic [ref=e37]:
+        - img [ref=e38]
+        - generic [ref=e40]:
+          - generic [ref=e41]: Water from Air — Vietnam
+          - heading "The Sky is Your Source" [level=1] [ref=e42]
+          - generic [ref=e43]: Thiên Thủy — Nước Từ Trời
+          - paragraph [ref=e44]: Pristine, mineralized water drawn from the atmosphere. No pipes. No plastic. No compromise.
+          - generic [ref=e45]:
+            - link "Explore the Technology" [ref=e46] [cursor=pointer]:
+              - /url: /product
+            - link "Request a Consultation" [ref=e47] [cursor=pointer]:
+              - /url: /contact
+          - generic [ref=e48]:
+            - generic: 99.9% Pure
+            - generic: pH 7.4+
+            - generic: Mineralized
+        - generic [ref=e50]: Scroll
+      - img [ref=e54]
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]: The Process
+          - heading "The Invisible River" [level=2] [ref=e61]
+          - paragraph [ref=e62]: Reviving the Tradition of Heavenly Water
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - generic [ref=e67]:
+              - generic [ref=e68]:
+                - img [ref=e69]
+                - paragraph [ref=e71]: Air intake — humid atmosphere drawn into the unit through HEPA pre-filter
+              - generic: "01"
+            - generic [ref=e72]:
+              - generic [ref=e73]:
+                - img [ref=e74]
+                - generic [ref=e76]: "01"
+              - heading "Air In" [level=3] [ref=e77]
+              - paragraph [ref=e78]: Atmospheric moisture is drawn through medical-grade HEPA filtration
+              - generic [ref=e79]:
+                - generic [ref=e80]: Why this matters
+                - paragraph [ref=e81]: No pipes — no rust, lead, or bacterial contamination from ageing infrastructure.
+          - generic [ref=e82]:
+            - generic [ref=e84]:
+              - generic [ref=e85]:
+                - img [ref=e86]
+                - paragraph [ref=e88]: Condensation stage — moisture crystallising from air into pure water droplets
+              - generic: "02"
+            - generic [ref=e89]:
+              - generic [ref=e90]:
+                - img [ref=e91]
+                - generic [ref=e93]: "02"
+              - heading "Condense" [level=3] [ref=e94]
+              - paragraph [ref=e95]: Advanced cooling condensation at optimal dew point
+              - generic [ref=e96]:
+                - generic [ref=e97]: Why this matters
+                - paragraph [ref=e98]: Created fresh on demand — no plastic contact, no storage time, no delivery chain.
+          - generic [ref=e99]:
+            - generic [ref=e101]:
+              - generic [ref=e102]:
+                - img [ref=e103]
+                - paragraph [ref=e105]: 7-stage filter core — sediment, carbon block, RO membrane, UV-C sterilisation
+              - generic: "03"
+            - generic [ref=e106]:
+              - generic [ref=e107]:
+                - img [ref=e108]
+                - generic [ref=e110]: "03"
+              - heading "Purify" [level=3] [ref=e111]
+              - paragraph [ref=e112]: "7-stage filtration: sediment, carbon, RO, UV-C sterilization"
+              - generic [ref=e113]:
+                - generic [ref=e114]: Why this matters
+                - paragraph [ref=e115]: Medical-grade purity — the same filtration standard used in clinical environments.
+          - generic [ref=e116]:
+            - generic [ref=e118]:
+              - generic [ref=e119]:
+                - img [ref=e120]
+                - paragraph [ref=e122]: Pure mineralized water dispensed — alkaline, pH 7.4+, ready to drink
+              - generic: "04"
+            - generic [ref=e123]:
+              - generic [ref=e124]:
+                - img [ref=e125]
+                - generic [ref=e127]: "04"
+              - heading "Mineralize" [level=3] [ref=e128]
+              - paragraph [ref=e129]: Essential minerals restored. Alkaline balanced. Ready to drink
+              - generic [ref=e130]:
+                - generic [ref=e131]: Why this matters
+                - paragraph [ref=e132]: Minerals added at clinically optimal levels — tap strips them; bottled water never balances them.
+      - generic [ref=e134]:
+        - generic [ref=e135]:
+          - generic [ref=e136]: pH 7.4+
+          - generic [ref=e137]: TDS < 50 ppm
+          - generic [ref=e138]: UV-C Treated
+          - generic [ref=e139]: Mineralized
+          - generic [ref=e140]: Alkaline
+        - generic [ref=e141]:
+          - generic [ref=e142]:
+            - generic [ref=e143]: 0.0%
+            - generic [ref=e144]: Pure Drinking Water
+          - generic [ref=e145]:
+            - generic [ref=e146]:
+              - generic [ref=e147]: "0"
+              - generic [ref=e148]: Stages of Filtration
+            - generic [ref=e149]:
+              - generic [ref=e150]: 0+
+              - generic [ref=e151]: Bottles Eliminated / Year
+            - generic [ref=e152]:
+              - generic [ref=e153]: 0L
+              - generic [ref=e154]: Daily Water Production
+      - generic [ref=e156]:
+        - generic [ref=e157]:
+          - generic [ref=e158]: Filtration Technology
+          - generic [ref=e159]:
+            - generic [ref=e160]:
+              - heading "7 Stages. Zero Compromise." [level=2] [ref=e161]:
+                - text: 7 Stages.
+                - text: Zero Compromise.
+              - generic [ref=e162]: 7 tầng lọc — Không thỏa hiệp
+            - paragraph [ref=e163]: From open air to alkaline drinking water — every stage removes a threat your tap water carries.
+        - generic [ref=e165]:
+          - generic [ref=e166]:
+            - generic [ref=e168]: "01"
+            - generic [ref=e169]: HEPA Pre-Filter
+            - paragraph [ref=e170]: Captures dust, pollen and airborne bacteria before moisture enters the system.
+          - generic [ref=e171]:
+            - generic [ref=e173]: "02"
+            - generic [ref=e174]: Condensation
+            - paragraph [ref=e175]: Chilled coils pull humidity from air and crystallise it into raw droplets.
+          - generic [ref=e176]:
+            - generic [ref=e178]: "03"
+            - generic [ref=e179]: Sediment
+            - paragraph [ref=e180]: Removes suspended particles and sediment down to 5 microns.
+          - generic [ref=e181]:
+            - generic [ref=e183]: "04"
+            - generic [ref=e184]: Carbon Block
+            - paragraph [ref=e185]: Eliminates chlorine, organic compounds, and trace odours.
+          - generic [ref=e186]:
+            - generic [ref=e188]: "05"
+            - generic [ref=e189]: Reverse Osmosis
+            - paragraph [ref=e190]: Strips 99% of dissolved solids — TDS below 50 ppm guaranteed.
+          - generic [ref=e191]:
+            - generic [ref=e193]: "06"
+            - generic [ref=e194]: UV-C Sterilisation
+            - paragraph [ref=e195]: Destroys bacteria and viruses at 254 nm wavelength. No chemicals.
+          - generic [ref=e196]:
+            - generic [ref=e198]: "07"
+            - generic [ref=e199]: Mineralisation
+            - paragraph [ref=e200]: Restores calcium and magnesium to achieve pH 7.4+ — clinically optimal.
+        - generic [ref=e201]:
+          - generic [ref=e202]: Certified to
+          - generic [ref=e203]:
+            - generic [ref=e204]: NSF/ANSI 42
+            - generic [ref=e205]: Taste & Odor Reduction
+          - generic [ref=e206]:
+            - generic [ref=e207]: NSF/ANSI 58
+            - generic [ref=e208]: Reverse Osmosis Systems
+          - generic [ref=e209]:
+            - generic [ref=e210]: WHO
+            - generic [ref=e211]: Drinking Water Guidelines
+          - generic [ref=e212]:
+            - generic [ref=e213]: QCVN 6-1
+            - generic [ref=e214]: Vietnam Water Standard
+      - generic [ref=e216]:
+        - generic [ref=e217]:
+          - generic [ref=e218]: "0"
+          - text: +
+        - heading "Delete the Plastic Tax. Own the Source." [level=2] [ref=e219]
+        - generic [ref=e220]: Không Nhựa. Không Lãng Phí.
+        - paragraph [ref=e221]: Each AEROVA unit eliminates over 11,000 single-use bottles per year. No delivery trucks on your streets. No plastic in your ocean. Just pure water, pulled from the air around you.
+        - generic [ref=e222]:
+          - generic [ref=e223]: Zero Plastic
+          - generic [ref=e224]: Zero Pipes
+          - generic [ref=e225]: Zero Delivery
+          - generic [ref=e226]: 100% Atmospheric
+        - generic [ref=e227]:
+          - generic [ref=e228]:
+            - generic [ref=e229]: "0"
+            - text: Delivery trucks required
+          - generic [ref=e230]:
+            - generic [ref=e231]: "0"
+            - text: Plastic Waste
+          - generic [ref=e232]:
+            - generic [ref=e233]: 100%
+            - text: From Atmosphere
+      - img [ref=e236]
+      - generic [ref=e240]:
+        - generic [ref=e241]:
+          - generic [ref=e242]: Why Atmospheric Water
+          - heading "Not all water is equal" [level=2] [ref=e243]
+        - generic [ref=e244]:
+          - generic [ref=e245]:
+            - generic [ref=e248]: Source
+            - generic [ref=e250]: Purity
+            - generic [ref=e252]: Minerals
+            - generic [ref=e254]: Plastic Waste
+            - generic [ref=e256]: pH Level
+          - generic [ref=e257]:
+            - generic [ref=e258]:
+              - generic [ref=e259]: AEROVA
+              - img [ref=e260]
+            - generic [ref=e263]: Atmospheric air
+            - generic [ref=e265]: 99.9% filtered
+            - generic [ref=e267]: Added & balanced
+            - generic [ref=e269]: Zero
+            - generic [ref=e271]: 7.4 – 8.2 alkaline
+          - generic [ref=e272]:
+            - generic [ref=e274]: Bottled Water
+            - generic [ref=e276]: Spring / processed
+            - generic [ref=e278]: Variable
+            - generic [ref=e280]: Sometimes added
+            - generic [ref=e282]: High
+            - generic [ref=e284]: 6.5 – 7.5 neutral
+          - generic [ref=e285]:
+            - generic [ref=e287]: Tap Water
+            - generic [ref=e289]: Municipal supply
+            - generic [ref=e291]: Treated, not pure
+            - generic [ref=e293]: Inconsistent
+            - generic [ref=e295]: None
+            - generic [ref=e297]: 6.5 – 8.5 varies
+        - generic [ref=e298]:
+          - generic [ref=e299]: Running cost per litre
+          - generic [ref=e300]:
+            - generic [ref=e301]: AEROVA ~$0.03
+            - generic [ref=e302]: vs
+            - generic [ref=e303]: Bottled $0.30–0.60
+            - generic [ref=e304]: ·
+            - generic [ref=e305]: Tap $0.001 (unfiltered)
+      - img [ref=e308]
+      - region "Engineered for Excellence" [ref=e311]:
+        - generic [ref=e312]:
+          - generic [ref=e313]:
+            - generic [ref=e314]: Get the Highlights
+            - heading "Engineered for Excellence" [level=2] [ref=e315]
+          - generic [ref=e316]:
+            - generic [ref=e322]:
+              - generic [ref=e323]:
+                - generic [ref=e324]:
+                  - img [ref=e325]
+                  - text: pH 7.4 – 8.2
+                - generic [ref=e327]: Alkaline
+              - generic [ref=e328]:
+                - img "AEROVA water dispenser pouring pure mineralized water"
+                - generic [ref=e329]:
+                  - img [ref=e330]
+                  - text: Pure Source
+              - generic [ref=e332]:
+                - generic [ref=e333]: 7-Stage Filtration
+                - heading "A Medical-Grade Shield" [level=3] [ref=e334]
+                - paragraph [ref=e335]: HEPA air scrubbing, reverse osmosis, and UV-C sterilization remove what boiling cannot. Every drop exits mineralized to an alkaline-balanced 75–150 TDS — tuned for specialty coffee and ST25 rice.
+              - generic [ref=e336]:
+                - paragraph [ref=e337]: Mineral Profile
+                - generic [ref=e338]:
+                  - generic [ref=e339]:
+                    - generic [ref=e340]: Ca²⁺
+                    - generic [ref=e341]: Calcium
+                  - generic [ref=e342]:
+                    - generic [ref=e343]: Mg²⁺
+                    - generic [ref=e344]: Magnesium
+                  - generic [ref=e345]:
+                    - generic [ref=e346]: K⁺
+                    - generic [ref=e347]: Potassium
+                  - generic [ref=e348]:
+                    - generic [ref=e349]: Zn²⁺
+                    - generic [ref=e350]: Zinc
+            - generic [ref=e351]:
+              - generic [ref=e352]:
+                - img "AEROVA hot and cold dispense — mineral water at any temperature" [ref=e358]
+                - generic [ref=e359]:
+                  - generic [ref=e360]: Hot & Cold
+                  - heading "Instant Culinary Precision" [level=3] [ref=e361]
+                  - paragraph [ref=e362]: Chilled or near-boiling, on demand. No kettles. No plastic jugs. The perfect foundation for healthy cooking and premium tea.
+              - generic [ref=e363]:
+                - img "AEROVA LCD smart display and control panel — 45 dB silent operation" [ref=e369]
+                - generic [ref=e370]:
+                  - generic [ref=e371]: Silent Operation
+                  - heading "Whisper-Quiet at 45 dB" [level=3] [ref=e372]
+                  - paragraph [ref=e373]: Quieter than a library. The LT-AWG20G operates at just 45 dB — designed to blend seamlessly into your living or working space without disruption.
+          - link "View Full Specifications" [ref=e375] [cursor=pointer]:
+            - /url: /product
+            - text: View Full Specifications
+            - img [ref=e376]
+      - generic [ref=e380]:
+        - generic [ref=e381]:
+          - generic [ref=e382]: Climate Advantage
+          - heading "Vietnam's Climate is Your Resource" [level=2] [ref=e383]
+          - generic [ref=e384]: Thiết Kế Cho Khí Hậu Việt Nam
+          - paragraph [ref=e385]: Vietnam's humidity consistently pushes AEROVA beyond its rated capacity. Select your city to see your expected daily water yield.
+          - generic [ref=e386]:
+            - generic [ref=e387]:
+              - generic [ref=e388]: 80–83%
+              - generic [ref=e389]: Avg. Humidity
+            - generic [ref=e390]:
+              - generic [ref=e391]: 12 mo
+              - generic [ref=e392]: Uninterrupted annual production
+            - generic [ref=e393]:
+              - generic [ref=e394]: 20 L
+              - generic [ref=e395]: Daily Water Production
+        - generic [ref=e396]:
+          - generic [ref=e397]:
+            - button "Ho Chi Minh City" [ref=e398] [cursor=pointer]
+            - button "Da Nang" [ref=e399] [cursor=pointer]
+            - button "Vung Tau" [ref=e400] [cursor=pointer]
+          - generic [ref=e401]:
+            - generic [ref=e402]:
+              - generic [ref=e403]: "82"
+              - generic [ref=e404]:
+                - generic [ref=e405]: "%"
+                - generic [ref=e406]: RH
+            - generic [ref=e407]: Avg. Humidity — Ho Chi Minh City
+          - generic [ref=e408]:
+            - generic [ref=e409]: Daily Yield
+            - generic [ref=e410]: 20L rated
+          - generic [ref=e413]:
+            - generic [ref=e414]: "20.5"
+            - generic [ref=e415]: L/day
+          - generic [ref=e416]:
+            - generic [ref=e417] [cursor=pointer]:
+              - generic [ref=e418]: Ho Chi Minh City
+              - generic [ref=e421]: 82% RH
+              - generic [ref=e422]: 20.5 L/d
+            - generic [ref=e423] [cursor=pointer]:
+              - generic [ref=e424]: Da Nang
+              - generic [ref=e427]: 80% RH
+              - generic [ref=e428]: 20.0 L/d
+            - generic [ref=e429] [cursor=pointer]:
+              - generic [ref=e430]: Vung Tau
+              - generic [ref=e433]: 83% RH
+              - generic [ref=e434]: 20.8 L/d
+      - generic [ref=e436]:
+        - generic [ref=e437]:
+          - generic [ref=e438]: Solutions
+          - heading "Water for Every Space" [level=2] [ref=e439]
+        - generic [ref=e440]:
+          - generic [ref=e441]:
+            - generic: "01"
+            - generic [ref=e442]:
+              - generic [ref=e443]: Households
+              - heading "Clean, mineralized water for your family — straight from the air. No more plastic bottles or delivery schedules." [level=3] [ref=e444]
+            - generic [ref=e447]: Solutions
+          - generic [ref=e448]:
+            - generic [ref=e449]:
+              - generic: "02"
+              - generic [ref=e450]:
+                - heading "Offices" [level=3] [ref=e451]
+                - paragraph [ref=e452]: Eliminate water cooler logistics. Provide employees with unlimited premium water at a fraction of bottled cost.
+            - generic [ref=e453]:
+              - generic: "03"
+              - generic [ref=e454]:
+                - heading "Restaurants & Cafés" [level=3] [ref=e455]
+                - paragraph [ref=e456]: Serve guests the purest water available. Hot and cold on demand — perfect for premium dining and specialty coffee.
+            - generic [ref=e457]:
+              - generic: "04"
+              - generic [ref=e458]:
+                - heading "Hotels & Resorts" [level=3] [ref=e459]
+                - paragraph [ref=e460]: A sustainability story your guests will value. Reduce plastic waste while elevating the in-room experience.
+        - link "Explore Services" [ref=e462] [cursor=pointer]:
+          - /url: /service
+      - generic [ref=e464]:
+        - generic [ref=e465]:
+          - generic [ref=e466]: Trusted by Customers
+          - heading "Lives changed by clean water" [level=2] [ref=e467]
+          - img [ref=e470]
+        - generic [ref=e473]:
+          - generic [ref=e475]:
+            - generic [ref=e476]:
+              - img [ref=e477]
+              - img [ref=e479]
+              - img [ref=e481]
+              - img [ref=e483]
+              - img [ref=e485]
+            - blockquote [ref=e487]: "\"We installed AEROVA in our restaurant kitchen six months ago. The water quality is genuinely different — our staff can taste it, our guests notice the ice clarity. Worth every đồng.\""
+            - generic [ref=e489]:
+              - generic [ref=e490]:
+                - generic [ref=e491]: "N"
+                - generic [ref=e492]:
+                  - generic [ref=e493]:
+                    - generic [ref=e494]: Nguyen Minh Duc
+                    - img "Verified" [ref=e495]
+                  - generic [ref=e498]: Restaurant Owner, Ho Chi Minh City
+              - generic: "01"
+          - generic [ref=e500]:
+            - generic [ref=e501]:
+              - img [ref=e502]
+              - img [ref=e504]
+              - img [ref=e506]
+              - img [ref=e508]
+              - img [ref=e510]
+            - blockquote [ref=e512]: "\"As a nutritionist, I recommend water quality as the foundation of good health. AEROVA's mineralized, alkaline output is exactly what I advise my clients to seek. The technology is sound.\""
+            - generic [ref=e514]:
+              - generic [ref=e515]:
+                - generic [ref=e516]: D
+                - generic [ref=e517]:
+                  - generic [ref=e518]:
+                    - generic [ref=e519]: Dr. Tran Thi Lan
+                    - img "Verified" [ref=e520]
+                  - generic [ref=e523]: Clinical Nutritionist, Hanoi
+              - generic: "02"
+          - generic [ref=e525]:
+            - generic [ref=e526]:
+              - img [ref=e527]
+              - img [ref=e529]
+              - img [ref=e531]
+              - img [ref=e533]
+              - img [ref=e535]
+            - blockquote [ref=e537]: "\"I work in a high-rise office with no reliable water supply. AEROVA draws from the air itself — completely independent. Setup took 30 minutes. The water is outstanding.\""
+            - generic [ref=e539]:
+              - generic [ref=e540]:
+                - generic [ref=e541]: M
+                - generic [ref=e542]:
+                  - generic [ref=e543]:
+                    - generic [ref=e544]: Marcus Hoffmann
+                    - img "Verified" [ref=e545]
+                  - generic [ref=e548]: Senior Engineer, Da Nang Tech Hub
+              - generic: "03"
+      - img [ref=e552]
+      - generic [ref=e555]:
+        - generic:
+          - img
+        - generic [ref=e556]:
+          - heading "Your Water Independence Starts Here" [level=2] [ref=e557]
+          - paragraph [ref=e558]: Join the first wave of homes and businesses in Vietnam generating their own pristine water from air.
+          - generic [ref=e560]:
+            - textbox "Enter your email" [ref=e561]
+            - button "Request a Consultation" [ref=e562] [cursor=pointer]
+          - generic [ref=e563]:
+            - link "View Full Specifications →" [ref=e564] [cursor=pointer]:
+              - /url: /product
+            - link "Send Us a Message →" [ref=e565] [cursor=pointer]:
+              - /url: /contact
+  - contentinfo [ref=e566]:
+    - generic:
+      - img
+    - generic [ref=e567]:
+      - generic [ref=e568]:
+        - paragraph [ref=e569]: "AEROVA: Engineered to reflect purity, flow, and atmospheric balance. We provide high-end, infrastructure-independent water solutions designed specifically for Vietnam's unique tropical climate."
+        - generic [ref=e570]: Thiên Thủy — Nước Từ Trời
+      - generic [ref=e571]:
+        - generic [ref=e572]:
+          - link "AEROVA WATER FROM AIR" [ref=e573] [cursor=pointer]:
+            - /url: /
+            - img [ref=e575]
+            - generic [ref=e579]:
+              - generic [ref=e580]: AEROVA
+              - generic [ref=e581]: WATER FROM AIR
+          - generic [ref=e582]:
+            - generic [ref=e583]: pH 7.4+
+            - generic [ref=e584]: UV-C Treated
+            - generic [ref=e585]: 99.9% Pure
+        - generic [ref=e586]:
+          - heading "Navigation" [level=4] [ref=e587]
+          - navigation [ref=e588]:
+            - link "Home" [ref=e589] [cursor=pointer]:
+              - /url: /
+            - link "Product" [ref=e590] [cursor=pointer]:
+              - /url: /product
+            - link "About" [ref=e591] [cursor=pointer]:
+              - /url: /about
+            - link "Service" [ref=e592] [cursor=pointer]:
+              - /url: /service
+            - link "Contact" [ref=e593] [cursor=pointer]:
+              - /url: /contact
+        - generic [ref=e594]:
+          - heading "Stay Updated on the Water Revolution" [level=4] [ref=e595]
+          - paragraph [ref=e596]: Updates on water technology, sustainability, and product launches.
+          - generic [ref=e597]:
+            - textbox "Enter your email" [ref=e598]
+            - button "Join" [ref=e599] [cursor=pointer]
+      - generic [ref=e600]:
+        - generic [ref=e601]:
+          - link "Privacy Policy" [ref=e602] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "Terms & Conditions" [ref=e603] [cursor=pointer]:
+            - /url: /terms-and-conditions
+          - link "Legal" [ref=e604] [cursor=pointer]:
+            - /url: /legal
+        - paragraph [ref=e605]: © 2026 AEROVA Technologies — All Rights Reserved

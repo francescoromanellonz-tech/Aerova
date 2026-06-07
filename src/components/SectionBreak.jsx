@@ -1,4 +1,4 @@
-/* ── Section break — luxury architectural hairline + water drop ── */
+/* ── Section break, luxury architectural hairline + water drop ── */
 const SectionBreak = () => (
   <div
     aria-hidden="true"
@@ -19,7 +19,7 @@ const SectionBreak = () => (
       alignItems:      'center',
       justifyContent:  'center',
       gap:             '16px',
-      padding:         '0 40px',
+      padding:         '0 16px',
     }}>
       <span style={{
         flex:       1,

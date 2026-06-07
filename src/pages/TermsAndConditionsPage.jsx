@@ -14,7 +14,7 @@ function TermsAndConditionsPage() {
         <meta name="description" content="AEROVA Terms and Conditions. Read our terms of use for the AEROVA website and services." />
         <link rel="canonical" href={buildCanonical('/terms-and-conditions', language)} />
         {buildHreflangLinks('/terms-and-conditions')}
-        <meta name="robots" content="noindex, follow" />
+        <meta name="robots" content="noindex" />
       </Helmet>
 
       {/* Page Header */}

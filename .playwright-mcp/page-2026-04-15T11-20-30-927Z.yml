@@ -1,0 +1,81 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "AEROVA WATER FROM AIR" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+        - generic [ref=e12]:
+          - generic [ref=e13]: AEROVA
+          - generic [ref=e14]: WATER FROM AIR
+      - generic [ref=e15]:
+        - link "Home" [ref=e16] [cursor=pointer]:
+          - /url: /
+          - text: Home
+        - link "Product" [ref=e18] [cursor=pointer]:
+          - /url: /product
+          - text: Product
+        - link "About" [ref=e19] [cursor=pointer]:
+          - /url: /about
+          - text: About
+        - link "Service" [ref=e20] [cursor=pointer]:
+          - /url: /service
+          - text: Service
+        - link "Contact" [ref=e21] [cursor=pointer]:
+          - /url: /contact
+          - text: Contact
+        - button "Switch to dark mode" [ref=e23] [cursor=pointer]:
+          - img [ref=e24]
+        - button "Select language" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+          - text: EN
+          - img [ref=e31]
+  - generic:
+    - main
+  - contentinfo [ref=e33]:
+    - generic:
+      - img
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: "AEROVA: Engineered to reflect purity, flow, and atmospheric balance. We provide high-end, infrastructure-independent water solutions designed specifically for Vietnam's unique tropical climate."
+        - generic [ref=e37]: Thiên Thủy — Nước Từ Trời
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - link "AEROVA WATER FROM AIR" [ref=e40] [cursor=pointer]:
+            - /url: /
+            - img [ref=e42]
+            - generic [ref=e46]:
+              - generic [ref=e47]: AEROVA
+              - generic [ref=e48]: WATER FROM AIR
+          - generic [ref=e49]:
+            - generic [ref=e50]: pH 7.4+
+            - generic [ref=e51]: UV-C Treated
+            - generic [ref=e52]: 99.9% Pure
+        - generic [ref=e53]:
+          - heading "Navigation" [level=4] [ref=e54]
+          - navigation [ref=e55]:
+            - link "Home" [ref=e56] [cursor=pointer]:
+              - /url: /
+            - link "Product" [ref=e57] [cursor=pointer]:
+              - /url: /product
+            - link "About" [ref=e58] [cursor=pointer]:
+              - /url: /about
+            - link "Service" [ref=e59] [cursor=pointer]:
+              - /url: /service
+            - link "Contact" [ref=e60] [cursor=pointer]:
+              - /url: /contact
+        - generic [ref=e61]:
+          - heading "Stay Informed on Atmospheric Water" [level=4] [ref=e62]
+          - paragraph [ref=e63]: Updates on water technology, sustainability, and product launches.
+          - generic [ref=e64]:
+            - generic [ref=e65]: Enter your email
+            - textbox "Enter your email" [ref=e66]
+            - button "Join" [ref=e67] [cursor=pointer]
+      - generic [ref=e68]:
+        - generic [ref=e69]:
+          - link "Privacy Policy" [ref=e70] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "Terms & Conditions" [ref=e71] [cursor=pointer]:
+            - /url: /terms-and-conditions
+          - link "Legal" [ref=e72] [cursor=pointer]:
+            - /url: /legal
+        - paragraph [ref=e73]: © 2026 AEROVA Technologies — All Rights Reserved

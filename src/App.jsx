@@ -12,7 +12,7 @@ import { useLanguage } from './contexts/LanguageContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import WaterCursor from './components/WaterCursor';
+const WaterCursor = lazy(() => import('./components/WaterCursor'));
 import PageTransition from './components/PageTransition';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -29,6 +29,7 @@ const TermsAndConditionsPage = lazy(() => import('./pages/TermsAndConditionsPage
 const LegalPage = lazy(() => import('./pages/LegalPage'));
 const OrderSuccessPage = lazy(() => import('./pages/OrderSuccessPage'));
 const OrderCancelPage = lazy(() => import('./pages/OrderCancelPage'));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
 
 // Maps URL prefix → internal language code
 const URL_TO_LANG = { vi: 'vi', ru: 'ru', fr: 'fr', zh: 'zh' };
@@ -63,7 +64,7 @@ function EnglishWrapper() {
   return <Outlet />;
 }
 
-// All page routes — reusable for root and /:lang
+// All page routes, reusable for root and /:lang
 function pageRoutes(prefix = '') {
   const p = prefix ? prefix + '-' : '';
   return [
@@ -72,6 +73,7 @@ function pageRoutes(prefix = '') {
     <Route key={p+'about'} path="about" element={<AboutPage />} />,
     <Route key={p+'service'} path="service" element={<ServicePage />} />,
     <Route key={p+'blog'} path="blog" element={<BlogPage />} />,
+    <Route key={p+'blog-post'} path="blog/:slug" element={<BlogPostPage />} />,
     <Route key={p+'contact'} path="contact" element={<ContactPage />} />,
     <Route key={p+'faq'} path="faq" element={<FaqPage />} />,
     <Route key={p+'support'} path="support" element={<SupportPage />} />,
@@ -87,14 +89,14 @@ function pageRoutes(prefix = '') {
 function App() {
   return (
     <Router>
-      <WaterCursor />
+      <Suspense fallback={null}><WaterCursor /></Suspense>
       <ScrollToTop />
       <Navbar />
       <PageTransition>
         <main>
           <Suspense fallback={null}>
             <Routes>
-              {/* English routes — no prefix */}
+              {/* English routes, no prefix */}
               <Route path="/" element={<EnglishWrapper />}>
                 {pageRoutes('en')}
               </Route>

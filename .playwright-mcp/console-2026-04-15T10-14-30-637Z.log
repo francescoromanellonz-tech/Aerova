@@ -1,0 +1,424 @@
+[     525ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:21608
+[    2466ms] [WARNING] Geolocation permission has been blocked as the user has ignored the permission prompt several times. This can be reset in Page Info which can be accessed by clicking the tune icon next to the URL. See https://www.chromestatus.com/feature/6443143280984064 for more information. @ http://localhost:3001/:0
+[  370806ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s [object Object] 
+    at div
+    at div
+    at section
+    at div
+    at HomePage (http://localhost:3001/src/pages/HomePage.jsx?t=1776248440892:127:19)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Outlet (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7207:26)
+    at EnglishWrapper (http://localhost:3001/src/App.jsx?t=1776239500899:81:30)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Routes (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7286:3)
+    at Suspense
+    at main
+    at div
+    at PageTransition (http://localhost:3001/src/components/PageTransition.jsx:21:27)
+    at Router (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7216:13)
+    at BrowserRouter (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:10441:3)
+    at App
+    at LanguageProvider (http://localhost:3001/src/contexts/LanguageContext.jsx:36:36)
+    at ThemeProvider (http://localhost:3001/src/contexts/ThemeContext.jsx:29:33)
+    at _a (http://localhost:3001/node_modules/.vite/deps/react-helmet-async.js?v=34bc7b71:624:5) @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:520
+[  370807ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s [object Object] 
+    at div
+    at div
+    at section
+    at div
+    at HomePage (http://localhost:3001/src/pages/HomePage.jsx?t=1776248440892:127:19)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Outlet (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7207:26)
+    at EnglishWrapper (http://localhost:3001/src/App.jsx?t=1776239500899:81:30)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Routes (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7286:3)
+    at Suspense
+    at main
+    at div
+    at PageTransition (http://localhost:3001/src/components/PageTransition.jsx:21:27)
+    at Router (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7216:13)
+    at BrowserRouter (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:10441:3)
+    at App
+    at LanguageProvider (http://localhost:3001/src/contexts/LanguageContext.jsx:36:36)
+    at ThemeProvider (http://localhost:3001/src/contexts/ThemeContext.jsx:29:33)
+    at _a (http://localhost:3001/node_modules/.vite/deps/react-helmet-async.js?v=34bc7b71:624:5) @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:520
+[  370808ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s [object Object] 
+    at div
+    at div
+    at section
+    at div
+    at HomePage (http://localhost:3001/src/pages/HomePage.jsx?t=1776248440892:127:19)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Outlet (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7207:26)
+    at EnglishWrapper (http://localhost:3001/src/App.jsx?t=1776239500899:81:30)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Routes (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7286:3)
+    at Suspense
+    at main
+    at div
+    at PageTransition (http://localhost:3001/src/components/PageTransition.jsx:21:27)
+    at Router (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7216:13)
+    at BrowserRouter (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:10441:3)
+    at App
+    at LanguageProvider (http://localhost:3001/src/contexts/LanguageContext.jsx:36:36)
+    at ThemeProvider (http://localhost:3001/src/contexts/ThemeContext.jsx:29:33)
+    at _a (http://localhost:3001/node_modules/.vite/deps/react-helmet-async.js?v=34bc7b71:624:5) @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:520
+[  370808ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s [object Object] 
+    at div
+    at div
+    at section
+    at div
+    at HomePage (http://localhost:3001/src/pages/HomePage.jsx?t=1776248440892:127:19)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Outlet (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7207:26)
+    at EnglishWrapper (http://localhost:3001/src/App.jsx?t=1776239500899:81:30)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Routes (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7286:3)
+    at Suspense
+    at main
+    at div
+    at PageTransition (http://localhost:3001/src/components/PageTransition.jsx:21:27)
+    at Router (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7216:13)
+    at BrowserRouter (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:10441:3)
+    at App
+    at LanguageProvider (http://localhost:3001/src/contexts/LanguageContext.jsx:36:36)
+    at ThemeProvider (http://localhost:3001/src/contexts/ThemeContext.jsx:29:33)
+    at _a (http://localhost:3001/node_modules/.vite/deps/react-helmet-async.js?v=34bc7b71:624:5) @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:520
+[  370822ms] Error: Objects are not valid as a React child (found: object with keys {label, tip}). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectType (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:9981:17)
+    at reconcileChildFibers2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:10611:15)
+    at reconcileChildren (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14338:37)
+    at updateHostComponent (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14855:11)
+    at beginWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:15983:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3680:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3705:24)
+    at invokeGuardedCallback (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3739:39)
+    at beginWork$1 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19818:15)
+    at performUnitOfWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19251:20)
+[  370826ms] Error: Objects are not valid as a React child (found: object with keys {label, tip}). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectType (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:9981:17)
+    at reconcileChildFibers2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:10611:15)
+    at reconcileChildren (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14338:37)
+    at updateHostComponent (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14855:11)
+    at beginWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:15983:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3680:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3705:24)
+    at invokeGuardedCallback (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3739:39)
+    at beginWork$1 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19818:15)
+    at performUnitOfWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19251:20)
+[  370829ms] Error: Objects are not valid as a React child (found: object with keys {label, tip}). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectType (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:9981:17)
+    at reconcileChildFibers2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:10611:15)
+    at reconcileChildren (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14338:37)
+    at updateHostComponent (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14855:11)
+    at beginWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:15983:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3680:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3705:24)
+    at invokeGuardedCallback (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3739:39)
+    at beginWork$1 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19818:15)
+    at performUnitOfWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19251:20)
+[  370831ms] Error: Objects are not valid as a React child (found: object with keys {label, tip}). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectType (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:9981:17)
+    at reconcileChildFibers2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:10611:15)
+    at reconcileChildren (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14338:37)
+    at updateHostComponent (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14855:11)
+    at beginWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:15983:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3680:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3705:24)
+    at invokeGuardedCallback (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3739:39)
+    at beginWork$1 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19818:15)
+    at performUnitOfWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19251:20)
+[  370833ms] Error: Objects are not valid as a React child (found: object with keys {label, tip}). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectType (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:9981:17)
+    at reconcileChildFibers2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:10611:15)
+    at reconcileChildren (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14338:37)
+    at updateHostComponent (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14855:11)
+    at beginWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:15983:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3680:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3705:24)
+    at invokeGuardedCallback (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3739:39)
+    at beginWork$1 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19818:15)
+    at performUnitOfWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19251:20)
+[  370954ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s [object Object] 
+    at div
+    at div
+    at section
+    at div
+    at HomePage (http://localhost:3001/src/pages/HomePage.jsx?t=1776248440892:127:19)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Outlet (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7207:26)
+    at EnglishWrapper (http://localhost:3001/src/App.jsx?t=1776239500899:81:30)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Routes (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7286:3)
+    at Suspense
+    at main
+    at div
+    at PageTransition (http://localhost:3001/src/components/PageTransition.jsx:21:27)
+    at Router (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7216:13)
+    at BrowserRouter (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:10441:3)
+    at App
+    at LanguageProvider (http://localhost:3001/src/contexts/LanguageContext.jsx:36:36)
+    at ThemeProvider (http://localhost:3001/src/contexts/ThemeContext.jsx:29:33)
+    at _a (http://localhost:3001/node_modules/.vite/deps/react-helmet-async.js?v=34bc7b71:624:5) @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:520
+[  370955ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s [object Object] 
+    at div
+    at div
+    at section
+    at div
+    at HomePage (http://localhost:3001/src/pages/HomePage.jsx?t=1776248440892:127:19)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Outlet (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7207:26)
+    at EnglishWrapper (http://localhost:3001/src/App.jsx?t=1776239500899:81:30)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Routes (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7286:3)
+    at Suspense
+    at main
+    at div
+    at PageTransition (http://localhost:3001/src/components/PageTransition.jsx:21:27)
+    at Router (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7216:13)
+    at BrowserRouter (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:10441:3)
+    at App
+    at LanguageProvider (http://localhost:3001/src/contexts/LanguageContext.jsx:36:36)
+    at ThemeProvider (http://localhost:3001/src/contexts/ThemeContext.jsx:29:33)
+    at _a (http://localhost:3001/node_modules/.vite/deps/react-helmet-async.js?v=34bc7b71:624:5) @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:520
+[  370956ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s [object Object] 
+    at div
+    at div
+    at section
+    at div
+    at HomePage (http://localhost:3001/src/pages/HomePage.jsx?t=1776248440892:127:19)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Outlet (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7207:26)
+    at EnglishWrapper (http://localhost:3001/src/App.jsx?t=1776239500899:81:30)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Routes (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7286:3)
+    at Suspense
+    at main
+    at div
+    at PageTransition (http://localhost:3001/src/components/PageTransition.jsx:21:27)
+    at Router (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7216:13)
+    at BrowserRouter (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:10441:3)
+    at App
+    at LanguageProvider (http://localhost:3001/src/contexts/LanguageContext.jsx:36:36)
+    at ThemeProvider (http://localhost:3001/src/contexts/ThemeContext.jsx:29:33)
+    at _a (http://localhost:3001/node_modules/.vite/deps/react-helmet-async.js?v=34bc7b71:624:5) @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:520
+[  370957ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s [object Object] 
+    at div
+    at div
+    at section
+    at div
+    at HomePage (http://localhost:3001/src/pages/HomePage.jsx?t=1776248440892:127:19)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Outlet (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7207:26)
+    at EnglishWrapper (http://localhost:3001/src/App.jsx?t=1776239500899:81:30)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Routes (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7286:3)
+    at Suspense
+    at main
+    at div
+    at PageTransition (http://localhost:3001/src/components/PageTransition.jsx:21:27)
+    at Router (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7216:13)
+    at BrowserRouter (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:10441:3)
+    at App
+    at LanguageProvider (http://localhost:3001/src/contexts/LanguageContext.jsx:36:36)
+    at ThemeProvider (http://localhost:3001/src/contexts/ThemeContext.jsx:29:33)
+    at _a (http://localhost:3001/node_modules/.vite/deps/react-helmet-async.js?v=34bc7b71:624:5) @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:520
+[  370965ms] Error: Objects are not valid as a React child (found: object with keys {label, tip}). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectType (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:9981:17)
+    at reconcileChildFibers2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:10611:15)
+    at reconcileChildren (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14338:37)
+    at updateHostComponent (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14855:11)
+    at beginWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:15983:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3680:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3705:24)
+    at invokeGuardedCallback (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3739:39)
+    at beginWork$1 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19818:15)
+    at performUnitOfWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19251:20)
+[  370968ms] Error: Objects are not valid as a React child (found: object with keys {label, tip}). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectType (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:9981:17)
+    at reconcileChildFibers2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:10611:15)
+    at reconcileChildren (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14338:37)
+    at updateHostComponent (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14855:11)
+    at beginWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:15983:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3680:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3705:24)
+    at invokeGuardedCallback (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3739:39)
+    at beginWork$1 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19818:15)
+    at performUnitOfWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19251:20)
+[  370972ms] Error: Objects are not valid as a React child (found: object with keys {label, tip}). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectType (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:9981:17)
+    at reconcileChildFibers2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:10611:15)
+    at reconcileChildren (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14338:37)
+    at updateHostComponent (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14855:11)
+    at beginWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:15983:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3680:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3705:24)
+    at invokeGuardedCallback (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3739:39)
+    at beginWork$1 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19818:15)
+    at performUnitOfWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19251:20)
+[  370974ms] Error: Objects are not valid as a React child (found: object with keys {label, tip}). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectType (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:9981:17)
+    at reconcileChildFibers2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:10611:15)
+    at reconcileChildren (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14338:37)
+    at updateHostComponent (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14855:11)
+    at beginWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:15983:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3680:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3705:24)
+    at invokeGuardedCallback (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3739:39)
+    at beginWork$1 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19818:15)
+    at performUnitOfWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19251:20)
+[  370976ms] Error: Objects are not valid as a React child (found: object with keys {label, tip}). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectType (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:9981:17)
+    at reconcileChildFibers2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:10611:15)
+    at reconcileChildren (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14338:37)
+    at updateHostComponent (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14855:11)
+    at beginWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:15983:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3680:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3705:24)
+    at invokeGuardedCallback (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:3739:39)
+    at beginWork$1 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19818:15)
+    at performUnitOfWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19251:20)
+[  371037ms] [ERROR] The above error occurred in the <span> component:
+
+    at span
+    at div
+    at div
+    at section
+    at div
+    at HomePage (http://localhost:3001/src/pages/HomePage.jsx?t=1776248440892:127:19)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Outlet (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7207:26)
+    at EnglishWrapper (http://localhost:3001/src/App.jsx?t=1776239500899:81:30)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Routes (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7286:3)
+    at Suspense
+    at main
+    at div
+    at PageTransition (http://localhost:3001/src/components/PageTransition.jsx:21:27)
+    at Router (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7216:13)
+    at BrowserRouter (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:10441:3)
+    at App
+    at LanguageProvider (http://localhost:3001/src/contexts/LanguageContext.jsx:36:36)
+    at ThemeProvider (http://localhost:3001/src/contexts/ThemeContext.jsx:29:33)
+    at _a (http://localhost:3001/node_modules/.vite/deps/react-helmet-async.js?v=34bc7b71:624:5)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14079
+[  371037ms] [ERROR] The above error occurred in the <span> component:
+
+    at span
+    at div
+    at div
+    at section
+    at div
+    at HomePage (http://localhost:3001/src/pages/HomePage.jsx?t=1776248440892:127:19)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Outlet (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7207:26)
+    at EnglishWrapper (http://localhost:3001/src/App.jsx?t=1776239500899:81:30)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Routes (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7286:3)
+    at Suspense
+    at main
+    at div
+    at PageTransition (http://localhost:3001/src/components/PageTransition.jsx:21:27)
+    at Router (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7216:13)
+    at BrowserRouter (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:10441:3)
+    at App
+    at LanguageProvider (http://localhost:3001/src/contexts/LanguageContext.jsx:36:36)
+    at ThemeProvider (http://localhost:3001/src/contexts/ThemeContext.jsx:29:33)
+    at _a (http://localhost:3001/node_modules/.vite/deps/react-helmet-async.js?v=34bc7b71:624:5)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14079
+[  371037ms] [ERROR] The above error occurred in the <span> component:
+
+    at span
+    at div
+    at div
+    at section
+    at div
+    at HomePage (http://localhost:3001/src/pages/HomePage.jsx?t=1776248440892:127:19)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Outlet (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7207:26)
+    at EnglishWrapper (http://localhost:3001/src/App.jsx?t=1776239500899:81:30)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Routes (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7286:3)
+    at Suspense
+    at main
+    at div
+    at PageTransition (http://localhost:3001/src/components/PageTransition.jsx:21:27)
+    at Router (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7216:13)
+    at BrowserRouter (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:10441:3)
+    at App
+    at LanguageProvider (http://localhost:3001/src/contexts/LanguageContext.jsx:36:36)
+    at ThemeProvider (http://localhost:3001/src/contexts/ThemeContext.jsx:29:33)
+    at _a (http://localhost:3001/node_modules/.vite/deps/react-helmet-async.js?v=34bc7b71:624:5)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14079
+[  371038ms] [ERROR] The above error occurred in the <span> component:
+
+    at span
+    at div
+    at div
+    at section
+    at div
+    at HomePage (http://localhost:3001/src/pages/HomePage.jsx?t=1776248440892:127:19)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Outlet (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7207:26)
+    at EnglishWrapper (http://localhost:3001/src/App.jsx?t=1776239500899:81:30)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Routes (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7286:3)
+    at Suspense
+    at main
+    at div
+    at PageTransition (http://localhost:3001/src/components/PageTransition.jsx:21:27)
+    at Router (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7216:13)
+    at BrowserRouter (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:10441:3)
+    at App
+    at LanguageProvider (http://localhost:3001/src/contexts/LanguageContext.jsx:36:36)
+    at ThemeProvider (http://localhost:3001/src/contexts/ThemeContext.jsx:29:33)
+    at _a (http://localhost:3001/node_modules/.vite/deps/react-helmet-async.js?v=34bc7b71:624:5)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14079
+[  371040ms] [ERROR] The above error occurred in the <span> component:
+
+    at span
+    at div
+    at div
+    at section
+    at div
+    at HomePage (http://localhost:3001/src/pages/HomePage.jsx?t=1776248440892:127:19)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Outlet (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7207:26)
+    at EnglishWrapper (http://localhost:3001/src/App.jsx?t=1776239500899:81:30)
+    at RenderedRoute (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:6419:26)
+    at Routes (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7286:3)
+    at Suspense
+    at main
+    at div
+    at PageTransition (http://localhost:3001/src/components/PageTransition.jsx:21:27)
+    at Router (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:7216:13)
+    at BrowserRouter (http://localhost:3001/node_modules/.vite/deps/react-router-dom.js?v=34bc7b71:10441:3)
+    at App
+    at LanguageProvider (http://localhost:3001/src/contexts/LanguageContext.jsx:36:36)
+    at ThemeProvider (http://localhost:3001/src/contexts/ThemeContext.jsx:29:33)
+    at _a (http://localhost:3001/node_modules/.vite/deps/react-helmet-async.js?v=34bc7b71:624:5)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14079
+[  371191ms] Error: Objects are not valid as a React child (found: object with keys {label, tip}). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectType (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:9981:17)
+    at reconcileChildFibers2 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:10611:15)
+    at reconcileChildren (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14338:37)
+    at updateHostComponent (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:14855:11)
+    at beginWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:15983:22)
+    at beginWork$1 (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19806:22)
+    at performUnitOfWork (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19251:20)
+    at workLoopSync (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19190:13)
+    at renderRootSync (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:19169:15)
+    at recoverFromConcurrentError (http://localhost:3001/node_modules/.vite/deps/chunk-VIJJTZRL.js?v=34bc7b71:18786:28)
+[  377507ms] [WARNING] Geolocation permission has been blocked as the user has ignored the permission prompt several times. This can be reset in Page Info which can be accessed by clicking the tune icon next to the URL. See https://www.chromestatus.com/feature/6443143280984064 for more information. @ http://localhost:3001/:0
+[  390541ms] [WARNING] Geolocation permission has been blocked as the user has ignored the permission prompt several times. This can be reset in Page Info which can be accessed by clicking the tune icon next to the URL. See https://www.chromestatus.com/feature/6443143280984064 for more information. @ http://localhost:3001/:0
+[  412644ms] [WARNING] Geolocation permission has been blocked as the user has ignored the permission prompt several times. This can be reset in Page Info which can be accessed by clicking the tune icon next to the URL. See https://www.chromestatus.com/feature/6443143280984064 for more information. @ http://localhost:3001/:0

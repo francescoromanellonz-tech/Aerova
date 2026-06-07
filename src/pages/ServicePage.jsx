@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import LangLink from '../components/LangLink';
 import SectionBreak from '../components/SectionBreak';
 import BlurImage from '../components/BlurImage';
-import LeaseNotifyForm from '../components/LeaseNotifyForm';
 import TrustStrip from '../components/TrustStrip';
 import { vnd, usd, PRICE_USD } from '../utils/pricing';
 import { Helmet } from 'react-helmet-async';
@@ -10,7 +9,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../contexts/LanguageContext';
 import { t } from '../utils/translate';
-import { buildHreflangLinks, buildCanonical } from '../utils/seo';
+import { buildHreflangLinks, buildCanonical, buildHeadExtras } from '../utils/seo';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,17 +32,18 @@ const processSteps = [
 /* ── Stripe purchase options (update price IDs from Stripe Dashboard) ── */
 const STRIPE_OPTIONS = {
   purchase: { id: 'purchase', stripePriceId: 'price_1TNYXlPfntGzYdWOjDllITyv' },
-  lease:    { id: 'lease',    stripePriceId: 'price_1TNYXiPfntGzYdWObRfXWZRt' },
 };
 
 function ServicePage() {
   const pageRef = useRef(null);
   const { language } = useLanguage();
   const [loadingOpt, setLoadingOpt] = useState(null);
+  const [checkoutError, setCheckoutError] = useState('');
 
   /* ── Stripe handler ─────────────────────────────────────── */
   const handlePurchase = async (opt) => {
     if (loadingOpt) return;
+    setCheckoutError('');
     setLoadingOpt(opt.id);
     try {
       const res = await fetch(import.meta.env.VITE_CHECKOUT_WORKER_URL, {
@@ -59,10 +59,10 @@ function ServicePage() {
       if (data.url) {
         window.location.href = data.url;
       } else {
-        alert(data.error ?? 'Something went wrong. Please try again or contact us.');
+        setCheckoutError(data.error ?? 'Checkout is temporarily unavailable. Please contact us at info@aerova.com.');
       }
     } catch {
-      alert('Something went wrong. Please try again or contact us.');
+      setCheckoutError('Checkout is temporarily unavailable. Please contact us at info@aerova.com.');
     } finally {
       setLoadingOpt(null);
     }
@@ -107,18 +107,22 @@ function ServicePage() {
         <meta name="description" content={t('meta_service_desc', language)} />
         <link rel="canonical" href={buildCanonical('/service', language)} />
         {buildHreflangLinks('/service')}
+        {buildHeadExtras('/service', language)}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={buildCanonical('/service', language)} />
         <meta property="og:title" content={t('meta_service_title', language)} />
         <meta property="og:description" content={t('meta_service_desc', language)} />
-        <meta property="og:image" content="https://aerova.asia/og-image.png" />
-        <meta property="og:site_name" content="AEROVA" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={t('meta_service_title', language)} />
+        <meta property="og:image"        content="https://aerova.asia/og-image.png" />
+        <meta property="og:image:width"  content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name"    content="AEROVA" />
+        <meta name="twitter:card"        content="summary_large_image" />
+        <meta name="twitter:title"       content={t('meta_service_title', language)} />
         <meta name="twitter:description" content={t('meta_service_desc', language)} />
+        <meta name="twitter:image"       content="https://aerova.asia/og-image.png" />
       </Helmet>
 
-      {/* ═══ HERO — lifestyle image background with pricing ═══ */}
+      {/* ═══ HERO, lifestyle image background with pricing ═══ */}
       <section
         className="lifestyle-strip relative overflow-hidden"
         style={{ minHeight: 'clamp(520px, 72vh, 860px)', background: 'var(--bg)' }}
@@ -126,12 +130,12 @@ function ServicePage() {
         {/* Background image */}
         <BlurImage
           src="/assets/images/aerova-water-dispenser-commercial-business-environment.jpg"
-          alt="AEROVA atmospheric water generator installed in a premium Vietnamese corporate office"
+          alt="AEROVA atmospheric water generator — sửa máy lọc nước tại nhà, lắp đặt miễn phí tại Hà Nội và TP.HCM"
           className="lifestyle-strip-img absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: 'center 55%' }}
           draggable="false"
         />
-        {/* Overlay — dense on left for text, fades right */}
+        {/* Overlay, dense on left for text, fades right */}
         <div className="absolute inset-0 pointer-events-none"
           style={{
             background: 'linear-gradient(to right, rgba(20,24,28,0.88) 0%, rgba(20,24,28,0.65) 45%, rgba(20,24,28,0.22) 100%), linear-gradient(to bottom, transparent 65%, rgba(20,24,28,0.55) 100%)',
@@ -180,7 +184,7 @@ function ServicePage() {
           </div>
         </div>
 
-        {/* Model badge — bottom right */}
+        {/* Model badge, bottom right */}
         <div className="absolute bottom-8 right-8 z-10">
           <span
             className="inline-block px-6 py-2 text-[10px] uppercase"
@@ -201,12 +205,13 @@ function ServicePage() {
 
       <SectionBreak />
 
-      {/* ═══ SALE vs LEASE ═══ */}
+      {/* ═══ PURCHASE ═══ */}
       <section
+        id="purchase"
         className="models-section px-6 md:px-8"
         style={{ paddingTop: 'var(--section-pad)', paddingBottom: 'var(--section-pad)', background: 'var(--bg-alt)' }}
       >
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16 md:mb-20">
             <span
               className="text-[11px] md:text-xs uppercase block mb-4"
@@ -219,11 +224,11 @@ function ServicePage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.08fr] gap-6 md:gap-8">
+          <div className="max-w-xl mx-auto">
             {/* Purchase card */}
             <div
-              className="model-card p-8 md:p-10 rounded-lg flex flex-col"
-              style={{ border: '1px solid var(--border-gold-strong)' }}
+              className="model-card p-8 md:p-10 flex flex-col"
+              style={{ border: '1px solid var(--border-gold-strong)', borderRadius: 0 }}
             >
               <span
                 className="text-[11px] uppercase block mb-4"
@@ -234,6 +239,10 @@ function ServicePage() {
               <h3 className="font-prata text-xl md:text-2xl mb-4" style={{ color: 'var(--text-main)' }}>
                 {t('svc_purchase_title', language)}
               </h3>
+              {/* SEO: hướng dẫn lắp máy lọc nước — free professional installation */}
+              <p className="text-xs mb-3" style={{ color: 'var(--text-sub)', fontWeight: 300, letterSpacing: '0.03em' }}>
+                Bao gồm hướng dẫn lắp máy lọc nước tại nhà và bảo dưỡng máy lọc nước định kỳ.
+              </p>
               <div className="flex flex-col gap-1 mb-6">
                 <div className="flex items-baseline gap-2">
                   <span className="font-prata text-3xl md:text-4xl" style={{ color: 'var(--text-main)' }}>{vnd(PRICE_USD.PURCHASE)}</span>
@@ -255,57 +264,29 @@ function ServicePage() {
                 ))}
               </div>
               <button
-                className="aerova-btn self-start"
+                className="aerova-btn aerova-btn--gold self-start"
                 disabled={!!loadingOpt}
                 onClick={() => handlePurchase(STRIPE_OPTIONS.purchase)}
                 style={loadingOpt ? { opacity: 0.6, cursor: 'not-allowed' } : {}}
                 aria-label={`Continue to checkout for ${vnd(PRICE_USD.PURCHASE)}`}
               >
-                {loadingOpt === 'purchase' ? 'Redirecting…' : `Continue to Checkout — ${vnd(PRICE_USD.PURCHASE)}`}
+                {loadingOpt === 'purchase' ? 'Redirecting…' : `Continue to Checkout, ${vnd(PRICE_USD.PURCHASE)}`}
               </button>
               <p className="text-[10px] mt-2" style={{ color: 'var(--text-sub)', fontWeight: 400, letterSpacing: '0.04em', opacity: 0.6 }}>
-                Secure payment via Stripe · cards & local options at checkout
+                Secure payment via Stripe. Cards and local options at checkout.
               </p>
-            </div>
-
-            {/* Lease card */}
-            <div
-              className="model-card p-8 md:p-10 rounded-lg flex flex-col relative overflow-hidden"
-              style={{ border: '1px solid var(--border-sage-strong)', backgroundColor: 'var(--bg-alt)' }}
-            >
-              <span
-                className="text-[11px] uppercase block mb-4"
-                style={{ letterSpacing: '0.2em', color: 'var(--sage)', fontWeight: 400 }}
-              >
-                {t('svc_lease_eyebrow', language)}
-              </span>
-              <h3 className="font-prata text-xl md:text-2xl mb-4" style={{ color: 'var(--text-main)' }}>
-                {t('svc_lease_title', language)}
-              </h3>
-              <div className="flex flex-col gap-1 mb-2">
-                <div className="flex items-baseline gap-2">
-                  <span className="font-prata text-3xl md:text-4xl" style={{ color: 'var(--text-main)' }}>{vnd(PRICE_USD.LEASE_MONTHLY)}</span>
-                  <span className="text-xs" style={{ color: 'var(--text-sub)', fontWeight: 300, letterSpacing: '0.06em' }}>/month</span>
-                </div>
-                <span className="text-xs" style={{ color: 'var(--text-sub)', fontWeight: 300, letterSpacing: '0.06em', opacity: 0.65 }}>
-                  approx. {usd(PRICE_USD.LEASE_MONTHLY)}/mo · VAT included
-                </span>
-              </div>
-              <p className="text-[11px] mb-6" style={{ color: 'var(--text-sub)', fontWeight: 400, letterSpacing: '0.04em', opacity: 0.7 }}>
-                12-month minimum · free installation included
-              </p>
-              <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: 'var(--text-sub)', fontWeight: 300 }}>
-                {t('svc_lease_desc', language)}
-              </p>
-              <div className="flex flex-col gap-2 mb-6">
-                {['svc_lease_feat1', 'svc_lease_feat2', 'svc_lease_feat3', 'svc_lease_feat4'].map((key, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <span className="w-1 h-1 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: 'var(--sage)' }} />
-                    <span className="text-sm" style={{ color: 'var(--text-sub)', fontWeight: 300 }}>{t(key, language)}</span>
-                  </div>
-                ))}
-              </div>
-              <LeaseNotifyForm />
+              {checkoutError && (
+                <p
+                  role="alert"
+                  className="text-xs mt-3 flex items-start gap-2"
+                  style={{ color: 'var(--color-error)', letterSpacing: '0.02em', maxWidth: '38ch' }}
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true" style={{ flexShrink: 0, marginTop: '2px' }}>
+                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                  </svg>
+                  <span>{checkoutError}</span>
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -329,7 +310,7 @@ function ServicePage() {
             </h2>
           </div>
 
-          {/* Row 1 — Core services (01–03): full cards */}
+          {/* Row 1, Core services (01–03): full cards */}
           <div className="services-grid grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
             {services.slice(0, 3).map((service, i) => (
               <div
@@ -350,7 +331,7 @@ function ServicePage() {
             ))}
           </div>
 
-          {/* Row 2 — Ongoing support (04–06): compact horizontal list */}
+          {/* Row 2, Ongoing support (04–06): compact horizontal list */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ border: '1px solid var(--border-gold-faint)' }}>
             {services.slice(3).map((service, i) => (
               <div
@@ -377,7 +358,7 @@ function ServicePage() {
 
       <SectionBreak />
 
-      {/* ═══ HOW IT WORKS — process ═══ */}
+      {/* ═══ HOW IT WORKS, process ═══ */}
       <section
         className="process-section px-6 md:px-8"
         style={{ paddingTop: 'var(--section-pad)', paddingBottom: 'var(--section-pad)', background: 'var(--bg-alt)' }}
@@ -424,25 +405,25 @@ function ServicePage() {
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col md:flex-row gap-14 lg:gap-20 items-start">
 
-            {/* Left — ROI case */}
+            {/* Left, ROI case */}
             <div className="md:w-1/2">
               <span className="text-[11px] uppercase block mb-5"
                 style={{ letterSpacing: '0.3em', color: 'var(--water-crystal)', fontWeight: 400 }}>
-                For Business
+                For Business · Sửa Máy Lọc Nước Tại Nhà
               </span>
               <h2 className="font-prata text-3xl md:text-4xl mb-6" style={{ color: 'var(--text-main)' }}>
-                The numbers work at scale.
+                Trung tâm bảo hành máy lọc nước — the numbers work at scale.
               </h2>
               <p className="text-sm leading-relaxed mb-8"
                 style={{ color: 'var(--text-sub)', fontWeight: 400 }}>
-                A single unit replaces up to 7,000 plastic bottles per year. At commercial volumes, water cost drops below $0.03 per litre — against bottled water at $0.30 or more.
+                A single unit replaces up to 7,000 plastic bottles per year. At commercial volumes, water purifier maintenance costs drop below $0.03 per litre. Dịch vụ sửa máy lọc nước Hà Nội và TP.HCM — miễn phí trong 2 năm bảo hành.
               </p>
 
               {/* Cost comparison strip */}
               <div className="flex flex-col gap-2 mb-8">
                 {[
                   { label: 'Bottled water (bulk delivery)', cost: '$0.30 – 0.60 / litre', highlight: false },
-                  { label: 'AEROVA on lease',               cost: '~$0.03 / litre',       highlight: true  },
+                  { label: 'AEROVA (running cost)',         cost: '~$0.03 / litre',       highlight: true  },
                 ].map((row) => (
                   <div key={row.label}
                     className="flex items-center justify-between py-3 px-4"
@@ -465,7 +446,7 @@ function ServicePage() {
               </LangLink>
             </div>
 
-            {/* Right — business context breakdown */}
+            {/* Right, business context breakdown */}
             <div className="md:w-1/2">
               <div className="text-[10px] uppercase block mb-6"
                 style={{ letterSpacing: '0.24em', color: 'var(--text-sub)', fontWeight: 600, opacity: 0.5 }}>
@@ -477,7 +458,7 @@ function ServicePage() {
                   detail:  '50+ staff · one unit covers daily hydration · zero bottled water deliveries',
                   saving:  '~$2,200 / yr saved vs. bulk cooler bottles',
                   img:     '/assets/images/commercial-office-fleet.jpg',
-                  imgAlt:  'Three AEROVA dispensers installed along the break room of a modern Vietnamese office',
+                  imgAlt:  'Three AEROVA atmospheric water generator units installed in the break room of a modern Vietnamese office — máy lọc nước văn phòng',
                 },
                 {
                   type:    'Restaurant',

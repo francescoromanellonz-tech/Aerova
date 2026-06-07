@@ -1,6 +1,6 @@
 /**
  * SupportPage.jsx
- * /support — the real "Service" page: warranty, returns, repair, downloads,
+ * /support, the real "Service" page: warranty, returns, repair, downloads,
  * and post-purchase contact. Distinct from /service which sells; /support is
  * for owners and procurement officers verifying claims.
  *
@@ -15,7 +15,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 import { useLanguage } from '../contexts/LanguageContext';
 import { t } from '../utils/translate';
-import { buildHreflangLinks, buildCanonical } from '../utils/seo';
+import { buildHreflangLinks, buildCanonical, buildHeadExtras } from '../utils/seo';
 import LangLink from '../components/LangLink';
 import HeroBackground from '../components/HeroBackground';
 import TrustStrip from '../components/TrustStrip';
@@ -43,7 +43,7 @@ const SECTIONS = [
     eyebrow: 'Warranty',
     title: 'Two years, parts and labour.',
     body:
-      'Every AEROVA LT-AWG20G ships with a 2-year manufacturer warranty covering parts and labour for any defect arising from materials or workmanship. Wear-and-tear consumables (filter cartridges, mineralisation media) are excluded; replacements are available through the support portal at standard prices.',
+      'Every AEROVA LT-AWG20G ships with a 2-year manufacturer warranty covering parts and labour for any defect arising from materials or workmanship. Unlike conventional water purifier maintenance schedules that require periodic thay lõi lọc nước, AEROVA\'s atmospheric water generator design eliminates cartridge replacement costs entirely — no lõi lọc nước to buy, ever.',
     bullets: [
       'Coverage starts on the day of installation.',
       'Onsite repair in HCMC and Hanoi within 5 business days of confirmed claim.',
@@ -52,7 +52,7 @@ const SECTIONS = [
     ],
     actions: [
       { label: 'Submit a warranty claim', to: '/contact?type=warranty' },
-      { label: 'Download warranty terms (PDF)', href: '#', note: 'PDF — placeholder' },
+      { label: 'Warranty terms (PDF)', href: '#' },
     ],
   },
   {
@@ -65,7 +65,6 @@ const SECTIONS = [
       'Window: 30 days from delivery date.',
       'We arrange courier collection at no cost.',
       'Refund issued within 7 business days of collection.',
-      'Lease customers: cancel any time after the 12-month minimum term.',
     ],
     actions: [
       { label: 'Start a return', to: '/contact?type=return' },
@@ -76,7 +75,7 @@ const SECTIONS = [
     eyebrow: 'Repair & service',
     title: 'Onsite first, with a loaner if not.',
     body:
-      'Most issues are resolved with a single onsite visit. For complex repairs that require lab return, we provide a loaner unit so your household or business never goes without water.',
+      'Most issues are resolved with a single onsite visit. Common questions — máy lọc nước có tiếng động không (no, AEROVA runs at 45 dB(A) or below), or máy lọc nước chảy chậm (flow rate is regulated by the dispense lever; the unit produces up to 20 L/day). For complex repairs that require lab return, we provide a loaner unit so your household or business never goes without water.',
     bullets: [
       'Diagnostic visit: free under warranty, ₫500,000 outside.',
       'Loaner unit deployed if repair exceeds 7 days.',
@@ -95,10 +94,10 @@ const SECTIONS = [
       'Procurement officers and integrators: everything you need to verify, install, and reference the LT-AWG20G.',
     bullets: [],
     actions: [
-      { label: 'Installation guide (PDF)',  href: '#', note: 'placeholder' },
-      { label: 'Owner\'s manual (PDF)',     href: '#', note: 'placeholder' },
-      { label: 'Spec sheet (PDF)',          href: '#', note: 'placeholder' },
-      { label: 'Certificate pack (NSF / WHO / QCVN 6-1)', href: '#', note: 'placeholder' },
+      { label: 'Installation guide (PDF)',                 href: '#' },
+      { label: 'Owner\'s manual (PDF)',                    href: '#' },
+      { label: 'Spec sheet (PDF)',                         href: '#' },
+      { label: 'Certificate pack (NSF / WHO / QCVN 6-1)',  href: '#' },
     ],
   },
   {
@@ -108,10 +107,10 @@ const SECTIONS = [
     body:
       'AEROVA water meets or exceeds NSF/ANSI 42 (taste & odour reduction), NSF/ANSI 58 (reverse osmosis systems), WHO drinking water guidelines, and QCVN 6-1 (Vietnam drinking water standard). Certificate documents are available on request for procurement officers and architects.',
     bullets: [
-      'NSF/ANSI 42 — Taste & odour reduction',
-      'NSF/ANSI 58 — Reverse osmosis systems',
-      'WHO — Drinking water guidelines',
-      'QCVN 6-1 — Vietnam drinking water standard',
+      'NSF/ANSI 42, Taste & odour reduction',
+      'NSF/ANSI 58, Reverse osmosis systems',
+      'WHO, Drinking water guidelines',
+      'QCVN 6-1, Vietnam drinking water standard',
     ],
     actions: [
       { label: 'Request certificate pack', to: '/contact?type=certifications' },
@@ -139,16 +138,29 @@ export default function SupportPage() {
   return (
     <div ref={pageRef}>
       <Helmet>
-        <title>Owner Support — AEROVA</title>
-        <meta name="description" content="Warranty terms, returns policy, repair scheduling, and downloads for AEROVA LT-AWG20G owners and procurement teams." />
+        <title>{t('meta_support_title', language)}</title>
+        <meta name="description" content={t('meta_support_desc', language)} />
         <link rel="canonical" href={buildCanonical('/support', language)} />
         {buildHreflangLinks('/support')}
+        {buildHeadExtras('/support', language)}
+        <meta property="og:type"         content="website" />
+        <meta property="og:url"          content={buildCanonical('/support', language)} />
+        <meta property="og:title"        content={t('meta_support_title', language)} />
+        <meta property="og:description"  content={t('meta_support_desc', language)} />
+        <meta property="og:image"        content="https://aerova.asia/og-image.png" />
+        <meta property="og:image:width"  content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name"    content="AEROVA" />
+        <meta name="twitter:card"        content="summary_large_image" />
+        <meta name="twitter:title"       content={t('meta_support_title', language)} />
+        <meta name="twitter:description" content={t('meta_support_desc', language)} />
+        <meta name="twitter:image"       content="https://aerova.asia/og-image.png" />
       </Helmet>
 
       {/* Hero */}
       <HeroBackground
         src="/assets/images/support-hero-filter-delivery.jpg"
-        alt=""
+        alt="AEROVA atmospheric water generator — không cần thay lõi lọc nước, bảo dưỡng máy lọc nước đơn giản"
         accent="water-crystal"
         side="right"
         mobileOpacity={0.14}
@@ -159,13 +171,13 @@ export default function SupportPage() {
           <div className="max-w-3xl">
             <span className="sup-eyebrow inline-block text-[10px] md:text-xs uppercase mb-6 px-4 py-1.5"
                   style={{ letterSpacing: '0.3em', color: 'var(--water-crystal)', border: '1px solid var(--water-border)', background: 'rgba(26,26,27,0.45)', backdropFilter: 'blur(6px)' }}>
-              Owner support
+              Owner support · Trung tâm bảo hành máy lọc nước
             </span>
             <h1 className="sup-headline font-prata text-3xl md:text-5xl lg:text-6xl leading-[1.05] mb-4"
                 style={{ color: 'var(--text-main)' }}>
-              Built to last. Supported when it matters.
+              No lõi lọc nước to replace. Built to last, supported when it matters.
             </h1>
-            <span className="sup-sub vietnamese-sub">Hỗ trợ chủ sở hữu</span>
+            <span className="sup-sub vietnamese-sub">Hỗ trợ chủ sở hữu · water filter replacement không cần thiết</span>
           </div>
         </div>
       </HeroBackground>
@@ -225,11 +237,23 @@ export default function SupportPage() {
                           <LangLink key={i} to={a.to} className="aerova-btn" style={{ minWidth: 'auto', padding: '0 24px', fontSize: '9px' }}>
                             {a.label}
                           </LangLink>
+                        ) : a.href === '#' ? (
+                          <LangLink
+                            key={i}
+                            to={`/contact?type=document-request&doc=${encodeURIComponent(a.label)}`}
+                            className="text-xs uppercase no-underline transition-opacity duration-200 hover:opacity-70 inline-flex items-center gap-2"
+                            style={{ letterSpacing: '0.18em', color: 'var(--gold)', fontFamily: 'var(--font-body)', fontWeight: 600 }}
+                          >
+                            {a.label}
+                            <span style={{ color: 'var(--text-sub)', fontWeight: 300, opacity: 0.55, fontSize: '9px' }}>
+                              (request by email)
+                            </span>
+                          </LangLink>
                         ) : (
                           <a key={i} href={a.href}
+                             target="_blank" rel="noopener noreferrer"
                              className="text-xs uppercase no-underline transition-opacity duration-200 hover:opacity-70 inline-flex items-center gap-2"
-                             style={{ letterSpacing: '0.18em', color: 'var(--gold)', fontFamily: 'var(--font-body)', fontWeight: 600 }}
-                             onClick={(e) => { if (a.href === '#') { e.preventDefault(); alert('PDF link placeholder — wire to actual document'); }}}>
+                             style={{ letterSpacing: '0.18em', color: 'var(--gold)', fontFamily: 'var(--font-body)', fontWeight: 600 }}>
                             {a.label}
                             {a.note && (
                               <span style={{ color: 'var(--text-sub)', fontWeight: 300, opacity: 0.5, fontSize: '9px' }}>

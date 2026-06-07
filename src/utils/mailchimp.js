@@ -1,69 +1,50 @@
 /**
- * mailchimp.js
- * Client-side Mailchimp newsletter signup via JSONP (no server required).
+ * mailchimp.js (now Brevo)
  *
- * The JSONP endpoint is exposed by Mailchimp's `list-manage.com` form action.
- * It does not require the API key (which stays server-side in .env for any
- * future Cloudflare-Worker proxied call).
+ * Newsletter signup. We migrated from Mailchimp (Cloudflare Worker + JSONP) to
+ * Brevo, served by a Vercel serverless function at `/api/subscribe`. The export
+ * name is kept as `subscribeMailchimp` so existing callers (Footer + several
+ * pages) don't need to change.
  *
- * Audience ID: 1f6b640634
- * Server prefix: us3
- * User ID (u): dbccea65f35c35ec61cfaa386
+ * The function is same-origin with the site on Vercel, so we POST to a relative
+ * URL with no CORS concerns. It returns the same contract this module always
+ * exposed: { ok, alreadySubscribed, message }.
  *
- * Tagging: pass `tag` to segment subscribers by source (footer, lease-notify,
- * contact-newsletter, etc.). Mailchimp accepts tags via the `tags` merge field
- * when the audience has tags configured; we send it as `MERGE3` (the default
- * tag merge slot) and as `tags` so both routes work.
+ * Server-side wiring (Vercel env): BREVO_API_KEY, BREVO_LIST_ID. See
+ * api/subscribe.js.
  */
 
-const MAILCHIMP_URL =
-  'https://aerova.us3.list-manage.com/subscribe/post-json?u=dbccea65f35c35ec61cfaa386&id=1f6b640634';
+const SUBSCRIBE_URL = '/api/subscribe';
 
 /**
- * Subscribe an email to the Mailchimp audience.
+ * Subscribe an email to the Brevo list.
  *
  * @param {string} email
  * @param {object} [opts]
- * @param {string} [opts.tag]    - source tag (e.g. 'footer', 'lease-notify')
- * @param {string} [opts.lang]   - language code, sent as MMERGE6 if present
+ * @param {string} [opts.tag]          - source tag (e.g. 'footer', 'spec-sheet-request')
+ * @param {string} [opts.lang]         - language code, stored as the LANGUAGE attribute
+ * @param {object} [opts.mergeFields]  - extra Brevo contact attributes
  * @returns {Promise<{ok: boolean, alreadySubscribed?: boolean, message?: string}>}
  */
-export function subscribeMailchimp(email, opts = {}) {
-  return new Promise((resolve) => {
-    const cb = 'mc_cb_' + Date.now() + '_' + Math.floor(Math.random() * 1e6);
-
-    const params = new URLSearchParams({
-      EMAIL: email,
-      c: cb,
+export async function subscribeMailchimp(email, opts = {}) {
+  try {
+    const res = await fetch(SUBSCRIBE_URL, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({
+        email,
+        tag:         opts.tag,
+        lang:        opts.lang,
+        mergeFields: opts.mergeFields,
+      }),
     });
-    if (opts.tag)  params.append('tags', opts.tag);
-    if (opts.lang) params.append('LANGUAGE', opts.lang);
-
-    const script = document.createElement('script');
-    script.src = `${MAILCHIMP_URL}&${params.toString()}`;
-
-    const cleanup = () => {
-      delete window[cb];
-      if (script.parentNode) script.parentNode.removeChild(script);
+    const data = await res.json().catch(() => ({}));
+    return {
+      ok:                !!data.ok,
+      alreadySubscribed: !!data.alreadySubscribed,
+      message:           data.message || '',
     };
-
-    window[cb] = (data) => {
-      cleanup();
-      const msg = data?.msg || '';
-      const success = data?.result === 'success';
-      const already = msg.toLowerCase().includes('already subscribed');
-      resolve({
-        ok: success || already,
-        alreadySubscribed: already,
-        message: msg,
-      });
-    };
-
-    script.onerror = () => {
-      cleanup();
-      resolve({ ok: false, message: 'Network error' });
-    };
-
-    document.body.appendChild(script);
-  });
+  } catch {
+    return { ok: false, message: 'Network error' };
+  }
 }

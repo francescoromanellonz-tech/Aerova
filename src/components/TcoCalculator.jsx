@@ -12,6 +12,7 @@
 
 import { useState, useMemo } from 'react';
 import { vnd, tco, VND_PER_USD, PRICE_USD } from '../utils/pricing';
+import SavingsCurve from './SavingsCurve';
 
 const MIN_BOTTLED_USD = 20;
 const MAX_BOTTLED_USD = 200;
@@ -102,8 +103,17 @@ export default function TcoCalculator({ compact = false, className = '' }) {
         </div>
       </div>
 
+      {/* Live payback curve, animates as the slider moves */}
+      <div className="pt-6" style={{ borderTop: '1px solid var(--border-gold-faint)' }}>
+        <SavingsCurve
+          monthlySavingUsd={result.monthlySaving}
+          purchaseUsd={PRICE_USD.PURCHASE}
+          paybackMonths={result.paybackMonths}
+        />
+      </div>
+
       {/* Outputs */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6"
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 pt-6"
            style={{ borderTop: '1px solid var(--border-gold-faint)' }}>
         <div>
           <span className="block uppercase mb-2" style={{ fontSize: '9px', letterSpacing: '0.22em', color: 'var(--sage)', fontWeight: 600 }}>
@@ -134,8 +144,7 @@ export default function TcoCalculator({ compact = false, className = '' }) {
       <p className="text-[10px] mt-6"
          style={{ color: 'var(--text-sub)', opacity: 0.5, fontWeight: 400, letterSpacing: '0.04em' }}>
         Estimate. Assumes ~{vnd(5)}/mo running cost (electricity + filter amortisation) and
-        the standard {vnd(PRICE_USD.PURCHASE)} purchase price. Lease payback is immediate
-        once you stop buying bottled.
+        the standard {vnd(PRICE_USD.PURCHASE)} purchase price.
       </p>
     </div>
   );

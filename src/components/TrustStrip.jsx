@@ -40,7 +40,7 @@ export default function TrustStrip({ compact = false, items = DEFAULT_BADGES, cl
     >
       {items.map((badge, i) => {
         const translated = t(badge.labelKey, language);
-        // t() returns the key itself if no translation exists — treat that as a miss.
+        // t() returns the key itself if no translation exists, treat that as a miss.
         const label = translated && translated !== badge.labelKey ? translated : badge.fallback;
         const inner = (
           <span
@@ -76,11 +76,11 @@ export default function TrustStrip({ compact = false, items = DEFAULT_BADGES, cl
             {i < items.length - 1 && (
               <span
                 aria-hidden="true"
+                className="hidden sm:inline-block"
                 style={{
                   width: '1px',
                   height: '12px',
                   background: 'var(--border-gold-faint)',
-                  display: 'inline-block',
                 }}
               />
             )}

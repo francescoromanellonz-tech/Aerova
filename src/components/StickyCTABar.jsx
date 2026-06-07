@@ -26,7 +26,7 @@ export default function StickyCTABar({
       const past = window.scrollY > showAfter;
       const nearBottom =
         window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 220;
+        document.documentElement.scrollHeight - 400;
       setVisible(past && !nearBottom);
     };
     onScroll();
@@ -40,7 +40,7 @@ export default function StickyCTABar({
       aria-label="Quick purchase"
       className="fixed left-0 right-0 z-[90] px-3 md:px-6"
       style={{
-        bottom: '14px',
+        bottom: 'max(14px, env(safe-area-inset-bottom, 14px))',
         pointerEvents: visible ? 'auto' : 'none',
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(20px)',

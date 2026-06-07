@@ -1,0 +1,14 @@
+# Exclude heavy / non-deploy paths from the Vercel upload.
+# (node_modules, .git are excluded by Vercel automatically.)
+/build
+/dist
+/.vercel
+/studio-aerova-website
+/graphify-out
+/claude-work
+/docs
+/assets
+/workers
+*.bak
+.env
+.env.*

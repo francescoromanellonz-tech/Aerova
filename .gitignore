@@ -1,13 +1,20 @@
 node_modules/
 build/
 dist/
+.vercel/
 .env
 .env.*
 !.env.example
-nanobanana_generated/
-screenshots/
+assets/nanobanana_generated/
+assets/screenshots/
 *.bak
 .DS_Store
 .vscode/
 .idea/
 graphify-out/
+
+# Cloudflare Worker local secrets & build cache (never commit)
+.dev.vars
+**/.dev.vars
+.wrangler/
+**/.wrangler/

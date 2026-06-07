@@ -1,4 +1,63 @@
-# SPA fallback — Cloudflare Pages
-# Static files (sitemap.xml, robots.txt, _headers, favicon.svg, assets/) are served directly.
-# All other routes fall back to index.html so React Router handles client-side navigation.
+# Canonical strategy: Strategy A (self-referencing) — each locale canonicalizes to its own URL.
+# See seo.jsx > buildCanonical(). No GlobalCanonical component — each page handles its own Helmet.
+# Domain: no-www (aerova.asia). No prerender yet (vite-plugin-ssg, HIGH priority backlog item).
+
+# www → no-www — must be first, ! required so static files don't bypass it
+https://www.aerova.asia/* https://aerova.asia/:splat 301!
+
+# Trailing slash normalization — ! required for same reason
+# Cloudflare Pages does not support catch-all regex, so routes are listed explicitly
+/product/ /product 301!
+/about/ /about 301!
+/service/ /service 301!
+/blog/ /blog 301!
+/contact/ /contact 301!
+/faq/ /faq 301!
+/support/ /support 301!
+/business/ /business 301!
+/vi/ /vi 301!
+/vi/product/ /vi/product 301!
+/vi/about/ /vi/about 301!
+/vi/service/ /vi/service 301!
+/vi/blog/ /vi/blog 301!
+/vi/contact/ /vi/contact 301!
+/vi/faq/ /vi/faq 301!
+/vi/support/ /vi/support 301!
+/vi/business/ /vi/business 301!
+/ru/ /ru 301!
+/ru/product/ /ru/product 301!
+/ru/about/ /ru/about 301!
+/ru/service/ /ru/service 301!
+/ru/blog/ /ru/blog 301!
+/ru/contact/ /ru/contact 301!
+/ru/faq/ /ru/faq 301!
+/ru/support/ /ru/support 301!
+/ru/business/ /ru/business 301!
+/fr/ /fr 301!
+/fr/product/ /fr/product 301!
+/fr/about/ /fr/about 301!
+/fr/service/ /fr/service 301!
+/fr/blog/ /fr/blog 301!
+/fr/contact/ /fr/contact 301!
+/fr/faq/ /fr/faq 301!
+/fr/support/ /fr/support 301!
+/fr/business/ /fr/business 301!
+/zh/ /zh 301!
+/zh/product/ /zh/product 301!
+/zh/about/ /zh/about 301!
+/zh/service/ /zh/service 301!
+/zh/blog/ /zh/blog 301!
+/zh/contact/ /zh/contact 301!
+/zh/faq/ /zh/faq 301!
+/zh/support/ /zh/support 301!
+/zh/business/ /zh/business 301!
+
+# Blog post slug trailing slash deduplication (catches /blog/slug/ → /blog/slug)
+/blog/*/ /blog/:splat 301!
+/vi/blog/*/ /vi/blog/:splat 301!
+/ru/blog/*/ /ru/blog/:splat 301!
+/fr/blog/*/ /fr/blog/:splat 301!
+/zh/blog/*/ /zh/blog/:splat 301!
+
+# SPA fallback — must be last; Cloudflare Pages serves static assets directly
 /* /index.html 200

@@ -1,41 +1,22 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-
-const ThemeContext = createContext();
+/**
+ * DEPRECATED, 2026-05-11
+ *
+ * Light/dark theme switching was removed when AEROVA went dark-mode only.
+ * The original implementation is preserved at ThemeContext.jsx.bak in case
+ * it needs to be revived.
+ *
+ * These shims exist solely so any stray `import { useTheme } from
+ * '../contexts/ThemeContext'` fails loudly at runtime instead of silently
+ * shipping a broken UI. Nothing in the app should be importing them.
+ */
 
 export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-  return context;
-};
-
-export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const saved = localStorage.getItem('aerova-theme');
-    if (saved) return saved === 'dark';
-    return true; // dark by default; user can toggle
-  });
-
-  const toggleTheme = () => {
-    setIsDarkMode((prev) => !prev);
-  };
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (isDarkMode) {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('aerova-theme', isDarkMode ? 'dark' : 'light');
-  }, [isDarkMode]);
-
-  return (
-    <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
+  throw new Error(
+    'useTheme is deprecated, AEROVA is dark-mode only as of 2026-05-11. ' +
+    'Remove this import. See ThemeContext.jsx.bak for the original.'
   );
 };
 
-export default ThemeContext;
+export const ThemeProvider = ({ children }) => children;
+
+export default null;
